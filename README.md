@@ -1,8 +1,14 @@
 # Architektura Komputerów 2 - projekt
 
 ## Daty
-* 31.05.23 - finalna prezentacja
-* 26.04.23 - pierwsza prezentacja
+* 15.03.23 - raport I
+* 29.03.23 - raport II
+* 12.04.23 - raport III
+* 26.04.23 - pierwsza prezentacja (z aktualnego stanu prac)
+* 10.05.23 - raport IV
+* 24.05.23 - raport V
+* 31.05.23 - DEADLINE ODDANIA FINALNEJ WERSJI PROJEKTU
+* 07.06.23 - Prezentacja finalnej wersji projektu
 
 ## Założenia
 Implementacja arytmetyki liczb stałoprzecinkowych (powiedzmy, że C/C++).
