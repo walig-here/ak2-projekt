@@ -35,7 +35,7 @@ Stworzenie planu działania.
 Zebranie informacji teoretycznych na temat działań arytmetycznych i własności liczb w notacji ZM.
 
 ### Krok 3(do pierwszej prezentacji)
-Implementacja bazowych funkcji biblioteki. Stworzenie algorytmów realizujących działania arytmetyczne w języku C/C++ i obsługi wewnętrznej reprezentacji ZM dowolnej precyzji. Przeprowadzenie testów poprawności napisanych algorytmów.
+Implementacja wszystkich bazowych funkcji biblioteki. Stworzenie algorytmów realizujących działania arytmetyczne w języku C/C++ i obsługi wewnętrznej reprezentacji ZM dowolnej precyzji. Przeprowadzenie testów poprawności napisanych algorytmów.
 
 ### Krok 4(do DEADLINE'u):
 Badania złożoności i ewntualna optymalizacja napisanych algorytmów. Stworzenie raportu technicznego projektu zawierającego w sobie instrukcję do stworzonej biblioteki. Przeprowadzenie powtórnych testów poprawności.
