@@ -19,6 +19,8 @@ Implementacja biblioteki arytmetyki liczb stałoprzecinkowych.
 * Dowolna precyzja (dowolnie długie liczby)
 * Wykorzystanie wewnętrznej reprezentacji znak-moduł
 * Implementacja podstawowych działań arytmetycznych: +, -, *, /
+* Możliwość wyboru metody zaokrąglania wyników
+* Działania na liczbach o różnej dokładności???
 
 Do każdego z algorytmów realizujących działania arytmetyczne dla liczb ZM wykonane zostaną:
 * testy jednostkowe sprawdzające poprawność algorytmu

@@ -1,7 +1,7 @@
-#include <stdio.h>
+#include <iostream>
+using namespace std;
 
-int main(int argc, char const *argv[])
-{
-    printf("Hello wrold!");
+int main() {
+    cout << "Hello world!" << endl;
     return 0;
 }
