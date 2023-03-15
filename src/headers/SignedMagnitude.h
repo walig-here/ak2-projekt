@@ -1,14 +1,14 @@
-#include <list>
+    #include <list>
 
 using namespace std;
 
-typedef byte char;
+typedef unsigned char Byte;
 
 class SignedMagnitude {
 
     /* POLA */
-    private: list<byte> bytes;         // zbiór bajtów, od najmniej do najbardziej znaczącej 
-    private: unsigned exponent;                 // definiuje ilość miejsc po przecinku
+    private: list<Byte> bytes;         // zbiór bajtów, od najmniej do najbardziej znaczącej 
+    private: unsigned exponent;        // definiuje ilość miejsc po przecinku
 
     /* METODY */
 
