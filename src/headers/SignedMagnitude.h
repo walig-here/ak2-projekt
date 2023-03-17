@@ -1,6 +1,6 @@
 #include <list>
 
-using namespace std;
+using namespace  std;
 
 typedef unsigned char Byte;
 typedef bool Bitflag;
@@ -11,7 +11,7 @@ class SignedMagnitude {
     private: list<Byte> bytes;         // zbiór bajtów, od najbardziej do najmniej znaczącej 
     private: unsigned exponent;        // definiuje ilość miejsc po przecinku
     private: Bitflag negative;         // definiuje czy liczba jest 
-
+ 
     /* METODY */
 
     /// @brief
@@ -20,7 +20,7 @@ class SignedMagnitude {
     /// @param decimal_value wartośc dzisiętna liczby
     /// @return co zwraca
     public: SignedMagnitude(Byte bytes[]);
-    public: SignedMagnitude( decimal_value);
+    public: SignedMagnitude(long long int decimal_value);
 
     // Operator przypisania
     public: SignedMagnitude operator=(SignedMagnitude b);
