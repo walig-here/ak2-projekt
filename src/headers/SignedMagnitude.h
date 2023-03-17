@@ -1,14 +1,16 @@
-    #include <list>
+#include <list>
 
 using namespace std;
 
 typedef unsigned char Byte;
+typedef bool Bitflag;
 
 class SignedMagnitude {
 
     /* POLA */
-    private: list<Byte> bytes;         // zbiór bajtów, od najmniej do najbardziej znaczącej 
+    private: list<Byte> bytes;         // zbiór bajtów, od najbardziej do najmniej znaczącej 
     private: unsigned exponent;        // definiuje ilość miejsc po przecinku
+    private: Bitflag negative;         // definiuje czy liczba jest 
 
     /* METODY */
 
@@ -17,10 +19,8 @@ class SignedMagnitude {
     ///
     /// @param decimal_value wartośc dzisiętna liczby
     /// @return co zwraca
-    public: SignedMagnitude(int decimal_value);
-    public: SignedMagnitude(float decimal_value);
-    public: SignedMagnitude(double decimal_value);
-    public: SignedMagnitude(char decimal_value);
+    public: SignedMagnitude(Byte bytes[]);
+    public: SignedMagnitude( decimal_value);
 
     // Operator przypisania
     public: SignedMagnitude operator=(SignedMagnitude b);
