@@ -1,5 +1,5 @@
 #include <list>
-
+#include <gm1
 using namespace std;
 
 typedef unsigned char Byte;
@@ -19,7 +19,7 @@ class SignedMagnitude {
     ///
     /// @param decimal_value wartośc dzisiętna liczby
     /// @return co zwraca
-    public: SignedMagnitude(Byte bytes[]);
+    public: SignedMagnitude(Byte bytes[], Bitflag sign_bit, unsigned coma_pos);
     public: SignedMagnitude(long long int decimal_value);
 
     // Operator przypisania
