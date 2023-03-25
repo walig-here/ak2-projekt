@@ -36,24 +36,19 @@ TEST(TestByte, CreateNegativeArgument){
     Byte byte;
 
     // Najmniejsza stała long long
-    byte = LLONG_MIN;
-    ASSERT_EQ(byte.value, 0x00);
+    ASSERT_THROW(byte = LLONG_MIN, std::invalid_argument);
 
     // Najmniejsza stała long
-    byte = LONG_MIN;
-    ASSERT_EQ(byte.value, 0x00);
+    ASSERT_THROW(byte = LONG_MIN, std::invalid_argument);
 
     // Najmniejsza stała int
-    byte = INT_MIN;
-    ASSERT_EQ(byte.value, 0x00);
+    ASSERT_THROW(byte = INT_MIN, std::invalid_argument);
 
     // Najmniejsza stała short
-    byte = SHRT_MIN;
-    ASSERT_EQ(byte.value, 0x00);
+    ASSERT_THROW(byte = SHRT_MIN, std::invalid_argument);
 
     // Najmniejsza stała char
-    byte = CHAR_MIN;
-    ASSERT_EQ(byte.value, 0x00);
+    ASSERT_THROW(byte = CHAR_MIN, std::invalid_argument);
 
 }
 
@@ -64,24 +59,19 @@ TEST(TestByte, CreateArgumentOverMax){
     Byte byte;
 
     // Największa stała long long
-    byte = ULLONG_MAX;
-    ASSERT_EQ(byte.value, 0x00);
+    ASSERT_THROW(byte = ULLONG_MAX, std::invalid_argument);
 
     // Największa stała long
-    byte = ULONG_MAX;
-    ASSERT_EQ(byte.value, 0x00);
+    ASSERT_THROW(byte = ULONG_MAX, std::invalid_argument);
 
     // Największa stała int
-    byte = UINT_MAX;
-    ASSERT_EQ(byte.value, 0x00);
+    ASSERT_THROW(byte = UINT_MAX, std::invalid_argument);
 
     // Największa stała short
-    byte = USHRT_MAX;
-    ASSERT_EQ(byte.value, 0x00);
+    ASSERT_THROW(byte = USHRT_MAX, std::invalid_argument);
 
     // BYTE_MAX + 1
-    byte = BYTE_MAX + 1;
-    ASSERT_EQ(byte.value, 0x00);
+    ASSERT_THROW(byte = BYTE_MAX + 1, std::invalid_argument);
 
 }
 
@@ -132,34 +122,19 @@ TEST(TestWord, CreateNegativeArgument){
     Word word;
 
     // Najmniejsza stała long long
-    word = LLONG_MIN;
-    ASSERT_EQ(word.low_byte.value, 0x00);
-    ASSERT_EQ(word.high_byte.value, 0x00);
-    ASSERT_EQ(word.value(), 0x0000);
+    ASSERT_THROW(word = LLONG_MIN, std::invalid_argument);
 
     // Najmniejsza stała long
-    word = LONG_MIN;
-    ASSERT_EQ(word.low_byte.value, 0x00);
-    ASSERT_EQ(word.high_byte.value, 0x00);
-    ASSERT_EQ(word.value(), 0x0000);
+    ASSERT_THROW(word = LONG_MIN, std::invalid_argument);
 
     // Najmniejsza stała int
-    word = INT_MIN;
-    ASSERT_EQ(word.low_byte.value, 0x00);
-    ASSERT_EQ(word.high_byte.value, 0x00);
-    ASSERT_EQ(word.value(), 0x0000);
+    ASSERT_THROW(word = INT_MIN, std::invalid_argument);
 
     // Najmniejsza stała short
-    word = SHRT_MIN;
-    ASSERT_EQ(word.low_byte.value, 0x00);
-    ASSERT_EQ(word.high_byte.value, 0x00);
-    ASSERT_EQ(word.value(), 0x0000);
+    ASSERT_THROW(word = SHRT_MIN, std::invalid_argument);
 
     // Najmniejsza stała char
-    word = CHAR_MIN;
-    ASSERT_EQ(word.low_byte.value, 0x00);
-    ASSERT_EQ(word.high_byte.value, 0x00);
-    ASSERT_EQ(word.value(), 0x0000);
+    ASSERT_THROW(word = CHAR_MIN, std::invalid_argument);
 
 }
 
@@ -170,28 +145,16 @@ TEST(TestWord, CreateArgumentOverMax){
     Word word;
 
     // Największa stała long long
-    word = ULLONG_MAX;
-    ASSERT_EQ(word.low_byte.value, 0x00);
-    ASSERT_EQ(word.high_byte.value, 0x00);
-    ASSERT_EQ(word.value(), 0x0000);
+    ASSERT_THROW(word = ULLONG_MAX, std::invalid_argument);
 
     // Największa stała long
-    word = ULONG_MAX;
-    ASSERT_EQ(word.low_byte.value, 0x00);
-    ASSERT_EQ(word.high_byte.value, 0x00);
-    ASSERT_EQ(word.value(), 0x0000);
+    ASSERT_THROW(word = ULONG_MAX, std::invalid_argument);
 
     // Największa stała int
-    word = UINT_MAX;
-    ASSERT_EQ(word.low_byte.value, 0x00);
-    ASSERT_EQ(word.high_byte.value, 0x00);
-    ASSERT_EQ(word.value(), 0x0000);
+    ASSERT_THROW(word = UINT_MAX, std::invalid_argument);
 
     // BYTE_MAX + 1
-    word = WORD_MAX + 1;
-    ASSERT_EQ(word.low_byte.value, 0x00);
-    ASSERT_EQ(word.high_byte.value, 0x00);
-    ASSERT_EQ(word.value(), 0x0000);
+    ASSERT_THROW(word = WORD_MAX + 1, std::invalid_argument);
 
 }
 

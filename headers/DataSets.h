@@ -3,24 +3,33 @@
  */
 
 
-typedef bool Bitflag;   // Typ reprezentujący flagę 1-bitową
+#include <iostream>
+#include <stdexcept>
+
+
+typedef bool Bitflag;           // Typ reprezentujący flagę 1-bitową
 #define BITFLAG_MAX 0b1         // Maksymalna wartość możliwa do zapisania w typie Bitflag  
+
+
+
 
 // Struktura reprezentująca bajt w systemie NB.
 struct Byte{
 
     /* POLA */
-    unsigned char value;    // wartość bajtu w systemie NB
+    unsigned char value;        // wartość bajtu w systemie NB
+    #define BYTE_MAX 0xFF       // Maksymalna wartość możliwa do zapisania w typie Byte 
 
     /* METODY */
 
     /**
      * @brief
      * Konstruktor. Tworzy bajt w systemie NB. W wypadku zadania wartości przekraczającej
-     * BYTE_MAX do nowej zmiennej przypisane zostnie wartość 0. Podobnie w wypadku podania
-     * wartości ujemnej.
+     * BYTE_MAX wywołany zostanie wyjątek. Podobnie w wypadku podania wartości ujemnej.
      * 
      * @param value wartość jaka ma zostać przypisana bajtowi
+     * 
+     * @throw invalid_argument w przypadku podania wartości ujemnej lub większej niż BYTE_MAX
      */
     Byte(unsigned long long value);
 
@@ -32,15 +41,18 @@ struct Byte{
     Byte() {value = 0x00;}
 
 };
-#define BYTE_MAX 0xFF      // Maksymalna wartość możliwa do zapisania w typie Byte  
+ 
+
+
 
 
 // Struktura reprezentująca słowo (2-bajtowe) w systemie NB.
 struct Word{
 
     /* POLA */
-    Byte low_byte;    // niższy bajt słowa
-    Byte high_byte;    // wyższy bajt słowa
+    Byte low_byte;              // niższy bajt słowa
+    Byte high_byte;             // wyższy bajt słowa
+    #define WORD_MAX 0xFFFF     // Maksymalna wartość możliwa do zapisania w typie Word 
 
     /* METODY */
 
@@ -54,10 +66,11 @@ struct Word{
     /**
      * @brief 
      * Konstruktor. Tworzy słowo 2-bajtowe w systemie NB. W wypadku zadania wartości przekraczającej
-     * WORD_MAX do nowej zmiennej przypisane zostnie wartość 0. Podobnie w wypadku podania
-     * wartości ujemnej.
+     * WORD_MAX wywoałny zostanie wyjątek. Podobnie w wypadku podania wartości ujemnej.
      * 
      * @param value wartość jaka ma zostać przypisana do słowa.
+     * 
+     * @throw invalid_argument w przypadku podania wartości ujemnej lub większej niż WORD_MAX
      */
     Word(unsigned long long value);
 
@@ -72,4 +85,3 @@ struct Word{
     unsigned short value() { return low_byte.value + 0x100 * high_byte.value; }
 
 };
-#define WORD_MAX 0xFFFF

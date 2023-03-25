@@ -1,6 +1,4 @@
 #include "DataSets.h"
-#include <iostream>
-#include <stdexcept>
 
 /*
     Klasa mająca emulować podstawowe działania arytmetyczne wykonywane przez ALU.
