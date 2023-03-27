@@ -1,0 +1,22 @@
+# ninja log v5
+21	870	7016552969116196	CMakeFiles/magni_test.dir/D_/projekt_ak/untitled7/ak2-projekt/src/SignedMagnitude.cpp.obj	4cd679474e6dc1e3
+15	861	7016116006630665	CMakeFiles/magni_test.dir/D_/projekt_ak/untitled7/ak2-projekt/src/DataSets.cpp.obj	bce56a9620e2c23b
+1	873	7016116006740691	CMakeFiles/magni_test.dir/D_/projekt_ak/untitled7/ak2-projekt/src/Arithmetic.cpp.obj	10aa8b28556cbccf
+9	1970	7016116017717722	CMakeFiles/magni_test.dir/D_/projekt_ak/untitled7/ak2-projekt/test/SignedMagnitude.cpp.obj	512ea6fca659525
+4888	7740	7016553259811396	magni_test.exe	78d53b4ed65f647b
+6	4887	7016553231398317	CMakeFiles/magni_test.dir/D_/projekt_ak/untitled7/ak2-projekt/test/SignedMagnitudeTest.cpp.obj	5201dcc00c6350da
+9	4867	7016554007562153	CMakeFiles/magni_test.dir/D_/projekt_ak/untitled7/ak2-projekt/test/SignedMagnitudeTest.cpp.obj	5201dcc00c6350da
+4867	7672	7016554035520711	magni_test.exe	78d53b4ed65f647b
+19	1126	7016556105799718	CMakeFiles/magni_test.dir/D_/projekt_ak/untitled7/ak2-projekt/src/SignedMagnitude.cpp.obj	4cd679474e6dc1e3
+10	5214	7016556146685164	CMakeFiles/magni_test.dir/D_/projekt_ak/untitled7/ak2-projekt/test/SignedMagnitudeTest.cpp.obj	5201dcc00c6350da
+5215	7972	7016556174188630	magni_test.exe	78d53b4ed65f647b
+10	4884	7016556541459701	CMakeFiles/magni_test.dir/D_/projekt_ak/untitled7/ak2-projekt/test/SignedMagnitudeTest.cpp.obj	5201dcc00c6350da
+4884	7714	7016556569692778	magni_test.exe	78d53b4ed65f647b
+6	2825	7016556798229845	CMakeFiles/magni_test.dir/D_/projekt_ak/untitled7/ak2-projekt/test/SignedMagnitudeTest.cpp.obj	5201dcc00c6350da
+2826	5616	7016556826054064	magni_test.exe	78d53b4ed65f647b
+6	4914	7016557146080211	CMakeFiles/magni_test.dir/D_/projekt_ak/untitled7/ak2-projekt/test/SignedMagnitudeTest.cpp.obj	5201dcc00c6350da
+4914	7685	7016557173711071	magni_test.exe	78d53b4ed65f647b
+9	5502	7016557317588383	CMakeFiles/magni_test.dir/D_/projekt_ak/untitled7/ak2-projekt/test/SignedMagnitudeTest.cpp.obj	5201dcc00c6350da
+5503	8395	7016557346406379	magni_test.exe	78d53b4ed65f647b
+6	4951	7016557455846684	CMakeFiles/magni_test.dir/D_/projekt_ak/untitled7/ak2-projekt/test/SignedMagnitudeTest.cpp.obj	5201dcc00c6350da
+4951	7664	7016557482898533	magni_test.exe	78d53b4ed65f647b

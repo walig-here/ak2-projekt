@@ -1,0 +1,3 @@
+D:/projekt_ak/untitled7/arithmetic_test_build/cmake-build-debug/CMakeFiles/arithmetic_test.dir
+D:/projekt_ak/untitled7/arithmetic_test_build/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/projekt_ak/untitled7/arithmetic_test_build/cmake-build-debug/CMakeFiles/rebuild_cache.dir
