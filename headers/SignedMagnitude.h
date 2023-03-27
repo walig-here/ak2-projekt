@@ -1,10 +1,11 @@
-#include <list>
+#include "NaturalBinary.h"
 
-using namespace  std;
+using namespace std;
 
-typedef unsigned char Byte;
-typedef bool Bitflag;
-
+/**
+ * @brief 
+ * Klasa repreznetująca stałoprzecinkową liczbę w systmie znak-moduł.
+ */
 class SignedMagnitude {
 
     /* POLA */
@@ -19,18 +20,8 @@ class SignedMagnitude {
     ///
     /// @param decimal_value wartośc dzisiętna liczby
     /// @return co zwraca
-    public: SignedMagnitude(Byte bytes[]);
+    public: SignedMagnitude(Byte bytes[], unsigned precission, bool negative);
     public: SignedMagnitude(long long int decimal_value);
-
-    // Operator przypisania
-    public: SignedMagnitude operator=(SignedMagnitude b);
-
-    // Operatory porównania
-    public: SignedMagnitude operator<(SignedMagnitude b);
-    public: SignedMagnitude operator>(SignedMagnitude b);
-    public: SignedMagnitude operator==(SignedMagnitude b);
-    public: SignedMagnitude operator<=(SignedMagnitude b);
-    public: SignedMagnitude operator>=(SignedMagnitude b);
 
     // Destruktor
     public: ~SignedMagnitude();
