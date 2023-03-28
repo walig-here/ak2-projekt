@@ -3,6 +3,10 @@
 using namespace std;
 
 int main() {
-    cout << "Hello world!" << endl;
+    
+    SignedMagnitude n = 256;
+    cout << n.toString() << endl;
+    cout << "Ujemna: " << ( n.getNegative() ? "tak" : "nie" ) << endl;
+
     return 0;
 }

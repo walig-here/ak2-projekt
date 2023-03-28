@@ -39,3 +39,10 @@ list<Byte> SignedMagnitude::getByte() {
 Bitflag SignedMagnitude::getNegative() {
     return negative;
 }
+
+string SignedMagnitude::toString(){
+
+    string number = ( negative ? "-" : "" ) + module->toString();
+    return number;    
+
+}

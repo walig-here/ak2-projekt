@@ -1,4 +1,5 @@
 #include "NaturalBinary.h"
+#include <sstream>
 
 NaturalBinary::NaturalBinary(long long decimal_value) {
 
@@ -7,8 +8,8 @@ NaturalBinary::NaturalBinary(long long decimal_value) {
     }
 
     while (decimal_value) {
-        bytes.push_back(Byte(decimal_value % 256));
-        decimal_value = (int) decimal_value / 256;
+        bytes.push_back(decimal_value % 256);
+        decimal_value = decimal_value / 256;
     }
 
 }
@@ -22,5 +23,17 @@ NaturalBinary::NaturalBinary(list<Byte> bytes_input) {
 }
 
 NaturalBinary::~NaturalBinary(){
+
+}
+
+string NaturalBinary::toString(){
+
+    string number = "";
+    stringstream byte_string;
+    for(auto byte : bytes) {
+        byte_string << hex << (int)byte.value;
+        number = byte_string.str() + number;
+    }
+    return number;
 
 }

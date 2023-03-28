@@ -8,7 +8,7 @@
 class SignedMagnitude {
 
     /* POLA */
-    private: NaturalBinary* module;     // zbiór bajtów, od najbardziej do najmniej znaczącej 
+    private: NaturalBinary* module;     // moduł liczby 
     private: unsigned exponent;         // definiuje ilość miejsc po przecinku
     private: Bitflag negative;          // definiuje czy liczba jest 
  
@@ -19,15 +19,14 @@ class SignedMagnitude {
     ///
     /// @param decimal_value wartośc dzisiętna liczby
     /// @return co zwraca
-    public: SignedMagnitude(list<Byte> bytes, unsigned exp, Bitflag negative );
+    public: SignedMagnitude(list <Byte> bytes_input , unsigned int input_exp, Bitflag input_sign);
     public: SignedMagnitude(long long int decimal_value);
 
     // Destruktor
     public: ~SignedMagnitude();
 
-    // Wyświetla liczbę w ustalonej bazie
-    public: void print(unsigned base);
-
+    // Konwertuje liczbę na postać ciągu znaków
+    public: string toString();
     // Dodawanie ZM
     public: SignedMagnitude operator+(SignedMagnitude b);
 

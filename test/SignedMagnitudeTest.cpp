@@ -15,8 +15,8 @@ TEST(SignMagTest, convertFromIntToNB) {
 
     value = 260;
     SignedMagnitude signedMagnitude_five(value);
-    ASSERT_EQ(signedMagnitude_five.getByte().back().value, 1);    //starszy bit
-    ASSERT_EQ(signedMagnitude_five.getByte().front().value, 4);   //mlodszy bit
+    ASSERT_EQ(signedMagnitude_five.getByte().back().value, 0x01);    //starszy bit
+    ASSERT_EQ(signedMagnitude_five.getByte().front().value, 0x04);   //mlodszy bit
     ASSERT_EQ(signedMagnitude_five.getNegative(), false);
 
 

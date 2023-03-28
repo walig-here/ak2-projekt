@@ -10,7 +10,7 @@ using namespace std;
 class NaturalBinary{
 
     /* POLA */
-    protected: list<Byte> bytes;      // zbiór bajtów, od najbardziej do najmniej znaczącego
+    protected: list<Byte> bytes;      // zbiór bajtów, od najmniej do najbardziej znaczącego 
 
     /* METODY */
 
@@ -39,6 +39,9 @@ class NaturalBinary{
     protected: NaturalBinary operator==(NaturalBinary b);
     protected: NaturalBinary operator<=(NaturalBinary b);
     protected: NaturalBinary operator>=(NaturalBinary b);
+
+    // Konwersja na ciąg znaków
+    public: string toString();
 
     /* KLASY SKOJARZONE */
     friend class SignedMagnitude;
