@@ -1,6 +1,5 @@
 #include "NaturalBinary.h"
-
-using namespace std;
+#include <list>
 
 /**
  * @brief 
@@ -9,9 +8,9 @@ using namespace std;
 class SignedMagnitude {
 
     /* POLA */
-    private: list<Byte> bytes;         // zbiór bajtów, od najbardziej do najmniej znaczącej 
-    private: unsigned exponent;        // definiuje ilość miejsc po przecinku
-    private: Bitflag negative;         // definiuje czy liczba jest 
+    private: NaturalBinary* module;     // zbiór bajtów, od najbardziej do najmniej znaczącej 
+    private: unsigned exponent;         // definiuje ilość miejsc po przecinku
+    private: Bitflag negative;          // definiuje czy liczba jest 
  
     /* METODY */
 
@@ -20,7 +19,7 @@ class SignedMagnitude {
     ///
     /// @param decimal_value wartośc dzisiętna liczby
     /// @return co zwraca
-    public: SignedMagnitude(Byte bytes[], unsigned precission, bool negative);
+    public: SignedMagnitude(list<Byte> bytes, unsigned exp, Bitflag negative );
     public: SignedMagnitude(long long int decimal_value);
 
     // Destruktor
@@ -29,16 +28,21 @@ class SignedMagnitude {
     // Wyświetla liczbę w ustalonej bazie
     public: void print(unsigned base);
 
-    // Dodawanie
+    // Dodawanie ZM
     public: SignedMagnitude operator+(SignedMagnitude b);
 
-    // Odejmowanie
+    // Odejmowanie ZM
     public: SignedMagnitude operator-(SignedMagnitude b);
 
-    // Mnożenie
+    // Mnożenie ZM
     public: SignedMagnitude operator*(SignedMagnitude b);
 
-    // Dzielenie
+    // Dzielenie ZM
     public: SignedMagnitude operator/(SignedMagnitude b);
+
+    //getter
+    public: list<Byte> getByte();
+    public: Bitflag getNegative();
+
 
 };

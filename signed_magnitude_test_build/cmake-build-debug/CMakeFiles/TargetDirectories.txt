@@ -1,3 +1,0 @@
-D:/projekt_ak/untitled7/signed_magnitude_test_build/cmake-build-debug/CMakeFiles/magni_test.dir
-D:/projekt_ak/untitled7/signed_magnitude_test_build/cmake-build-debug/CMakeFiles/edit_cache.dir
-D:/projekt_ak/untitled7/signed_magnitude_test_build/cmake-build-debug/CMakeFiles/rebuild_cache.dir

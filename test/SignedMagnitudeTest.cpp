@@ -1,7 +1,6 @@
 
 #include "gtest/gtest.h"
 #include "SignedMagnitude.h"
-#include <bits/stdc++.h>
 
 //konwersja int na tablice bajtow
 
@@ -38,7 +37,6 @@ TEST(sign_magni_huge_Test, convTabOfBytesToSignMagni) {
     ASSERT_EQ(signedMagnitude_basic.getNegative(), false);
 
     for (Byte byte: signedMagnitude_basic.getByte()) {
-        cout<<j->value;
         ASSERT_EQ(byte.value, j->value);
 
         j++;
@@ -53,9 +51,7 @@ TEST(sign_magni_huge_Test, convTabOfBytesToSignMagni) {
     ASSERT_EQ(signedMagnitude_empty.getNegative(), true);
 
     for (Byte byte: signedMagnitude_empty.getByte()) {
-        cout<<j->value;
         ASSERT_EQ(byte.value, j->value);
-
         j++;
     }
 

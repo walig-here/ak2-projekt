@@ -10,12 +10,12 @@ using namespace std;
 class NaturalBinary{
 
     /* POLA */
-    private: list<Byte> bytes;      // zbiór bajtów, od najbardziej do najmniej znaczącego
+    protected: list<Byte> bytes;      // zbiór bajtów, od najbardziej do najmniej znaczącego
 
     /* METODY */
 
     // Konstruktory
-    protected: NaturalBinary(Byte bytes[], unsigned precission, bool negative);
+    protected: NaturalBinary(list<Byte> bytes);
     protected: NaturalBinary(long long int decimal_value);
 
     // Destruktor

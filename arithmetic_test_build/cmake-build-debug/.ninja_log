@@ -1,8 +1,0 @@
-# ninja log v5
-13	2121	7015409405070986	CMakeFiles/arithmetic_test.dir/D_/projekt_ak/untitled7/ak2-projekt/src/Arithmetic.cpp.obj	d6a43ad53b3957a6
-4487	7130	7015411836948621	arithmetic_test.exe	1939b4247c650bc4
-1	2125	7015409405150998	CMakeFiles/arithmetic_test.dir/D_/projekt_ak/untitled7/ak2-projekt/src/DataSets.cpp.obj	1e74dc54fe46a94
-6	4486	7015411810569688	CMakeFiles/arithmetic_test.dir/D_/projekt_ak/untitled7/ak2-projekt/test/ArithmeticTest.cpp.obj	e38de06de0254b18
-42	982	7016109684771041	CMakeFiles/arithmetic_test.dir/D_/projekt_ak/untitled7/ak2-projekt/src/SignedMagnitude.cpp.obj	8db695b4f6cba995
-50	3132	7016109706269399	CMakeFiles/arithmetic_test.dir/D_/projekt_ak/untitled7/ak2-projekt/test/ArithmeticTest.cpp.obj	e38de06de0254b18
-3168	5306	7016109727921486	arithmetic_test.exe	9309a3ec585599c

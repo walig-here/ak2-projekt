@@ -1,3 +1,0 @@
-D:/projekt_ak/untitled7/basic_app/cmake-build-debug/CMakeFiles/basic_app_cmake.dir
-D:/projekt_ak/untitled7/basic_app/cmake-build-debug/CMakeFiles/edit_cache.dir
-D:/projekt_ak/untitled7/basic_app/cmake-build-debug/CMakeFiles/rebuild_cache.dir
