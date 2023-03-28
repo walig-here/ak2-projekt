@@ -1,19 +1,18 @@
-#include <list>
-#include "Arithmetic.h"
+#include "NaturalBinary.h"
 
 using namespace std;
 
-
+/**
+ * @brief 
+ * Klasa repreznetująca stałoprzecinkową liczbę w systmie znak-moduł.
+ */
 class SignedMagnitude {
 
     /* POLA */
-private:
-    list<Byte> bytes;         // zbiór bajtów, ostatni element(back) najbardziej znaczyący
-private:
-    unsigned int exponent;        // definiuje ilość miejsc po przecinku
-private:
-    Bitflag negative;         // definiuje czy liczba jest dodatnia czy ujemna, true oznacza ujemna
-
+    private: list<Byte> bytes;         // zbiór bajtów, od najbardziej do najmniej znaczącej 
+    private: unsigned exponent;        // definiuje ilość miejsc po przecinku
+    private: Bitflag negative;         // definiuje czy liczba jest 
+ 
     /* METODY */
 
     /// @brief
@@ -21,61 +20,25 @@ private:
     ///
     /// @param decimal_value wartośc dzisiętna liczby
     /// @return co zwraca
-public:
-    SignedMagnitude(list <Byte> bytes, unsigned exp, Bitflag negative );
-
-public:
-    SignedMagnitude(long long int decimal_value);
-
-    // Operator przypisania
-public:
-    SignedMagnitude operator=(SignedMagnitude b);
-
-    // Operatory porównania
-public:
-    SignedMagnitude operator<(SignedMagnitude b);
-
-public:
-    SignedMagnitude operator>(SignedMagnitude b);
-
-public:
-    SignedMagnitude operator==(SignedMagnitude b);
-
-public:
-    SignedMagnitude operator<=(SignedMagnitude b);
-
-public:
-    SignedMagnitude operator>=(SignedMagnitude b);
+    public: SignedMagnitude(Byte bytes[], unsigned precission, bool negative);
+    public: SignedMagnitude(long long int decimal_value);
 
     // Destruktor
-public:
-    ~SignedMagnitude();
+    public: ~SignedMagnitude();
 
     // Wyświetla liczbę w ustalonej bazie
-public:
-    void print(unsigned base);
+    public: void print(unsigned base);
 
     // Dodawanie
-public:
-    SignedMagnitude operator+(SignedMagnitude b);
+    public: SignedMagnitude operator+(SignedMagnitude b);
 
     // Odejmowanie
-public:
-    SignedMagnitude operator-(SignedMagnitude b);
+    public: SignedMagnitude operator-(SignedMagnitude b);
 
     // Mnożenie
-public:
-    SignedMagnitude operator*(SignedMagnitude b);
+    public: SignedMagnitude operator*(SignedMagnitude b);
 
     // Dzielenie
-public:
-    SignedMagnitude operator/(SignedMagnitude b);
-
-    //getter
-public:
-    list<Byte> getByte();
-
-public:
-Bitflag getNegative();
+    public: SignedMagnitude operator/(SignedMagnitude b);
 
 };
