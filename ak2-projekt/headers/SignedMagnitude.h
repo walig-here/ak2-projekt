@@ -10,7 +10,7 @@ class SignedMagnitude {
 private:
     list<Byte> bytes;         // zbiór bajtów, ostatni element(back) najbardziej znaczyący
 private:
-    unsigned exponent;        // definiuje ilość miejsc po przecinku
+    unsigned int exponent;        // definiuje ilość miejsc po przecinku
 private:
     Bitflag negative;         // definiuje czy liczba jest dodatnia czy ujemna, true oznacza ujemna
 
@@ -22,7 +22,7 @@ private:
     /// @param decimal_value wartośc dzisiętna liczby
     /// @return co zwraca
 public:
-    SignedMagnitude(Byte bytes[]);
+    SignedMagnitude(list <Byte> bytes, unsigned exp, Bitflag negative );
 
 public:
     SignedMagnitude(long long int decimal_value);
