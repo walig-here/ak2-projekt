@@ -7,9 +7,18 @@
 class Arithmetic{
 
     /* POLA */
-    public: static Bitflag carry;      /** Flaga przeniesienia lub pożyczki. */ 
+    private: static Bitflag carry_flag;
 
     /* MEOTDY */
+
+    // Ustawia flagę carry w stan wysoki
+    public: static void stc();
+
+    // Ustawia flagę carry w stan niski
+    public: static void clc();
+
+    // Pobiera falgę carry
+    public: static Bitflag carry();
 
     /**
      * @brief

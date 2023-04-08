@@ -4,9 +4,12 @@ using namespace std;
 
 int main() {
     
-    SignedMagnitude n = 256;
-    cout << n.toString() << endl;
-    cout << "Ujemna: " << ( n.getNegative() ? "tak" : "nie" ) << endl;
+    Byte a = BYTE_MAX;
+    Byte b = 0x1;
+    
+    Arithmetic::stc();
+    Word sum = Arithmetic::div(a,b);
+    cout << hex << (int)sum.high_byte.value << " " << (int)sum.low_byte.value << endl;
 
     return 0;
 }
