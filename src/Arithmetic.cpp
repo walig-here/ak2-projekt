@@ -24,10 +24,11 @@ Byte Arithmetic::add(Byte a, Byte b){
 
     Byte sum;
     asm(
-        "addb  %%dl, %%al\n"
+        "movb %[operand_1], %%al\n"
+        "addb  %[operand_2], %%al\n"
         "setc %[carry]\n"
         : "=al" (sum.value)
-        : "a" (a.value), "d" (b.value), [carry] "m" (carry_flag)
+        : [operand_1] "m" (a.value), [operand_2] "m" (b.value), [carry] "m" (carry_flag)
     );
     return sum;
 
@@ -40,10 +41,11 @@ Byte Arithmetic::addc(Byte a, Byte b){
 
     Byte sum;
     asm (
-        "adcb  %%dl, %%al\n"
+        "movb %[operand_1], %%al\n"
+        "adcb  %[operand_2], %%al\n"
         "setc %[carry]\n"
         : "=al" (sum.value)
-        : "a" (a.value), "d" (b.value), [carry] "m" (carry_flag)
+        : [operand_1] "m" (a.value), [operand_2] "m" (b.value), [carry] "m" (carry_flag)
     );
     return sum;
 
@@ -53,10 +55,11 @@ Byte Arithmetic::sub(Byte a, Byte b){
 
     Byte diff;
     asm(
-        "subb  %%dl, %%al\n"
+        "movb %[operand_1], %%al\n"
+        "subb  %[operand_2], %%al\n"
         "setc %[carry]\n"
         : "=al" (diff.value)
-        : "a" (a.value), "d" (b.value), [carry] "m" (carry_flag)
+        : [operand_1] "m" (a.value), [operand_2] "m" (b.value), [carry] "m" (carry_flag)
     );
     return diff;
 
@@ -69,10 +72,11 @@ Byte Arithmetic::sbb(Byte a, Byte b){
 
     Byte diff;
     asm(
-        "sbbb  %%dl, %%al\n"
+        "movb %[operand_1], %%al\n"
+        "sbbb  %[operand_2], %%al\n"
         "setc %[carry]\n"
         : "=al" (diff.value)
-        : "a" (a.value), "d" (b.value), [carry] "m" (carry_flag)
+        : [operand_1] "m" (a.value), [operand_2] "m" (b.value), [carry] "m" (carry_flag)
     );
     return diff;
 
@@ -81,14 +85,14 @@ Byte Arithmetic::sbb(Byte a, Byte b){
 Word Arithmetic::mul(Byte a, Byte b){
 
     Word product;
-
     asm(
-        "mulb  %%dl\n"
+        "movb %[operand_1], %%al\n"
+        "mulb  %[operand_2]\n"
         "movb %%ah, %[high]\n"
         "movb %%al, %[low]\n"
         "setc %[carry]\n"
-        : [high] "=al" (product.high_byte.value), [low] "=ah" (product.low_byte.value)
-        : "a" (a.value), "d" (b.value), [carry] "m" (carry_flag)
+        : 
+        : [operand_1] "m" (a.value), [operand_2] "m" (b.value), [carry] "m" (carry_flag), [high] "m" (product.high_byte.value), [low] "m" (product.low_byte.value)
     );
     return product;
 
@@ -97,15 +101,15 @@ Word Arithmetic::mul(Byte a, Byte b){
 Word Arithmetic::div(Byte a, Byte b){
 
     if(b.value == 0) throw std::runtime_error("division by 0");
+    
     Word result;
-
-
     asm(
-        "divb  %%dl\n"
+        "movb %[operand_1], %%al\n"
+        "divb  %[operand_2]\n"
         "movb %%ah, %[remainder]\n"
         "movb %%al, %[product]\n"
-        :
-        : "a" (a.value), "d" (b.value), [product] "m" (result.high_byte.value), [remainder] "m" (result.low_byte.value)
+        : 
+        : [operand_1] "m" (a.value), [operand_2] "m" (b.value), [product] "m" (result.high_byte.value), [remainder] "m" (result.low_byte.value)
     );
     return result;
 

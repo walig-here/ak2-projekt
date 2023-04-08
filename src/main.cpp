@@ -7,9 +7,12 @@ int main() {
     Byte a = BYTE_MAX;
     Byte b = 0x1;
     
-    Arithmetic::stc();
-    Word sum = Arithmetic::div(a,b);
-    cout << hex << (int)sum.high_byte.value << " " << (int)sum.low_byte.value << endl;
+    Arithmetic::div(a,b);
+    Arithmetic::add(a,b);
+    Arithmetic::addc(a,b);
+    Arithmetic::sbb(a,b);
+    Arithmetic::sub(a,b);
+    Arithmetic::mul(a,b);
 
     return 0;
 }
