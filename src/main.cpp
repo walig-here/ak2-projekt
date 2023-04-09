@@ -4,7 +4,9 @@ using namespace std;
 
 int main() {
     
-    NaturalBinary a = 1;
+    NaturalBinary a = 6;
+    NaturalBinary b = 3;
+    cout << (a+b)/b + (NaturalBinary)8%b << endl;
     return 0;
 
 }

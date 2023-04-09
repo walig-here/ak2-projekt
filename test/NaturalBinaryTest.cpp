@@ -87,6 +87,247 @@ TEST(MUL, JustMulNB){
 
 }
 
+// Podzielenie liczby NB przez bajt
+TEST(DIV, DivByOneByte){
+
+    NaturalBinary divident;
+    Byte divisor;
+    NaturalBinary remainder;
+
+    // 1271 : 165
+    divident = 1271;
+    divisor = 165;
+    ASSERT_EQ(NaturalBinary::divide_by_byte(divident, divisor, &remainder).toString(), "0x07");
+    ASSERT_EQ(remainder.toString(), "0x74");
+
+    // 2581 : 1 = 2581, r = 0
+    divident = 2581;
+    divisor = 1;
+    ASSERT_EQ(NaturalBinary::divide_by_byte(divident, divisor, &remainder).toString(), "0x0a15");
+    ASSERT_EQ(remainder.toString(), "0x00");
+
+    // 981529983 : 62
+    divident = 981529983;
+    divisor = 62;
+    ASSERT_EQ(NaturalBinary::divide_by_byte(divident, divisor, &remainder).toString(), "0xf19058");
+    ASSERT_EQ(remainder.toString(), "0x2f");
+
+    // 0 : 144
+    divident = 0;
+    divisor = 144;
+    ASSERT_EQ(NaturalBinary::divide_by_byte(divident, divisor, &remainder).toString(), "0x00");
+    ASSERT_EQ(remainder.toString(), "0x00");
+
+    // 255 : 56
+    divident = 255;
+    divisor = 56;
+    ASSERT_EQ(NaturalBinary::divide_by_byte(divident, divisor, &remainder).toString(), "0x04");
+    ASSERT_EQ(remainder.toString(), "0x1f");
+
+}
+
+// Podzielenie liczby NB prez wyzerowany bajt
+TEST(DIV, DivByOneZeoredByte){
+
+    NaturalBinary divident = 567;
+    Byte divisor = 0;
+    
+    ASSERT_THROW(NaturalBinary::divide_by_byte(divident, divisor), std::runtime_error);
+
+}
+
+// Podzielenie dwóch liczb NB
+TEST(DIV, JustDivNB){
+
+    NaturalBinary a;
+    NaturalBinary b;
+
+    // przez 1
+    a = 0x5678;
+    b = 0x01;
+    ASSERT_EQ((a/b).toString(), "0x5678");
+
+    // 1 - bajtowe
+    a = 0x64;
+    b = 0x5c;
+    ASSERT_EQ((a/b).toString(), "0x01");
+
+    // 2 - bajtowe
+    a = 0x57c1;
+    b = 0xe729;
+    ASSERT_EQ((a/b).toString(), "0x00");
+
+    // 4 - bajtowe
+    a = 0xfb91646c;
+    b = 0x713ed89c;
+    ASSERT_EQ((a/b).toString(), "0x02");
+
+    // 8 - bajtowe
+    a = list<Byte>{ 0xdb, 0x76, 0x17, 0xe9, 0x12, 0xd1, 0x05, 0x30 };
+    b = list<Byte>{ 0x4e, 0xdb, 0xd9, 0xb6, 0x30, 0x4b, 0xbe, 0xdd };
+    ASSERT_EQ((a/b).toString(), "0x02");
+
+}
+
+// Podzielenie przez 0 w NB
+TEST(DIV, DivByZeroNB){
+
+    NaturalBinary a = 32445565;
+    NaturalBinary b = 0;
+    ASSERT_THROW(a/b, std::runtime_error);
+
+}
+
+// Modulo w NB
+TEST(DIV, JustModNB){
+
+    NaturalBinary a;
+    NaturalBinary b;
+
+    // przez 1
+    a = 0x5678;
+    b = 0x01;
+    ASSERT_EQ((a%b).toString(), "0x00");
+
+    // 1 - bajtowe
+    a = 0x9e;
+    b = 0x71;
+    ASSERT_EQ((a%b).toString(), "0x2d");
+
+    // 2 - bajtowe
+    a  = 0x5291;
+    b = 0x150a;
+    ASSERT_EQ((a%b).toString(), "0x1373");
+
+    // 4 - bajtowe
+    a = 0xa53eee4c;
+    b = 0x08f6906a;
+    ASSERT_EQ((a%b).toString(), "0x03e8c6d8");
+
+    // 8 -bajtowe
+    a = list<Byte>{0xc6, 0xac, 0x1d, 0xc4, 0xbb, 0xe1, 0x5e, 0x4b};
+    b = list<Byte>{0x0f,0x1a,0x5e,0xf7,0xc3,0xaa,0xf7,0x65};
+    ASSERT_EQ((a%b).toString(), "0x02554b2fcc32ce2a");
+
+
+
+}
+
+// Operacja ==
+TEST(CMP, IsEqual){
+
+    NaturalBinary a;
+    NaturalBinary b;
+
+    // a == b
+    a = 56;
+    b = 56;
+    ASSERT_EQ(a == b, true);
+
+    // a < b
+    a = 23;
+    b = 1235;
+    ASSERT_EQ(a == b, false);
+
+    // a > b
+    a = 2343564;
+    b = 3;
+    ASSERT_EQ(a == b, false);
+
+}
+
+// Operacja >
+TEST(CMP, IsGreater){
+
+    NaturalBinary a;
+    NaturalBinary b;
+
+    // a == b
+    a = 56;
+    b = 56;
+    ASSERT_EQ(a > b, false);
+
+    // a < b
+    a = 23;
+    b = 1235;
+    ASSERT_EQ(a > b, false);
+
+    // a > b
+    a = 2343564;
+    b = 3;
+    ASSERT_EQ(a > b, true);
+
+}
+
+// Operacja <
+TEST(CMP, IsSmaller){
+
+    NaturalBinary a;
+    NaturalBinary b;
+
+    // a == b
+    a = 56;
+    b = 56;
+    ASSERT_EQ(a < b, false);
+
+    // a < b
+    a = 23;
+    b = 1235;
+    ASSERT_EQ(a < b, true);
+
+    // a > b
+    a = 2343564;
+    b = 3;
+    ASSERT_EQ(a < b, false);
+
+}
+
+// Operacja >=
+TEST(CMP, IsGreaterOrEqual){
+
+    NaturalBinary a;
+    NaturalBinary b;
+
+    // a == b
+    a = 56;
+    b = 56;
+    ASSERT_EQ(a >= b, true);
+
+    // a < b
+    a = 23;
+    b = 1235;
+    ASSERT_EQ(a >= b, false);
+
+    // a > b
+    a = 2343564;
+    b = 3;
+    ASSERT_EQ(a >= b, true);
+
+}
+
+// Operacja <=
+TEST(CMP, IsSmallerOrEqual){
+
+    NaturalBinary a;
+    NaturalBinary b;
+
+    // a == b
+    a = 56;
+    b = 56;
+    ASSERT_EQ(a <= b, true);
+
+    // a < b
+    a = 23;
+    b = 1235;
+    ASSERT_EQ(a <= b, true);
+
+    // a > b
+    a = 2343564;
+    b = 3;
+    ASSERT_EQ(a <= b, false);
+
+}
+
 // Entry point modułu testującego klasę Arithmetic
 int main(int argc, char const *argv[])
 {

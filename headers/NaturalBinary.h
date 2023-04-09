@@ -34,12 +34,27 @@ class NaturalBinary{
     // Dzielenie NB
     public: NaturalBinary operator/(NaturalBinary b);
 
+    // Modulo NB
+    public: NaturalBinary operator%(NaturalBinary b);
+
+    // Dzielenie liczby NB przez wartość jednobajtową
+    public: static NaturalBinary divide_by_byte(NaturalBinary a, Byte b, NaturalBinary* remainder = nullptr);
+
+    // Dzielenie liczby NB z resztą
+    private: NaturalBinary long_divsion(NaturalBinary b, NaturalBinary* remainder);
+
+    // Usunięcie zbędnych bajtów -> zwraca true, gdy usunięto jakieś bajty
+    public: bool optimize();
+
     // Operatory porównania w NB
-    public: NaturalBinary operator<(NaturalBinary b);
-    public: NaturalBinary operator>(NaturalBinary b);
-    public: NaturalBinary operator==(NaturalBinary b);
-    public: NaturalBinary operator<=(NaturalBinary b);
-    public: NaturalBinary operator>=(NaturalBinary b);
+    public: bool operator<(NaturalBinary b);
+    public: bool operator>(NaturalBinary b);
+    public: bool operator==(NaturalBinary b);
+    public: bool operator<=(NaturalBinary b);
+    public: bool operator>=(NaturalBinary b);
+
+    // Operator do wyświetlenia
+    public: friend std::ostream& operator<<(std::ostream& os, NaturalBinary nb);
 
     // Konwersja na ciąg znaków
     public: string toString();

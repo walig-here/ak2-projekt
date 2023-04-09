@@ -98,18 +98,19 @@ Word Arithmetic::mul(Byte a, Byte b){
 
 }
 
-Word Arithmetic::div(Byte a, Byte b){
+Word Arithmetic::div(Word a, Byte b, Byte* remainder){
 
     if(b.value == 0) throw std::runtime_error("division by 0");
     
     Word result;
     asm(
-        "movb %[operand_1], %%al\n"
-        "divb  %[operand_2]\n"
-        "movb %%ah, %[remainder]\n"
-        "movb %%al, %[product]\n"
+        "xorw %%dx, %%dx\n"
+        "divw  %%cx\n"
+        "movb %%ah, %[product_high]\n"
+        "movb %%al, %[product_low]\n"
+        "movb %%dl, %[remainder]"
         : 
-        : [operand_1] "m" (a.value), [operand_2] "m" (b.value), [product] "m" (result.high_byte.value), [remainder] "m" (result.low_byte.value)
+        : "a" (a.value()), "c" (b.value), [product_low] "m" (result.low_byte.value), [product_high] "m" (result.high_byte.value), [remainder] "m" (remainder->value)
     );
     return result;
 
