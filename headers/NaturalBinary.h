@@ -10,35 +10,36 @@ using namespace std;
 class NaturalBinary{
 
     /* POLA */
-    protected: list<Byte> bytes;      // zbiór bajtów, od najmniej do najbardziej znaczącego 
+    private: list<Byte> bytes;      // zbiór bajtów, od najmniej do najbardziej znaczącego 
 
     /* METODY */
 
     // Konstruktory
-    protected: NaturalBinary(list<Byte> bytes);
-    protected: NaturalBinary(long long int decimal_value);
+    public: NaturalBinary(list<Byte> bytes);
+    public: NaturalBinary(long long int decimal_value);
+    public: NaturalBinary();
 
     // Destruktor
-    protected: ~NaturalBinary();
+    public: ~NaturalBinary();
 
     // Dodawanie NB
-    protected: NaturalBinary operator+(NaturalBinary b);
+    public: NaturalBinary operator+(NaturalBinary b);
 
     // Odejmowanie NB
-    protected: NaturalBinary operator-(NaturalBinary b);
+    public: NaturalBinary operator-(NaturalBinary b);
 
     // Mnożenie NB
-    protected: NaturalBinary operator*(NaturalBinary b);
+    public: NaturalBinary operator*(NaturalBinary b);
 
     // Dzielenie NB
-    protected: NaturalBinary operator/(NaturalBinary b);
+    public: NaturalBinary operator/(NaturalBinary b);
 
     // Operatory porównania w NB
-    protected: NaturalBinary operator<(NaturalBinary b);
-    protected: NaturalBinary operator>(NaturalBinary b);
-    protected: NaturalBinary operator==(NaturalBinary b);
-    protected: NaturalBinary operator<=(NaturalBinary b);
-    protected: NaturalBinary operator>=(NaturalBinary b);
+    public: NaturalBinary operator<(NaturalBinary b);
+    public: NaturalBinary operator>(NaturalBinary b);
+    public: NaturalBinary operator==(NaturalBinary b);
+    public: NaturalBinary operator<=(NaturalBinary b);
+    public: NaturalBinary operator>=(NaturalBinary b);
 
     // Konwersja na ciąg znaków
     public: string toString();
