@@ -1,5 +1,6 @@
 #include "NaturalBinary.h"
 #include <sstream>
+#include <iomanip>
 
 NaturalBinary::NaturalBinary(long long decimal_value) {
 
@@ -31,8 +32,9 @@ string NaturalBinary::toString(){
     string number = "";
     stringstream byte_string;
     for(auto byte : bytes) {
-        byte_string << hex << (int)byte.value;
+        byte_string << hex <<setfill('0')<<setw(2)<< (int)byte.value;
         number = byte_string.str() + number;
+        byte_string.str("");
     }
     return number;
 
