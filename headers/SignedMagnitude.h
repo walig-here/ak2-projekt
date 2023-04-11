@@ -8,7 +8,7 @@
 class SignedMagnitude {
 
     /* POLA */
-    private: NaturalBinary* module;     // moduł liczby 
+    private: NaturalBinary module;     // moduł liczby 
     private: unsigned exponent;         // definiuje ilość miejsc po przecinku
     private: Bitflag negative;          // definiuje czy liczba jest 
  

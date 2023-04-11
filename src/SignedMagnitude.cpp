@@ -13,7 +13,7 @@ SignedMagnitude::SignedMagnitude(long long decimal_value) {
         decimal_value = abs(decimal_value);
     }
 
-    module = new NaturalBinary(decimal_value);
+    module = decimal_value;
 
 }
 
@@ -21,19 +21,19 @@ SignedMagnitude::SignedMagnitude(list<Byte> bytes_input, unsigned int input_exp,
     negative = input_sign;
     exponent = input_exp;
 
-    module = new NaturalBinary(bytes_input);
+    module = bytes_input;
 
 }
 
 
 SignedMagnitude::~SignedMagnitude() {
 
-    delete module;
+    
 
 }
 
 list<Byte> &SignedMagnitude::getByte() {
-    return module->bytes;
+    return module.bytes;
 }
 
 Bitflag SignedMagnitude::getNegative() {
@@ -42,7 +42,7 @@ Bitflag SignedMagnitude::getNegative() {
 
 string SignedMagnitude::toString() {
 
-    string number = (negative ? "-" : "") + module->toString();
+    string number = (negative ? "-" : "") + module.toString();
     return number;
 
 }
@@ -58,39 +58,19 @@ Bitflag SignedMagnitude::mulDivSign(SignedMagnitude b) {
 
 Bitflag SignedMagnitude::addSign(SignedMagnitude b) {
 
+    
+
     //checking by length
-    if (getByte().size() > b.getByte().size()) {
-        if (getNegative() == true) {
+    if (module > b.module) {
+        if (getNegative()==true) {
             return true;
         } else {
             return false;
         }
-    } else if (getByte().size() == b.getByte().size()) {
-        auto pointer_on_b_magni = b.getByte().begin();
-        for (auto element: getByte()) {
-
-            if (pointer_on_b_magni->value < element.value) {
-                if (getNegative() == true) {
-                    return true;
-                } else {
-                    return false;
-                }
-            }
-            if (pointer_on_b_magni->value > element.value) {
-
-                if (b.getNegative() == true) {
-                    return true;
-                } else {
-                    return false;
-                }
-            }
-            pointer_on_b_magni++;
-        }
-        //jezeli rzeczywisce sa rowne
-
+    } else if (module==b.module) {
         return false;
     } else {
-        if (b.getNegative() == true) {
+        if (b.getNegative()==true) {
             return true;
         } else {
             return false;
@@ -101,32 +81,13 @@ Bitflag SignedMagnitude::addSign(SignedMagnitude b) {
 }
 
 Bitflag SignedMagnitude::subSign(SignedMagnitude b) {
-    if (getByte().size() > b.getByte().size()) {
+    if (module > b.module) {
         if (getNegative()) {
             return true;
         } else {
             return false;
         }
-    } else if (getByte().size() == b.getByte().size()) {
-        auto pointer_on_b_magnii = b.getByte().begin();
-        for (Byte element: getByte()) {
-            if (pointer_on_b_magnii->value < element.value) {
-                if (getNegative()) {
-                    return true;
-                } else {
-                    return false;
-                }
-            }
-            if (pointer_on_b_magnii->value > element.value) {
-                if (b.getNegative()) {
-                    return false;
-                } else {
-                    return true;
-                }
-            }
-            pointer_on_b_magnii++;
-        }
-        //jezeli rzeczywisce sa rowne
+    } else if (module == b.module) {
         return false;
     } else {
         if (b.getNegative()) {
