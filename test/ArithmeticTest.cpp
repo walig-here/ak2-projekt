@@ -1,6 +1,21 @@
 #include "gtest/gtest.h"
 #include "Arithmetic.h"
 
+// Ustawianie flagi carry w stan wysoki
+TEST(CARRY, SetCarry){
+    
+    Arithmetic::stc();
+    ASSERT_EQ(true, Arithmetic::carry());
+
+}
+
+// Ustawianie flagi carry w stan niski
+TEST(CARRY, ClearCarry){
+    
+    Arithmetic::clc();
+    ASSERT_EQ(false, Arithmetic::carry());
+
+}
 
 // Dodawanie argumentów bez uwzględnienia przeniesienia, przy których nastąpi przepełnienie.
 TEST(ADD, SumGreaterThanByteMax){
@@ -11,16 +26,16 @@ TEST(ADD, SumGreaterThanByteMax){
     Byte sum;
 
     // Flaga przeniesienia w stanie niskim
-    Arithmetic::carry = 0;
+    Arithmetic::clc();
     sum = Arithmetic::add(a, b);
     ASSERT_EQ(0xFE, sum.value);
-    ASSERT_EQ(1, Arithmetic::carry);
+    ASSERT_EQ(true, Arithmetic::carry());
 
     // Flaga przeniesienia w stanie wysokim
-    Arithmetic::carry = 1;
+    Arithmetic::stc();
     sum = Arithmetic::add(a, b);
     ASSERT_EQ(0xFE, sum.value);
-    ASSERT_EQ(1, Arithmetic::carry);
+    ASSERT_EQ(true, Arithmetic::carry());
 
 }
 
@@ -33,16 +48,16 @@ TEST(ADD, SumLessThanByteMaxValue){
     Byte sum;
     
     // Flaga przeniesienia w stanie niskim
-    Arithmetic::carry = 0;
+    Arithmetic::clc();
     sum = Arithmetic::add(a, b);
     ASSERT_EQ(0x39, sum.value);
-    ASSERT_EQ(0, Arithmetic::carry);
+    ASSERT_EQ(false, Arithmetic::carry());
 
     // Flaga przeniesienia w stanie wysokim
-    Arithmetic::carry = 1;
+    Arithmetic::stc();
     sum = Arithmetic::add(a, b);
     ASSERT_EQ(0x39, sum.value);
-    ASSERT_EQ(0, Arithmetic::carry);
+    ASSERT_EQ(false, Arithmetic::carry());
 
 }
 
@@ -57,16 +72,16 @@ TEST(ADDC, SumGreaterThanByteMax){
     Byte sum;
 
     // Flaga przeniesienia w stanie niskim
-    Arithmetic::carry = 0;
+    Arithmetic::clc();
     sum = Arithmetic::addc(a, b);
     ASSERT_EQ(0xFE, sum.value);
-    ASSERT_EQ(1, Arithmetic::carry);
+    ASSERT_EQ(true, Arithmetic::carry());
 
     // Flaga przeniesienia w stanie wysokim
-    Arithmetic::carry = 1;
+    Arithmetic::stc();
     sum = Arithmetic::addc(a, b);
     ASSERT_EQ(0xFF, sum.value);
-    ASSERT_EQ(1, Arithmetic::carry);
+    ASSERT_EQ(true, Arithmetic::carry());
 
 }
 
@@ -79,16 +94,16 @@ TEST(ADDC, SumLessThanByteMaxValue){
     Byte sum;
     
     // Flaga przeniesienia w stanie niskim
-    Arithmetic::carry = 0;
+    Arithmetic::clc();
     sum = Arithmetic::addc(a, b);
     ASSERT_EQ(0x39, sum.value);
-    ASSERT_EQ(0, Arithmetic::carry);
+    ASSERT_EQ(false, Arithmetic::carry());
 
     // Flaga przeniesienia w stanie wysokim
-    Arithmetic::carry = 1;
+    Arithmetic::stc();
     sum = Arithmetic::addc(a, b);
     ASSERT_EQ(0x3A, sum.value);
-    ASSERT_EQ(0, Arithmetic::carry);
+    ASSERT_EQ(false, Arithmetic::carry());
 
 }
 
@@ -102,16 +117,16 @@ TEST(SUB, DifferenceLessThanZero){
     Byte dif;
 
     // Flaga pożyczki w stanie niskim
-    Arithmetic::carry = 0;
+    Arithmetic::clc();
     dif = Arithmetic::sub(a,b);
     ASSERT_EQ(dif.value, 0x8A);
-    ASSERT_EQ(Arithmetic::carry, 1);
+    ASSERT_EQ(Arithmetic::carry(), true);
 
     // Flaga pożyczki w stanie wysokim
-    Arithmetic::carry = 1;
+    Arithmetic::stc();
     dif = Arithmetic::sub(a,b);
     ASSERT_EQ(dif.value, 0x8A);
-    ASSERT_EQ(Arithmetic::carry, 1);
+    ASSERT_EQ(Arithmetic::carry(), true);
 
 }
 
@@ -123,16 +138,16 @@ TEST(SUB, DifferenceGreaterThanZero){
     Byte dif;
 
     // Flaga pożyczki w stanie niskim
-    Arithmetic::carry = 0;
+    Arithmetic::clc();
     dif = Arithmetic::sub(a,b);
     ASSERT_EQ(dif.value, 0x07);
-    ASSERT_EQ(Arithmetic::carry, 0);
+    ASSERT_EQ(Arithmetic::carry(), false);
 
     // Flaga pożyczki w stanie wysokim
-    Arithmetic::carry = 1;
+    Arithmetic::stc();
     dif = Arithmetic::sub(a,b);
     ASSERT_EQ(dif.value, 0x07);
-    ASSERT_EQ(Arithmetic::carry, 0);
+    ASSERT_EQ(Arithmetic::carry(), false);
 
 }
 
@@ -146,16 +161,16 @@ TEST(SBB, DifferenceLessThanZero){
     Byte dif;
 
     // Flaga pożyczki w stanie niskim
-    Arithmetic::carry = 0;
+    Arithmetic::clc();
     dif = Arithmetic::sbb(a,b);
     ASSERT_EQ(dif.value, 0x8A);
-    ASSERT_EQ(Arithmetic::carry, 1);
+    ASSERT_EQ(Arithmetic::carry(), true);
 
     // Flaga pożyczki w stanie wysokim
-    Arithmetic::carry = 1;
+    Arithmetic::stc();
     dif = Arithmetic::sbb(a,b);
     ASSERT_EQ(dif.value, 0x89);
-    ASSERT_EQ(Arithmetic::carry, 1);
+    ASSERT_EQ(Arithmetic::carry(), true);
 
 }
 
@@ -167,16 +182,16 @@ TEST(SBB, DifferenceGreaterThanZero){
     Byte dif;
 
     // Flaga pożyczki w stanie niskim
-    Arithmetic::carry = 0;
+    Arithmetic::clc();
     dif = Arithmetic::sbb(a,b);
     ASSERT_EQ(dif.value, 0x07);
-    ASSERT_EQ(Arithmetic::carry, 0);
+    ASSERT_EQ(Arithmetic::carry(), false);
 
     // Flaga pożyczki w stanie wysokim
-    Arithmetic::carry = 1;
+    Arithmetic::stc();
     dif = Arithmetic::sbb(a,b);
     ASSERT_EQ(dif.value, 0x06);
-    ASSERT_EQ(Arithmetic::carry, 0);
+    ASSERT_EQ(Arithmetic::carry(), false);
 
 }
 
@@ -190,17 +205,17 @@ TEST(MUL, ProductGreaterThanByte){
     Word prod;
 
     // Flaga pożyczki zapalona
-    Arithmetic::carry = 0;
+    Arithmetic::clc();
     prod = Arithmetic::mul(a,b);
     ASSERT_EQ(prod.value(), 0x01A4);
-    ASSERT_EQ(Arithmetic::carry, 1);
+    ASSERT_EQ(Arithmetic::carry(), true);
     ASSERT_NE(prod.high_byte.value, 0x00);
 
     // Flaga pożyczki zgaszona
-    Arithmetic::carry = 1;
+    Arithmetic::stc();
     prod = Arithmetic::mul(a,b);
     ASSERT_EQ(prod.value(), 0x01A4);
-    ASSERT_EQ(Arithmetic::carry, 1);
+    ASSERT_EQ(Arithmetic::carry(), true);
     ASSERT_NE(prod.high_byte.value, 0x00);
 
 }
@@ -213,17 +228,17 @@ TEST(MUL, ProductLowerThanByte){
     Word prod;
 
     // Flaga pożyczki zapalona
-    Arithmetic::carry = 0;
+    Arithmetic::clc();
     prod = Arithmetic::mul(a,b);
     ASSERT_EQ(prod.value(), 0x004B);
-    ASSERT_EQ(Arithmetic::carry, 0);
+    ASSERT_EQ(Arithmetic::carry(), false);
     ASSERT_EQ(prod.high_byte.value, 0x00);
 
     // Flaga pożyczki zgaszona
-    Arithmetic::carry = 1;
+    Arithmetic::stc();
     prod = Arithmetic::mul(a,b);
     ASSERT_EQ(prod.value(), 0x004B);
-    ASSERT_EQ(Arithmetic::carry, 0);
+    ASSERT_EQ(Arithmetic::carry(), false);
     ASSERT_EQ(prod.high_byte.value, 0x00);
 
 }
@@ -233,7 +248,7 @@ TEST(MUL, ProductLowerThanByte){
 // Próba podzielenia przez 0
 TEST(DIV, DivideByZero){
 
-    Byte a = 0x10;
+    Word a = 0x10;
     Byte b = 0x00;
     Word result;
 
@@ -244,31 +259,32 @@ TEST(DIV, DivideByZero){
 // Dzielenie argumentów, które podzielą się bez reszty
 TEST(DIV, DivideRemainderZero){
 
-    Byte a;
+    Word a;
     Byte b;
+    Byte remainder;
     Word result;
 
-    // 256 / 1 = 256, r=0
-    a = BYTE_MAX;
+    // WORD_MAX / 1 = WORD_MAX, r=0
+    a = WORD_MAX;
     b = 0x1;
-    result = Arithmetic::div(a,b);
-    ASSERT_EQ(result.high_byte.value, BYTE_MAX);
-    ASSERT_EQ(result.low_byte.value, 0x00);
+    result = Arithmetic::div(a,b, &remainder);
+    ASSERT_EQ(result.value(), WORD_MAX);
+    ASSERT_EQ(remainder.value, 0);
 
 
     // 128 / 2 = 64, r = 0
     a = 128;
     b = 2;
-    result = Arithmetic::div(a,b);
-    ASSERT_EQ(result.high_byte.value, 64);
-    ASSERT_EQ(result.low_byte.value, 0);
+    result = Arithmetic::div(a,b, &remainder);
+    ASSERT_EQ(result.value(), 64);
+    ASSERT_EQ(remainder.value, 0);
 
     // 0 / 34 = 0, r=0
     a = 0;
     b = 34;
-    result = Arithmetic::div(a,b);
-    ASSERT_EQ(result.high_byte.value, 0);
-    ASSERT_EQ(result.low_byte.value, 0);
+    result = Arithmetic::div(a,b, &remainder);
+    ASSERT_EQ(result.value(), 0);
+    ASSERT_EQ(remainder.value, 0);
 
 }
 
@@ -276,30 +292,31 @@ TEST(DIV, DivideRemainderZero){
 // Dzielenie argumentów, które podzielą się z resztą
 TEST(DIV, DivideRemainderNonZero){
 
-    Byte a;
+    Word a;
     Byte b;
+    Byte remainder;
     Word result;
 
     // 17 / 5 = 3, r=2
     a = 17;
     b = 5;
-    result = Arithmetic::div(a,b);
-    ASSERT_EQ(result.high_byte.value, 3);
-    ASSERT_EQ(result.low_byte.value, 2);
+    result = Arithmetic::div(a, b, &remainder);
+    ASSERT_EQ(result.value(), 3);
+    ASSERT_EQ(remainder.value, 2);
 
     // 133 / 45 = 2 r=43
     a = 133;
     b = 45;
-    result = Arithmetic::div(a,b);
-    ASSERT_EQ(result.high_byte.value, 2);
-    ASSERT_EQ(result.low_byte.value, 43);
+    result = Arithmetic::div(a, b, &remainder);
+    ASSERT_EQ(result.value(), 2);
+    ASSERT_EQ(remainder.value, 43);
 
     // 89 / 255 = 0, r=89
     a = 89;
     b = 255;
-    result = Arithmetic::div(a,b);
-    ASSERT_EQ(result.high_byte.value, 0);
-    ASSERT_EQ(result.low_byte.value, 89);
+    result = Arithmetic::div(a, b, &remainder);
+    ASSERT_EQ(result.value(), 0);
+    ASSERT_EQ(remainder.value, 89);
 
 }
 
