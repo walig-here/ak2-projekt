@@ -7,9 +7,18 @@
 class Arithmetic{
 
     /* POLA */
-    public: static Bitflag carry;      /** Flaga przeniesienia lub pożyczki. */ 
+    private: static Bitflag carry_flag;
 
     /* MEOTDY */
+
+    // Ustawia flagę carry w stan wysoki
+    public: static void stc();
+
+    // Ustawia flagę carry w stan niski
+    public: static void clc();
+
+    // Pobiera falgę carry
+    public: static Bitflag carry();
 
     /**
      * @brief
@@ -97,13 +106,13 @@ class Arithmetic{
      * 
      * @param a dzielna
      * @param b dzielnik
+     * @param remainder adres, pod który zostanie zapisana reszta z dzielenia
      * 
      * @return
-     * Iloraz oraz resztę z dzielenia zadanych składników w formie słowa
-     * 2-bajtowego. Iloraz znajduje się w bajcie starszym, reszta w młodszym.
+     * Iloraz 2-bajtowy.
      * 
      * @throw runtime_error div 0 przy próbie podzielenia przez 0
      */
-    public: static Word div(Byte a, Byte b);
+    public: static Word div(Word a, Byte b, Byte* remainder = nullptr);
 
 };

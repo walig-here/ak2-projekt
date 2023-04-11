@@ -22,8 +22,8 @@ TEST(SignMagTest, convertFromIntToNB) {
 
     value = -257;
     SignedMagnitude signedMagnitude_minus(value);
-    ASSERT_EQ(signedMagnitude_minus.getByte().back().value, 1);
     ASSERT_EQ(signedMagnitude_minus.getByte().front().value, 1);
+    ASSERT_EQ(signedMagnitude_minus.getByte().back().value, 1);
     ASSERT_EQ(signedMagnitude_minus.getNegative(), true);
 
 
@@ -31,8 +31,8 @@ TEST(SignMagTest, convertFromIntToNB) {
 
 TEST(sign_magni_huge_Test, convTabOfBytesToSignMagni) {
 
-    list<Byte> input_tab_basic = {3, 2, 4, 6, 2};
-    auto j = input_tab_basic.begin();
+    list <Byte> input_tab_basic= {3, 2, 4, 6, 2};
+    auto j = input_tab_basic.rbegin();
     SignedMagnitude signedMagnitude_basic(input_tab_basic, 1, false);
     ASSERT_EQ(signedMagnitude_basic.getNegative(), false);
 
@@ -43,8 +43,8 @@ TEST(sign_magni_huge_Test, convTabOfBytesToSignMagni) {
     }
 
 
-    list<Byte> input_tab_empty = {};
-    j = input_tab_empty.begin();
+    list <Byte> input_tab_empty = {};
+    j = input_tab_empty.rbegin();
 
     SignedMagnitude signedMagnitude_empty(input_tab_empty, 1, true);
     ASSERT_EQ(signedMagnitude_empty.getNegative(), true);

@@ -4,9 +4,9 @@ using namespace std;
 
 int main() {
     
-    SignedMagnitude n = 256;
-    cout << n.toString() << endl;
-    cout << "Ujemna: " << ( n.getNegative() ? "tak" : "nie" ) << endl;
-
+    NaturalBinary a = 6;
+    NaturalBinary b = 3;
+    cout << (a+b)/b + (NaturalBinary)8%b << endl;
     return 0;
+
 }

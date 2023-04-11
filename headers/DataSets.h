@@ -17,7 +17,7 @@ typedef bool Bitflag;           // Typ reprezentujący flagę 1-bitową
 struct Byte{
 
     /* POLA */
-    unsigned char value;        // wartość bajtu w systemie NB
+    uint8_t value;             // wartość bajtu w systemie NB
     #define BYTE_MAX 0xFF       // Maksymalna wartość możliwa do zapisania w typie Byte 
 
     /* METODY */
