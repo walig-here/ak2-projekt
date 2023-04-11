@@ -299,7 +299,6 @@ string NaturalBinary::toString(){
 
     string number = "";
     stringstream byte_string;
-
     for(auto byte = bytes.rbegin(); byte != bytes.rend(); byte++ ){
         byte_string << setw(2) << setfill('0') << hex << (int)byte->value;
         number += byte_string.str();
