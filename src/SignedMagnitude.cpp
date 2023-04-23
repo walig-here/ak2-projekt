@@ -154,7 +154,7 @@ SignedMagnitude SignedMagnitude::operator*(SignedMagnitude b){
     result.exponent = this->exponent + b.exponent;
 
     // Usuwam zbędne bajty
-    result.module.optimize();
+    result.optimize();
 
     // Zwracam wynik
     return result;
@@ -180,8 +180,22 @@ SignedMagnitude SignedMagnitude::operator/(SignedMagnitude b){
     // Precyzja wyniku jest precyzją dzielnej
     result.exponent = exponent;
 
+    // Sprowadzam do odpowiedniej postaci
+    result.optimize();
+
     // Zwracam wynik
     return result;
+
+}
+
+void SignedMagnitude::optimize(){
+
+    // Optymalizuje moduł
+    module.optimize();
+
+    // Dodaję bajty zerowe na starszych pozycjach, aby uzyskać poprawną część dziesiętną
+    while( module.bytes.size() < exponent + 1)
+        module.bytes.push_back(0x00);
 
 }
 

@@ -99,4 +99,12 @@ class SignedMagnitude {
      */
     public: void set_precission(unsigned precission);
 
+    /**
+     * @brief 
+     * Optymalizuje ilośc bajtów zapisanych w module. Usuwa zbędne, zerowe bajty z jej początku.
+     * Jeżeli precyzja liczby jest większa od ilości jej bajtów, to oznacza to, że jest ona <1.
+     * W takim wypadku metoda dokłada brakujące, zerowe bajty na najstarszych pozycjach.
+     */
+    private: void optimize();
+
 };

@@ -299,7 +299,7 @@ TEST(Divide, PositiveNumbers){
     
     a = SignedMagnitude({0x14, 0x5c, 0x5f, 0x6f}, 1, false);
     b = SignedMagnitude({0x14, 0xf9, 0x95}, 0, false);
-    ASSERT_EQ((a/b).toString(), "0x.f8");
+    ASSERT_EQ((a/b).toString(), "0x00.f8");
 
 
     a = SignedMagnitude({0xf0, 0x38, 0xa6, 0x57, 0xe3}, 4, false);
@@ -323,7 +323,7 @@ TEST(Divide, NegativeNumbers){
     
     a = SignedMagnitude({0x14, 0x5c, 0x5f, 0x6f}, 1, true);
     b = SignedMagnitude({0x14, 0xf9, 0x95}, 0, true);
-    ASSERT_EQ((a/b).toString(), "0x.f8");
+    ASSERT_EQ((a/b).toString(), "0x00.f8");
 
 
     a = SignedMagnitude({0xf0, 0x38, 0xa6, 0x57, 0xe3}, 4, true);
@@ -347,7 +347,7 @@ TEST(Divide, MixedSign){
     
     a = SignedMagnitude({0x14, 0x5c, 0x5f, 0x6f}, 1, true);
     b = SignedMagnitude({0x14, 0xf9, 0x95}, 0, false);
-    ASSERT_EQ((a/b).toString(), "-0x.f8");
+    ASSERT_EQ((a/b).toString(), "-0x00.f8");
 
 
     a = SignedMagnitude({0xf0, 0x38, 0xa6, 0x57, 0xe3}, 4, false);
