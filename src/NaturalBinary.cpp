@@ -198,9 +198,9 @@ bool NaturalBinary::optimize(){
 
     // Usuwamy najstarszy bajt dopóki jest on zerowy
     bool optimized = false;
-    while (bytes.size() > 1 && bytes.front().value == 0x00){
+    while (bytes.size() > 1 && bytes.back().value == 0x00){
         optimized = true;
-        bytes.pop_front();
+        bytes.pop_back();
     }
     return optimized;
 

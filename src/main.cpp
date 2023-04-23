@@ -4,9 +4,13 @@ using namespace std;
 
 int main() {
 
-    SignedMagnitude a = 333; a.set_precission(4);
+    SignedMagnitude a = 24; a.set_precission(12);
     SignedMagnitude b = 20;
-    cout << a << " / " << b << " = " << a/b << endl;
+
+    a = (a+b) / (a*b);
+    a.set_precission(6);
+    
+    cout << a << endl;
 
     return 0;
 
