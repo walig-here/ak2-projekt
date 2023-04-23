@@ -153,6 +153,9 @@ SignedMagnitude SignedMagnitude::operator*(SignedMagnitude b){
     // Precyzja wyniku jest sumą precyzji czynników
     result.exponent = this->exponent + b.exponent;
 
+    // Usuwam zbędne bajty
+    result.module.optimize();
+
     // Zwracam wynik
     return result;
 
