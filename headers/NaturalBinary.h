@@ -1,3 +1,4 @@
+#pragma once
 #include <list>
 #include "Arithmetic.h"
 
@@ -10,7 +11,7 @@ using namespace std;
 class NaturalBinary{
 
     /* POLA */
-    private: list<Byte> bytes;      // zbiór bajtów, od najmniej do najbardziej znaczącego 
+    protected: list<Byte> bytes;      // zbiór bajtów, od najmniej do najbardziej znaczącego 
 
     /* METODY */
 
@@ -45,6 +46,12 @@ class NaturalBinary{
 
     // Usunięcie zbędnych bajtów -> zwraca true, gdy usunięto jakieś bajty
     public: bool optimize();
+
+    // Pobranie realnej długości liczby NB (pomijając zbędne, wyzerowane bajty na najstarszych wagach)
+    public: unsigned size();
+
+    // Pobiera iterator na MSB
+    public: auto msb();
 
     // Operatory porównania w NB
     public: bool operator<(NaturalBinary b);

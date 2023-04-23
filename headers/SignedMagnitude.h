@@ -1,3 +1,4 @@
+#pragma once
 #include "NaturalBinary.h"
 #include <list>
 
@@ -31,12 +32,23 @@ class SignedMagnitude {
     /// @param decimal_value wartośc dzisiętna liczby
     public: SignedMagnitude(long long int decimal_value);
 
+    /**
+     * @brief 
+     * Konstruktor domyślny, tworzący liczbę ZM o wartości 0.
+     */
+    public: SignedMagnitude();
+
     // Destruktor
     public: ~SignedMagnitude();
 
     // Konwertuje liczbę na postać ciągu znaków
     public: string toString();
-    // Dodawanie ZM
+
+    /**
+     * @brief 
+     * Wykonuje dodawanie w ZM. Precyzja wyniku jest równa precyzji
+     * dokładniejszego składnika.
+     */
     public: SignedMagnitude operator+(SignedMagnitude b);
 
     // Odejmowanie ZM
@@ -52,10 +64,19 @@ class SignedMagnitude {
     * mwtody zwracajace znak
     **/
     public: Bitflag mulDivSign(SignedMagnitude b);
-    public: Bitflag addSign(SignedMagnitude b);
+    public: Bitflag subSign(SignedMagnitude b); //argument to odjemnik
 
-    //argument to odjemnik
-    public: Bitflag subSign(SignedMagnitude b);
+    /**
+     * @brief 
+     * Zwraca moduł liczby, który jest wyrównany wagami do modułu
+     * zadanej liczby b. Jeżeli this byłaby większą liczbą lub miałoby
+     * większą precyzję od b, to moduł się nie zmienia.
+     * 
+     * @param b liczba ZM, do której wyrównujemy
+     * 
+     * @return Moduł this wyrównany wagami do liczby b.
+     */
+    public: NaturalBinary alignModuleWith(SignedMagnitude b);
 
 
 
@@ -69,5 +90,13 @@ class SignedMagnitude {
      **/
     public: Bitflag getNegative();
 
+    // Operator do wyświetlenia
+    public: friend std::ostream& operator<<(std::ostream& os, SignedMagnitude sm);
+
+    /**
+     * @brief 
+     * Ustala precyzję liczby ZM.
+     */
+    public: void set_precission(unsigned precission);
 
 };

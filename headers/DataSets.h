@@ -2,7 +2,7 @@
  * Plik zawierający dane na temat podstawowych zbiorów danych uzywanych w module Arithmetic.
  */
 
-
+#pragma once
 #include <iostream>
 #include <stdexcept>
 

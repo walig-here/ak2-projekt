@@ -149,8 +149,11 @@ NaturalBinary NaturalBinary::long_divsion(NaturalBinary b, NaturalBinary* remain
             subquotient.bytes.pop_front();
         if(subquotient.bytes.size() == 0) subquotient.bytes.push_back(0x00);
 
+        quotient.bytes.resize(max(quotient.bytes.size(), subquotient.bytes.size()));
+        subquotient.bytes.resize(max(quotient.bytes.size(), subquotient.bytes.size()));
+
         quotient = quotient + subquotient;
-        *remainder = *remainder - subquotient * b;
+        *remainder = *remainder - (subquotient * b);
     }while(subquotient > 0);
 
     // Jeżeli reszta jest > dzielnk, to zwiększam iloraz o 1 i odejmuję od reszty dzielnik
@@ -203,6 +206,23 @@ bool NaturalBinary::optimize(){
 
 }
 
+unsigned NaturalBinary::size(){
+
+    unsigned size = bytes.size()-1;
+    auto a_byte = this->bytes.rbegin();
+    for(; size != 0 && a_byte->value == 0x00 ; a_byte++, size--);
+    return size;
+
+}
+
+auto NaturalBinary::msb(){
+
+    unsigned size = bytes.size()-1;
+    auto msb_byte = this->bytes.rbegin();
+    for(; size != 0 && msb_byte->value == 0x00 ; msb_byte++, size--);
+    return msb_byte;
+
+}
 
 bool NaturalBinary::operator<=(NaturalBinary b){
 
@@ -218,16 +238,14 @@ bool NaturalBinary::operator>=(NaturalBinary b){
 
 bool NaturalBinary::operator<(NaturalBinary b){
 
-    this->optimize();
-    b.optimize();
-
-    // Jeżeli B będzie dłuższe od this, to będzie mniejsze od B
-    if(bytes.size() != b.bytes.size()) return bytes.size() < b.bytes.size();
+    // Krótsza liczba jest mniejszą liczbą
+    if(this->size() < b.size()) return true;
+    else if(this->size() > b.size()) return false;
 
     // Porównuję kolejne bajty liczb zaczynając od najstarszych.
     // Jeżeli bajt z this będzię mniejszy od bajtu z B, to warunek jest spełniony
-    auto a_byte = bytes.rbegin();
-    auto b_byte = b.bytes.rbegin();
+    auto a_byte = msb();
+    auto b_byte = b.msb();
     while (a_byte != bytes.rend()){
         if(a_byte->value < b_byte->value)
             return true;
@@ -242,17 +260,15 @@ bool NaturalBinary::operator<(NaturalBinary b){
 }
 
 bool NaturalBinary::operator>(NaturalBinary b){
-
-    this->optimize();
-    b.optimize();
-
-    // Jeżeli this będzie dłuższe od B, to będzie większe od B
-    if(bytes.size() != b.bytes.size()) return bytes.size() > b.bytes.size();
+    
+    // Dłuższa liczb jest większą liczbą
+    if(this->size() > b.size()) return true;
+    else if(this->size() < b.size()) return false;
 
     // Porównuję kolejne bajty liczb zaczynając od najstarszych.
     // Jeżeli bajt z this będzię większy od bajtu z B, to warunek jest spełniony
-    auto a_byte = bytes.rbegin();
-    auto b_byte = b.bytes.rbegin();
+    auto a_byte = msb();
+    auto b_byte = b.msb();
     while (a_byte != bytes.rend()){
         if(a_byte->value > b_byte->value) 
             return true;
@@ -268,17 +284,15 @@ bool NaturalBinary::operator>(NaturalBinary b){
 
 bool NaturalBinary::operator==(NaturalBinary b){
 
-    this->optimize();
-    b.optimize();
-
-    // Jeżeli nie są równych długości, to na pewno nie są równe
-    if(bytes.size() != b.bytes.size()) return false;
+    // Liczby są równe gdy są równej długości
+    if(this->size() != b.size()) return false;
 
     // Porównuję kolejne bajty liczb zaczynając od najstarszych.
     // Jeżeli bajty będą nierówne, to liczby sa nierówne
-    auto a_byte = bytes.rbegin();
-    auto b_byte = b.bytes.rbegin();
+    auto a_byte = msb();
+    auto b_byte = b.msb();
     while (a_byte != bytes.rend()){
+
         if(a_byte->value != b_byte->value)
             return false;
         a_byte++;
