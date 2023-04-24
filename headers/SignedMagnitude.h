@@ -4,33 +4,42 @@
 
 /**
  * @brief 
- * Klasa repreznetująca stałoprzecinkową liczbę w systmie znak-moduł.
+ * Klasa repreznetująca stałoprzecinkową liczbę w systmie znak-moduł. Jest to liczba dowolnej dokładności, która może znacznie
+ * przekracać pojemności natywnych zmiennych języka C++. Wartość takiej liczby można wyrazić wzorem:
+ * 
+ * X = bytes * 256^(-exponent) * (-1)^(negative)
+ * 
  */
 class SignedMagnitude {
 
     /* POLA */
-    private: NaturalBinary module;     // moduł liczby 
-    private: unsigned exponent;         // definiuje ilość miejsc po przecinku
-    private: Bitflag negative;          // definiuje czy liczba jest 
+    private: NaturalBinary module;      // moduł liczby w formie liczby NB
+    private: unsigned exponent;         // ilość miejsc po przecinku
+    private: Bitflag negative;          // czy liczba jest ujemna? 
  
     /* METODY */
 
+    /**
+     * @brief 
+     * Konstruktor pozwalający na zdefiniowanie dowolnie dużej liczby ZM. Stworzona w ten sposób liczba
+     * może być wyrażona jako: bytes * 256^(-precission) * (-1)^(is_negative).
+     * 
+     * @param bytes bajty tworzonej liczby od najstarszego do najmłodszego
+     * @param precission ilośc miejsc po przecinku
+     * @param is_negative czy liczba jest ujemna?
+     */
+    public: SignedMagnitude(list <Byte> bytes , unsigned precission, Bitflag is_negative);
 
-    /// @brief
-    /// Konstruktor. Zmienia zadaną tablice bajtow na liczbe  ZM.
-    ///
-    /// @param bytes_input tablica bajtow, gdzie 1 pozycja - najstarszy bajt liczby
-    /// @param input_exp oznacza precyzje
-    /// @param input_sign oznacza znak liczby
-    public: SignedMagnitude(list <Byte> bytes_input , unsigned int input_exp, Bitflag input_sign);
 
+    /**
+     * @brief 
+     * Konstruktor pozwalający na zdefiniowanie liczby ZM za pomocą liczby wbudowanego, dużego, całkowitoliczbowego typu
+     * ze znakiem. Może on wyłącznie stworzyć liczbę ZM z przedziału [LLONG_MIN; LLONG_MAX].
+     * 
+     * @param value wartość liczby ZM
+     */
+    public: SignedMagnitude(long long int value);
 
-
-    /// @brief
-    /// Konstruktor. Zmienia zadaną wartość dziesiętną na jej reprezentacje w szesnastkowym ZM.
-    ///
-    /// @param decimal_value wartośc dzisiętna liczby
-    public: SignedMagnitude(long long int decimal_value);
 
     /**
      * @brief 
@@ -38,33 +47,66 @@ class SignedMagnitude {
      */
     public: SignedMagnitude();
 
+
     // Destruktor
     public: ~SignedMagnitude();
 
-    // Konwertuje liczbę na postać ciągu znaków
+
+    /**
+     * @brief 
+     * Zwraca ciąg znaków przedstawiający liczbę ZM w formie szesnastkowego modułu
+     * oraz naku w formie '-' (ujemna) lub '' (dodatnia). 
+     */
     public: string toString();
+
 
     /**
      * @brief 
      * Wykonuje dodawanie w ZM. Precyzja wyniku jest równa precyzji
      * dokładniejszego składnika.
+     * 
+     * @param b drugi składnik sumy
+     * 
+     * @return Wynik dodawania o prezycji takiej, jak dokładniejszy składnik.
      */
     public: SignedMagnitude operator+(SignedMagnitude b);
 
-    // Odejmowanie ZM
-    public: SignedMagnitude operator-(SignedMagnitude b);
-
-    // Mnożenie ZM
-    public: SignedMagnitude operator*(SignedMagnitude b);
-
-    // Dzielenie ZM
-    public: SignedMagnitude operator/(SignedMagnitude b);
 
     /**
-    * mwtody zwracajace znak
-    **/
-    public: Bitflag mulDivSign(SignedMagnitude b);
-    public: Bitflag subSign(SignedMagnitude b); //argument to odjemnik
+     * @brief 
+     * Wykonuje odejmowanie w ZM. Precyzja wyniku jest równa precyzji
+     * dokładniejszego składnika.
+     * 
+     * @param b odjemnik
+     * 
+     * @return Wynik odejmowania o prezycji takiej, jak dokładniejszy operand.
+     */
+    public: SignedMagnitude operator-(SignedMagnitude b);
+
+
+    /**
+     * @brief 
+     * Wykonuje mnożenie w ZM. Precyzja wyniku jest sumie precyzji
+     * operandów.
+     * 
+     * @param b drugi czynnik
+     * 
+     * @return Wynik mnożenia o prezycji takiej, jak suma precyzji operandów.
+     */
+    public: SignedMagnitude operator*(SignedMagnitude b);
+
+
+    /**
+     * @brief 
+     * Wykonuje dzielenie w ZM. Precyzja wyniku jest równa precyzji
+     * dzielnej.
+     * 
+     * @param b dzielnik
+     * 
+     * @return Wynika dzielenia o prezycji takiej, jak dzielna.
+     */
+    public: SignedMagnitude operator/(SignedMagnitude b);
+
 
     /**
      * @brief 
@@ -78,31 +120,71 @@ class SignedMagnitude {
      */
     public: NaturalBinary alignModuleWith(SignedMagnitude b);
 
-
-
     /**
-     * zwraca liste bajtow liczby od najstarszego do najmlodszego
-     **/
-    public: list<Byte>& getByte();
+     * @brief 
+     * Zwraca prawdę, gdy liczba jest równa zadanej liczbie b.
+     */
+    public: bool operator==(SignedMagnitude b);
 
-    /**
-     * zwraca znak liczby
-     **/
-    public: Bitflag getNegative();
-
-    // Operator do wyświetlenia
-    public: friend std::ostream& operator<<(std::ostream& os, SignedMagnitude sm);
 
     /**
      * @brief 
-     * Ustala precyzję liczby ZM.
+     * Zwraca prawdę, gdy liczba jest mniejsza od zadanej liczby b.
+     */
+    public: bool operator<(SignedMagnitude b);
+
+
+    /**
+     * @brief 
+     * Zwraca prawdę, gdy liczba jest większa od zadanej liczby b.
+     */
+    public: bool operator>(SignedMagnitude b);
+
+
+    /**
+     * @brief 
+     * Zwraca prawdę, gdy liczba jest większa lub równa od zadanej liczby b.
+     */
+    public: bool operator>=(SignedMagnitude b);
+
+
+    /**
+     * @brief 
+     * Zwraca prawdę, gdy liczba jest mniejsza lub równa od zadanej liczby b.
+     */
+    public: bool operator<=(SignedMagnitude b);
+
+
+    /**
+     * @brief
+     * Zwraca znak liczby ZM.
+     **/
+    public: Bitflag isNegative();
+
+
+    /**
+     * @brief 
+     * Implementuje przesłanie liczby w formie ciągu znaków na standardowy strumień wyjściowy.
+     */
+    public: friend std::ostream& operator<<(std::ostream& os, SignedMagnitude sm);
+
+
+    /**
+     * @brief 
+     * Ustala precyzję liczby ZM. Jeżeli zadana precyzja jest większa od aktualnej,
+     * to dokładane są wyzerowane bajty na najstarszych pozycjach. Jeżeli jest mniejsza
+     * od aktualnej, to liczba jest zaokrąglana przez obcięcie do zadanej prezycji. W wypadku,
+     * gdy zadana precyzja jest równa aktualnej; nic się nie zmieni.
+     * 
+     * @param precission nowa precyzja liczby
      */
     public: void set_precission(unsigned precission);
 
+
     /**
      * @brief 
-     * Optymalizuje ilośc bajtów zapisanych w module. Usuwa zbędne, zerowe bajty z jej początku.
-     * Jeżeli precyzja liczby jest większa od ilości jej bajtów, to oznacza to, że jest ona <1.
+     * Optymalizuje ilośc bajtów zapisanych w module. Usuwa zbędne, zerowe bajty z jego początku.
+     * Jeżeli precyzja liczby jest większa od ilości jej bajtów, to znaczy, że jest ona <1.
      * W takim wypadku metoda dokłada brakujące, zerowe bajty na najstarszych pozycjach.
      */
     private: void optimize();

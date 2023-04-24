@@ -32,16 +32,16 @@ Disassembly of section .text:
    140001069:	85 c0                	test   %eax,%eax
    14000106b:	74 43                	je     1400010b0 <pre_c_init+0xa0>
    14000106d:	b9 02 00 00 00       	mov    $0x2,%ecx
-   140001072:	e8 f1 64 00 00       	call   140007568 <__set_app_type>
-   140001077:	e8 74 64 00 00       	call   1400074f0 <__p__fmode>
+   140001072:	e8 61 6f 00 00       	call   140007fd8 <__set_app_type>
+   140001077:	e8 e4 6e 00 00       	call   140007f60 <__p__fmode>
    14000107c:	48 8b 15 8d 95 00 00 	mov    0x958d(%rip),%rdx        # 14000a610 <.refptr._fmode>
    140001083:	8b 12                	mov    (%rdx),%edx
    140001085:	89 10                	mov    %edx,(%rax)
-   140001087:	e8 74 64 00 00       	call   140007500 <__p__commode>
+   140001087:	e8 e4 6e 00 00       	call   140007f70 <__p__commode>
    14000108c:	48 8b 15 5d 95 00 00 	mov    0x955d(%rip),%rdx        # 14000a5f0 <.refptr._commode>
    140001093:	8b 12                	mov    (%rdx),%edx
    140001095:	89 10                	mov    %edx,(%rax)
-   140001097:	e8 74 54 00 00       	call   140006510 <_setargv>
+   140001097:	e8 e4 5e 00 00       	call   140006f80 <_setargv>
    14000109c:	48 8b 05 8d 93 00 00 	mov    0x938d(%rip),%rax        # 14000a430 <.refptr._MINGW_INSTALL_DEBUG_MATHERR>
    1400010a3:	83 38 01             	cmpl   $0x1,(%rax)
    1400010a6:	74 50                	je     1400010f8 <pre_c_init+0xe8>
@@ -50,7 +50,7 @@ Disassembly of section .text:
    1400010ae:	c3                   	ret
    1400010af:	90                   	nop
    1400010b0:	b9 01 00 00 00       	mov    $0x1,%ecx
-   1400010b5:	e8 ae 64 00 00       	call   140007568 <__set_app_type>
+   1400010b5:	e8 1e 6f 00 00       	call   140007fd8 <__set_app_type>
    1400010ba:	eb bb                	jmp    140001077 <pre_c_init+0x67>
    1400010bc:	0f 1f 40 00          	nopl   0x0(%rax)
    1400010c0:	0f b7 50 18          	movzwl 0x18(%rax),%edx
@@ -67,7 +67,7 @@ Disassembly of section .text:
    1400010ec:	e9 69 ff ff ff       	jmp    14000105a <pre_c_init+0x4a>
    1400010f1:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
    1400010f8:	48 8b 0d 31 95 00 00 	mov    0x9531(%rip),%rcx        # 14000a630 <.refptr._matherr>
-   1400010ff:	e8 7c 5b 00 00       	call   140006c80 <__mingw_setusermatherr>
+   1400010ff:	e8 ec 65 00 00       	call   1400076f0 <__mingw_setusermatherr>
    140001104:	31 c0                	xor    %eax,%eax
    140001106:	48 83 c4 28          	add    $0x28,%rsp
    14000110a:	c3                   	ret
@@ -93,7 +93,7 @@ Disassembly of section .text:
    14000115f:	44 8b 08             	mov    (%rax),%r9d
    140001162:	48 8d 05 9b be 00 00 	lea    0xbe9b(%rip),%rax        # 14000d004 <startinfo>
    140001169:	48 89 44 24 20       	mov    %rax,0x20(%rsp)
-   14000116e:	e8 e5 63 00 00       	call   140007558 <__getmainargs>
+   14000116e:	e8 55 6e 00 00       	call   140007fc8 <__getmainargs>
    140001173:	90                   	nop
    140001174:	48 83 c4 38          	add    $0x38,%rsp
    140001178:	c3                   	ret
@@ -145,20 +145,20 @@ Disassembly of section .text:
    14000121a:	ba 02 00 00 00       	mov    $0x2,%edx
    14000121f:	31 c9                	xor    %ecx,%ecx
    140001221:	ff d0                	call   *%rax
-   140001223:	e8 b8 56 00 00       	call   1400068e0 <_pei386_runtime_relocator>
+   140001223:	e8 28 61 00 00       	call   140007350 <_pei386_runtime_relocator>
    140001228:	48 8b 0d f1 93 00 00 	mov    0x93f1(%rip),%rcx        # 14000a620 <.refptr._gnu_exception_handler>
    14000122f:	ff 15 07 d1 00 00    	call   *0xd107(%rip)        # 14000e33c <__imp_SetUnhandledExceptionFilter>
    140001235:	48 8b 15 44 93 00 00 	mov    0x9344(%rip),%rdx        # 14000a580 <.refptr.__mingw_oldexcpt_handler>
    14000123c:	48 8d 0d bd fd ff ff 	lea    -0x243(%rip),%rcx        # 140001000 <__mingw_invalidParameterHandler>
    140001243:	48 89 02             	mov    %rax,(%rdx)
-   140001246:	e8 d5 62 00 00       	call   140007520 <_set_invalid_parameter_handler>
-   14000124b:	e8 a0 54 00 00       	call   1400066f0 <_fpreset>
+   140001246:	e8 45 6d 00 00       	call   140007f90 <_set_invalid_parameter_handler>
+   14000124b:	e8 10 5f 00 00       	call   140007160 <_fpreset>
    140001250:	8b 1d d2 bd 00 00    	mov    0xbdd2(%rip),%ebx        # 14000d028 <argc>
    140001256:	8d 7b 01             	lea    0x1(%rbx),%edi
    140001259:	48 63 ff             	movslq %edi,%rdi
    14000125c:	48 c1 e7 03          	shl    $0x3,%rdi
    140001260:	48 89 f9             	mov    %rdi,%rcx
-   140001263:	e8 60 63 00 00       	call   1400075c8 <malloc>
+   140001263:	e8 d0 6d 00 00       	call   140008038 <malloc>
    140001268:	4c 8b 25 b1 bd 00 00 	mov    0xbdb1(%rip),%r12        # 14000d020 <argv>
    14000126f:	48 89 c5             	mov    %rax,%rbp
    140001272:	85 db                	test   %ebx,%ebx
@@ -166,29 +166,29 @@ Disassembly of section .text:
    14000127a:	48 83 ef 08          	sub    $0x8,%rdi
    14000127e:	31 db                	xor    %ebx,%ebx
    140001280:	49 8b 0c 1c          	mov    (%r12,%rbx,1),%rcx
-   140001284:	e8 57 63 00 00       	call   1400075e0 <strlen>
+   140001284:	e8 c7 6d 00 00       	call   140008050 <strlen>
    140001289:	48 8d 70 01          	lea    0x1(%rax),%rsi
    14000128d:	48 89 f1             	mov    %rsi,%rcx
-   140001290:	e8 33 63 00 00       	call   1400075c8 <malloc>
+   140001290:	e8 a3 6d 00 00       	call   140008038 <malloc>
    140001295:	49 89 f0             	mov    %rsi,%r8
    140001298:	48 89 44 1d 00       	mov    %rax,0x0(%rbp,%rbx,1)
    14000129d:	49 8b 14 1c          	mov    (%r12,%rbx,1),%rdx
    1400012a1:	48 89 c1             	mov    %rax,%rcx
    1400012a4:	48 83 c3 08          	add    $0x8,%rbx
-   1400012a8:	e8 23 63 00 00       	call   1400075d0 <memcpy>
+   1400012a8:	e8 93 6d 00 00       	call   140008040 <memcpy>
    1400012ad:	48 39 df             	cmp    %rbx,%rdi
    1400012b0:	75 ce                	jne    140001280 <__tmainCRTStartup+0x100>
    1400012b2:	48 01 ef             	add    %rbp,%rdi
    1400012b5:	48 c7 07 00 00 00 00 	movq   $0x0,(%rdi)
    1400012bc:	48 89 2d 5d bd 00 00 	mov    %rbp,0xbd5d(%rip)        # 14000d020 <argv>
-   1400012c3:	e8 28 52 00 00       	call   1400064f0 <__main>
+   1400012c3:	e8 98 5c 00 00       	call   140006f60 <__main>
    1400012c8:	48 8b 05 41 92 00 00 	mov    0x9241(%rip),%rax        # 14000a510 <.refptr.__imp___initenv>
    1400012cf:	4c 8b 05 42 bd 00 00 	mov    0xbd42(%rip),%r8        # 14000d018 <envp>
    1400012d6:	8b 0d 4c bd 00 00    	mov    0xbd4c(%rip),%ecx        # 14000d028 <argc>
    1400012dc:	48 8b 00             	mov    (%rax),%rax
    1400012df:	4c 89 00             	mov    %r8,(%rax)
    1400012e2:	48 8b 15 37 bd 00 00 	mov    0xbd37(%rip),%rdx        # 14000d020 <argv>
-   1400012e9:	e8 d2 68 00 00       	call   140007bc0 <main>
+   1400012e9:	e8 42 73 00 00       	call   140008630 <main>
    1400012ee:	8b 0d 18 bd 00 00    	mov    0xbd18(%rip),%ecx        # 14000d00c <managedapp>
    1400012f4:	89 05 16 bd 00 00    	mov    %eax,0xbd16(%rip)        # 14000d010 <mainret>
    1400012fa:	85 c9                	test   %ecx,%ecx
@@ -211,13 +211,13 @@ Disassembly of section .text:
    14000132e:	83 f8 01             	cmp    $0x1,%eax
    140001331:	0f 85 aa fe ff ff    	jne    1400011e1 <__tmainCRTStartup+0x61>
    140001337:	b9 1f 00 00 00       	mov    $0x1f,%ecx
-   14000133c:	e8 37 62 00 00       	call   140007578 <_amsg_exit>
+   14000133c:	e8 a7 6c 00 00       	call   140007fe8 <_amsg_exit>
    140001341:	8b 06                	mov    (%rsi),%eax
    140001343:	83 f8 01             	cmp    $0x1,%eax
    140001346:	0f 85 b4 fe ff ff    	jne    140001200 <__tmainCRTStartup+0x80>
    14000134c:	48 8b 15 6d 92 00 00 	mov    0x926d(%rip),%rdx        # 14000a5c0 <.refptr.__xc_z>
    140001353:	48 8b 0d 56 92 00 00 	mov    0x9256(%rip),%rcx        # 14000a5b0 <.refptr.__xc_a>
-   14000135a:	e8 29 62 00 00       	call   140007588 <_initterm>
+   14000135a:	e8 99 6c 00 00       	call   140007ff8 <_initterm>
    14000135f:	c7 06 02 00 00 00    	movl   $0x2,(%rsi)
    140001365:	85 ff                	test   %edi,%edi
    140001367:	0f 85 9b fe ff ff    	jne    140001208 <__tmainCRTStartup+0x88>
@@ -226,7 +226,7 @@ Disassembly of section .text:
    140001372:	e9 91 fe ff ff       	jmp    140001208 <__tmainCRTStartup+0x88>
    140001377:	66 0f 1f 84 00 00 00 	nopw   0x0(%rax,%rax,1)
    14000137e:	00 00 
-   140001380:	e8 fb 61 00 00       	call   140007580 <_cexit>
+   140001380:	e8 6b 6c 00 00       	call   140007ff0 <_cexit>
    140001385:	8b 05 85 bc 00 00    	mov    0xbc85(%rip),%eax        # 14000d010 <mainret>
    14000138b:	48 83 c4 20          	add    $0x20,%rsp
    14000138f:	5b                   	pop    %rbx
@@ -240,13 +240,13 @@ Disassembly of section .text:
    1400013a0:	48 8b 15 39 92 00 00 	mov    0x9239(%rip),%rdx        # 14000a5e0 <.refptr.__xi_z>
    1400013a7:	48 8b 0d 22 92 00 00 	mov    0x9222(%rip),%rcx        # 14000a5d0 <.refptr.__xi_a>
    1400013ae:	c7 06 01 00 00 00    	movl   $0x1,(%rsi)
-   1400013b4:	e8 cf 61 00 00       	call   140007588 <_initterm>
+   1400013b4:	e8 3f 6c 00 00       	call   140007ff8 <_initterm>
    1400013b9:	e9 37 fe ff ff       	jmp    1400011f5 <__tmainCRTStartup+0x75>
    1400013be:	66 90                	xchg   %ax,%ax
    1400013c0:	48 89 c7             	mov    %rax,%rdi
    1400013c3:	e9 ed fe ff ff       	jmp    1400012b5 <__tmainCRTStartup+0x135>
    1400013c8:	89 c1                	mov    %eax,%ecx
-   1400013ca:	e8 d9 61 00 00       	call   1400075a8 <exit>
+   1400013ca:	e8 49 6c 00 00       	call   140008018 <exit>
    1400013cf:	90                   	nop
 
 00000001400013d0 <WinMainCRTStartup>:
@@ -281,7 +281,7 @@ Disassembly of section .text:
 
 0000000140001410 <atexit>:
    140001410:	48 83 ec 28          	sub    $0x28,%rsp
-   140001414:	e8 77 61 00 00       	call   140007590 <_onexit>
+   140001414:	e8 e7 6b 00 00       	call   140008000 <_onexit>
    140001419:	48 83 f8 01          	cmp    $0x1,%rax
    14000141d:	19 c0                	sbb    %eax,%eax
    14000141f:	48 83 c4 28          	add    $0x28,%rsp
@@ -324,7 +324,7 @@ Disassembly of section .text:
 
 0000000140001450 <__tcf_0>:
    140001450:	48 8d 0d da bb 00 00 	lea    0xbbda(%rip),%rcx        # 14000d031 <_ZStL8__ioinit>
-   140001457:	e9 34 4f 00 00       	jmp    140006390 <_ZNSt8ios_base4InitD1Ev>
+   140001457:	e9 a4 59 00 00       	jmp    140006e00 <_ZNSt8ios_base4InitD1Ev>
    14000145c:	0f 1f 40 00          	nopl   0x0(%rax)
 
 0000000140001460 <_ZN10Arithmetic3stcEv>:
@@ -476,20 +476,20 @@ Disassembly of section .text:
    140001625:	5d                   	pop    %rbp
    140001626:	c3                   	ret
    140001627:	b9 10 00 00 00       	mov    $0x10,%ecx
-   14000162c:	e8 0f 4d 00 00       	call   140006340 <__cxa_allocate_exception>
+   14000162c:	e8 7f 57 00 00       	call   140006db0 <__cxa_allocate_exception>
    140001631:	48 8d 15 c8 89 00 00 	lea    0x89c8(%rip),%rdx        # 14000a000 <.rdata>
    140001638:	48 89 c1             	mov    %rax,%rcx
    14000163b:	48 89 c3             	mov    %rax,%rbx
-   14000163e:	e8 cd 4d 00 00       	call   140006410 <_ZNSt13runtime_errorC1EPKc>
-   140001643:	4c 8d 05 be 4d 00 00 	lea    0x4dbe(%rip),%r8        # 140006408 <_ZNSt13runtime_errorD1Ev>
+   14000163e:	e8 3d 58 00 00       	call   140006e80 <_ZNSt13runtime_errorC1EPKc>
+   140001643:	4c 8d 05 2e 58 00 00 	lea    0x582e(%rip),%r8        # 140006e78 <_ZNSt13runtime_errorD1Ev>
    14000164a:	48 8d 15 1f 90 00 00 	lea    0x901f(%rip),%rdx        # 14000a670 <_ZTISt13runtime_error>
    140001651:	48 89 d9             	mov    %rbx,%rcx
-   140001654:	e8 bf 4c 00 00       	call   140006318 <__cxa_throw>
+   140001654:	e8 2f 57 00 00       	call   140006d88 <__cxa_throw>
    140001659:	48 89 c6             	mov    %rax,%rsi
    14000165c:	48 89 d9             	mov    %rbx,%rcx
-   14000165f:	e8 c4 4c 00 00       	call   140006328 <__cxa_free_exception>
+   14000165f:	e8 34 57 00 00       	call   140006d98 <__cxa_free_exception>
    140001664:	48 89 f1             	mov    %rsi,%rcx
-   140001667:	e8 34 5e 00 00       	call   1400074a0 <_Unwind_Resume>
+   140001667:	e8 a4 68 00 00       	call   140007f10 <_Unwind_Resume>
    14000166c:	90                   	nop
    14000166d:	90                   	nop
    14000166e:	90                   	nop
@@ -497,7 +497,7 @@ Disassembly of section .text:
 
 0000000140001670 <__tcf_0>:
    140001670:	48 8d 0d c9 b9 00 00 	lea    0xb9c9(%rip),%rcx        # 14000d040 <_ZStL8__ioinit>
-   140001677:	e9 14 4d 00 00       	jmp    140006390 <_ZNSt8ios_base4InitD1Ev>
+   140001677:	e9 84 57 00 00       	jmp    140006e00 <_ZNSt8ios_base4InitD1Ev>
    14000167c:	0f 1f 40 00          	nopl   0x0(%rax)
 
 0000000140001680 <_ZN4ByteC1Ey>:
@@ -512,20 +512,20 @@ Disassembly of section .text:
    140001696:	5e                   	pop    %rsi
    140001697:	c3                   	ret
    140001698:	b9 10 00 00 00       	mov    $0x10,%ecx
-   14000169d:	e8 9e 4c 00 00       	call   140006340 <__cxa_allocate_exception>
+   14000169d:	e8 0e 57 00 00       	call   140006db0 <__cxa_allocate_exception>
    1400016a2:	48 8d 15 67 89 00 00 	lea    0x8967(%rip),%rdx        # 14000a010 <.rdata>
    1400016a9:	48 89 c1             	mov    %rax,%rcx
    1400016ac:	48 89 c3             	mov    %rax,%rbx
-   1400016af:	e8 4c 4d 00 00       	call   140006400 <_ZNSt16invalid_argumentC1EPKc>
-   1400016b4:	4c 8d 05 3d 4d 00 00 	lea    0x4d3d(%rip),%r8        # 1400063f8 <_ZNSt16invalid_argumentD1Ev>
+   1400016af:	e8 bc 57 00 00       	call   140006e70 <_ZNSt16invalid_argumentC1EPKc>
+   1400016b4:	4c 8d 05 ad 57 00 00 	lea    0x57ad(%rip),%r8        # 140006e68 <_ZNSt16invalid_argumentD1Ev>
    1400016bb:	48 8d 15 ce 8f 00 00 	lea    0x8fce(%rip),%rdx        # 14000a690 <_ZTISt16invalid_argument>
    1400016c2:	48 89 d9             	mov    %rbx,%rcx
-   1400016c5:	e8 4e 4c 00 00       	call   140006318 <__cxa_throw>
+   1400016c5:	e8 be 56 00 00       	call   140006d88 <__cxa_throw>
    1400016ca:	48 89 c6             	mov    %rax,%rsi
    1400016cd:	48 89 d9             	mov    %rbx,%rcx
-   1400016d0:	e8 53 4c 00 00       	call   140006328 <__cxa_free_exception>
+   1400016d0:	e8 c3 56 00 00       	call   140006d98 <__cxa_free_exception>
    1400016d5:	48 89 f1             	mov    %rsi,%rcx
-   1400016d8:	e8 c3 5d 00 00       	call   1400074a0 <_Unwind_Resume>
+   1400016d8:	e8 33 68 00 00       	call   140007f10 <_Unwind_Resume>
    1400016dd:	90                   	nop
    1400016de:	66 90                	xchg   %ax,%ax
 
@@ -542,20 +542,20 @@ Disassembly of section .text:
    1400016fc:	5e                   	pop    %rsi
    1400016fd:	c3                   	ret
    1400016fe:	b9 10 00 00 00       	mov    $0x10,%ecx
-   140001703:	e8 38 4c 00 00       	call   140006340 <__cxa_allocate_exception>
+   140001703:	e8 a8 56 00 00       	call   140006db0 <__cxa_allocate_exception>
    140001708:	48 8d 15 01 89 00 00 	lea    0x8901(%rip),%rdx        # 14000a010 <.rdata>
    14000170f:	48 89 c1             	mov    %rax,%rcx
    140001712:	48 89 c3             	mov    %rax,%rbx
-   140001715:	e8 e6 4c 00 00       	call   140006400 <_ZNSt16invalid_argumentC1EPKc>
-   14000171a:	4c 8d 05 d7 4c 00 00 	lea    0x4cd7(%rip),%r8        # 1400063f8 <_ZNSt16invalid_argumentD1Ev>
+   140001715:	e8 56 57 00 00       	call   140006e70 <_ZNSt16invalid_argumentC1EPKc>
+   14000171a:	4c 8d 05 47 57 00 00 	lea    0x5747(%rip),%r8        # 140006e68 <_ZNSt16invalid_argumentD1Ev>
    140001721:	48 8d 15 68 8f 00 00 	lea    0x8f68(%rip),%rdx        # 14000a690 <_ZTISt16invalid_argument>
    140001728:	48 89 d9             	mov    %rbx,%rcx
-   14000172b:	e8 e8 4b 00 00       	call   140006318 <__cxa_throw>
+   14000172b:	e8 58 56 00 00       	call   140006d88 <__cxa_throw>
    140001730:	48 89 c6             	mov    %rax,%rsi
    140001733:	48 89 d9             	mov    %rbx,%rcx
-   140001736:	e8 ed 4b 00 00       	call   140006328 <__cxa_free_exception>
+   140001736:	e8 5d 56 00 00       	call   140006d98 <__cxa_free_exception>
    14000173b:	48 89 f1             	mov    %rsi,%rcx
-   14000173e:	e8 5d 5d 00 00       	call   1400074a0 <_Unwind_Resume>
+   14000173e:	e8 cd 67 00 00       	call   140007f10 <_Unwind_Resume>
    140001743:	90                   	nop
    140001744:	90                   	nop
    140001745:	90                   	nop
@@ -572,7 +572,7 @@ Disassembly of section .text:
 
 0000000140001750 <__tcf_0>:
    140001750:	48 8d 0d f9 b8 00 00 	lea    0xb8f9(%rip),%rcx        # 14000d050 <_ZStL8__ioinit>
-   140001757:	e9 34 4c 00 00       	jmp    140006390 <_ZNSt8ios_base4InitD1Ev>
+   140001757:	e9 a4 56 00 00       	jmp    140006e00 <_ZNSt8ios_base4InitD1Ev>
    14000175c:	90                   	nop
    14000175d:	90                   	nop
    14000175e:	90                   	nop
@@ -580,7 +580,7 @@ Disassembly of section .text:
 
 0000000140001760 <__tcf_0>:
    140001760:	48 8d 0d f9 b8 00 00 	lea    0xb8f9(%rip),%rcx        # 14000d060 <_ZStL8__ioinit>
-   140001767:	e9 24 4c 00 00       	jmp    140006390 <_ZNSt8ios_base4InitD1Ev>
+   140001767:	e9 94 56 00 00       	jmp    140006e00 <_ZNSt8ios_base4InitD1Ev>
    14000176c:	0f 1f 40 00          	nopl   0x0(%rax)
 
 0000000140001770 <_ZNSt7__cxx114listI4ByteSaIS1_EEaSERKS3_.part.0>:
@@ -615,10 +615,10 @@ Disassembly of section .text:
    1400017bb:	48 8b 1b             	mov    (%rbx),%rbx
    1400017be:	48 83 6f 10 01       	subq   $0x1,0x10(%rdi)
    1400017c3:	48 89 f1             	mov    %rsi,%rcx
-   1400017c6:	e8 d5 4b 00 00       	call   1400063a0 <_ZNSt8__detail15_List_node_base9_M_unhookEv>
+   1400017c6:	e8 45 56 00 00       	call   140006e10 <_ZNSt8__detail15_List_node_base9_M_unhookEv>
    1400017cb:	ba 18 00 00 00       	mov    $0x18,%edx
    1400017d0:	48 89 f1             	mov    %rsi,%rcx
-   1400017d3:	e8 78 4b 00 00       	call   140006350 <_ZdlPvy>
+   1400017d3:	e8 e8 55 00 00       	call   140006dc0 <_ZdlPvy>
    1400017d8:	48 39 df             	cmp    %rbx,%rdi
    1400017db:	75 db                	jne    1400017b8 <_ZNSt7__cxx114listI4ByteSaIS1_EEaSERKS3_.part.0+0x48>
    1400017dd:	48 83 c4 40          	add    $0x40,%rsp
@@ -639,12 +639,12 @@ Disassembly of section .text:
    140001808:	66 0f 6c c0          	punpcklqdq %xmm0,%xmm0
    14000180c:	0f 11 44 24 20       	movups %xmm0,0x20(%rsp)
    140001811:	b9 18 00 00 00       	mov    $0x18,%ecx
-   140001816:	e8 2d 4b 00 00       	call   140006348 <_Znwy>
+   140001816:	e8 9d 55 00 00       	call   140006db8 <_Znwy>
    14000181b:	48 89 c1             	mov    %rax,%rcx
    14000181e:	0f b6 46 10          	movzbl 0x10(%rsi),%eax
    140001822:	4c 89 e2             	mov    %r12,%rdx
    140001825:	88 41 10             	mov    %al,0x10(%rcx)
-   140001828:	e8 7b 4b 00 00       	call   1400063a8 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
+   140001828:	e8 eb 55 00 00       	call   140006e18 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
    14000182d:	48 8b 36             	mov    (%rsi),%rsi
    140001830:	48 83 44 24 30 01    	addq   $0x1,0x30(%rsp)
    140001836:	48 39 f5             	cmp    %rsi,%rbp
@@ -654,7 +654,7 @@ Disassembly of section .text:
    140001843:	74 98                	je     1400017dd <_ZNSt7__cxx114listI4ByteSaIS1_EEaSERKS3_.part.0+0x6d>
    140001845:	4d 89 e0             	mov    %r12,%r8
    140001848:	48 89 f9             	mov    %rdi,%rcx
-   14000184b:	e8 60 4b 00 00       	call   1400063b0 <_ZNSt8__detail15_List_node_base11_M_transferEPS0_S1_>
+   14000184b:	e8 d0 55 00 00       	call   140006e20 <_ZNSt8__detail15_List_node_base11_M_transferEPS0_S1_>
    140001850:	48 8b 5c 24 20       	mov    0x20(%rsp),%rbx
    140001855:	48 8b 44 24 30       	mov    0x30(%rsp),%rax
    14000185a:	48 c7 44 24 30 00 00 	movq   $0x0,0x30(%rsp)
@@ -665,7 +665,7 @@ Disassembly of section .text:
    140001870:	48 89 d9             	mov    %rbx,%rcx
    140001873:	48 8b 1b             	mov    (%rbx),%rbx
    140001876:	ba 18 00 00 00       	mov    $0x18,%edx
-   14000187b:	e8 d0 4a 00 00       	call   140006350 <_ZdlPvy>
+   14000187b:	e8 40 55 00 00       	call   140006dc0 <_ZdlPvy>
    140001880:	4c 39 e3             	cmp    %r12,%rbx
    140001883:	75 eb                	jne    140001870 <_ZNSt7__cxx114listI4ByteSaIS1_EEaSERKS3_.part.0+0x100>
    140001885:	48 83 c4 40          	add    $0x40,%rsp
@@ -681,11 +681,11 @@ Disassembly of section .text:
    14000189b:	74 12                	je     1400018af <_ZNSt7__cxx114listI4ByteSaIS1_EEaSERKS3_.part.0+0x13f>
    14000189d:	48 8b 31             	mov    (%rcx),%rsi
    1400018a0:	ba 18 00 00 00       	mov    $0x18,%edx
-   1400018a5:	e8 a6 4a 00 00       	call   140006350 <_ZdlPvy>
+   1400018a5:	e8 16 55 00 00       	call   140006dc0 <_ZdlPvy>
    1400018aa:	48 89 f1             	mov    %rsi,%rcx
    1400018ad:	eb e9                	jmp    140001898 <_ZNSt7__cxx114listI4ByteSaIS1_EEaSERKS3_.part.0+0x128>
    1400018af:	48 89 d9             	mov    %rbx,%rcx
-   1400018b2:	e8 e9 5b 00 00       	call   1400074a0 <_Unwind_Resume>
+   1400018b2:	e8 59 66 00 00       	call   140007f10 <_Unwind_Resume>
    1400018b7:	90                   	nop
    1400018b8:	0f 1f 84 00 00 00 00 	nopl   0x0(%rax,%rax,1)
    1400018bf:	00 
@@ -705,12 +705,12 @@ Disassembly of section .text:
    1400018e0:	48 8d 4c 24 2f       	lea    0x2f(%rsp),%rcx
    1400018e5:	e8 96 fd ff ff       	call   140001680 <_ZN4ByteC1Ey>
    1400018ea:	b9 18 00 00 00       	mov    $0x18,%ecx
-   1400018ef:	e8 54 4a 00 00       	call   140006348 <_Znwy>
+   1400018ef:	e8 c4 54 00 00       	call   140006db8 <_Znwy>
    1400018f4:	48 89 c1             	mov    %rax,%rcx
    1400018f7:	0f b6 44 24 2f       	movzbl 0x2f(%rsp),%eax
    1400018fc:	48 89 da             	mov    %rbx,%rdx
    1400018ff:	88 41 10             	mov    %al,0x10(%rcx)
-   140001902:	e8 a1 4a 00 00       	call   1400063a8 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
+   140001902:	e8 11 55 00 00       	call   140006e18 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
    140001907:	48 83 43 10 01       	addq   $0x1,0x10(%rbx)
    14000190c:	48 83 c4 30          	add    $0x30,%rsp
    140001910:	5b                   	pop    %rbx
@@ -723,11 +723,11 @@ Disassembly of section .text:
    14000191d:	74 12                	je     140001931 <_ZN13NaturalBinaryC2Ex.constprop.0+0x71>
    14000191f:	48 8b 31             	mov    (%rcx),%rsi
    140001922:	ba 18 00 00 00       	mov    $0x18,%edx
-   140001927:	e8 24 4a 00 00       	call   140006350 <_ZdlPvy>
+   140001927:	e8 94 54 00 00       	call   140006dc0 <_ZdlPvy>
    14000192c:	48 89 f1             	mov    %rsi,%rcx
    14000192f:	eb e9                	jmp    14000191a <_ZN13NaturalBinaryC2Ex.constprop.0+0x5a>
    140001931:	48 89 f9             	mov    %rdi,%rcx
-   140001934:	e8 67 5b 00 00       	call   1400074a0 <_Unwind_Resume>
+   140001934:	e8 d7 65 00 00       	call   140007f10 <_Unwind_Resume>
    140001939:	90                   	nop
    14000193a:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
 
@@ -762,12 +762,12 @@ Disassembly of section .text:
    140001995:	48 29 c2             	sub    %rax,%rdx
    140001998:	e8 e3 fc ff ff       	call   140001680 <_ZN4ByteC1Ey>
    14000199d:	b9 18 00 00 00       	mov    $0x18,%ecx
-   1400019a2:	e8 a1 49 00 00       	call   140006348 <_Znwy>
+   1400019a2:	e8 11 54 00 00       	call   140006db8 <_Znwy>
    1400019a7:	48 89 c1             	mov    %rax,%rcx
    1400019aa:	0f b6 44 24 2f       	movzbl 0x2f(%rsp),%eax
    1400019af:	48 89 f2             	mov    %rsi,%rdx
    1400019b2:	88 41 10             	mov    %al,0x10(%rcx)
-   1400019b5:	e8 ee 49 00 00       	call   1400063a8 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
+   1400019b5:	e8 5e 54 00 00       	call   140006e18 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
    1400019ba:	48 83 46 10 01       	addq   $0x1,0x10(%rsi)
    1400019bf:	48 85 db             	test   %rbx,%rbx
    1400019c2:	48 8d 83 ff 00 00 00 	lea    0xff(%rbx),%rax
@@ -784,12 +784,12 @@ Disassembly of section .text:
    1400019e2:	48 89 f9             	mov    %rdi,%rcx
    1400019e5:	e8 96 fc ff ff       	call   140001680 <_ZN4ByteC1Ey>
    1400019ea:	b9 18 00 00 00       	mov    $0x18,%ecx
-   1400019ef:	e8 54 49 00 00       	call   140006348 <_Znwy>
+   1400019ef:	e8 c4 53 00 00       	call   140006db8 <_Znwy>
    1400019f4:	48 89 c1             	mov    %rax,%rcx
    1400019f7:	0f b6 44 24 2f       	movzbl 0x2f(%rsp),%eax
    1400019fc:	48 89 f2             	mov    %rsi,%rdx
    1400019ff:	88 41 10             	mov    %al,0x10(%rcx)
-   140001a02:	e8 a1 49 00 00       	call   1400063a8 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
+   140001a02:	e8 11 54 00 00       	call   140006e18 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
    140001a07:	48 83 46 10 01       	addq   $0x1,0x10(%rsi)
    140001a0c:	48 83 c4 30          	add    $0x30,%rsp
    140001a10:	5b                   	pop    %rbx
@@ -802,11 +802,11 @@ Disassembly of section .text:
    140001a1d:	74 12                	je     140001a31 <_ZN13NaturalBinaryC1Ex+0xe1>
    140001a1f:	48 8b 39             	mov    (%rcx),%rdi
    140001a22:	ba 18 00 00 00       	mov    $0x18,%edx
-   140001a27:	e8 24 49 00 00       	call   140006350 <_ZdlPvy>
+   140001a27:	e8 94 53 00 00       	call   140006dc0 <_ZdlPvy>
    140001a2c:	48 89 f9             	mov    %rdi,%rcx
    140001a2f:	eb e9                	jmp    140001a1a <_ZN13NaturalBinaryC1Ex+0xca>
    140001a31:	48 89 d9             	mov    %rbx,%rcx
-   140001a34:	e8 67 5a 00 00       	call   1400074a0 <_Unwind_Resume>
+   140001a34:	e8 d7 64 00 00       	call   140007f10 <_Unwind_Resume>
    140001a39:	90                   	nop
    140001a3a:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
 
@@ -833,11 +833,11 @@ Disassembly of section .text:
    140001a78:	4c 8b 26             	mov    (%rsi),%r12
    140001a7b:	b9 18 00 00 00       	mov    $0x18,%ecx
    140001a80:	0f b6 6b 10          	movzbl 0x10(%rbx),%ebp
-   140001a84:	e8 bf 48 00 00       	call   140006348 <_Znwy>
+   140001a84:	e8 2f 53 00 00       	call   140006db8 <_Znwy>
    140001a89:	40 88 68 10          	mov    %bpl,0x10(%rax)
    140001a8d:	48 89 c1             	mov    %rax,%rcx
    140001a90:	4c 89 e2             	mov    %r12,%rdx
-   140001a93:	e8 10 49 00 00       	call   1400063a8 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
+   140001a93:	e8 80 53 00 00       	call   140006e18 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
    140001a98:	48 8b 1b             	mov    (%rbx),%rbx
    140001a9b:	48 83 46 10 01       	addq   $0x1,0x10(%rsi)
    140001aa0:	48 39 df             	cmp    %rbx,%rdi
@@ -855,11 +855,11 @@ Disassembly of section .text:
    140001ab9:	74 12                	je     140001acd <_ZN13NaturalBinaryC1ENSt7__cxx114listI4ByteSaIS2_EEE+0x8d>
    140001abb:	48 8b 39             	mov    (%rcx),%rdi
    140001abe:	ba 18 00 00 00       	mov    $0x18,%edx
-   140001ac3:	e8 88 48 00 00       	call   140006350 <_ZdlPvy>
+   140001ac3:	e8 f8 52 00 00       	call   140006dc0 <_ZdlPvy>
    140001ac8:	48 89 f9             	mov    %rdi,%rcx
    140001acb:	eb e9                	jmp    140001ab6 <_ZN13NaturalBinaryC1ENSt7__cxx114listI4ByteSaIS2_EEE+0x76>
    140001acd:	48 89 d9             	mov    %rbx,%rcx
-   140001ad0:	e8 cb 59 00 00       	call   1400074a0 <_Unwind_Resume>
+   140001ad0:	e8 3b 64 00 00       	call   140007f10 <_Unwind_Resume>
    140001ad5:	90                   	nop
    140001ad6:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
    140001add:	00 00 00 
@@ -876,7 +876,7 @@ Disassembly of section .text:
    140001af8:	48 89 d9             	mov    %rbx,%rcx
    140001afb:	48 8b 1b             	mov    (%rbx),%rbx
    140001afe:	ba 18 00 00 00       	mov    $0x18,%edx
-   140001b03:	e8 48 48 00 00       	call   140006350 <_ZdlPvy>
+   140001b03:	e8 b8 52 00 00       	call   140006dc0 <_ZdlPvy>
    140001b08:	48 39 f3             	cmp    %rsi,%rbx
    140001b0b:	75 eb                	jne    140001af8 <_ZN13NaturalBinaryD1Ev+0x18>
    140001b0d:	48 83 c4 28          	add    $0x28,%rsp
@@ -913,12 +913,12 @@ Disassembly of section .text:
    140001b66:	0f 84 cc 01 00 00    	je     140001d38 <_ZN13NaturalBinaryplES_+0x218>
    140001b6c:	0f 1f 40 00          	nopl   0x0(%rax)
    140001b70:	b9 18 00 00 00       	mov    $0x18,%ecx
-   140001b75:	e8 ce 47 00 00       	call   140006348 <_Znwy>
+   140001b75:	e8 3e 52 00 00       	call   140006db8 <_Znwy>
    140001b7a:	48 89 c1             	mov    %rax,%rcx
    140001b7d:	0f b6 43 10          	movzbl 0x10(%rbx),%eax
    140001b81:	48 89 ea             	mov    %rbp,%rdx
    140001b84:	88 41 10             	mov    %al,0x10(%rcx)
-   140001b87:	e8 1c 48 00 00       	call   1400063a8 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
+   140001b87:	e8 8c 52 00 00       	call   140006e18 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
    140001b8c:	48 8b 1b             	mov    (%rbx),%rbx
    140001b8f:	48 83 44 24 30 01    	addq   $0x1,0x30(%rsp)
    140001b95:	48 39 de             	cmp    %rbx,%rsi
@@ -941,11 +941,11 @@ Disassembly of section .text:
    140001bde:	b9 18 00 00 00       	mov    $0x18,%ecx
    140001be3:	4c 8b 74 24 40       	mov    0x40(%rsp),%r14
    140001be8:	89 c6                	mov    %eax,%esi
-   140001bea:	e8 59 47 00 00       	call   140006348 <_Znwy>
+   140001bea:	e8 c9 51 00 00       	call   140006db8 <_Znwy>
    140001bef:	40 88 70 10          	mov    %sil,0x10(%rax)
    140001bf3:	48 89 c1             	mov    %rax,%rcx
    140001bf6:	4c 89 f2             	mov    %r14,%rdx
-   140001bf9:	e8 aa 47 00 00       	call   1400063a8 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
+   140001bf9:	e8 1a 52 00 00       	call   140006e18 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
    140001bfe:	48 8b 1b             	mov    (%rbx),%rbx
    140001c01:	48 83 44 24 50 01    	addq   $0x1,0x50(%rsp)
    140001c07:	4d 8b 6d 00          	mov    0x0(%r13),%r13
@@ -982,11 +982,11 @@ Disassembly of section .text:
    140001c88:	4c 8b 2f             	mov    (%rdi),%r13
    140001c8b:	b9 18 00 00 00       	mov    $0x18,%ecx
    140001c90:	44 0f b6 63 10       	movzbl 0x10(%rbx),%r12d
-   140001c95:	e8 ae 46 00 00       	call   140006348 <_Znwy>
+   140001c95:	e8 1e 51 00 00       	call   140006db8 <_Znwy>
    140001c9a:	44 88 60 10          	mov    %r12b,0x10(%rax)
    140001c9e:	48 89 c1             	mov    %rax,%rcx
    140001ca1:	4c 89 ea             	mov    %r13,%rdx
-   140001ca4:	e8 ff 46 00 00       	call   1400063a8 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
+   140001ca4:	e8 6f 51 00 00       	call   140006e18 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
    140001ca9:	48 8b 1b             	mov    (%rbx),%rbx
    140001cac:	48 83 47 10 01       	addq   $0x1,0x10(%rdi)
    140001cb1:	48 39 f3             	cmp    %rsi,%rbx
@@ -997,7 +997,7 @@ Disassembly of section .text:
    140001cc0:	4c 89 e1             	mov    %r12,%rcx
    140001cc3:	4d 8b 24 24          	mov    (%r12),%r12
    140001cc7:	ba 18 00 00 00       	mov    $0x18,%edx
-   140001ccc:	e8 7f 46 00 00       	call   140006350 <_ZdlPvy>
+   140001ccc:	e8 ef 50 00 00       	call   140006dc0 <_ZdlPvy>
    140001cd1:	49 39 f4             	cmp    %rsi,%r12
    140001cd4:	75 ea                	jne    140001cc0 <_ZN13NaturalBinaryplES_+0x1a0>
    140001cd6:	48 8b 5c 24 40       	mov    0x40(%rsp),%rbx
@@ -1006,7 +1006,7 @@ Disassembly of section .text:
    140001ce0:	48 89 d9             	mov    %rbx,%rcx
    140001ce3:	ba 18 00 00 00       	mov    $0x18,%edx
    140001ce8:	48 8b 1b             	mov    (%rbx),%rbx
-   140001ceb:	e8 60 46 00 00       	call   140006350 <_ZdlPvy>
+   140001ceb:	e8 d0 50 00 00       	call   140006dc0 <_ZdlPvy>
    140001cf0:	4c 39 fb             	cmp    %r15,%rbx
    140001cf3:	75 eb                	jne    140001ce0 <_ZN13NaturalBinaryplES_+0x1c0>
    140001cf5:	48 8b 5c 24 20       	mov    0x20(%rsp),%rbx
@@ -1016,7 +1016,7 @@ Disassembly of section .text:
    140001d00:	48 89 d9             	mov    %rbx,%rcx
    140001d03:	48 8b 1b             	mov    (%rbx),%rbx
    140001d06:	ba 18 00 00 00       	mov    $0x18,%edx
-   140001d0b:	e8 40 46 00 00       	call   140006350 <_ZdlPvy>
+   140001d0b:	e8 b0 50 00 00       	call   140006dc0 <_ZdlPvy>
    140001d10:	48 39 eb             	cmp    %rbp,%rbx
    140001d13:	75 eb                	jne    140001d00 <_ZN13NaturalBinaryplES_+0x1e0>
    140001d15:	0f 10 b4 24 80 00 00 	movups 0x80(%rsp),%xmm6
@@ -1040,12 +1040,12 @@ Disassembly of section .text:
    140001d4a:	e8 31 f9 ff ff       	call   140001680 <_ZN4ByteC1Ey>
    140001d4f:	b9 18 00 00 00       	mov    $0x18,%ecx
    140001d54:	48 8b 5c 24 40       	mov    0x40(%rsp),%rbx
-   140001d59:	e8 ea 45 00 00       	call   140006348 <_Znwy>
+   140001d59:	e8 5a 50 00 00       	call   140006db8 <_Znwy>
    140001d5e:	48 89 c1             	mov    %rax,%rcx
    140001d61:	0f b6 44 24 60       	movzbl 0x60(%rsp),%eax
    140001d66:	48 89 da             	mov    %rbx,%rdx
    140001d69:	88 41 10             	mov    %al,0x10(%rcx)
-   140001d6c:	e8 37 46 00 00       	call   1400063a8 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
+   140001d6c:	e8 a7 50 00 00       	call   140006e18 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
    140001d71:	48 8b 44 24 50       	mov    0x50(%rsp),%rax
    140001d76:	48 83 c0 01          	add    $0x1,%rax
    140001d7a:	48 89 44 24 50       	mov    %rax,0x50(%rsp)
@@ -1063,7 +1063,7 @@ Disassembly of section .text:
    140001daa:	74 62                	je     140001e0e <_ZN13NaturalBinaryplES_+0x2ee>
    140001dac:	4c 8b 21             	mov    (%rcx),%r12
    140001daf:	ba 18 00 00 00       	mov    $0x18,%edx
-   140001db4:	e8 97 45 00 00       	call   140006350 <_ZdlPvy>
+   140001db4:	e8 07 50 00 00       	call   140006dc0 <_ZdlPvy>
    140001db9:	4c 89 e1             	mov    %r12,%rcx
    140001dbc:	eb e9                	jmp    140001da7 <_ZN13NaturalBinaryplES_+0x287>
    140001dbe:	48 89 c3             	mov    %rax,%rbx
@@ -1072,7 +1072,7 @@ Disassembly of section .text:
    140001dc9:	74 31                	je     140001dfc <_ZN13NaturalBinaryplES_+0x2dc>
    140001dcb:	48 8b 31             	mov    (%rcx),%rsi
    140001dce:	ba 18 00 00 00       	mov    $0x18,%edx
-   140001dd3:	e8 78 45 00 00       	call   140006350 <_ZdlPvy>
+   140001dd3:	e8 e8 4f 00 00       	call   140006dc0 <_ZdlPvy>
    140001dd8:	48 89 f1             	mov    %rsi,%rcx
    140001ddb:	eb e9                	jmp    140001dc6 <_ZN13NaturalBinaryplES_+0x2a6>
    140001ddd:	48 8b 4c 24 20       	mov    0x20(%rsp),%rcx
@@ -1081,25 +1081,25 @@ Disassembly of section .text:
    140001de8:	74 1c                	je     140001e06 <_ZN13NaturalBinaryplES_+0x2e6>
    140001dea:	48 8b 31             	mov    (%rcx),%rsi
    140001ded:	ba 18 00 00 00       	mov    $0x18,%edx
-   140001df2:	e8 59 45 00 00       	call   140006350 <_ZdlPvy>
+   140001df2:	e8 c9 4f 00 00       	call   140006dc0 <_ZdlPvy>
    140001df7:	48 89 f1             	mov    %rsi,%rcx
    140001dfa:	eb e9                	jmp    140001de5 <_ZN13NaturalBinaryplES_+0x2c5>
    140001dfc:	48 8b 4c 24 20       	mov    0x20(%rsp),%rcx
    140001e01:	48 39 e9             	cmp    %rbp,%rcx
    140001e04:	75 24                	jne    140001e2a <_ZN13NaturalBinaryplES_+0x30a>
    140001e06:	48 89 d9             	mov    %rbx,%rcx
-   140001e09:	e8 92 56 00 00       	call   1400074a0 <_Unwind_Resume>
+   140001e09:	e8 02 61 00 00       	call   140007f10 <_Unwind_Resume>
    140001e0e:	48 8b 4c 24 60       	mov    0x60(%rsp),%rcx
    140001e13:	48 39 f1             	cmp    %rsi,%rcx
    140001e16:	74 a9                	je     140001dc1 <_ZN13NaturalBinaryplES_+0x2a1>
    140001e18:	48 8b 39             	mov    (%rcx),%rdi
    140001e1b:	ba 18 00 00 00       	mov    $0x18,%edx
-   140001e20:	e8 2b 45 00 00       	call   140006350 <_ZdlPvy>
+   140001e20:	e8 9b 4f 00 00       	call   140006dc0 <_ZdlPvy>
    140001e25:	48 89 f9             	mov    %rdi,%rcx
    140001e28:	eb e9                	jmp    140001e13 <_ZN13NaturalBinaryplES_+0x2f3>
    140001e2a:	48 8b 31             	mov    (%rcx),%rsi
    140001e2d:	ba 18 00 00 00       	mov    $0x18,%edx
-   140001e32:	e8 19 45 00 00       	call   140006350 <_ZdlPvy>
+   140001e32:	e8 89 4f 00 00       	call   140006dc0 <_ZdlPvy>
    140001e37:	48 89 f1             	mov    %rsi,%rcx
    140001e3a:	eb c5                	jmp    140001e01 <_ZN13NaturalBinaryplES_+0x2e1>
    140001e3c:	0f 1f 40 00          	nopl   0x0(%rax)
@@ -1131,12 +1131,12 @@ Disassembly of section .text:
    140001e88:	0f 1f 84 00 00 00 00 	nopl   0x0(%rax,%rax,1)
    140001e8f:	00 
    140001e90:	b9 18 00 00 00       	mov    $0x18,%ecx
-   140001e95:	e8 ae 44 00 00       	call   140006348 <_Znwy>
+   140001e95:	e8 1e 4f 00 00       	call   140006db8 <_Znwy>
    140001e9a:	48 89 c1             	mov    %rax,%rcx
    140001e9d:	0f b6 43 10          	movzbl 0x10(%rbx),%eax
    140001ea1:	4c 89 e2             	mov    %r12,%rdx
    140001ea4:	88 41 10             	mov    %al,0x10(%rcx)
-   140001ea7:	e8 fc 44 00 00       	call   1400063a8 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
+   140001ea7:	e8 6c 4f 00 00       	call   140006e18 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
    140001eac:	48 8b 1b             	mov    (%rbx),%rbx
    140001eaf:	48 83 44 24 30 01    	addq   $0x1,0x30(%rsp)
    140001eb5:	48 39 de             	cmp    %rbx,%rsi
@@ -1160,11 +1160,11 @@ Disassembly of section .text:
    140001efd:	b9 18 00 00 00       	mov    $0x18,%ecx
    140001f02:	4c 8b 74 24 40       	mov    0x40(%rsp),%r14
    140001f07:	89 c7                	mov    %eax,%edi
-   140001f09:	e8 3a 44 00 00       	call   140006348 <_Znwy>
+   140001f09:	e8 aa 4e 00 00       	call   140006db8 <_Znwy>
    140001f0e:	40 88 78 10          	mov    %dil,0x10(%rax)
    140001f12:	48 89 c1             	mov    %rax,%rcx
    140001f15:	4c 89 f2             	mov    %r14,%rdx
-   140001f18:	e8 8b 44 00 00       	call   1400063a8 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
+   140001f18:	e8 fb 4e 00 00       	call   140006e18 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
    140001f1d:	48 8b 36             	mov    (%rsi),%rsi
    140001f20:	48 83 44 24 50 01    	addq   $0x1,0x50(%rsp)
    140001f26:	48 8b 1b             	mov    (%rbx),%rbx
@@ -1201,11 +1201,11 @@ Disassembly of section .text:
    140001fa8:	4c 8b 6d 00          	mov    0x0(%rbp),%r13
    140001fac:	b9 18 00 00 00       	mov    $0x18,%ecx
    140001fb1:	0f b6 7b 10          	movzbl 0x10(%rbx),%edi
-   140001fb5:	e8 8e 43 00 00       	call   140006348 <_Znwy>
+   140001fb5:	e8 fe 4d 00 00       	call   140006db8 <_Znwy>
    140001fba:	40 88 78 10          	mov    %dil,0x10(%rax)
    140001fbe:	48 89 c1             	mov    %rax,%rcx
    140001fc1:	4c 89 ea             	mov    %r13,%rdx
-   140001fc4:	e8 df 43 00 00       	call   1400063a8 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
+   140001fc4:	e8 4f 4e 00 00       	call   140006e18 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
    140001fc9:	48 8b 1b             	mov    (%rbx),%rbx
    140001fcc:	48 83 45 10 01       	addq   $0x1,0x10(%rbp)
    140001fd1:	48 39 f3             	cmp    %rsi,%rbx
@@ -1216,7 +1216,7 @@ Disassembly of section .text:
    140001fe0:	48 89 f9             	mov    %rdi,%rcx
    140001fe3:	48 8b 3f             	mov    (%rdi),%rdi
    140001fe6:	ba 18 00 00 00       	mov    $0x18,%edx
-   140001feb:	e8 60 43 00 00       	call   140006350 <_ZdlPvy>
+   140001feb:	e8 d0 4d 00 00       	call   140006dc0 <_ZdlPvy>
    140001ff0:	48 39 f7             	cmp    %rsi,%rdi
    140001ff3:	75 eb                	jne    140001fe0 <_ZN13NaturalBinarymiES_+0x1a0>
    140001ff5:	48 8b 5c 24 40       	mov    0x40(%rsp),%rbx
@@ -1225,7 +1225,7 @@ Disassembly of section .text:
    140002000:	48 89 d9             	mov    %rbx,%rcx
    140002003:	ba 18 00 00 00       	mov    $0x18,%edx
    140002008:	48 8b 1b             	mov    (%rbx),%rbx
-   14000200b:	e8 40 43 00 00       	call   140006350 <_ZdlPvy>
+   14000200b:	e8 b0 4d 00 00       	call   140006dc0 <_ZdlPvy>
    140002010:	4c 39 fb             	cmp    %r15,%rbx
    140002013:	75 eb                	jne    140002000 <_ZN13NaturalBinarymiES_+0x1c0>
    140002015:	48 8b 5c 24 20       	mov    0x20(%rsp),%rbx
@@ -1235,7 +1235,7 @@ Disassembly of section .text:
    140002020:	48 89 d9             	mov    %rbx,%rcx
    140002023:	48 8b 1b             	mov    (%rbx),%rbx
    140002026:	ba 18 00 00 00       	mov    $0x18,%edx
-   14000202b:	e8 20 43 00 00       	call   140006350 <_ZdlPvy>
+   14000202b:	e8 90 4d 00 00       	call   140006dc0 <_ZdlPvy>
    140002030:	4c 39 e3             	cmp    %r12,%rbx
    140002033:	75 eb                	jne    140002020 <_ZN13NaturalBinarymiES_+0x1e0>
    140002035:	0f 10 b4 24 80 00 00 	movups 0x80(%rsp),%xmm6
@@ -1257,12 +1257,12 @@ Disassembly of section .text:
    140002062:	e8 19 f6 ff ff       	call   140001680 <_ZN4ByteC1Ey>
    140002067:	b9 18 00 00 00       	mov    $0x18,%ecx
    14000206c:	48 8b 5c 24 40       	mov    0x40(%rsp),%rbx
-   140002071:	e8 d2 42 00 00       	call   140006348 <_Znwy>
+   140002071:	e8 42 4d 00 00       	call   140006db8 <_Znwy>
    140002076:	48 89 c1             	mov    %rax,%rcx
    140002079:	0f b6 44 24 60       	movzbl 0x60(%rsp),%eax
    14000207e:	48 89 da             	mov    %rbx,%rdx
    140002081:	88 41 10             	mov    %al,0x10(%rcx)
-   140002084:	e8 1f 43 00 00       	call   1400063a8 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
+   140002084:	e8 8f 4d 00 00       	call   140006e18 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
    140002089:	48 8b 44 24 50       	mov    0x50(%rsp),%rax
    14000208e:	48 83 c0 01          	add    $0x1,%rax
    140002092:	48 89 44 24 50       	mov    %rax,0x50(%rsp)
@@ -1280,7 +1280,7 @@ Disassembly of section .text:
    1400020c4:	74 62                	je     140002128 <_ZN13NaturalBinarymiES_+0x2e8>
    1400020c6:	48 8b 39             	mov    (%rcx),%rdi
    1400020c9:	ba 18 00 00 00       	mov    $0x18,%edx
-   1400020ce:	e8 7d 42 00 00       	call   140006350 <_ZdlPvy>
+   1400020ce:	e8 ed 4c 00 00       	call   140006dc0 <_ZdlPvy>
    1400020d3:	48 89 f9             	mov    %rdi,%rcx
    1400020d6:	eb e9                	jmp    1400020c1 <_ZN13NaturalBinarymiES_+0x281>
    1400020d8:	48 8b 4c 24 20       	mov    0x20(%rsp),%rcx
@@ -1289,7 +1289,7 @@ Disassembly of section .text:
    1400020e3:	74 3b                	je     140002120 <_ZN13NaturalBinarymiES_+0x2e0>
    1400020e5:	48 8b 31             	mov    (%rcx),%rsi
    1400020e8:	ba 18 00 00 00       	mov    $0x18,%edx
-   1400020ed:	e8 5e 42 00 00       	call   140006350 <_ZdlPvy>
+   1400020ed:	e8 ce 4c 00 00       	call   140006dc0 <_ZdlPvy>
    1400020f2:	48 89 f1             	mov    %rsi,%rcx
    1400020f5:	eb e9                	jmp    1400020e0 <_ZN13NaturalBinarymiES_+0x2a0>
    1400020f7:	48 89 c3             	mov    %rax,%rbx
@@ -1298,25 +1298,25 @@ Disassembly of section .text:
    140002102:	74 12                	je     140002116 <_ZN13NaturalBinarymiES_+0x2d6>
    140002104:	48 8b 31             	mov    (%rcx),%rsi
    140002107:	ba 18 00 00 00       	mov    $0x18,%edx
-   14000210c:	e8 3f 42 00 00       	call   140006350 <_ZdlPvy>
+   14000210c:	e8 af 4c 00 00       	call   140006dc0 <_ZdlPvy>
    140002111:	48 89 f1             	mov    %rsi,%rcx
    140002114:	eb e9                	jmp    1400020ff <_ZN13NaturalBinarymiES_+0x2bf>
    140002116:	48 8b 4c 24 20       	mov    0x20(%rsp),%rcx
    14000211b:	4c 39 e1             	cmp    %r12,%rcx
    14000211e:	75 24                	jne    140002144 <_ZN13NaturalBinarymiES_+0x304>
    140002120:	48 89 d9             	mov    %rbx,%rcx
-   140002123:	e8 78 53 00 00       	call   1400074a0 <_Unwind_Resume>
+   140002123:	e8 e8 5d 00 00       	call   140007f10 <_Unwind_Resume>
    140002128:	48 8b 4c 24 60       	mov    0x60(%rsp),%rcx
    14000212d:	48 39 f1             	cmp    %rsi,%rcx
    140002130:	74 c8                	je     1400020fa <_ZN13NaturalBinarymiES_+0x2ba>
    140002132:	48 8b 39             	mov    (%rcx),%rdi
    140002135:	ba 18 00 00 00       	mov    $0x18,%edx
-   14000213a:	e8 11 42 00 00       	call   140006350 <_ZdlPvy>
+   14000213a:	e8 81 4c 00 00       	call   140006dc0 <_ZdlPvy>
    14000213f:	48 89 f9             	mov    %rdi,%rcx
    140002142:	eb e9                	jmp    14000212d <_ZN13NaturalBinarymiES_+0x2ed>
    140002144:	48 8b 31             	mov    (%rcx),%rsi
    140002147:	ba 18 00 00 00       	mov    $0x18,%edx
-   14000214c:	e8 ff 41 00 00       	call   140006350 <_ZdlPvy>
+   14000214c:	e8 6f 4c 00 00       	call   140006dc0 <_ZdlPvy>
    140002151:	48 89 f1             	mov    %rsi,%rcx
    140002154:	eb c5                	jmp    14000211b <_ZN13NaturalBinarymiES_+0x2db>
    140002156:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
@@ -1368,12 +1368,12 @@ Disassembly of section .text:
    1400021fb:	48 89 f1             	mov    %rsi,%rcx
    1400021fe:	e8 7d f4 ff ff       	call   140001680 <_ZN4ByteC1Ey>
    140002203:	b9 18 00 00 00       	mov    $0x18,%ecx
-   140002208:	e8 3b 41 00 00       	call   140006348 <_Znwy>
+   140002208:	e8 ab 4b 00 00       	call   140006db8 <_Znwy>
    14000220d:	48 89 c1             	mov    %rax,%rcx
    140002210:	0f b6 44 24 50       	movzbl 0x50(%rsp),%eax
    140002215:	4c 89 e2             	mov    %r12,%rdx
    140002218:	88 41 10             	mov    %al,0x10(%rcx)
-   14000221b:	e8 88 41 00 00       	call   1400063a8 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
+   14000221b:	e8 f8 4b 00 00       	call   140006e18 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
    140002220:	48 8b 5b 08          	mov    0x8(%rbx),%rbx
    140002224:	0f b6 54 24 2d       	movzbl 0x2d(%rsp),%edx
    140002229:	48 89 f1             	mov    %rsi,%rcx
@@ -1403,7 +1403,7 @@ Disassembly of section .text:
    140002280:	48 89 d9             	mov    %rbx,%rcx
    140002283:	48 8b 1b             	mov    (%rbx),%rbx
    140002286:	ba 18 00 00 00       	mov    $0x18,%edx
-   14000228b:	e8 c0 40 00 00       	call   140006350 <_ZdlPvy>
+   14000228b:	e8 30 4b 00 00       	call   140006dc0 <_ZdlPvy>
    140002290:	48 39 f3             	cmp    %rsi,%rbx
    140002293:	75 eb                	jne    140002280 <_ZN13NaturalBinary14divide_by_byteES_4BytePS_+0x120>
    140002295:	f3 0f 6f 4c 24 30    	movdqu 0x30(%rsp),%xmm1
@@ -1433,11 +1433,11 @@ Disassembly of section .text:
    1400022f8:	48 8b 2f             	mov    (%rdi),%rbp
    1400022fb:	b9 18 00 00 00       	mov    $0x18,%ecx
    140002300:	44 0f b6 6b 10       	movzbl 0x10(%rbx),%r13d
-   140002305:	e8 3e 40 00 00       	call   140006348 <_Znwy>
+   140002305:	e8 ae 4a 00 00       	call   140006db8 <_Znwy>
    14000230a:	44 88 68 10          	mov    %r13b,0x10(%rax)
    14000230e:	48 89 c1             	mov    %rax,%rcx
    140002311:	48 89 ea             	mov    %rbp,%rdx
-   140002314:	e8 8f 40 00 00       	call   1400063a8 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
+   140002314:	e8 ff 4a 00 00       	call   140006e18 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
    140002319:	48 8b 1b             	mov    (%rbx),%rbx
    14000231c:	48 83 47 10 01       	addq   $0x1,0x10(%rdi)
    140002321:	48 39 f3             	cmp    %rsi,%rbx
@@ -1448,7 +1448,7 @@ Disassembly of section .text:
    140002330:	48 89 e9             	mov    %rbp,%rcx
    140002333:	48 8b 6d 00          	mov    0x0(%rbp),%rbp
    140002337:	ba 18 00 00 00       	mov    $0x18,%edx
-   14000233c:	e8 0f 40 00 00       	call   140006350 <_ZdlPvy>
+   14000233c:	e8 7f 4a 00 00       	call   140006dc0 <_ZdlPvy>
    140002341:	48 39 f5             	cmp    %rsi,%rbp
    140002344:	75 ea                	jne    140002330 <_ZN13NaturalBinary14divide_by_byteES_4BytePS_+0x1d0>
    140002346:	48 8b 5c 24 30       	mov    0x30(%rsp),%rbx
@@ -1457,7 +1457,7 @@ Disassembly of section .text:
    140002350:	48 89 d9             	mov    %rbx,%rcx
    140002353:	48 8b 1b             	mov    (%rbx),%rbx
    140002356:	ba 18 00 00 00       	mov    $0x18,%edx
-   14000235b:	e8 f0 3f 00 00       	call   140006350 <_ZdlPvy>
+   14000235b:	e8 60 4a 00 00       	call   140006dc0 <_ZdlPvy>
    140002360:	4c 39 e3             	cmp    %r12,%rbx
    140002363:	75 eb                	jne    140002350 <_ZN13NaturalBinary14divide_by_byteES_4BytePS_+0x1f0>
    140002365:	0f 10 74 24 70       	movups 0x70(%rsp),%xmm6
@@ -1477,12 +1477,12 @@ Disassembly of section .text:
    14000238a:	48 8d 4c 24 50       	lea    0x50(%rsp),%rcx
    14000238f:	e8 ec f2 ff ff       	call   140001680 <_ZN4ByteC1Ey>
    140002394:	b9 18 00 00 00       	mov    $0x18,%ecx
-   140002399:	e8 aa 3f 00 00       	call   140006348 <_Znwy>
+   140002399:	e8 1a 4a 00 00       	call   140006db8 <_Znwy>
    14000239e:	48 89 ea             	mov    %rbp,%rdx
    1400023a1:	48 89 c1             	mov    %rax,%rcx
    1400023a4:	0f b6 44 24 50       	movzbl 0x50(%rsp),%eax
    1400023a9:	88 41 10             	mov    %al,0x10(%rcx)
-   1400023ac:	e8 f7 3f 00 00       	call   1400063a8 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
+   1400023ac:	e8 67 4a 00 00       	call   140006e18 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
    1400023b1:	48 8b 5d 08          	mov    0x8(%rbp),%rbx
    1400023b5:	48 83 45 10 01       	addq   $0x1,0x10(%rbp)
    1400023ba:	0f b6 43 10          	movzbl 0x10(%rbx),%eax
@@ -1500,7 +1500,7 @@ Disassembly of section .text:
    1400023e9:	74 32                	je     14000241d <_ZN13NaturalBinary14divide_by_byteES_4BytePS_+0x2bd>
    1400023eb:	48 8b 39             	mov    (%rcx),%rdi
    1400023ee:	ba 18 00 00 00       	mov    $0x18,%edx
-   1400023f3:	e8 58 3f 00 00       	call   140006350 <_ZdlPvy>
+   1400023f3:	e8 c8 49 00 00       	call   140006dc0 <_ZdlPvy>
    1400023f8:	48 89 f9             	mov    %rdi,%rcx
    1400023fb:	eb e9                	jmp    1400023e6 <_ZN13NaturalBinary14divide_by_byteES_4BytePS_+0x286>
    1400023fd:	48 8b 0f             	mov    (%rdi),%rcx
@@ -1509,7 +1509,7 @@ Disassembly of section .text:
    140002406:	74 31                	je     140002439 <_ZN13NaturalBinary14divide_by_byteES_4BytePS_+0x2d9>
    140002408:	48 8b 29             	mov    (%rcx),%rbp
    14000240b:	ba 18 00 00 00       	mov    $0x18,%edx
-   140002410:	e8 3b 3f 00 00       	call   140006350 <_ZdlPvy>
+   140002410:	e8 ab 49 00 00       	call   140006dc0 <_ZdlPvy>
    140002415:	48 89 e9             	mov    %rbp,%rcx
    140002418:	eb e9                	jmp    140002403 <_ZN13NaturalBinary14divide_by_byteES_4BytePS_+0x2a3>
    14000241a:	48 89 c3             	mov    %rax,%rbx
@@ -1518,7 +1518,7 @@ Disassembly of section .text:
    140002425:	74 2e                	je     140002455 <_ZN13NaturalBinary14divide_by_byteES_4BytePS_+0x2f5>
    140002427:	48 8b 31             	mov    (%rcx),%rsi
    14000242a:	ba 18 00 00 00       	mov    $0x18,%edx
-   14000242f:	e8 1c 3f 00 00       	call   140006350 <_ZdlPvy>
+   14000242f:	e8 8c 49 00 00       	call   140006dc0 <_ZdlPvy>
    140002434:	48 89 f1             	mov    %rsi,%rcx
    140002437:	eb e9                	jmp    140002422 <_ZN13NaturalBinary14divide_by_byteES_4BytePS_+0x2c2>
    140002439:	48 8b 4c 24 50       	mov    0x50(%rsp),%rcx
@@ -1526,11 +1526,11 @@ Disassembly of section .text:
    140002441:	74 da                	je     14000241d <_ZN13NaturalBinary14divide_by_byteES_4BytePS_+0x2bd>
    140002443:	48 8b 39             	mov    (%rcx),%rdi
    140002446:	ba 18 00 00 00       	mov    $0x18,%edx
-   14000244b:	e8 00 3f 00 00       	call   140006350 <_ZdlPvy>
+   14000244b:	e8 70 49 00 00       	call   140006dc0 <_ZdlPvy>
    140002450:	48 89 f9             	mov    %rdi,%rcx
    140002453:	eb e9                	jmp    14000243e <_ZN13NaturalBinary14divide_by_byteES_4BytePS_+0x2de>
    140002455:	48 89 d9             	mov    %rbx,%rcx
-   140002458:	e8 43 50 00 00       	call   1400074a0 <_Unwind_Resume>
+   140002458:	e8 b3 5a 00 00       	call   140007f10 <_Unwind_Resume>
    14000245d:	90                   	nop
    14000245e:	66 90                	xchg   %ax,%ax
 
@@ -1549,10 +1549,10 @@ Disassembly of section .text:
    140002480:	48 83 e8 01          	sub    $0x1,%rax
    140002484:	48 89 d9             	mov    %rbx,%rcx
    140002487:	48 89 46 10          	mov    %rax,0x10(%rsi)
-   14000248b:	e8 10 3f 00 00       	call   1400063a0 <_ZNSt8__detail15_List_node_base9_M_unhookEv>
+   14000248b:	e8 80 49 00 00       	call   140006e10 <_ZNSt8__detail15_List_node_base9_M_unhookEv>
    140002490:	ba 18 00 00 00       	mov    $0x18,%edx
    140002495:	48 89 d9             	mov    %rbx,%rcx
-   140002498:	e8 b3 3e 00 00       	call   140006350 <_ZdlPvy>
+   140002498:	e8 23 49 00 00       	call   140006dc0 <_ZdlPvy>
    14000249d:	48 8b 46 10          	mov    0x10(%rsi),%rax
    1400024a1:	ba 01 00 00 00       	mov    $0x1,%edx
    1400024a6:	48 83 f8 01          	cmp    $0x1,%rax
@@ -1988,12 +1988,12 @@ Disassembly of section .text:
    1400029b6:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
    1400029bd:	00 00 00 
    1400029c0:	b9 18 00 00 00       	mov    $0x18,%ecx
-   1400029c5:	e8 7e 39 00 00       	call   140006348 <_Znwy>
+   1400029c5:	e8 ee 43 00 00       	call   140006db8 <_Znwy>
    1400029ca:	48 89 c1             	mov    %rax,%rcx
    1400029cd:	0f b6 43 10          	movzbl 0x10(%rbx),%eax
    1400029d1:	48 89 f2             	mov    %rsi,%rdx
    1400029d4:	88 41 10             	mov    %al,0x10(%rcx)
-   1400029d7:	e8 cc 39 00 00       	call   1400063a8 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
+   1400029d7:	e8 3c 44 00 00       	call   140006e18 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
    1400029dc:	48 8b 1b             	mov    (%rbx),%rbx
    1400029df:	48 83 44 24 30 01    	addq   $0x1,0x30(%rsp)
    1400029e5:	48 39 df             	cmp    %rbx,%rdi
@@ -2012,7 +2012,7 @@ Disassembly of section .text:
    140002a10:	48 89 d9             	mov    %rbx,%rcx
    140002a13:	48 8b 1b             	mov    (%rbx),%rbx
    140002a16:	ba 18 00 00 00       	mov    $0x18,%edx
-   140002a1b:	e8 30 39 00 00       	call   140006350 <_ZdlPvy>
+   140002a1b:	e8 a0 43 00 00       	call   140006dc0 <_ZdlPvy>
    140002a20:	48 39 f3             	cmp    %rsi,%rbx
    140002a23:	75 eb                	jne    140002a10 <_ZN13NaturalBinaryleES_+0x90>
    140002a25:	44 89 e8             	mov    %r13d,%eax
@@ -2036,12 +2036,12 @@ Disassembly of section .text:
    140002a5a:	74 6e                	je     140002aca <_ZN13NaturalBinaryleES_+0x14a>
    140002a5c:	0f 1f 40 00          	nopl   0x0(%rax)
    140002a60:	b9 18 00 00 00       	mov    $0x18,%ecx
-   140002a65:	e8 de 38 00 00       	call   140006348 <_Znwy>
+   140002a65:	e8 4e 43 00 00       	call   140006db8 <_Znwy>
    140002a6a:	48 89 c1             	mov    %rax,%rcx
    140002a6d:	0f b6 43 10          	movzbl 0x10(%rbx),%eax
    140002a71:	4c 89 e2             	mov    %r12,%rdx
    140002a74:	88 41 10             	mov    %al,0x10(%rcx)
-   140002a77:	e8 2c 39 00 00       	call   1400063a8 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
+   140002a77:	e8 9c 43 00 00       	call   140006e18 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
    140002a7c:	48 8b 1b             	mov    (%rbx),%rbx
    140002a7f:	48 83 44 24 50 01    	addq   $0x1,0x50(%rsp)
    140002a85:	48 39 df             	cmp    %rbx,%rdi
@@ -2058,7 +2058,7 @@ Disassembly of section .text:
    140002ab0:	48 89 d9             	mov    %rbx,%rcx
    140002ab3:	48 8b 1b             	mov    (%rbx),%rbx
    140002ab6:	ba 18 00 00 00       	mov    $0x18,%edx
-   140002abb:	e8 90 38 00 00       	call   140006350 <_ZdlPvy>
+   140002abb:	e8 00 43 00 00       	call   140006dc0 <_ZdlPvy>
    140002ac0:	4c 39 e3             	cmp    %r12,%rbx
    140002ac3:	75 eb                	jne    140002ab0 <_ZN13NaturalBinaryleES_+0x130>
    140002ac5:	e9 32 ff ff ff       	jmp    1400029fc <_ZN13NaturalBinaryleES_+0x7c>
@@ -2073,7 +2073,7 @@ Disassembly of section .text:
    140002ae8:	74 3b                	je     140002b25 <_ZN13NaturalBinaryleES_+0x1a5>
    140002aea:	48 8b 39             	mov    (%rcx),%rdi
    140002aed:	ba 18 00 00 00       	mov    $0x18,%edx
-   140002af2:	e8 59 38 00 00       	call   140006350 <_ZdlPvy>
+   140002af2:	e8 c9 42 00 00       	call   140006dc0 <_ZdlPvy>
    140002af7:	48 89 f9             	mov    %rdi,%rcx
    140002afa:	eb e9                	jmp    140002ae5 <_ZN13NaturalBinaryleES_+0x165>
    140002afc:	48 8b 4c 24 40       	mov    0x40(%rsp),%rcx
@@ -2082,17 +2082,17 @@ Disassembly of section .text:
    140002b07:	74 12                	je     140002b1b <_ZN13NaturalBinaryleES_+0x19b>
    140002b09:	48 8b 39             	mov    (%rcx),%rdi
    140002b0c:	ba 18 00 00 00       	mov    $0x18,%edx
-   140002b11:	e8 3a 38 00 00       	call   140006350 <_ZdlPvy>
+   140002b11:	e8 aa 42 00 00       	call   140006dc0 <_ZdlPvy>
    140002b16:	48 89 f9             	mov    %rdi,%rcx
    140002b19:	eb e9                	jmp    140002b04 <_ZN13NaturalBinaryleES_+0x184>
    140002b1b:	48 8b 4c 24 20       	mov    0x20(%rsp),%rcx
    140002b20:	48 39 f1             	cmp    %rsi,%rcx
    140002b23:	75 08                	jne    140002b2d <_ZN13NaturalBinaryleES_+0x1ad>
    140002b25:	48 89 d9             	mov    %rbx,%rcx
-   140002b28:	e8 73 49 00 00       	call   1400074a0 <_Unwind_Resume>
+   140002b28:	e8 e3 53 00 00       	call   140007f10 <_Unwind_Resume>
    140002b2d:	48 8b 39             	mov    (%rcx),%rdi
    140002b30:	ba 18 00 00 00       	mov    $0x18,%edx
-   140002b35:	e8 16 38 00 00       	call   140006350 <_ZdlPvy>
+   140002b35:	e8 86 42 00 00       	call   140006dc0 <_ZdlPvy>
    140002b3a:	48 89 f9             	mov    %rdi,%rcx
    140002b3d:	eb e1                	jmp    140002b20 <_ZN13NaturalBinaryleES_+0x1a0>
    140002b3f:	90                   	nop
@@ -2119,12 +2119,12 @@ Disassembly of section .text:
    140002b76:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
    140002b7d:	00 00 00 
    140002b80:	b9 18 00 00 00       	mov    $0x18,%ecx
-   140002b85:	e8 be 37 00 00       	call   140006348 <_Znwy>
+   140002b85:	e8 2e 42 00 00       	call   140006db8 <_Znwy>
    140002b8a:	48 89 c1             	mov    %rax,%rcx
    140002b8d:	0f b6 43 10          	movzbl 0x10(%rbx),%eax
    140002b91:	48 89 f2             	mov    %rsi,%rdx
    140002b94:	88 41 10             	mov    %al,0x10(%rcx)
-   140002b97:	e8 0c 38 00 00       	call   1400063a8 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
+   140002b97:	e8 7c 42 00 00       	call   140006e18 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
    140002b9c:	48 8b 1b             	mov    (%rbx),%rbx
    140002b9f:	48 83 44 24 30 01    	addq   $0x1,0x30(%rsp)
    140002ba5:	48 39 df             	cmp    %rbx,%rdi
@@ -2143,7 +2143,7 @@ Disassembly of section .text:
    140002bd0:	48 89 d9             	mov    %rbx,%rcx
    140002bd3:	48 8b 1b             	mov    (%rbx),%rbx
    140002bd6:	ba 18 00 00 00       	mov    $0x18,%edx
-   140002bdb:	e8 70 37 00 00       	call   140006350 <_ZdlPvy>
+   140002bdb:	e8 e0 41 00 00       	call   140006dc0 <_ZdlPvy>
    140002be0:	48 39 f3             	cmp    %rsi,%rbx
    140002be3:	75 eb                	jne    140002bd0 <_ZN13NaturalBinarygeES_+0x90>
    140002be5:	44 89 e8             	mov    %r13d,%eax
@@ -2167,12 +2167,12 @@ Disassembly of section .text:
    140002c1a:	74 6e                	je     140002c8a <_ZN13NaturalBinarygeES_+0x14a>
    140002c1c:	0f 1f 40 00          	nopl   0x0(%rax)
    140002c20:	b9 18 00 00 00       	mov    $0x18,%ecx
-   140002c25:	e8 1e 37 00 00       	call   140006348 <_Znwy>
+   140002c25:	e8 8e 41 00 00       	call   140006db8 <_Znwy>
    140002c2a:	48 89 c1             	mov    %rax,%rcx
    140002c2d:	0f b6 43 10          	movzbl 0x10(%rbx),%eax
    140002c31:	4c 89 e2             	mov    %r12,%rdx
    140002c34:	88 41 10             	mov    %al,0x10(%rcx)
-   140002c37:	e8 6c 37 00 00       	call   1400063a8 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
+   140002c37:	e8 dc 41 00 00       	call   140006e18 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
    140002c3c:	48 8b 1b             	mov    (%rbx),%rbx
    140002c3f:	48 83 44 24 50 01    	addq   $0x1,0x50(%rsp)
    140002c45:	48 39 df             	cmp    %rbx,%rdi
@@ -2189,7 +2189,7 @@ Disassembly of section .text:
    140002c70:	48 89 d9             	mov    %rbx,%rcx
    140002c73:	48 8b 1b             	mov    (%rbx),%rbx
    140002c76:	ba 18 00 00 00       	mov    $0x18,%edx
-   140002c7b:	e8 d0 36 00 00       	call   140006350 <_ZdlPvy>
+   140002c7b:	e8 40 41 00 00       	call   140006dc0 <_ZdlPvy>
    140002c80:	4c 39 e3             	cmp    %r12,%rbx
    140002c83:	75 eb                	jne    140002c70 <_ZN13NaturalBinarygeES_+0x130>
    140002c85:	e9 32 ff ff ff       	jmp    140002bbc <_ZN13NaturalBinarygeES_+0x7c>
@@ -2204,7 +2204,7 @@ Disassembly of section .text:
    140002ca8:	74 3b                	je     140002ce5 <_ZN13NaturalBinarygeES_+0x1a5>
    140002caa:	48 8b 39             	mov    (%rcx),%rdi
    140002cad:	ba 18 00 00 00       	mov    $0x18,%edx
-   140002cb2:	e8 99 36 00 00       	call   140006350 <_ZdlPvy>
+   140002cb2:	e8 09 41 00 00       	call   140006dc0 <_ZdlPvy>
    140002cb7:	48 89 f9             	mov    %rdi,%rcx
    140002cba:	eb e9                	jmp    140002ca5 <_ZN13NaturalBinarygeES_+0x165>
    140002cbc:	48 8b 4c 24 40       	mov    0x40(%rsp),%rcx
@@ -2213,17 +2213,17 @@ Disassembly of section .text:
    140002cc7:	74 12                	je     140002cdb <_ZN13NaturalBinarygeES_+0x19b>
    140002cc9:	48 8b 39             	mov    (%rcx),%rdi
    140002ccc:	ba 18 00 00 00       	mov    $0x18,%edx
-   140002cd1:	e8 7a 36 00 00       	call   140006350 <_ZdlPvy>
+   140002cd1:	e8 ea 40 00 00       	call   140006dc0 <_ZdlPvy>
    140002cd6:	48 89 f9             	mov    %rdi,%rcx
    140002cd9:	eb e9                	jmp    140002cc4 <_ZN13NaturalBinarygeES_+0x184>
    140002cdb:	48 8b 4c 24 20       	mov    0x20(%rsp),%rcx
    140002ce0:	48 39 f1             	cmp    %rsi,%rcx
    140002ce3:	75 08                	jne    140002ced <_ZN13NaturalBinarygeES_+0x1ad>
    140002ce5:	48 89 d9             	mov    %rbx,%rcx
-   140002ce8:	e8 b3 47 00 00       	call   1400074a0 <_Unwind_Resume>
+   140002ce8:	e8 23 52 00 00       	call   140007f10 <_Unwind_Resume>
    140002ced:	48 8b 39             	mov    (%rcx),%rdi
    140002cf0:	ba 18 00 00 00       	mov    $0x18,%edx
-   140002cf5:	e8 56 36 00 00       	call   140006350 <_ZdlPvy>
+   140002cf5:	e8 c6 40 00 00       	call   140006dc0 <_ZdlPvy>
    140002cfa:	48 89 f9             	mov    %rdi,%rcx
    140002cfd:	eb e1                	jmp    140002ce0 <_ZN13NaturalBinarygeES_+0x1a0>
    140002cff:	90                   	nop
@@ -2272,7 +2272,7 @@ Disassembly of section .text:
    140002d9a:	00 
    140002d9b:	4c 89 bc 24 88 00 00 	mov    %r15,0x88(%rsp)
    140002da2:	00 
-   140002da3:	e8 e0 35 00 00       	call   140006388 <_ZNSt8ios_baseC2Ev>
+   140002da3:	e8 50 40 00 00       	call   140006df8 <_ZNSt8ios_baseC2Ev>
    140002da8:	48 8b 35 c1 76 00 00 	mov    0x76c1(%rip),%rsi        # 14000a470 <__fu5__ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE>
    140002daf:	31 d2                	xor    %edx,%edx
    140002db1:	66 0f ef c0          	pxor   %xmm0,%xmm0
@@ -2302,7 +2302,7 @@ Disassembly of section .text:
    140002e1d:	31 d2                	xor    %edx,%edx
    140002e1f:	48 89 4c 24 50       	mov    %rcx,0x50(%rsp)
    140002e24:	4c 89 f1             	mov    %r14,%rcx
-   140002e27:	e8 4c 35 00 00       	call   140006378 <_ZNSt9basic_iosIcSt11char_traitsIcEE4initEPSt15basic_streambufIcS1_E>
+   140002e27:	e8 bc 3f 00 00       	call   140006de8 <_ZNSt9basic_iosIcSt11char_traitsIcEE4initEPSt15basic_streambufIcS1_E>
    140002e2c:	48 8b 46 20          	mov    0x20(%rsi),%rax
    140002e30:	48 8d ac 24 d0 00 00 	lea    0xd0(%rsp),%rbp
    140002e37:	00 
@@ -2315,7 +2315,7 @@ Disassembly of section .text:
    140002e4f:	48 01 e9             	add    %rbp,%rcx
    140002e52:	48 89 01             	mov    %rax,(%rcx)
    140002e55:	48 89 44 24 60       	mov    %rax,0x60(%rsp)
-   140002e5a:	e8 19 35 00 00       	call   140006378 <_ZNSt9basic_iosIcSt11char_traitsIcEE4initEPSt15basic_streambufIcS1_E>
+   140002e5a:	e8 89 3f 00 00       	call   140006de8 <_ZNSt9basic_iosIcSt11char_traitsIcEE4initEPSt15basic_streambufIcS1_E>
    140002e5f:	48 8b 46 08          	mov    0x8(%rsi),%rax
    140002e63:	48 8b 76 30          	mov    0x30(%rsi),%rsi
    140002e67:	66 0f ef c0          	pxor   %xmm0,%xmm0
@@ -2344,7 +2344,7 @@ Disassembly of section .text:
    140002ece:	00 
    140002ecf:	48 89 c1             	mov    %rax,%rcx
    140002ed2:	48 89 44 24 78       	mov    %rax,0x78(%rsp)
-   140002ed7:	e8 14 35 00 00       	call   1400063f0 <_ZNSt6localeC1Ev>
+   140002ed7:	e8 84 3f 00 00       	call   140006e60 <_ZNSt6localeC1Ev>
    140002edc:	48 8d 43 10          	lea    0x10(%rbx),%rax
    140002ee0:	4c 89 f9             	mov    %r15,%rcx
    140002ee3:	c7 84 24 18 01 00 00 	movl   $0x18,0x118(%rsp)
@@ -2365,8 +2365,8 @@ Disassembly of section .text:
    140002f21:	48 c7 84 24 28 01 00 	movq   $0x0,0x128(%rsp)
    140002f28:	00 00 00 00 00 
    140002f2d:	48 89 44 24 38       	mov    %rax,0x38(%rsp)
-   140002f32:	e8 41 34 00 00       	call   140006378 <_ZNSt9basic_iosIcSt11char_traitsIcEE4initEPSt15basic_streambufIcS1_E>
-   140002f37:	48 8d 05 12 47 00 00 	lea    0x4712(%rip),%rax        # 140007650 <_ZNKSt5ctypeIcE8do_widenEc>
+   140002f32:	e8 b1 3e 00 00       	call   140006de8 <_ZNSt9basic_iosIcSt11char_traitsIcEE4initEPSt15basic_streambufIcS1_E>
+   140002f37:	48 8d 05 82 51 00 00 	lea    0x5182(%rip),%rax        # 1400080c0 <_ZNKSt5ctypeIcE8do_widenEc>
    140002f3e:	4c 89 ee             	mov    %r13,%rsi
    140002f41:	4c 8d a4 24 a0 00 00 	lea    0xa0(%rsp),%r12
    140002f48:	00 
@@ -2394,7 +2394,7 @@ Disassembly of section .text:
    140002faa:	89 42 18             	mov    %eax,0x18(%rdx)
    140002fad:	48 8b 46 08          	mov    0x8(%rsi),%rax
    140002fb1:	0f b6 50 10          	movzbl 0x10(%rax),%edx
-   140002fb5:	e8 5e 34 00 00       	call   140006418 <_ZNSolsEi>
+   140002fb5:	e8 ce 3e 00 00       	call   140006e88 <_ZNSolsEi>
    140002fba:	48 8b 94 24 00 01 00 	mov    0x100(%rsp),%rdx
    140002fc1:	00 
    140002fc2:	48 8d 9c 24 b0 00 00 	lea    0xb0(%rsp),%rbx
@@ -2421,7 +2421,7 @@ Disassembly of section .text:
    140003019:	4c 89 e1             	mov    %r12,%rcx
    14000301c:	4c 29 c8             	sub    %r9,%rax
    14000301f:	48 89 44 24 20       	mov    %rax,0x20(%rsp)
-   140003024:	e8 b7 33 00 00       	call   1400063e0 <_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEyyPKcy>
+   140003024:	e8 27 3e 00 00       	call   140006e50 <_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEyyPKcy>
    140003029:	4c 8b 84 24 a8 00 00 	mov    0xa8(%rsp),%r8
    140003030:	00 
    140003031:	4c 89 f0             	mov    %r14,%rax
@@ -2431,7 +2431,7 @@ Disassembly of section .text:
    140003040:	4c 39 c0             	cmp    %r8,%rax
    140003043:	0f 82 0e 04 00 00    	jb     140003457 <_ZN13NaturalBinary8toStringB5cxx11Ev+0x757>
    140003049:	48 89 f9             	mov    %rdi,%rcx
-   14000304c:	e8 7f 33 00 00       	call   1400063d0 <_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcy>
+   14000304c:	e8 ef 3d 00 00       	call   140006e40 <_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcy>
    140003051:	48 8b 8c 24 a0 00 00 	mov    0xa0(%rsp),%rcx
    140003058:	00 
    140003059:	48 39 d9             	cmp    %rbx,%rcx
@@ -2439,7 +2439,7 @@ Disassembly of section .text:
    14000305e:	48 8b 84 24 b0 00 00 	mov    0xb0(%rsp),%rax
    140003065:	00 
    140003066:	48 8d 50 01          	lea    0x1(%rax),%rdx
-   14000306a:	e8 e1 32 00 00       	call   140006350 <_ZdlPvy>
+   14000306a:	e8 51 3d 00 00       	call   140006dc0 <_ZdlPvy>
    14000306f:	48 c7 44 24 20 00 00 	movq   $0x0,0x20(%rsp)
    140003076:	00 00 
    140003078:	4c 8b 84 24 28 01 00 	mov    0x128(%rsp),%r8
@@ -2454,7 +2454,7 @@ Disassembly of section .text:
    14000309c:	00 00 00 00 00 
    1400030a1:	c6 84 24 b0 00 00 00 	movb   $0x0,0xb0(%rsp)
    1400030a8:	00 
-   1400030a9:	e8 32 33 00 00       	call   1400063e0 <_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEyyPKcy>
+   1400030a9:	e8 a2 3d 00 00       	call   140006e50 <_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEyyPKcy>
    1400030ae:	45 31 c9             	xor    %r9d,%r9d
    1400030b1:	f6 84 24 18 01 00 00 	testb  $0x3,0x118(%rsp)
    1400030b8:	03 
@@ -2465,7 +2465,7 @@ Disassembly of section .text:
    1400030ca:	00 
    1400030cb:	48 8b 4c 24 38       	mov    0x38(%rsp),%rcx
    1400030d0:	45 31 c0             	xor    %r8d,%r8d
-   1400030d3:	e8 e8 32 00 00       	call   1400063c0 <_ZNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE7_M_syncEPcyy>
+   1400030d3:	e8 58 3d 00 00       	call   140006e30 <_ZNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE7_M_syncEPcyy>
    1400030d8:	48 8b 8c 24 a0 00 00 	mov    0xa0(%rsp),%rcx
    1400030df:	00 
    1400030e0:	48 39 d9             	cmp    %rbx,%rcx
@@ -2473,7 +2473,7 @@ Disassembly of section .text:
    1400030e9:	48 8b 84 24 b0 00 00 	mov    0xb0(%rsp),%rax
    1400030f0:	00 
    1400030f1:	48 8d 50 01          	lea    0x1(%rax),%rdx
-   1400030f5:	e8 56 32 00 00       	call   140006350 <_ZdlPvy>
+   1400030f5:	e8 c6 3c 00 00       	call   140006dc0 <_ZdlPvy>
    1400030fa:	48 8b 76 08          	mov    0x8(%rsi),%rsi
    1400030fe:	49 39 75 00          	cmp    %rsi,0x0(%r13)
    140003102:	0f 85 60 fe ff ff    	jne    140002f68 <_ZN13NaturalBinary8toStringB5cxx11Ev+0x268>
@@ -2486,7 +2486,7 @@ Disassembly of section .text:
    140003123:	48 8d 50 02          	lea    0x2(%rax),%rdx
    140003127:	c6 84 24 b0 00 00 00 	movb   $0x0,0xb0(%rsp)
    14000312e:	00 
-   14000312f:	e8 a4 32 00 00       	call   1400063d8 <_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEy>
+   14000312f:	e8 14 3d 00 00       	call   140006e48 <_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEy>
    140003134:	48 b8 ff ff ff ff ff 	movabs $0x3fffffffffffffff,%rax
    14000313b:	ff ff 3f 
    14000313e:	48 2b 84 24 a8 00 00 	sub    0xa8(%rsp),%rax
@@ -2496,7 +2496,7 @@ Disassembly of section .text:
    140003150:	41 b8 02 00 00 00    	mov    $0x2,%r8d
    140003156:	48 8d 15 e8 6e 00 00 	lea    0x6ee8(%rip),%rdx        # 14000a045 <.rdata+0x15>
    14000315d:	4c 89 f9             	mov    %r15,%rcx
-   140003160:	e8 6b 32 00 00       	call   1400063d0 <_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcy>
+   140003160:	e8 db 3c 00 00       	call   140006e40 <_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcy>
    140003165:	4c 8b 47 08          	mov    0x8(%rdi),%r8
    140003169:	48 8b 17             	mov    (%rdi),%rdx
    14000316c:	48 b8 ff ff ff ff ff 	movabs $0x3fffffffffffffff,%rax
@@ -2506,7 +2506,7 @@ Disassembly of section .text:
    14000317e:	4c 39 c0             	cmp    %r8,%rax
    140003181:	0f 82 ed 02 00 00    	jb     140003474 <_ZN13NaturalBinary8toStringB5cxx11Ev+0x774>
    140003187:	4c 89 f9             	mov    %r15,%rcx
-   14000318a:	e8 41 32 00 00       	call   1400063d0 <_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcy>
+   14000318a:	e8 b1 3c 00 00       	call   140006e40 <_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcy>
    14000318f:	48 8b 84 24 a0 00 00 	mov    0xa0(%rsp),%rax
    140003196:	00 
    140003197:	48 8b 0f             	mov    (%rdi),%rcx
@@ -2536,7 +2536,7 @@ Disassembly of section .text:
    1400031fa:	48 8b 84 24 b0 00 00 	mov    0xb0(%rsp),%rax
    140003201:	00 
    140003202:	48 8d 50 01          	lea    0x1(%rax),%rdx
-   140003206:	e8 45 31 00 00       	call   140006350 <_ZdlPvy>
+   140003206:	e8 b5 3b 00 00       	call   140006dc0 <_ZdlPvy>
    14000320b:	48 8b 05 7e 72 00 00 	mov    0x727e(%rip),%rax        # 14000a490 <__fu9__ZTVNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE>
    140003212:	48 8b 8c 24 20 01 00 	mov    0x120(%rsp),%rcx
    140003219:	00 
@@ -2556,13 +2556,13 @@ Disassembly of section .text:
    14000324e:	48 8b 84 24 30 01 00 	mov    0x130(%rsp),%rax
    140003255:	00 
    140003256:	48 8d 50 01          	lea    0x1(%rax),%rdx
-   14000325a:	e8 f1 30 00 00       	call   140006350 <_ZdlPvy>
+   14000325a:	e8 61 3b 00 00       	call   140006dc0 <_ZdlPvy>
    14000325f:	48 8b 05 3a 72 00 00 	mov    0x723a(%rip),%rax        # 14000a4a0 <__fu7__ZTVSt15basic_streambufIcSt11char_traitsIcEE>
    140003266:	48 8b 4c 24 78       	mov    0x78(%rsp),%rcx
    14000326b:	48 83 c0 10          	add    $0x10,%rax
    14000326f:	48 89 84 24 d8 00 00 	mov    %rax,0xd8(%rsp)
    140003276:	00 
-   140003277:	e8 6c 31 00 00       	call   1400063e8 <_ZNSt6localeD1Ev>
+   140003277:	e8 dc 3b 00 00       	call   140006e58 <_ZNSt6localeD1Ev>
    14000327c:	48 8b 44 24 68       	mov    0x68(%rsp),%rax
    140003281:	48 8b 74 24 70       	mov    0x70(%rsp),%rsi
    140003286:	48 8b 8c 24 88 00 00 	mov    0x88(%rsp),%rcx
@@ -2590,7 +2590,7 @@ Disassembly of section .text:
    1400032e9:	48 83 c0 10          	add    $0x10,%rax
    1400032ed:	48 89 84 24 40 01 00 	mov    %rax,0x140(%rsp)
    1400032f4:	00 
-   1400032f5:	e8 86 30 00 00       	call   140006380 <_ZNSt8ios_baseD2Ev>
+   1400032f5:	e8 f6 3a 00 00       	call   140006df0 <_ZNSt8ios_baseD2Ev>
    1400032fa:	90                   	nop
    1400032fb:	0f 10 b4 24 50 02 00 	movups 0x250(%rsp),%xmm6
    140003302:	00 
@@ -2623,7 +2623,7 @@ Disassembly of section .text:
    140003360:	41 80 7f 38 00       	cmpb   $0x0,0x38(%r15)
    140003365:	75 2c                	jne    140003393 <_ZN13NaturalBinary8toStringB5cxx11Ev+0x693>
    140003367:	4c 89 f9             	mov    %r15,%rcx
-   14000336a:	e8 c1 30 00 00       	call   140006430 <_ZNKSt5ctypeIcE13_M_widen_initEv>
+   14000336a:	e8 31 3b 00 00       	call   140006ea0 <_ZNKSt5ctypeIcE13_M_widen_initEv>
    14000336f:	49 8b 07             	mov    (%r15),%rax
    140003372:	48 8b 4c 24 40       	mov    0x40(%rsp),%rcx
    140003377:	48 8b 40 30          	mov    0x30(%rax),%rax
@@ -2639,7 +2639,7 @@ Disassembly of section .text:
    1400033a0:	48 8d 94 24 20 01 00 	lea    0x120(%rsp),%rdx
    1400033a7:	00 
    1400033a8:	4c 89 e1             	mov    %r12,%rcx
-   1400033ab:	e8 18 30 00 00       	call   1400063c8 <_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_>
+   1400033ab:	e8 88 3a 00 00       	call   140006e38 <_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_>
    1400033b0:	e9 74 fc ff ff       	jmp    140003029 <_ZN13NaturalBinary8toStringB5cxx11Ev+0x329>
    1400033b5:	0f 1f 00             	nopl   (%rax)
    1400033b8:	f3 0f 6f a4 24 a8 00 	movdqu 0xa8(%rsp),%xmm4
@@ -2659,7 +2659,7 @@ Disassembly of section .text:
    1400033ed:	49 83 f8 01          	cmp    $0x1,%r8
    1400033f1:	74 4d                	je     140003440 <_ZN13NaturalBinary8toStringB5cxx11Ev+0x740>
    1400033f3:	48 89 da             	mov    %rbx,%rdx
-   1400033f6:	e8 d5 41 00 00       	call   1400075d0 <memcpy>
+   1400033f6:	e8 45 4c 00 00       	call   140008040 <memcpy>
    1400033fb:	4c 8b 84 24 a8 00 00 	mov    0xa8(%rsp),%r8
    140003402:	00 
    140003403:	48 8b 0f             	mov    (%rdi),%rcx
@@ -2686,12 +2686,12 @@ Disassembly of section .text:
    140003452:	48 8b 0f             	mov    (%rdi),%rcx
    140003455:	eb af                	jmp    140003406 <_ZN13NaturalBinary8toStringB5cxx11Ev+0x706>
    140003457:	48 8d 0d d2 6b 00 00 	lea    0x6bd2(%rip),%rcx        # 14000a030 <.rdata>
-   14000345e:	e8 fd 2e 00 00       	call   140006360 <_ZSt20__throw_length_errorPKc>
-   140003463:	e8 00 2f 00 00       	call   140006368 <_ZSt16__throw_bad_castv>
+   14000345e:	e8 6d 39 00 00       	call   140006dd0 <_ZSt20__throw_length_errorPKc>
+   140003463:	e8 70 39 00 00       	call   140006dd8 <_ZSt16__throw_bad_castv>
    140003468:	48 8d 0d c1 6b 00 00 	lea    0x6bc1(%rip),%rcx        # 14000a030 <.rdata>
-   14000346f:	e8 ec 2e 00 00       	call   140006360 <_ZSt20__throw_length_errorPKc>
+   14000346f:	e8 5c 39 00 00       	call   140006dd0 <_ZSt20__throw_length_errorPKc>
    140003474:	48 8d 0d b5 6b 00 00 	lea    0x6bb5(%rip),%rcx        # 14000a030 <.rdata>
-   14000347b:	e8 e0 2e 00 00       	call   140006360 <_ZSt20__throw_length_errorPKc>
+   14000347b:	e8 50 39 00 00       	call   140006dd0 <_ZSt20__throw_length_errorPKc>
    140003480:	48 8b 8c 24 a0 00 00 	mov    0xa0(%rsp),%rcx
    140003487:	00 
    140003488:	48 89 c6             	mov    %rax,%rsi
@@ -2700,10 +2700,10 @@ Disassembly of section .text:
    140003490:	48 8b 84 24 b0 00 00 	mov    0xb0(%rsp),%rax
    140003497:	00 
    140003498:	48 8d 50 01          	lea    0x1(%rax),%rdx
-   14000349c:	e8 af 2e 00 00       	call   140006350 <_ZdlPvy>
+   14000349c:	e8 1f 39 00 00       	call   140006dc0 <_ZdlPvy>
    1400034a1:	48 8b 8c 24 98 00 00 	mov    0x98(%rsp),%rcx
    1400034a8:	00 
-   1400034a9:	e8 0a 2f 00 00       	call   1400063b8 <_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev>
+   1400034a9:	e8 7a 39 00 00       	call   140006e28 <_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev>
    1400034ae:	eb 23                	jmp    1400034d3 <_ZN13NaturalBinary8toStringB5cxx11Ev+0x7d3>
    1400034b0:	48 89 c6             	mov    %rax,%rsi
    1400034b3:	48 8b 05 f6 6f 00 00 	mov    0x6ff6(%rip),%rax        # 14000a4b0 <__fu6__ZTVSt9basic_iosIcSt11char_traitsIcEE>
@@ -2712,7 +2712,7 @@ Disassembly of section .text:
    1400034c2:	48 83 c0 10          	add    $0x10,%rax
    1400034c6:	48 89 84 24 40 01 00 	mov    %rax,0x140(%rsp)
    1400034cd:	00 
-   1400034ce:	e8 ad 2e 00 00       	call   140006380 <_ZNSt8ios_baseD2Ev>
+   1400034ce:	e8 1d 39 00 00       	call   140006df0 <_ZNSt8ios_baseD2Ev>
    1400034d3:	48 8b 0f             	mov    (%rdi),%rcx
    1400034d6:	48 8b 84 24 90 00 00 	mov    0x90(%rsp),%rax
    1400034dd:	00 
@@ -2720,9 +2720,9 @@ Disassembly of section .text:
    1400034e1:	74 0d                	je     1400034f0 <_ZN13NaturalBinary8toStringB5cxx11Ev+0x7f0>
    1400034e3:	48 8b 57 10          	mov    0x10(%rdi),%rdx
    1400034e7:	48 83 c2 01          	add    $0x1,%rdx
-   1400034eb:	e8 60 2e 00 00       	call   140006350 <_ZdlPvy>
+   1400034eb:	e8 d0 38 00 00       	call   140006dc0 <_ZdlPvy>
    1400034f0:	48 89 f1             	mov    %rsi,%rcx
-   1400034f3:	e8 a8 3f 00 00       	call   1400074a0 <_Unwind_Resume>
+   1400034f3:	e8 18 4a 00 00       	call   140007f10 <_Unwind_Resume>
    1400034f8:	eb 86                	jmp    140003480 <_ZN13NaturalBinary8toStringB5cxx11Ev+0x780>
    1400034fa:	eb 84                	jmp    140003480 <_ZN13NaturalBinary8toStringB5cxx11Ev+0x780>
    1400034fc:	eb 82                	jmp    140003480 <_ZN13NaturalBinary8toStringB5cxx11Ev+0x780>
@@ -2753,13 +2753,13 @@ Disassembly of section .text:
    140003557:	48 8b 84 24 30 01 00 	mov    0x130(%rsp),%rax
    14000355e:	00 
    14000355f:	48 8d 50 01          	lea    0x1(%rax),%rdx
-   140003563:	e8 e8 2d 00 00       	call   140006350 <_ZdlPvy>
+   140003563:	e8 58 38 00 00       	call   140006dc0 <_ZdlPvy>
    140003568:	48 8b 05 31 6f 00 00 	mov    0x6f31(%rip),%rax        # 14000a4a0 <__fu7__ZTVSt15basic_streambufIcSt11char_traitsIcEE>
    14000356f:	48 8b 4c 24 78       	mov    0x78(%rsp),%rcx
    140003574:	48 83 c0 10          	add    $0x10,%rax
    140003578:	48 89 84 24 d8 00 00 	mov    %rax,0xd8(%rsp)
    14000357f:	00 
-   140003580:	e8 63 2e 00 00       	call   1400063e8 <_ZNSt6localeD1Ev>
+   140003580:	e8 d3 38 00 00       	call   140006e58 <_ZNSt6localeD1Ev>
    140003585:	48 8b 44 24 68       	mov    0x68(%rsp),%rax
    14000358a:	48 8b 5c 24 70       	mov    0x70(%rsp),%rbx
    14000358f:	48 8b 40 e8          	mov    -0x18(%rax),%rax
@@ -2784,14 +2784,14 @@ Disassembly of section .text:
    1400035d2:	4c 8b 44 24 28       	mov    0x28(%rsp),%r8
    1400035d7:	48 8b 54 24 20       	mov    0x20(%rsp),%rdx
    1400035dc:	48 89 d9             	mov    %rbx,%rcx
-   1400035df:	e8 8c 2d 00 00       	call   140006370 <_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_x>
+   1400035df:	e8 fc 37 00 00       	call   140006de0 <_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_x>
    1400035e4:	48 8b 4c 24 20       	mov    0x20(%rsp),%rcx
    1400035e9:	48 8d 44 24 30       	lea    0x30(%rsp),%rax
    1400035ee:	48 39 c1             	cmp    %rax,%rcx
    1400035f1:	74 0e                	je     140003601 <_ZlsRSo13NaturalBinary+0x41>
    1400035f3:	48 8b 44 24 30       	mov    0x30(%rsp),%rax
    1400035f8:	48 8d 50 01          	lea    0x1(%rax),%rdx
-   1400035fc:	e8 4f 2d 00 00       	call   140006350 <_ZdlPvy>
+   1400035fc:	e8 bf 37 00 00       	call   140006dc0 <_ZdlPvy>
    140003601:	48 89 d8             	mov    %rbx,%rax
    140003604:	48 83 c4 40          	add    $0x40,%rsp
    140003608:	5b                   	pop    %rbx
@@ -2803,9 +2803,9 @@ Disassembly of section .text:
    14000361a:	74 0e                	je     14000362a <_ZlsRSo13NaturalBinary+0x6a>
    14000361c:	48 8b 44 24 30       	mov    0x30(%rsp),%rax
    140003621:	48 8d 50 01          	lea    0x1(%rax),%rdx
-   140003625:	e8 26 2d 00 00       	call   140006350 <_ZdlPvy>
+   140003625:	e8 96 37 00 00       	call   140006dc0 <_ZdlPvy>
    14000362a:	48 89 d9             	mov    %rbx,%rcx
-   14000362d:	e8 6e 3e 00 00       	call   1400074a0 <_Unwind_Resume>
+   14000362d:	e8 de 48 00 00       	call   140007f10 <_Unwind_Resume>
    140003632:	90                   	nop
    140003633:	90                   	nop
    140003634:	66 66 2e 0f 1f 84 00 	data16 cs nopw 0x0(%rax,%rax,1)
@@ -2839,12 +2839,12 @@ Disassembly of section .text:
    14000368b:	0f 84 df 02 00 00    	je     140003970 <_ZN13NaturalBinarymlES_+0x330>
    140003691:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
    140003698:	b9 18 00 00 00       	mov    $0x18,%ecx
-   14000369d:	e8 a6 2c 00 00       	call   140006348 <_Znwy>
+   14000369d:	e8 16 37 00 00       	call   140006db8 <_Znwy>
    1400036a2:	48 89 c1             	mov    %rax,%rcx
    1400036a5:	0f b6 43 10          	movzbl 0x10(%rbx),%eax
    1400036a9:	48 89 f2             	mov    %rsi,%rdx
    1400036ac:	88 41 10             	mov    %al,0x10(%rcx)
-   1400036af:	e8 f4 2c 00 00       	call   1400063a8 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
+   1400036af:	e8 64 37 00 00       	call   140006e18 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
    1400036b4:	48 8b 44 24 70       	mov    0x70(%rsp),%rax
    1400036b9:	48 8b 1b             	mov    (%rbx),%rbx
    1400036bc:	48 8d 50 01          	lea    0x1(%rax),%rdx
@@ -2906,13 +2906,13 @@ Disassembly of section .text:
    1400037ad:	0f 11 b4 24 c0 00 00 	movups %xmm6,0xc0(%rsp)
    1400037b4:	00 
    1400037b5:	b9 18 00 00 00       	mov    $0x18,%ecx
-   1400037ba:	e8 89 2b 00 00       	call   140006348 <_Znwy>
+   1400037ba:	e8 f9 35 00 00       	call   140006db8 <_Znwy>
    1400037bf:	48 89 c1             	mov    %rax,%rcx
    1400037c2:	0f b6 45 00          	movzbl 0x0(%rbp),%eax
    1400037c6:	48 89 da             	mov    %rbx,%rdx
    1400037c9:	48 83 c5 01          	add    $0x1,%rbp
    1400037cd:	88 41 10             	mov    %al,0x10(%rcx)
-   1400037d0:	e8 d3 2b 00 00       	call   1400063a8 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
+   1400037d0:	e8 43 36 00 00       	call   140006e18 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
    1400037d5:	48 83 84 24 d0 00 00 	addq   $0x1,0xd0(%rsp)
    1400037dc:	00 01 
    1400037de:	4c 39 fd             	cmp    %r15,%rbp
@@ -2936,11 +2936,11 @@ Disassembly of section .text:
    140003828:	48 89 44 24 28       	mov    %rax,0x28(%rsp)
    14000382d:	b9 18 00 00 00       	mov    $0x18,%ecx
    140003832:	44 0f b6 75 10       	movzbl 0x10(%rbp),%r14d
-   140003837:	e8 0c 2b 00 00       	call   140006348 <_Znwy>
+   140003837:	e8 7c 35 00 00       	call   140006db8 <_Znwy>
    14000383c:	44 88 70 10          	mov    %r14b,0x10(%rax)
    140003840:	48 8b 54 24 28       	mov    0x28(%rsp),%rdx
    140003845:	48 89 c1             	mov    %rax,%rcx
-   140003848:	e8 5b 2b 00 00       	call   1400063a8 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
+   140003848:	e8 cb 35 00 00       	call   140006e18 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
    14000384d:	48 8b 6d 00          	mov    0x0(%rbp),%rbp
    140003851:	48 83 84 24 f0 00 00 	addq   $0x1,0xf0(%rsp)
    140003858:	00 01 
@@ -2959,7 +2959,7 @@ Disassembly of section .text:
    140003880:	48 89 e9             	mov    %rbp,%rcx
    140003883:	48 8b 6d 00          	mov    0x0(%rbp),%rbp
    140003887:	ba 18 00 00 00       	mov    $0x18,%edx
-   14000388c:	e8 bf 2a 00 00       	call   140006350 <_ZdlPvy>
+   14000388c:	e8 2f 35 00 00       	call   140006dc0 <_ZdlPvy>
    140003891:	4c 39 e5             	cmp    %r12,%rbp
    140003894:	75 ea                	jne    140003880 <_ZN13NaturalBinarymlES_+0x240>
    140003896:	48 8b ac 24 c0 00 00 	mov    0xc0(%rsp),%rbp
@@ -2968,7 +2968,7 @@ Disassembly of section .text:
    1400038a0:	48 89 e9             	mov    %rbp,%rcx
    1400038a3:	ba 18 00 00 00       	mov    $0x18,%edx
    1400038a8:	48 8b 6d 00          	mov    0x0(%rbp),%rbp
-   1400038ac:	e8 9f 2a 00 00       	call   140006350 <_ZdlPvy>
+   1400038ac:	e8 0f 35 00 00       	call   140006dc0 <_ZdlPvy>
    1400038b1:	48 39 dd             	cmp    %rbx,%rbp
    1400038b4:	75 ea                	jne    1400038a0 <_ZN13NaturalBinarymlES_+0x260>
    1400038b6:	48 8b 44 24 30       	mov    0x30(%rsp),%rax
@@ -2984,14 +2984,14 @@ Disassembly of section .text:
    1400038d5:	e8 a6 dd ff ff       	call   140001680 <_ZN4ByteC1Ey>
    1400038da:	b9 18 00 00 00       	mov    $0x18,%ecx
    1400038df:	4d 8b 75 00          	mov    0x0(%r13),%r14
-   1400038e3:	e8 60 2a 00 00       	call   140006348 <_Znwy>
+   1400038e3:	e8 d0 34 00 00       	call   140006db8 <_Znwy>
    1400038e8:	48 89 c1             	mov    %rax,%rcx
    1400038eb:	0f b6 84 24 e0 00 00 	movzbl 0xe0(%rsp),%eax
    1400038f2:	00 
    1400038f3:	4c 89 f2             	mov    %r14,%rdx
    1400038f6:	48 83 c5 01          	add    $0x1,%rbp
    1400038fa:	88 41 10             	mov    %al,0x10(%rcx)
-   1400038fd:	e8 a6 2a 00 00       	call   1400063a8 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
+   1400038fd:	e8 16 35 00 00       	call   140006e18 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
    140003902:	49 83 45 10 01       	addq   $0x1,0x10(%r13)
    140003907:	48 8b 44 24 30       	mov    0x30(%rsp),%rax
    14000390c:	31 d2                	xor    %edx,%edx
@@ -3014,7 +3014,7 @@ Disassembly of section .text:
    14000394d:	00 00 00 
    140003950:	48 8d 8c 24 80 00 00 	lea    0x80(%rsp),%rcx
    140003957:	00 
-   140003958:	e8 03 3d 00 00       	call   140007660 <_ZNSt6vectorI13NaturalBinarySaIS0_EE17_M_default_appendEy>
+   140003958:	e8 73 47 00 00       	call   1400080d0 <_ZNSt6vectorI13NaturalBinarySaIS0_EE17_M_default_appendEy>
    14000395d:	48 8b 84 24 80 00 00 	mov    0x80(%rsp),%rax
    140003964:	00 
    140003965:	48 89 44 24 50       	mov    %rax,0x50(%rsp)
@@ -3064,12 +3064,12 @@ Disassembly of section .text:
    140003a19:	0f 84 81 02 00 00    	je     140003ca0 <_ZN13NaturalBinarymlES_+0x660>
    140003a1f:	90                   	nop
    140003a20:	b9 18 00 00 00       	mov    $0x18,%ecx
-   140003a25:	e8 1e 29 00 00       	call   140006348 <_Znwy>
+   140003a25:	e8 8e 33 00 00       	call   140006db8 <_Znwy>
    140003a2a:	48 89 c1             	mov    %rax,%rcx
    140003a2d:	41 0f b6 45 10       	movzbl 0x10(%r13),%eax
    140003a32:	48 89 ea             	mov    %rbp,%rdx
    140003a35:	88 41 10             	mov    %al,0x10(%rcx)
-   140003a38:	e8 6b 29 00 00       	call   1400063a8 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
+   140003a38:	e8 db 33 00 00       	call   140006e18 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
    140003a3d:	48 8b 84 24 b0 00 00 	mov    0xb0(%rsp),%rax
    140003a44:	00 
    140003a45:	4d 8b 6d 00          	mov    0x0(%r13),%r13
@@ -3088,7 +3088,7 @@ Disassembly of section .text:
    140003a72:	4c 89 e1             	mov    %r12,%rcx
    140003a75:	e8 06 dc ff ff       	call   140001680 <_ZN4ByteC1Ey>
    140003a7a:	b9 18 00 00 00       	mov    $0x18,%ecx
-   140003a7f:	e8 c4 28 00 00       	call   140006348 <_Znwy>
+   140003a7f:	e8 34 33 00 00       	call   140006db8 <_Znwy>
    140003a84:	48 89 c1             	mov    %rax,%rcx
    140003a87:	0f b6 84 24 e0 00 00 	movzbl 0xe0(%rsp),%eax
    140003a8e:	00 
@@ -3096,7 +3096,7 @@ Disassembly of section .text:
    140003a96:	00 
    140003a97:	41 83 c5 01          	add    $0x1,%r13d
    140003a9b:	88 41 10             	mov    %al,0x10(%rcx)
-   140003a9e:	e8 05 29 00 00       	call   1400063a8 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
+   140003a9e:	e8 75 33 00 00       	call   140006e18 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
    140003aa3:	48 8b 84 24 60 01 00 	mov    0x160(%rsp),%rax
    140003aaa:	00 
    140003aab:	48 83 40 10 01       	addq   $0x1,0x10(%rax)
@@ -3113,12 +3113,12 @@ Disassembly of section .text:
    140003ada:	48 39 ef             	cmp    %rbp,%rdi
    140003add:	74 2d                	je     140003b0c <_ZN13NaturalBinarymlES_+0x4cc>
    140003adf:	b9 18 00 00 00       	mov    $0x18,%ecx
-   140003ae4:	e8 5f 28 00 00       	call   140006348 <_Znwy>
+   140003ae4:	e8 cf 32 00 00       	call   140006db8 <_Znwy>
    140003ae9:	48 89 c1             	mov    %rax,%rcx
    140003aec:	0f b6 47 10          	movzbl 0x10(%rdi),%eax
    140003af0:	48 89 da             	mov    %rbx,%rdx
    140003af3:	88 41 10             	mov    %al,0x10(%rcx)
-   140003af6:	e8 ad 28 00 00       	call   1400063a8 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
+   140003af6:	e8 1d 33 00 00       	call   140006e18 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
    140003afb:	48 8b 3f             	mov    (%rdi),%rdi
    140003afe:	48 83 84 24 d0 00 00 	addq   $0x1,0xd0(%rsp)
    140003b05:	00 01 
@@ -3140,7 +3140,7 @@ Disassembly of section .text:
    140003b3c:	48 89 f9             	mov    %rdi,%rcx
    140003b3f:	48 8b 3f             	mov    (%rdi),%rdi
    140003b42:	ba 18 00 00 00       	mov    $0x18,%edx
-   140003b47:	e8 04 28 00 00       	call   140006350 <_ZdlPvy>
+   140003b47:	e8 74 32 00 00       	call   140006dc0 <_ZdlPvy>
    140003b4c:	4c 39 e7             	cmp    %r12,%rdi
    140003b4f:	75 eb                	jne    140003b3c <_ZN13NaturalBinarymlES_+0x4fc>
    140003b51:	48 8b bc 24 c0 00 00 	mov    0xc0(%rsp),%rdi
@@ -3150,7 +3150,7 @@ Disassembly of section .text:
    140003b5e:	48 89 f9             	mov    %rdi,%rcx
    140003b61:	48 8b 3f             	mov    (%rdi),%rdi
    140003b64:	ba 18 00 00 00       	mov    $0x18,%edx
-   140003b69:	e8 e2 27 00 00       	call   140006350 <_ZdlPvy>
+   140003b69:	e8 52 32 00 00       	call   140006dc0 <_ZdlPvy>
    140003b6e:	48 39 df             	cmp    %rbx,%rdi
    140003b71:	75 eb                	jne    140003b5e <_ZN13NaturalBinarymlES_+0x51e>
    140003b73:	48 8b bc 24 a0 00 00 	mov    0xa0(%rsp),%rdi
@@ -3160,7 +3160,7 @@ Disassembly of section .text:
    140003b80:	48 89 f9             	mov    %rdi,%rcx
    140003b83:	48 8b 3f             	mov    (%rdi),%rdi
    140003b86:	ba 18 00 00 00       	mov    $0x18,%edx
-   140003b8b:	e8 c0 27 00 00       	call   140006350 <_ZdlPvy>
+   140003b8b:	e8 30 32 00 00       	call   140006dc0 <_ZdlPvy>
    140003b90:	48 39 ef             	cmp    %rbp,%rdi
    140003b93:	75 eb                	jne    140003b80 <_ZN13NaturalBinarymlES_+0x540>
    140003b95:	49 83 c6 18          	add    $0x18,%r14
@@ -3177,7 +3177,7 @@ Disassembly of section .text:
    140003bc0:	48 89 d9             	mov    %rbx,%rcx
    140003bc3:	48 8b 1b             	mov    (%rbx),%rbx
    140003bc6:	ba 18 00 00 00       	mov    $0x18,%edx
-   140003bcb:	e8 80 27 00 00       	call   140006350 <_ZdlPvy>
+   140003bcb:	e8 f0 31 00 00       	call   140006dc0 <_ZdlPvy>
    140003bd0:	48 39 df             	cmp    %rbx,%rdi
    140003bd3:	75 eb                	jne    140003bc0 <_ZN13NaturalBinarymlES_+0x580>
    140003bd5:	48 83 c7 18          	add    $0x18,%rdi
@@ -3189,7 +3189,7 @@ Disassembly of section .text:
    140003be8:	48 8b 94 24 90 00 00 	mov    0x90(%rsp),%rdx
    140003bef:	00 
    140003bf0:	48 29 ca             	sub    %rcx,%rdx
-   140003bf3:	e8 58 27 00 00       	call   140006350 <_ZdlPvy>
+   140003bf3:	e8 c8 31 00 00       	call   140006dc0 <_ZdlPvy>
    140003bf8:	48 8b 5c 24 60       	mov    0x60(%rsp),%rbx
    140003bfd:	48 39 f3             	cmp    %rsi,%rbx
    140003c00:	74 1b                	je     140003c1d <_ZN13NaturalBinarymlES_+0x5dd>
@@ -3197,7 +3197,7 @@ Disassembly of section .text:
    140003c08:	48 89 d9             	mov    %rbx,%rcx
    140003c0b:	48 8b 1b             	mov    (%rbx),%rbx
    140003c0e:	ba 18 00 00 00       	mov    $0x18,%edx
-   140003c13:	e8 38 27 00 00       	call   140006350 <_ZdlPvy>
+   140003c13:	e8 a8 31 00 00       	call   140006dc0 <_ZdlPvy>
    140003c18:	48 39 f3             	cmp    %rsi,%rbx
    140003c1b:	75 eb                	jne    140003c08 <_ZN13NaturalBinarymlES_+0x5c8>
    140003c1d:	48 8b 84 24 60 01 00 	mov    0x160(%rsp),%rax
@@ -3226,14 +3226,14 @@ Disassembly of section .text:
    140003c62:	4c 89 e1             	mov    %r12,%rcx
    140003c65:	e8 16 da ff ff       	call   140001680 <_ZN4ByteC1Ey>
    140003c6a:	b9 18 00 00 00       	mov    $0x18,%ecx
-   140003c6f:	e8 d4 26 00 00       	call   140006348 <_Znwy>
+   140003c6f:	e8 44 31 00 00       	call   140006db8 <_Znwy>
    140003c74:	48 89 c1             	mov    %rax,%rcx
    140003c77:	0f b6 84 24 e0 00 00 	movzbl 0xe0(%rsp),%eax
    140003c7e:	00 
    140003c7f:	48 89 ea             	mov    %rbp,%rdx
    140003c82:	83 c7 01             	add    $0x1,%edi
    140003c85:	88 41 10             	mov    %al,0x10(%rcx)
-   140003c88:	e8 1b 27 00 00       	call   1400063a8 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
+   140003c88:	e8 8b 31 00 00       	call   140006e18 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
    140003c8d:	48 83 84 24 b0 00 00 	addq   $0x1,0xb0(%rsp)
    140003c94:	00 01 
    140003c96:	41 39 fd             	cmp    %edi,%r13d
@@ -3254,7 +3254,7 @@ Disassembly of section .text:
    140003cc8:	0f 84 b7 00 00 00    	je     140003d85 <_ZN13NaturalBinarymlES_+0x745>
    140003cce:	4c 8b 29             	mov    (%rcx),%r13
    140003cd1:	ba 18 00 00 00       	mov    $0x18,%edx
-   140003cd6:	e8 75 26 00 00       	call   140006350 <_ZdlPvy>
+   140003cd6:	e8 e5 30 00 00       	call   140006dc0 <_ZdlPvy>
    140003cdb:	4c 89 e9             	mov    %r13,%rcx
    140003cde:	eb e5                	jmp    140003cc5 <_ZN13NaturalBinarymlES_+0x685>
    140003ce0:	48 8b 8c 24 e0 00 00 	mov    0xe0(%rsp),%rcx
@@ -3264,7 +3264,7 @@ Disassembly of section .text:
    140003cee:	74 26                	je     140003d16 <_ZN13NaturalBinarymlES_+0x6d6>
    140003cf0:	48 8b 29             	mov    (%rcx),%rbp
    140003cf3:	ba 18 00 00 00       	mov    $0x18,%edx
-   140003cf8:	e8 53 26 00 00       	call   140006350 <_ZdlPvy>
+   140003cf8:	e8 c3 30 00 00       	call   140006dc0 <_ZdlPvy>
    140003cfd:	48 89 e9             	mov    %rbp,%rcx
    140003d00:	eb e9                	jmp    140003ceb <_ZN13NaturalBinarymlES_+0x6ab>
    140003d02:	48 8b 8c 24 e0 00 00 	mov    0xe0(%rsp),%rcx
@@ -3278,7 +3278,7 @@ Disassembly of section .text:
    140003d21:	74 5a                	je     140003d7d <_ZN13NaturalBinarymlES_+0x73d>
    140003d23:	48 8b 29             	mov    (%rcx),%rbp
    140003d26:	ba 18 00 00 00       	mov    $0x18,%edx
-   140003d2b:	e8 20 26 00 00       	call   140006350 <_ZdlPvy>
+   140003d2b:	e8 90 30 00 00       	call   140006dc0 <_ZdlPvy>
    140003d30:	48 89 e9             	mov    %rbp,%rcx
    140003d33:	eb e9                	jmp    140003d1e <_ZN13NaturalBinarymlES_+0x6de>
    140003d35:	48 8b 94 24 90 00 00 	mov    0x90(%rsp),%rdx
@@ -3287,13 +3287,13 @@ Disassembly of section .text:
    140003d40:	48 85 ed             	test   %rbp,%rbp
    140003d43:	74 08                	je     140003d4d <_ZN13NaturalBinarymlES_+0x70d>
    140003d45:	48 89 e9             	mov    %rbp,%rcx
-   140003d48:	e8 03 26 00 00       	call   140006350 <_ZdlPvy>
+   140003d48:	e8 73 30 00 00       	call   140006dc0 <_ZdlPvy>
    140003d4d:	48 8b 4c 24 60       	mov    0x60(%rsp),%rcx
    140003d52:	48 39 f1             	cmp    %rsi,%rcx
    140003d55:	74 48                	je     140003d9f <_ZN13NaturalBinarymlES_+0x75f>
    140003d57:	48 8b 39             	mov    (%rcx),%rdi
    140003d5a:	ba 18 00 00 00       	mov    $0x18,%edx
-   140003d5f:	e8 ec 25 00 00       	call   140006350 <_ZdlPvy>
+   140003d5f:	e8 5c 30 00 00       	call   140006dc0 <_ZdlPvy>
    140003d64:	48 89 f9             	mov    %rdi,%rcx
    140003d67:	eb e9                	jmp    140003d52 <_ZN13NaturalBinarymlES_+0x712>
    140003d69:	48 8b 8c 24 c0 00 00 	mov    0xc0(%rsp),%rcx
@@ -3310,7 +3310,7 @@ Disassembly of section .text:
    140003d96:	48 39 f1             	cmp    %rsi,%rcx
    140003d99:	0f 85 0c 01 00 00    	jne    140003eab <_ZN13NaturalBinarymlES_+0x86b>
    140003d9f:	48 89 d9             	mov    %rbx,%rcx
-   140003da2:	e8 f9 36 00 00       	call   1400074a0 <_Unwind_Resume>
+   140003da2:	e8 69 41 00 00       	call   140007f10 <_Unwind_Resume>
    140003da7:	48 8b 8c 24 e0 00 00 	mov    0xe0(%rsp),%rcx
    140003dae:	00 
    140003daf:	48 89 c7             	mov    %rax,%rdi
@@ -3318,12 +3318,12 @@ Disassembly of section .text:
    140003db5:	74 2a                	je     140003de1 <_ZN13NaturalBinarymlES_+0x7a1>
    140003db7:	4c 8b 29             	mov    (%rcx),%r13
    140003dba:	ba 18 00 00 00       	mov    $0x18,%edx
-   140003dbf:	e8 8c 25 00 00       	call   140006350 <_ZdlPvy>
+   140003dbf:	e8 fc 2f 00 00       	call   140006dc0 <_ZdlPvy>
    140003dc4:	4c 89 e9             	mov    %r13,%rcx
    140003dc7:	eb e9                	jmp    140003db2 <_ZN13NaturalBinarymlES_+0x772>
    140003dc9:	48 8b 29             	mov    (%rcx),%rbp
    140003dcc:	ba 18 00 00 00       	mov    $0x18,%edx
-   140003dd1:	e8 7a 25 00 00       	call   140006350 <_ZdlPvy>
+   140003dd1:	e8 ea 2f 00 00       	call   140006dc0 <_ZdlPvy>
    140003dd6:	48 89 e9             	mov    %rbp,%rcx
    140003dd9:	e9 2f ff ff ff       	jmp    140003d0d <_ZN13NaturalBinarymlES_+0x6cd>
    140003dde:	48 89 c7             	mov    %rax,%rdi
@@ -3333,7 +3333,7 @@ Disassembly of section .text:
    140003dec:	74 34                	je     140003e22 <_ZN13NaturalBinarymlES_+0x7e2>
    140003dee:	4c 8b 21             	mov    (%rcx),%r12
    140003df1:	ba 18 00 00 00       	mov    $0x18,%edx
-   140003df6:	e8 55 25 00 00       	call   140006350 <_ZdlPvy>
+   140003df6:	e8 c5 2f 00 00       	call   140006dc0 <_ZdlPvy>
    140003dfb:	4c 89 e1             	mov    %r12,%rcx
    140003dfe:	eb e9                	jmp    140003de9 <_ZN13NaturalBinarymlES_+0x7a9>
    140003e00:	48 8b 8c 24 c0 00 00 	mov    0xc0(%rsp),%rcx
@@ -3343,7 +3343,7 @@ Disassembly of section .text:
    140003e0e:	74 12                	je     140003e22 <_ZN13NaturalBinarymlES_+0x7e2>
    140003e10:	4c 8b 21             	mov    (%rcx),%r12
    140003e13:	ba 18 00 00 00       	mov    $0x18,%edx
-   140003e18:	e8 33 25 00 00       	call   140006350 <_ZdlPvy>
+   140003e18:	e8 a3 2f 00 00       	call   140006dc0 <_ZdlPvy>
    140003e1d:	4c 89 e1             	mov    %r12,%rcx
    140003e20:	eb e9                	jmp    140003e0b <_ZN13NaturalBinarymlES_+0x7cb>
    140003e22:	48 89 fb             	mov    %rdi,%rbx
@@ -3353,7 +3353,7 @@ Disassembly of section .text:
    140003e30:	74 39                	je     140003e6b <_ZN13NaturalBinarymlES_+0x82b>
    140003e32:	48 8b 39             	mov    (%rcx),%rdi
    140003e35:	ba 18 00 00 00       	mov    $0x18,%edx
-   140003e3a:	e8 11 25 00 00       	call   140006350 <_ZdlPvy>
+   140003e3a:	e8 81 2f 00 00       	call   140006dc0 <_ZdlPvy>
    140003e3f:	48 89 f9             	mov    %rdi,%rcx
    140003e42:	eb e9                	jmp    140003e2d <_ZN13NaturalBinarymlES_+0x7ed>
    140003e44:	48 89 c3             	mov    %rax,%rbx
@@ -3365,7 +3365,7 @@ Disassembly of section .text:
    140003e57:	74 12                	je     140003e6b <_ZN13NaturalBinarymlES_+0x82b>
    140003e59:	48 8b 39             	mov    (%rcx),%rdi
    140003e5c:	ba 18 00 00 00       	mov    $0x18,%edx
-   140003e61:	e8 ea 24 00 00       	call   140006350 <_ZdlPvy>
+   140003e61:	e8 5a 2f 00 00       	call   140006dc0 <_ZdlPvy>
    140003e66:	48 89 f9             	mov    %rdi,%rcx
    140003e69:	eb e9                	jmp    140003e54 <_ZN13NaturalBinarymlES_+0x814>
    140003e6b:	48 8b 84 24 60 01 00 	mov    0x160(%rsp),%rax
@@ -3376,17 +3376,17 @@ Disassembly of section .text:
    140003e7e:	0f 84 26 fe ff ff    	je     140003caa <_ZN13NaturalBinarymlES_+0x66a>
    140003e84:	48 8b 39             	mov    (%rcx),%rdi
    140003e87:	ba 18 00 00 00       	mov    $0x18,%edx
-   140003e8c:	e8 bf 24 00 00       	call   140006350 <_ZdlPvy>
+   140003e8c:	e8 2f 2f 00 00       	call   140006dc0 <_ZdlPvy>
    140003e91:	48 89 f9             	mov    %rdi,%rcx
    140003e94:	eb e0                	jmp    140003e76 <_ZN13NaturalBinarymlES_+0x836>
    140003e96:	48 8b 29             	mov    (%rcx),%rbp
    140003e99:	ba 18 00 00 00       	mov    $0x18,%edx
-   140003e9e:	e8 ad 24 00 00       	call   140006350 <_ZdlPvy>
+   140003e9e:	e8 1d 2f 00 00       	call   140006dc0 <_ZdlPvy>
    140003ea3:	48 89 e9             	mov    %rbp,%rcx
    140003ea6:	e9 c9 fe ff ff       	jmp    140003d74 <_ZN13NaturalBinarymlES_+0x734>
    140003eab:	48 8b 39             	mov    (%rcx),%rdi
    140003eae:	ba 18 00 00 00       	mov    $0x18,%edx
-   140003eb3:	e8 98 24 00 00       	call   140006350 <_ZdlPvy>
+   140003eb3:	e8 08 2f 00 00       	call   140006dc0 <_ZdlPvy>
    140003eb8:	48 89 f9             	mov    %rdi,%rcx
    140003ebb:	e9 d6 fe ff ff       	jmp    140003d96 <_ZN13NaturalBinarymlES_+0x756>
 
@@ -3435,12 +3435,12 @@ Disassembly of section .text:
    140003f51:	74 2f                	je     140003f82 <_ZN13NaturalBinary12long_divsionES_PS_+0xc2>
    140003f53:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
    140003f58:	b9 18 00 00 00       	mov    $0x18,%ecx
-   140003f5d:	e8 e6 23 00 00       	call   140006348 <_Znwy>
+   140003f5d:	e8 56 2e 00 00       	call   140006db8 <_Znwy>
    140003f62:	48 89 c1             	mov    %rax,%rcx
    140003f65:	0f b6 43 10          	movzbl 0x10(%rbx),%eax
    140003f69:	48 89 f2             	mov    %rsi,%rdx
    140003f6c:	88 41 10             	mov    %al,0x10(%rcx)
-   140003f6f:	e8 34 24 00 00       	call   1400063a8 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
+   140003f6f:	e8 a4 2e 00 00       	call   140006e18 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
    140003f74:	48 8b 1b             	mov    (%rbx),%rbx
    140003f77:	48 83 44 24 70 01    	addq   $0x1,0x70(%rsp)
    140003f7d:	48 39 df             	cmp    %rbx,%rdi
@@ -3464,7 +3464,7 @@ Disassembly of section .text:
    140003fc0:	48 89 d9             	mov    %rbx,%rcx
    140003fc3:	48 8b 1b             	mov    (%rbx),%rbx
    140003fc6:	ba 18 00 00 00       	mov    $0x18,%edx
-   140003fcb:	e8 80 23 00 00       	call   140006350 <_ZdlPvy>
+   140003fcb:	e8 f0 2d 00 00       	call   140006dc0 <_ZdlPvy>
    140003fd0:	4c 39 fb             	cmp    %r15,%rbx
    140003fd3:	75 eb                	jne    140003fc0 <_ZN13NaturalBinary12long_divsionES_PS_+0x100>
    140003fd5:	48 8b 5c 24 60       	mov    0x60(%rsp),%rbx
@@ -3474,7 +3474,7 @@ Disassembly of section .text:
    140003fe0:	48 89 d9             	mov    %rbx,%rcx
    140003fe3:	48 8b 1b             	mov    (%rbx),%rbx
    140003fe6:	ba 18 00 00 00       	mov    $0x18,%edx
-   140003feb:	e8 60 23 00 00       	call   140006350 <_ZdlPvy>
+   140003feb:	e8 d0 2d 00 00       	call   140006dc0 <_ZdlPvy>
    140003ff0:	48 39 f3             	cmp    %rsi,%rbx
    140003ff3:	75 eb                	jne    140003fe0 <_ZN13NaturalBinary12long_divsionES_PS_+0x120>
    140003ff5:	31 db                	xor    %ebx,%ebx
@@ -3485,10 +3485,10 @@ Disassembly of section .text:
    140004005:	48 83 6c 24 30 01    	subq   $0x1,0x30(%rsp)
    14000400b:	48 83 c3 01          	add    $0x1,%rbx
    14000400f:	4c 89 e9             	mov    %r13,%rcx
-   140004012:	e8 89 23 00 00       	call   1400063a0 <_ZNSt8__detail15_List_node_base9_M_unhookEv>
+   140004012:	e8 f9 2d 00 00       	call   140006e10 <_ZNSt8__detail15_List_node_base9_M_unhookEv>
    140004017:	ba 18 00 00 00       	mov    $0x18,%edx
    14000401c:	4c 89 e9             	mov    %r13,%rcx
-   14000401f:	e8 2c 23 00 00       	call   140006350 <_ZdlPvy>
+   14000401f:	e8 9c 2d 00 00       	call   140006dc0 <_ZdlPvy>
    140004024:	48 8b 45 10          	mov    0x10(%rbp),%rax
    140004028:	48 83 e8 01          	sub    $0x1,%rax
    14000402c:	48 39 c3             	cmp    %rax,%rbx
@@ -3505,7 +3505,7 @@ Disassembly of section .text:
    140004058:	48 8b 40 10          	mov    0x10(%rax),%rax
    14000405c:	48 39 c2             	cmp    %rax,%rdx
    14000405f:	48 0f 42 d0          	cmovb  %rax,%rdx
-   140004063:	e8 28 3a 00 00       	call   140007a90 <_ZNSt7__cxx114listI4ByteSaIS1_EE6resizeEy>
+   140004063:	e8 98 44 00 00       	call   140008500 <_ZNSt7__cxx114listI4ByteSaIS1_EE6resizeEy>
    140004068:	48 8b 84 24 10 01 00 	mov    0x110(%rsp),%rax
    14000406f:	00 
    140004070:	4c 89 e1             	mov    %r12,%rcx
@@ -3513,7 +3513,7 @@ Disassembly of section .text:
    140004077:	48 8b 44 24 30       	mov    0x30(%rsp),%rax
    14000407c:	48 39 c2             	cmp    %rax,%rdx
    14000407f:	48 0f 42 d0          	cmovb  %rax,%rdx
-   140004083:	e8 08 3a 00 00       	call   140007a90 <_ZNSt7__cxx114listI4ByteSaIS1_EE6resizeEy>
+   140004083:	e8 78 44 00 00       	call   140008500 <_ZNSt7__cxx114listI4ByteSaIS1_EE6resizeEy>
    140004088:	48 8b 5c 24 20       	mov    0x20(%rsp),%rbx
    14000408d:	0f 11 7c 24 60       	movups %xmm7,0x60(%rsp)
    140004092:	48 c7 44 24 70 00 00 	movq   $0x0,0x70(%rsp)
@@ -3521,12 +3521,12 @@ Disassembly of section .text:
    14000409b:	4c 39 e3             	cmp    %r12,%rbx
    14000409e:	74 2a                	je     1400040ca <_ZN13NaturalBinary12long_divsionES_PS_+0x20a>
    1400040a0:	b9 18 00 00 00       	mov    $0x18,%ecx
-   1400040a5:	e8 9e 22 00 00       	call   140006348 <_Znwy>
+   1400040a5:	e8 0e 2d 00 00       	call   140006db8 <_Znwy>
    1400040aa:	48 89 c1             	mov    %rax,%rcx
    1400040ad:	0f b6 43 10          	movzbl 0x10(%rbx),%eax
    1400040b1:	48 89 f2             	mov    %rsi,%rdx
    1400040b4:	88 41 10             	mov    %al,0x10(%rcx)
-   1400040b7:	e8 ec 22 00 00       	call   1400063a8 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
+   1400040b7:	e8 5c 2d 00 00       	call   140006e18 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
    1400040bc:	48 8b 1b             	mov    (%rbx),%rbx
    1400040bf:	48 83 44 24 70 01    	addq   $0x1,0x70(%rsp)
    1400040c5:	4c 39 e3             	cmp    %r12,%rbx
@@ -3550,7 +3550,7 @@ Disassembly of section .text:
    140004108:	48 89 d9             	mov    %rbx,%rcx
    14000410b:	48 8b 1b             	mov    (%rbx),%rbx
    14000410e:	ba 18 00 00 00       	mov    $0x18,%edx
-   140004113:	e8 38 22 00 00       	call   140006350 <_ZdlPvy>
+   140004113:	e8 a8 2c 00 00       	call   140006dc0 <_ZdlPvy>
    140004118:	4c 39 fb             	cmp    %r15,%rbx
    14000411b:	75 eb                	jne    140004108 <_ZN13NaturalBinary12long_divsionES_PS_+0x248>
    14000411d:	48 8b 5c 24 60       	mov    0x60(%rsp),%rbx
@@ -3561,7 +3561,7 @@ Disassembly of section .text:
    140004130:	48 89 d9             	mov    %rbx,%rcx
    140004133:	48 8b 1b             	mov    (%rbx),%rbx
    140004136:	ba 18 00 00 00       	mov    $0x18,%edx
-   14000413b:	e8 10 22 00 00       	call   140006350 <_ZdlPvy>
+   14000413b:	e8 80 2c 00 00       	call   140006dc0 <_ZdlPvy>
    140004140:	48 39 f3             	cmp    %rsi,%rbx
    140004143:	75 eb                	jne    140004130 <_ZN13NaturalBinary12long_divsionES_PS_+0x270>
    140004145:	48 8b 5d 00          	mov    0x0(%rbp),%rbx
@@ -3572,12 +3572,12 @@ Disassembly of section .text:
    14000415a:	74 2e                	je     14000418a <_ZN13NaturalBinary12long_divsionES_PS_+0x2ca>
    14000415c:	0f 1f 40 00          	nopl   0x0(%rax)
    140004160:	b9 18 00 00 00       	mov    $0x18,%ecx
-   140004165:	e8 de 21 00 00       	call   140006348 <_Znwy>
+   140004165:	e8 4e 2c 00 00       	call   140006db8 <_Znwy>
    14000416a:	48 89 c1             	mov    %rax,%rcx
    14000416d:	0f b6 43 10          	movzbl 0x10(%rbx),%eax
    140004171:	4c 89 f2             	mov    %r14,%rdx
    140004174:	88 41 10             	mov    %al,0x10(%rcx)
-   140004177:	e8 2c 22 00 00       	call   1400063a8 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
+   140004177:	e8 9c 2c 00 00       	call   140006e18 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
    14000417c:	48 8b 1b             	mov    (%rbx),%rbx
    14000417f:	48 83 44 24 50 01    	addq   $0x1,0x50(%rsp)
    140004185:	48 39 dd             	cmp    %rbx,%rbp
@@ -3601,7 +3601,7 @@ Disassembly of section .text:
    1400041c0:	48 89 d9             	mov    %rbx,%rcx
    1400041c3:	48 8b 1b             	mov    (%rbx),%rbx
    1400041c6:	ba 18 00 00 00       	mov    $0x18,%edx
-   1400041cb:	e8 80 21 00 00       	call   140006350 <_ZdlPvy>
+   1400041cb:	e8 f0 2b 00 00       	call   140006dc0 <_ZdlPvy>
    1400041d0:	4c 39 fb             	cmp    %r15,%rbx
    1400041d3:	75 eb                	jne    1400041c0 <_ZN13NaturalBinary12long_divsionES_PS_+0x300>
    1400041d5:	48 8b 5c 24 60       	mov    0x60(%rsp),%rbx
@@ -3611,7 +3611,7 @@ Disassembly of section .text:
    1400041e0:	48 89 d9             	mov    %rbx,%rcx
    1400041e3:	48 8b 1b             	mov    (%rbx),%rbx
    1400041e6:	ba 18 00 00 00       	mov    $0x18,%edx
-   1400041eb:	e8 60 21 00 00       	call   140006350 <_ZdlPvy>
+   1400041eb:	e8 d0 2b 00 00       	call   140006dc0 <_ZdlPvy>
    1400041f0:	48 39 f3             	cmp    %rsi,%rbx
    1400041f3:	75 eb                	jne    1400041e0 <_ZN13NaturalBinary12long_divsionES_PS_+0x320>
    1400041f5:	48 8b 5c 24 40       	mov    0x40(%rsp),%rbx
@@ -3621,7 +3621,7 @@ Disassembly of section .text:
    140004200:	48 89 d9             	mov    %rbx,%rcx
    140004203:	48 8b 1b             	mov    (%rbx),%rbx
    140004206:	ba 18 00 00 00       	mov    $0x18,%edx
-   14000420b:	e8 40 21 00 00       	call   140006350 <_ZdlPvy>
+   14000420b:	e8 b0 2b 00 00       	call   140006dc0 <_ZdlPvy>
    140004210:	4c 39 f3             	cmp    %r14,%rbx
    140004213:	75 eb                	jne    140004200 <_ZN13NaturalBinary12long_divsionES_PS_+0x340>
    140004215:	4c 89 f9             	mov    %r15,%rcx
@@ -3639,7 +3639,7 @@ Disassembly of section .text:
    140004240:	48 89 d9             	mov    %rbx,%rcx
    140004243:	48 8b 1b             	mov    (%rbx),%rbx
    140004246:	ba 18 00 00 00       	mov    $0x18,%edx
-   14000424b:	e8 00 21 00 00       	call   140006350 <_ZdlPvy>
+   14000424b:	e8 70 2b 00 00       	call   140006dc0 <_ZdlPvy>
    140004250:	4c 39 fb             	cmp    %r15,%rbx
    140004253:	75 eb                	jne    140004240 <_ZN13NaturalBinary12long_divsionES_PS_+0x380>
    140004255:	45 84 ed             	test   %r13b,%r13b
@@ -3655,12 +3655,12 @@ Disassembly of section .text:
    140004282:	74 31                	je     1400042b5 <_ZN13NaturalBinary12long_divsionES_PS_+0x3f5>
    140004284:	0f 1f 40 00          	nopl   0x0(%rax)
    140004288:	b9 18 00 00 00       	mov    $0x18,%ecx
-   14000428d:	e8 b6 20 00 00       	call   140006348 <_Znwy>
+   14000428d:	e8 26 2b 00 00       	call   140006db8 <_Znwy>
    140004292:	48 89 c1             	mov    %rax,%rcx
    140004295:	0f b6 43 10          	movzbl 0x10(%rbx),%eax
    140004299:	4c 89 fa             	mov    %r15,%rdx
    14000429c:	88 41 10             	mov    %al,0x10(%rcx)
-   14000429f:	e8 04 21 00 00       	call   1400063a8 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
+   14000429f:	e8 74 2b 00 00       	call   140006e18 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
    1400042a4:	48 8b 1b             	mov    (%rbx),%rbx
    1400042a7:	48 83 84 24 90 00 00 	addq   $0x1,0x90(%rsp)
    1400042ae:	00 01 
@@ -3677,7 +3677,7 @@ Disassembly of section .text:
    1400042d0:	48 89 d9             	mov    %rbx,%rcx
    1400042d3:	48 8b 1b             	mov    (%rbx),%rbx
    1400042d6:	ba 18 00 00 00       	mov    $0x18,%edx
-   1400042db:	e8 70 20 00 00       	call   140006350 <_ZdlPvy>
+   1400042db:	e8 e0 2a 00 00       	call   140006dc0 <_ZdlPvy>
    1400042e0:	4c 39 fb             	cmp    %r15,%rbx
    1400042e3:	75 eb                	jne    1400042d0 <_ZN13NaturalBinary12long_divsionES_PS_+0x410>
    1400042e5:	45 84 ed             	test   %r13b,%r13b
@@ -3690,7 +3690,7 @@ Disassembly of section .text:
    140004300:	48 89 d9             	mov    %rbx,%rcx
    140004303:	48 8b 1b             	mov    (%rbx),%rbx
    140004306:	ba 18 00 00 00       	mov    $0x18,%edx
-   14000430b:	e8 40 20 00 00       	call   140006350 <_ZdlPvy>
+   14000430b:	e8 b0 2a 00 00       	call   140006dc0 <_ZdlPvy>
    140004310:	4c 39 e3             	cmp    %r12,%rbx
    140004313:	75 eb                	jne    140004300 <_ZN13NaturalBinary12long_divsionES_PS_+0x440>
    140004315:	48 8b 84 24 10 01 00 	mov    0x110(%rsp),%rax
@@ -3714,13 +3714,13 @@ Disassembly of section .text:
    14000434a:	4c 89 f9             	mov    %r15,%rcx
    14000434d:	e8 2e d3 ff ff       	call   140001680 <_ZN4ByteC1Ey>
    140004352:	b9 18 00 00 00       	mov    $0x18,%ecx
-   140004357:	e8 ec 1f 00 00       	call   140006348 <_Znwy>
+   140004357:	e8 5c 2a 00 00       	call   140006db8 <_Znwy>
    14000435c:	48 89 c1             	mov    %rax,%rcx
    14000435f:	0f b6 84 24 80 00 00 	movzbl 0x80(%rsp),%eax
    140004366:	00 
    140004367:	4c 89 e2             	mov    %r12,%rdx
    14000436a:	88 41 10             	mov    %al,0x10(%rcx)
-   14000436d:	e8 36 20 00 00       	call   1400063a8 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
+   14000436d:	e8 a6 2a 00 00       	call   140006e18 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
    140004372:	48 8b 44 24 30       	mov    0x30(%rsp),%rax
    140004377:	48 8d 50 01          	lea    0x1(%rax),%rdx
    14000437b:	48 89 54 24 30       	mov    %rdx,0x30(%rsp)
@@ -3734,12 +3734,12 @@ Disassembly of section .text:
    1400043a0:	48 39 dd             	cmp    %rbx,%rbp
    1400043a3:	74 2a                	je     1400043cf <_ZN13NaturalBinary12long_divsionES_PS_+0x50f>
    1400043a5:	b9 18 00 00 00       	mov    $0x18,%ecx
-   1400043aa:	e8 99 1f 00 00       	call   140006348 <_Znwy>
+   1400043aa:	e8 09 2a 00 00       	call   140006db8 <_Znwy>
    1400043af:	48 89 c1             	mov    %rax,%rcx
    1400043b2:	0f b6 43 10          	movzbl 0x10(%rbx),%eax
    1400043b6:	4c 89 f2             	mov    %r14,%rdx
    1400043b9:	88 41 10             	mov    %al,0x10(%rcx)
-   1400043bc:	e8 e7 1f 00 00       	call   1400063a8 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
+   1400043bc:	e8 57 2a 00 00       	call   140006e18 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
    1400043c1:	48 8b 1b             	mov    (%rbx),%rbx
    1400043c4:	48 83 44 24 50 01    	addq   $0x1,0x50(%rsp)
    1400043ca:	48 39 dd             	cmp    %rbx,%rbp
@@ -3760,7 +3760,7 @@ Disassembly of section .text:
    1400043fe:	48 89 d9             	mov    %rbx,%rcx
    140004401:	48 8b 1b             	mov    (%rbx),%rbx
    140004404:	ba 18 00 00 00       	mov    $0x18,%edx
-   140004409:	e8 42 1f 00 00       	call   140006350 <_ZdlPvy>
+   140004409:	e8 b2 29 00 00       	call   140006dc0 <_ZdlPvy>
    14000440e:	4c 39 fb             	cmp    %r15,%rbx
    140004411:	75 eb                	jne    1400043fe <_ZN13NaturalBinary12long_divsionES_PS_+0x53e>
    140004413:	48 8b 5c 24 40       	mov    0x40(%rsp),%rbx
@@ -3769,7 +3769,7 @@ Disassembly of section .text:
    14000441d:	48 89 d9             	mov    %rbx,%rcx
    140004420:	48 8b 1b             	mov    (%rbx),%rbx
    140004423:	ba 18 00 00 00       	mov    $0x18,%edx
-   140004428:	e8 23 1f 00 00       	call   140006350 <_ZdlPvy>
+   140004428:	e8 93 29 00 00       	call   140006dc0 <_ZdlPvy>
    14000442d:	4c 39 f3             	cmp    %r14,%rbx
    140004430:	75 eb                	jne    14000441d <_ZN13NaturalBinary12long_divsionES_PS_+0x55d>
    140004432:	ba 01 00 00 00       	mov    $0x1,%edx
@@ -3779,13 +3779,13 @@ Disassembly of section .text:
    140004446:	00 00 
    140004448:	e8 33 d2 ff ff       	call   140001680 <_ZN4ByteC1Ey>
    14000444d:	b9 18 00 00 00       	mov    $0x18,%ecx
-   140004452:	e8 f1 1e 00 00       	call   140006348 <_Znwy>
+   140004452:	e8 61 29 00 00       	call   140006db8 <_Znwy>
    140004457:	48 89 c1             	mov    %rax,%rcx
    14000445a:	0f b6 84 24 80 00 00 	movzbl 0x80(%rsp),%eax
    140004461:	00 
    140004462:	48 89 f2             	mov    %rsi,%rdx
    140004465:	88 41 10             	mov    %al,0x10(%rcx)
-   140004468:	e8 3b 1f 00 00       	call   1400063a8 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
+   140004468:	e8 ab 29 00 00       	call   140006e18 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
    14000446d:	48 8b 94 24 10 01 00 	mov    0x110(%rsp),%rdx
    140004474:	00 
    140004475:	49 89 f0             	mov    %rsi,%r8
@@ -3803,7 +3803,7 @@ Disassembly of section .text:
    1400044a3:	48 89 d9             	mov    %rbx,%rcx
    1400044a6:	48 8b 1b             	mov    (%rbx),%rbx
    1400044a9:	ba 18 00 00 00       	mov    $0x18,%edx
-   1400044ae:	e8 9d 1e 00 00       	call   140006350 <_ZdlPvy>
+   1400044ae:	e8 0d 29 00 00       	call   140006dc0 <_ZdlPvy>
    1400044b3:	4c 39 fb             	cmp    %r15,%rbx
    1400044b6:	75 eb                	jne    1400044a3 <_ZN13NaturalBinary12long_divsionES_PS_+0x5e3>
    1400044b8:	48 8b 5c 24 60       	mov    0x60(%rsp),%rbx
@@ -3812,7 +3812,7 @@ Disassembly of section .text:
    1400044c6:	48 89 d9             	mov    %rbx,%rcx
    1400044c9:	48 8b 1b             	mov    (%rbx),%rbx
    1400044cc:	ba 18 00 00 00       	mov    $0x18,%edx
-   1400044d1:	e8 7a 1e 00 00       	call   140006350 <_ZdlPvy>
+   1400044d1:	e8 ea 28 00 00       	call   140006dc0 <_ZdlPvy>
    1400044d6:	48 39 f3             	cmp    %rsi,%rbx
    1400044d9:	75 eb                	jne    1400044c6 <_ZN13NaturalBinary12long_divsionES_PS_+0x606>
    1400044db:	e9 0e fe ff ff       	jmp    1400042ee <_ZN13NaturalBinary12long_divsionES_PS_+0x42e>
@@ -3823,7 +3823,7 @@ Disassembly of section .text:
    1400044ee:	74 15                	je     140004505 <_ZN13NaturalBinary12long_divsionES_PS_+0x645>
    1400044f0:	48 8b 39             	mov    (%rcx),%rdi
    1400044f3:	ba 18 00 00 00       	mov    $0x18,%edx
-   1400044f8:	e8 53 1e 00 00       	call   140006350 <_ZdlPvy>
+   1400044f8:	e8 c3 28 00 00       	call   140006dc0 <_ZdlPvy>
    1400044fd:	48 89 f9             	mov    %rdi,%rcx
    140004500:	eb e9                	jmp    1400044eb <_ZN13NaturalBinary12long_divsionES_PS_+0x62b>
    140004502:	48 89 c3             	mov    %rax,%rbx
@@ -3832,7 +3832,7 @@ Disassembly of section .text:
    14000450d:	74 75                	je     140004584 <_ZN13NaturalBinary12long_divsionES_PS_+0x6c4>
    14000450f:	48 8b 39             	mov    (%rcx),%rdi
    140004512:	ba 18 00 00 00       	mov    $0x18,%edx
-   140004517:	e8 34 1e 00 00       	call   140006350 <_ZdlPvy>
+   140004517:	e8 a4 28 00 00       	call   140006dc0 <_ZdlPvy>
    14000451c:	48 89 f9             	mov    %rdi,%rcx
    14000451f:	eb e9                	jmp    14000450a <_ZN13NaturalBinary12long_divsionES_PS_+0x64a>
    140004521:	48 8b 4c 24 60       	mov    0x60(%rsp),%rcx
@@ -3841,7 +3841,7 @@ Disassembly of section .text:
    14000452c:	74 56                	je     140004584 <_ZN13NaturalBinary12long_divsionES_PS_+0x6c4>
    14000452e:	48 8b 39             	mov    (%rcx),%rdi
    140004531:	ba 18 00 00 00       	mov    $0x18,%edx
-   140004536:	e8 15 1e 00 00       	call   140006350 <_ZdlPvy>
+   140004536:	e8 85 28 00 00       	call   140006dc0 <_ZdlPvy>
    14000453b:	48 89 f9             	mov    %rdi,%rcx
    14000453e:	eb e9                	jmp    140004529 <_ZN13NaturalBinary12long_divsionES_PS_+0x669>
    140004540:	48 8b 8c 24 80 00 00 	mov    0x80(%rsp),%rcx
@@ -3851,7 +3851,7 @@ Disassembly of section .text:
    14000454e:	74 15                	je     140004565 <_ZN13NaturalBinary12long_divsionES_PS_+0x6a5>
    140004550:	48 8b 31             	mov    (%rcx),%rsi
    140004553:	ba 18 00 00 00       	mov    $0x18,%edx
-   140004558:	e8 f3 1d 00 00       	call   140006350 <_ZdlPvy>
+   140004558:	e8 63 28 00 00       	call   140006dc0 <_ZdlPvy>
    14000455d:	48 89 f1             	mov    %rsi,%rcx
    140004560:	eb e9                	jmp    14000454b <_ZN13NaturalBinary12long_divsionES_PS_+0x68b>
    140004562:	48 89 c3             	mov    %rax,%rbx
@@ -3860,7 +3860,7 @@ Disassembly of section .text:
    14000456d:	74 15                	je     140004584 <_ZN13NaturalBinary12long_divsionES_PS_+0x6c4>
    14000456f:	48 8b 31             	mov    (%rcx),%rsi
    140004572:	ba 18 00 00 00       	mov    $0x18,%edx
-   140004577:	e8 d4 1d 00 00       	call   140006350 <_ZdlPvy>
+   140004577:	e8 44 28 00 00       	call   140006dc0 <_ZdlPvy>
    14000457c:	48 89 f1             	mov    %rsi,%rcx
    14000457f:	eb e9                	jmp    14000456a <_ZN13NaturalBinary12long_divsionES_PS_+0x6aa>
    140004581:	48 89 c3             	mov    %rax,%rbx
@@ -3869,7 +3869,7 @@ Disassembly of section .text:
    14000458c:	0f 84 80 00 00 00    	je     140004612 <_ZN13NaturalBinary12long_divsionES_PS_+0x752>
    140004592:	48 8b 31             	mov    (%rcx),%rsi
    140004595:	ba 18 00 00 00       	mov    $0x18,%edx
-   14000459a:	e8 b1 1d 00 00       	call   140006350 <_ZdlPvy>
+   14000459a:	e8 21 28 00 00       	call   140006dc0 <_ZdlPvy>
    14000459f:	48 89 f1             	mov    %rsi,%rcx
    1400045a2:	eb e5                	jmp    140004589 <_ZN13NaturalBinary12long_divsionES_PS_+0x6c9>
    1400045a4:	48 8b 4c 24 40       	mov    0x40(%rsp),%rcx
@@ -3878,7 +3878,7 @@ Disassembly of section .text:
    1400045af:	74 d3                	je     140004584 <_ZN13NaturalBinary12long_divsionES_PS_+0x6c4>
    1400045b1:	48 8b 31             	mov    (%rcx),%rsi
    1400045b4:	ba 18 00 00 00       	mov    $0x18,%edx
-   1400045b9:	e8 92 1d 00 00       	call   140006350 <_ZdlPvy>
+   1400045b9:	e8 02 28 00 00       	call   140006dc0 <_ZdlPvy>
    1400045be:	48 89 f1             	mov    %rsi,%rcx
    1400045c1:	eb e9                	jmp    1400045ac <_ZN13NaturalBinary12long_divsionES_PS_+0x6ec>
    1400045c3:	48 8b 8c 24 80 00 00 	mov    0x80(%rsp),%rcx
@@ -3888,7 +3888,7 @@ Disassembly of section .text:
    1400045d1:	0f 84 1a 01 00 00    	je     1400046f1 <_ZN13NaturalBinary12long_divsionES_PS_+0x831>
    1400045d7:	48 8b 39             	mov    (%rcx),%rdi
    1400045da:	ba 18 00 00 00       	mov    $0x18,%edx
-   1400045df:	e8 6c 1d 00 00       	call   140006350 <_ZdlPvy>
+   1400045df:	e8 dc 27 00 00       	call   140006dc0 <_ZdlPvy>
    1400045e4:	48 89 f9             	mov    %rdi,%rcx
    1400045e7:	eb e5                	jmp    1400045ce <_ZN13NaturalBinary12long_divsionES_PS_+0x70e>
    1400045e9:	48 8b 8c 24 80 00 00 	mov    0x80(%rsp),%rcx
@@ -3898,7 +3898,7 @@ Disassembly of section .text:
    1400045f7:	0f 84 d5 00 00 00    	je     1400046d2 <_ZN13NaturalBinary12long_divsionES_PS_+0x812>
    1400045fd:	48 8b 39             	mov    (%rcx),%rdi
    140004600:	ba 18 00 00 00       	mov    $0x18,%edx
-   140004605:	e8 46 1d 00 00       	call   140006350 <_ZdlPvy>
+   140004605:	e8 b6 27 00 00       	call   140006dc0 <_ZdlPvy>
    14000460a:	48 89 f9             	mov    %rdi,%rcx
    14000460d:	eb e5                	jmp    1400045f4 <_ZN13NaturalBinary12long_divsionES_PS_+0x734>
    14000460f:	48 89 c3             	mov    %rax,%rbx
@@ -3910,7 +3910,7 @@ Disassembly of section .text:
    140004625:	0f 84 e6 00 00 00    	je     140004711 <_ZN13NaturalBinary12long_divsionES_PS_+0x851>
    14000462b:	48 8b 31             	mov    (%rcx),%rsi
    14000462e:	ba 18 00 00 00       	mov    $0x18,%edx
-   140004633:	e8 18 1d 00 00       	call   140006350 <_ZdlPvy>
+   140004633:	e8 88 27 00 00       	call   140006dc0 <_ZdlPvy>
    140004638:	48 89 f1             	mov    %rsi,%rcx
    14000463b:	eb e0                	jmp    14000461d <_ZN13NaturalBinary12long_divsionES_PS_+0x75d>
    14000463d:	48 8b 8c 24 80 00 00 	mov    0x80(%rsp),%rcx
@@ -3920,7 +3920,7 @@ Disassembly of section .text:
    14000464b:	0f 84 33 ff ff ff    	je     140004584 <_ZN13NaturalBinary12long_divsionES_PS_+0x6c4>
    140004651:	48 8b 31             	mov    (%rcx),%rsi
    140004654:	ba 18 00 00 00       	mov    $0x18,%edx
-   140004659:	e8 f2 1c 00 00       	call   140006350 <_ZdlPvy>
+   140004659:	e8 62 27 00 00       	call   140006dc0 <_ZdlPvy>
    14000465e:	48 89 f1             	mov    %rsi,%rcx
    140004661:	eb e5                	jmp    140004648 <_ZN13NaturalBinary12long_divsionES_PS_+0x788>
    140004663:	48 8b 8c 24 80 00 00 	mov    0x80(%rsp),%rcx
@@ -3930,7 +3930,7 @@ Disassembly of section .text:
    140004671:	0f 84 0d ff ff ff    	je     140004584 <_ZN13NaturalBinary12long_divsionES_PS_+0x6c4>
    140004677:	48 8b 31             	mov    (%rcx),%rsi
    14000467a:	ba 18 00 00 00       	mov    $0x18,%edx
-   14000467f:	e8 cc 1c 00 00       	call   140006350 <_ZdlPvy>
+   14000467f:	e8 3c 27 00 00       	call   140006dc0 <_ZdlPvy>
    140004684:	48 89 f1             	mov    %rsi,%rcx
    140004687:	eb e5                	jmp    14000466e <_ZN13NaturalBinary12long_divsionES_PS_+0x7ae>
    140004689:	48 89 c3             	mov    %rax,%rbx
@@ -3939,7 +3939,7 @@ Disassembly of section .text:
    140004694:	0f 84 ea fe ff ff    	je     140004584 <_ZN13NaturalBinary12long_divsionES_PS_+0x6c4>
    14000469a:	48 8b 31             	mov    (%rcx),%rsi
    14000469d:	ba 18 00 00 00       	mov    $0x18,%edx
-   1400046a2:	e8 a9 1c 00 00       	call   140006350 <_ZdlPvy>
+   1400046a2:	e8 19 27 00 00       	call   140006dc0 <_ZdlPvy>
    1400046a7:	48 89 f1             	mov    %rsi,%rcx
    1400046aa:	eb e5                	jmp    140004691 <_ZN13NaturalBinary12long_divsionES_PS_+0x7d1>
    1400046ac:	48 8b 4c 24 40       	mov    0x40(%rsp),%rcx
@@ -3948,7 +3948,7 @@ Disassembly of section .text:
    1400046b7:	0f 84 c7 fe ff ff    	je     140004584 <_ZN13NaturalBinary12long_divsionES_PS_+0x6c4>
    1400046bd:	48 8b 31             	mov    (%rcx),%rsi
    1400046c0:	ba 18 00 00 00       	mov    $0x18,%edx
-   1400046c5:	e8 86 1c 00 00       	call   140006350 <_ZdlPvy>
+   1400046c5:	e8 f6 26 00 00       	call   140006dc0 <_ZdlPvy>
    1400046ca:	48 89 f1             	mov    %rsi,%rcx
    1400046cd:	eb e5                	jmp    1400046b4 <_ZN13NaturalBinary12long_divsionES_PS_+0x7f4>
    1400046cf:	48 89 c3             	mov    %rax,%rbx
@@ -3957,7 +3957,7 @@ Disassembly of section .text:
    1400046da:	74 b0                	je     14000468c <_ZN13NaturalBinary12long_divsionES_PS_+0x7cc>
    1400046dc:	48 8b 39             	mov    (%rcx),%rdi
    1400046df:	ba 18 00 00 00       	mov    $0x18,%edx
-   1400046e4:	e8 67 1c 00 00       	call   140006350 <_ZdlPvy>
+   1400046e4:	e8 d7 26 00 00       	call   140006dc0 <_ZdlPvy>
    1400046e9:	48 89 f9             	mov    %rdi,%rcx
    1400046ec:	eb e9                	jmp    1400046d7 <_ZN13NaturalBinary12long_divsionES_PS_+0x817>
    1400046ee:	48 89 c3             	mov    %rax,%rbx
@@ -3966,18 +3966,18 @@ Disassembly of section .text:
    1400046f9:	0f 84 85 fe ff ff    	je     140004584 <_ZN13NaturalBinary12long_divsionES_PS_+0x6c4>
    1400046ff:	48 8b 39             	mov    (%rcx),%rdi
    140004702:	ba 18 00 00 00       	mov    $0x18,%edx
-   140004707:	e8 44 1c 00 00       	call   140006350 <_ZdlPvy>
+   140004707:	e8 b4 26 00 00       	call   140006dc0 <_ZdlPvy>
    14000470c:	48 89 f9             	mov    %rdi,%rcx
    14000470f:	eb e5                	jmp    1400046f6 <_ZN13NaturalBinary12long_divsionES_PS_+0x836>
    140004711:	48 89 d9             	mov    %rbx,%rcx
-   140004714:	e8 87 2d 00 00       	call   1400074a0 <_Unwind_Resume>
+   140004714:	e8 f7 37 00 00       	call   140007f10 <_Unwind_Resume>
    140004719:	48 8b 4c 24 60       	mov    0x60(%rsp),%rcx
    14000471e:	48 89 c3             	mov    %rax,%rbx
    140004721:	48 39 f1             	cmp    %rsi,%rcx
    140004724:	0f 84 5a fe ff ff    	je     140004584 <_ZN13NaturalBinary12long_divsionES_PS_+0x6c4>
    14000472a:	48 8b 39             	mov    (%rcx),%rdi
    14000472d:	ba 18 00 00 00       	mov    $0x18,%edx
-   140004732:	e8 19 1c 00 00       	call   140006350 <_ZdlPvy>
+   140004732:	e8 89 26 00 00       	call   140006dc0 <_ZdlPvy>
    140004737:	48 89 f9             	mov    %rdi,%rcx
    14000473a:	eb e5                	jmp    140004721 <_ZN13NaturalBinary12long_divsionES_PS_+0x861>
    14000473c:	48 89 c3             	mov    %rax,%rbx
@@ -3986,7 +3986,7 @@ Disassembly of section .text:
    140004747:	0f 84 37 fe ff ff    	je     140004584 <_ZN13NaturalBinary12long_divsionES_PS_+0x6c4>
    14000474d:	48 8b 39             	mov    (%rcx),%rdi
    140004750:	ba 18 00 00 00       	mov    $0x18,%edx
-   140004755:	e8 f6 1b 00 00       	call   140006350 <_ZdlPvy>
+   140004755:	e8 66 26 00 00       	call   140006dc0 <_ZdlPvy>
    14000475a:	48 89 f9             	mov    %rdi,%rcx
    14000475d:	eb e5                	jmp    140004744 <_ZN13NaturalBinary12long_divsionES_PS_+0x884>
    14000475f:	48 8b 8c 24 80 00 00 	mov    0x80(%rsp),%rcx
@@ -3996,7 +3996,7 @@ Disassembly of section .text:
    14000476d:	74 d0                	je     14000473f <_ZN13NaturalBinary12long_divsionES_PS_+0x87f>
    14000476f:	48 8b 39             	mov    (%rcx),%rdi
    140004772:	ba 18 00 00 00       	mov    $0x18,%edx
-   140004777:	e8 d4 1b 00 00       	call   140006350 <_ZdlPvy>
+   140004777:	e8 44 26 00 00       	call   140006dc0 <_ZdlPvy>
    14000477c:	48 89 f9             	mov    %rdi,%rcx
    14000477f:	eb e9                	jmp    14000476a <_ZN13NaturalBinary12long_divsionES_PS_+0x8aa>
    140004781:	48 8b 4c 24 60       	mov    0x60(%rsp),%rcx
@@ -4005,7 +4005,7 @@ Disassembly of section .text:
    14000478c:	0f 84 f2 fd ff ff    	je     140004584 <_ZN13NaturalBinary12long_divsionES_PS_+0x6c4>
    140004792:	48 8b 39             	mov    (%rcx),%rdi
    140004795:	ba 18 00 00 00       	mov    $0x18,%edx
-   14000479a:	e8 b1 1b 00 00       	call   140006350 <_ZdlPvy>
+   14000479a:	e8 21 26 00 00       	call   140006dc0 <_ZdlPvy>
    14000479f:	48 89 f9             	mov    %rdi,%rcx
    1400047a2:	eb e5                	jmp    140004789 <_ZN13NaturalBinary12long_divsionES_PS_+0x8c9>
    1400047a4:	66 66 2e 0f 1f 84 00 	data16 cs nopw 0x0(%rax,%rax,1)
@@ -4037,12 +4037,12 @@ Disassembly of section .text:
    1400047f7:	74 31                	je     14000482a <_ZN13NaturalBinaryrmES_+0x7a>
    1400047f9:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
    140004800:	b9 18 00 00 00       	mov    $0x18,%ecx
-   140004805:	e8 3e 1b 00 00       	call   140006348 <_Znwy>
+   140004805:	e8 ae 25 00 00       	call   140006db8 <_Znwy>
    14000480a:	48 89 c1             	mov    %rax,%rcx
    14000480d:	0f b6 43 10          	movzbl 0x10(%rbx),%eax
    140004811:	48 89 f2             	mov    %rsi,%rdx
    140004814:	88 41 10             	mov    %al,0x10(%rcx)
-   140004817:	e8 8c 1b 00 00       	call   1400063a8 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
+   140004817:	e8 fc 25 00 00       	call   140006e18 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
    14000481c:	48 8b 1b             	mov    (%rbx),%rbx
    14000481f:	48 83 44 24 30 01    	addq   $0x1,0x30(%rsp)
    140004825:	48 39 df             	cmp    %rbx,%rdi
@@ -4060,7 +4060,7 @@ Disassembly of section .text:
    140004850:	48 89 d9             	mov    %rbx,%rcx
    140004853:	48 8b 1b             	mov    (%rbx),%rbx
    140004856:	ba 18 00 00 00       	mov    $0x18,%edx
-   14000485b:	e8 f0 1a 00 00       	call   140006350 <_ZdlPvy>
+   14000485b:	e8 60 25 00 00       	call   140006dc0 <_ZdlPvy>
    140004860:	48 39 fb             	cmp    %rdi,%rbx
    140004863:	75 eb                	jne    140004850 <_ZN13NaturalBinaryrmES_+0xa0>
    140004865:	48 8b 5c 24 20       	mov    0x20(%rsp),%rbx
@@ -4070,7 +4070,7 @@ Disassembly of section .text:
    140004870:	48 89 d9             	mov    %rbx,%rcx
    140004873:	48 8b 1b             	mov    (%rbx),%rbx
    140004876:	ba 18 00 00 00       	mov    $0x18,%edx
-   14000487b:	e8 d0 1a 00 00       	call   140006350 <_ZdlPvy>
+   14000487b:	e8 40 25 00 00       	call   140006dc0 <_ZdlPvy>
    140004880:	48 39 f3             	cmp    %rsi,%rbx
    140004883:	75 eb                	jne    140004870 <_ZN13NaturalBinaryrmES_+0xc0>
    140004885:	48 89 e8             	mov    %rbp,%rax
@@ -4094,12 +4094,12 @@ Disassembly of section .text:
    1400048b9:	74 2f                	je     1400048ea <_ZN13NaturalBinaryrmES_+0x13a>
    1400048bb:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
    1400048c0:	b9 18 00 00 00       	mov    $0x18,%ecx
-   1400048c5:	e8 7e 1a 00 00       	call   140006348 <_Znwy>
+   1400048c5:	e8 ee 24 00 00       	call   140006db8 <_Znwy>
    1400048ca:	48 89 c1             	mov    %rax,%rcx
    1400048cd:	0f b6 43 10          	movzbl 0x10(%rbx),%eax
    1400048d1:	48 89 f2             	mov    %rsi,%rdx
    1400048d4:	88 41 10             	mov    %al,0x10(%rcx)
-   1400048d7:	e8 cc 1a 00 00       	call   1400063a8 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
+   1400048d7:	e8 3c 25 00 00       	call   140006e18 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
    1400048dc:	48 8b 1b             	mov    (%rbx),%rbx
    1400048df:	48 83 44 24 30 01    	addq   $0x1,0x30(%rsp)
    1400048e5:	49 39 dc             	cmp    %rbx,%r12
@@ -4117,7 +4117,7 @@ Disassembly of section .text:
    140004910:	48 89 d9             	mov    %rbx,%rcx
    140004913:	48 8b 1b             	mov    (%rbx),%rbx
    140004916:	ba 18 00 00 00       	mov    $0x18,%edx
-   14000491b:	e8 30 1a 00 00       	call   140006350 <_ZdlPvy>
+   14000491b:	e8 a0 24 00 00       	call   140006dc0 <_ZdlPvy>
    140004920:	48 39 fb             	cmp    %rdi,%rbx
    140004923:	75 eb                	jne    140004910 <_ZN13NaturalBinaryrmES_+0x160>
    140004925:	48 8b 5c 24 20       	mov    0x20(%rsp),%rbx
@@ -4127,7 +4127,7 @@ Disassembly of section .text:
    140004938:	48 89 d9             	mov    %rbx,%rcx
    14000493b:	48 8b 1b             	mov    (%rbx),%rbx
    14000493e:	ba 18 00 00 00       	mov    $0x18,%edx
-   140004943:	e8 08 1a 00 00       	call   140006350 <_ZdlPvy>
+   140004943:	e8 78 24 00 00       	call   140006dc0 <_ZdlPvy>
    140004948:	48 39 f3             	cmp    %rsi,%rbx
    14000494b:	75 eb                	jne    140004938 <_ZN13NaturalBinaryrmES_+0x188>
    14000494d:	48 89 e8             	mov    %rbp,%rax
@@ -4145,7 +4145,7 @@ Disassembly of section .text:
    140004968:	74 3e                	je     1400049a8 <_ZN13NaturalBinaryrmES_+0x1f8>
    14000496a:	48 8b 39             	mov    (%rcx),%rdi
    14000496d:	ba 18 00 00 00       	mov    $0x18,%edx
-   140004972:	e8 d9 19 00 00       	call   140006350 <_ZdlPvy>
+   140004972:	e8 49 24 00 00       	call   140006dc0 <_ZdlPvy>
    140004977:	48 89 f9             	mov    %rdi,%rcx
    14000497a:	eb e9                	jmp    140004965 <_ZN13NaturalBinaryrmES_+0x1b5>
    14000497c:	48 8b 4c 24 20       	mov    0x20(%rsp),%rcx
@@ -4154,7 +4154,7 @@ Disassembly of section .text:
    140004987:	74 1f                	je     1400049a8 <_ZN13NaturalBinaryrmES_+0x1f8>
    140004989:	48 8b 39             	mov    (%rcx),%rdi
    14000498c:	ba 18 00 00 00       	mov    $0x18,%edx
-   140004991:	e8 ba 19 00 00       	call   140006350 <_ZdlPvy>
+   140004991:	e8 2a 24 00 00       	call   140006dc0 <_ZdlPvy>
    140004996:	48 89 f9             	mov    %rdi,%rcx
    140004999:	eb e9                	jmp    140004984 <_ZN13NaturalBinaryrmES_+0x1d4>
    14000499b:	48 8b 4c 24 20       	mov    0x20(%rsp),%rcx
@@ -4166,7 +4166,7 @@ Disassembly of section .text:
    1400049af:	74 31                	je     1400049e2 <_ZN13NaturalBinaryrmES_+0x232>
    1400049b1:	48 8b 31             	mov    (%rcx),%rsi
    1400049b4:	ba 18 00 00 00       	mov    $0x18,%edx
-   1400049b9:	e8 92 19 00 00       	call   140006350 <_ZdlPvy>
+   1400049b9:	e8 02 24 00 00       	call   140006dc0 <_ZdlPvy>
    1400049be:	48 89 f1             	mov    %rsi,%rcx
    1400049c1:	eb e9                	jmp    1400049ac <_ZN13NaturalBinaryrmES_+0x1fc>
    1400049c3:	48 8b 4c 24 20       	mov    0x20(%rsp),%rcx
@@ -4175,14 +4175,14 @@ Disassembly of section .text:
    1400049ce:	74 d8                	je     1400049a8 <_ZN13NaturalBinaryrmES_+0x1f8>
    1400049d0:	48 8b 39             	mov    (%rcx),%rdi
    1400049d3:	ba 18 00 00 00       	mov    $0x18,%edx
-   1400049d8:	e8 73 19 00 00       	call   140006350 <_ZdlPvy>
+   1400049d8:	e8 e3 23 00 00       	call   140006dc0 <_ZdlPvy>
    1400049dd:	48 89 f9             	mov    %rdi,%rcx
    1400049e0:	eb e9                	jmp    1400049cb <_ZN13NaturalBinaryrmES_+0x21b>
    1400049e2:	48 89 d9             	mov    %rbx,%rcx
-   1400049e5:	e8 b6 2a 00 00       	call   1400074a0 <_Unwind_Resume>
+   1400049e5:	e8 26 35 00 00       	call   140007f10 <_Unwind_Resume>
    1400049ea:	48 8b 39             	mov    (%rcx),%rdi
    1400049ed:	ba 18 00 00 00       	mov    $0x18,%edx
-   1400049f2:	e8 59 19 00 00       	call   140006350 <_ZdlPvy>
+   1400049f2:	e8 c9 23 00 00       	call   140006dc0 <_ZdlPvy>
    1400049f7:	48 89 f9             	mov    %rdi,%rcx
    1400049fa:	eb a7                	jmp    1400049a3 <_ZN13NaturalBinaryrmES_+0x1f3>
    1400049fc:	0f 1f 40 00          	nopl   0x0(%rax)
@@ -4214,12 +4214,12 @@ Disassembly of section .text:
    140004a50:	74 30                	je     140004a82 <_ZN13NaturalBinarydvES_+0x82>
    140004a52:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
    140004a58:	b9 18 00 00 00       	mov    $0x18,%ecx
-   140004a5d:	e8 e6 18 00 00       	call   140006348 <_Znwy>
+   140004a5d:	e8 56 23 00 00       	call   140006db8 <_Znwy>
    140004a62:	48 89 c1             	mov    %rax,%rcx
    140004a65:	0f b6 43 10          	movzbl 0x10(%rbx),%eax
    140004a69:	48 89 f2             	mov    %rsi,%rdx
    140004a6c:	88 41 10             	mov    %al,0x10(%rcx)
-   140004a6f:	e8 34 19 00 00       	call   1400063a8 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
+   140004a6f:	e8 a4 23 00 00       	call   140006e18 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
    140004a74:	48 8b 1b             	mov    (%rbx),%rbx
    140004a77:	48 83 44 24 50 01    	addq   $0x1,0x50(%rsp)
    140004a7d:	49 39 dc             	cmp    %rbx,%r12
@@ -4236,7 +4236,7 @@ Disassembly of section .text:
    140004aa0:	48 89 d9             	mov    %rbx,%rcx
    140004aa3:	48 8b 1b             	mov    (%rbx),%rbx
    140004aa6:	ba 18 00 00 00       	mov    $0x18,%edx
-   140004aab:	e8 a0 18 00 00       	call   140006350 <_ZdlPvy>
+   140004aab:	e8 10 23 00 00       	call   140006dc0 <_ZdlPvy>
    140004ab0:	48 39 f3             	cmp    %rsi,%rbx
    140004ab3:	75 eb                	jne    140004aa0 <_ZN13NaturalBinarydvES_+0xa0>
    140004ab5:	48 8b 5c 24 20       	mov    0x20(%rsp),%rbx
@@ -4246,7 +4246,7 @@ Disassembly of section .text:
    140004ac0:	48 89 d9             	mov    %rbx,%rcx
    140004ac3:	48 8b 1b             	mov    (%rbx),%rbx
    140004ac6:	ba 18 00 00 00       	mov    $0x18,%edx
-   140004acb:	e8 80 18 00 00       	call   140006350 <_ZdlPvy>
+   140004acb:	e8 f0 22 00 00       	call   140006dc0 <_ZdlPvy>
    140004ad0:	48 39 fb             	cmp    %rdi,%rbx
    140004ad3:	75 eb                	jne    140004ac0 <_ZN13NaturalBinarydvES_+0xc0>
    140004ad5:	48 89 e8             	mov    %rbp,%rax
@@ -4271,12 +4271,12 @@ Disassembly of section .text:
    140004b0d:	74 2b                	je     140004b3a <_ZN13NaturalBinarydvES_+0x13a>
    140004b0f:	90                   	nop
    140004b10:	b9 18 00 00 00       	mov    $0x18,%ecx
-   140004b15:	e8 2e 18 00 00       	call   140006348 <_Znwy>
+   140004b15:	e8 9e 22 00 00       	call   140006db8 <_Znwy>
    140004b1a:	48 89 c1             	mov    %rax,%rcx
    140004b1d:	0f b6 43 10          	movzbl 0x10(%rbx),%eax
    140004b21:	48 89 f2             	mov    %rsi,%rdx
    140004b24:	88 41 10             	mov    %al,0x10(%rcx)
-   140004b27:	e8 7c 18 00 00       	call   1400063a8 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
+   140004b27:	e8 ec 22 00 00       	call   140006e18 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
    140004b2c:	48 8b 1b             	mov    (%rbx),%rbx
    140004b2f:	48 83 44 24 50 01    	addq   $0x1,0x50(%rsp)
    140004b35:	49 39 dd             	cmp    %rbx,%r13
@@ -4293,7 +4293,7 @@ Disassembly of section .text:
    140004b60:	48 89 d9             	mov    %rbx,%rcx
    140004b63:	48 8b 1b             	mov    (%rbx),%rbx
    140004b66:	ba 18 00 00 00       	mov    $0x18,%edx
-   140004b6b:	e8 e0 17 00 00       	call   140006350 <_ZdlPvy>
+   140004b6b:	e8 50 22 00 00       	call   140006dc0 <_ZdlPvy>
    140004b70:	48 39 f3             	cmp    %rsi,%rbx
    140004b73:	75 eb                	jne    140004b60 <_ZN13NaturalBinarydvES_+0x160>
    140004b75:	48 89 e8             	mov    %rbp,%rax
@@ -4311,7 +4311,7 @@ Disassembly of section .text:
    140004b90:	74 48                	je     140004bda <_ZN13NaturalBinarydvES_+0x1da>
    140004b92:	48 8b 39             	mov    (%rcx),%rdi
    140004b95:	ba 18 00 00 00       	mov    $0x18,%edx
-   140004b9a:	e8 b1 17 00 00       	call   140006350 <_ZdlPvy>
+   140004b9a:	e8 21 22 00 00       	call   140006dc0 <_ZdlPvy>
    140004b9f:	48 89 f9             	mov    %rdi,%rcx
    140004ba2:	eb e9                	jmp    140004b8d <_ZN13NaturalBinarydvES_+0x18d>
    140004ba4:	48 8b 4c 24 40       	mov    0x40(%rsp),%rcx
@@ -4320,7 +4320,7 @@ Disassembly of section .text:
    140004baf:	74 29                	je     140004bda <_ZN13NaturalBinarydvES_+0x1da>
    140004bb1:	48 8b 39             	mov    (%rcx),%rdi
    140004bb4:	ba 18 00 00 00       	mov    $0x18,%edx
-   140004bb9:	e8 92 17 00 00       	call   140006350 <_ZdlPvy>
+   140004bb9:	e8 02 22 00 00       	call   140006dc0 <_ZdlPvy>
    140004bbe:	48 89 f9             	mov    %rdi,%rcx
    140004bc1:	eb e9                	jmp    140004bac <_ZN13NaturalBinarydvES_+0x1ac>
    140004bc3:	48 8b 4c 24 40       	mov    0x40(%rsp),%rcx
@@ -4331,24 +4331,24 @@ Disassembly of section .text:
    140004bd5:	48 39 f9             	cmp    %rdi,%rcx
    140004bd8:	75 39                	jne    140004c13 <_ZN13NaturalBinarydvES_+0x213>
    140004bda:	48 89 d9             	mov    %rbx,%rcx
-   140004bdd:	e8 be 28 00 00       	call   1400074a0 <_Unwind_Resume>
+   140004bdd:	e8 2e 33 00 00       	call   140007f10 <_Unwind_Resume>
    140004be2:	48 8b 4c 24 40       	mov    0x40(%rsp),%rcx
    140004be7:	48 89 c3             	mov    %rax,%rbx
    140004bea:	48 39 f1             	cmp    %rsi,%rcx
    140004bed:	74 e1                	je     140004bd0 <_ZN13NaturalBinarydvES_+0x1d0>
    140004bef:	48 8b 29             	mov    (%rcx),%rbp
    140004bf2:	ba 18 00 00 00       	mov    $0x18,%edx
-   140004bf7:	e8 54 17 00 00       	call   140006350 <_ZdlPvy>
+   140004bf7:	e8 c4 21 00 00       	call   140006dc0 <_ZdlPvy>
    140004bfc:	48 89 e9             	mov    %rbp,%rcx
    140004bff:	eb e9                	jmp    140004bea <_ZN13NaturalBinarydvES_+0x1ea>
    140004c01:	48 8b 29             	mov    (%rcx),%rbp
    140004c04:	ba 18 00 00 00       	mov    $0x18,%edx
-   140004c09:	e8 42 17 00 00       	call   140006350 <_ZdlPvy>
+   140004c09:	e8 b2 21 00 00       	call   140006dc0 <_ZdlPvy>
    140004c0e:	48 89 e9             	mov    %rbp,%rcx
    140004c11:	eb b8                	jmp    140004bcb <_ZN13NaturalBinarydvES_+0x1cb>
    140004c13:	48 8b 31             	mov    (%rcx),%rsi
    140004c16:	ba 18 00 00 00       	mov    $0x18,%edx
-   140004c1b:	e8 30 17 00 00       	call   140006350 <_ZdlPvy>
+   140004c1b:	e8 a0 21 00 00       	call   140006dc0 <_ZdlPvy>
    140004c20:	48 89 f1             	mov    %rsi,%rcx
    140004c23:	eb b0                	jmp    140004bd5 <_ZN13NaturalBinarydvES_+0x1d5>
    140004c25:	90                   	nop
@@ -4365,7 +4365,7 @@ Disassembly of section .text:
 
 0000000140004c30 <__tcf_0>:
    140004c30:	48 8d 0d 39 84 00 00 	lea    0x8439(%rip),%rcx        # 14000d070 <_ZStL8__ioinit>
-   140004c37:	e9 54 17 00 00       	jmp    140006390 <_ZNSt8ios_base4InitD1Ev>
+   140004c37:	e9 c4 21 00 00       	jmp    140006e00 <_ZNSt8ios_base4InitD1Ev>
    140004c3c:	0f 1f 40 00          	nopl   0x0(%rax)
 
 0000000140004c40 <_ZNSt7__cxx114listI4ByteSaIS1_EEaSERKS3_.part.0>:
@@ -4400,10 +4400,10 @@ Disassembly of section .text:
    140004c8b:	48 8b 1b             	mov    (%rbx),%rbx
    140004c8e:	48 83 6f 10 01       	subq   $0x1,0x10(%rdi)
    140004c93:	48 89 f1             	mov    %rsi,%rcx
-   140004c96:	e8 05 17 00 00       	call   1400063a0 <_ZNSt8__detail15_List_node_base9_M_unhookEv>
+   140004c96:	e8 75 21 00 00       	call   140006e10 <_ZNSt8__detail15_List_node_base9_M_unhookEv>
    140004c9b:	ba 18 00 00 00       	mov    $0x18,%edx
    140004ca0:	48 89 f1             	mov    %rsi,%rcx
-   140004ca3:	e8 a8 16 00 00       	call   140006350 <_ZdlPvy>
+   140004ca3:	e8 18 21 00 00       	call   140006dc0 <_ZdlPvy>
    140004ca8:	48 39 df             	cmp    %rbx,%rdi
    140004cab:	75 db                	jne    140004c88 <_ZNSt7__cxx114listI4ByteSaIS1_EEaSERKS3_.part.0+0x48>
    140004cad:	48 83 c4 40          	add    $0x40,%rsp
@@ -4424,12 +4424,12 @@ Disassembly of section .text:
    140004cd8:	66 0f 6c c0          	punpcklqdq %xmm0,%xmm0
    140004cdc:	0f 11 44 24 20       	movups %xmm0,0x20(%rsp)
    140004ce1:	b9 18 00 00 00       	mov    $0x18,%ecx
-   140004ce6:	e8 5d 16 00 00       	call   140006348 <_Znwy>
+   140004ce6:	e8 cd 20 00 00       	call   140006db8 <_Znwy>
    140004ceb:	48 89 c1             	mov    %rax,%rcx
    140004cee:	0f b6 46 10          	movzbl 0x10(%rsi),%eax
    140004cf2:	4c 89 e2             	mov    %r12,%rdx
    140004cf5:	88 41 10             	mov    %al,0x10(%rcx)
-   140004cf8:	e8 ab 16 00 00       	call   1400063a8 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
+   140004cf8:	e8 1b 21 00 00       	call   140006e18 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
    140004cfd:	48 8b 36             	mov    (%rsi),%rsi
    140004d00:	48 83 44 24 30 01    	addq   $0x1,0x30(%rsp)
    140004d06:	48 39 f5             	cmp    %rsi,%rbp
@@ -4439,7 +4439,7 @@ Disassembly of section .text:
    140004d13:	74 98                	je     140004cad <_ZNSt7__cxx114listI4ByteSaIS1_EEaSERKS3_.part.0+0x6d>
    140004d15:	4d 89 e0             	mov    %r12,%r8
    140004d18:	48 89 f9             	mov    %rdi,%rcx
-   140004d1b:	e8 90 16 00 00       	call   1400063b0 <_ZNSt8__detail15_List_node_base11_M_transferEPS0_S1_>
+   140004d1b:	e8 00 21 00 00       	call   140006e20 <_ZNSt8__detail15_List_node_base11_M_transferEPS0_S1_>
    140004d20:	48 8b 5c 24 20       	mov    0x20(%rsp),%rbx
    140004d25:	48 8b 44 24 30       	mov    0x30(%rsp),%rax
    140004d2a:	48 c7 44 24 30 00 00 	movq   $0x0,0x30(%rsp)
@@ -4450,7 +4450,7 @@ Disassembly of section .text:
    140004d40:	48 89 d9             	mov    %rbx,%rcx
    140004d43:	48 8b 1b             	mov    (%rbx),%rbx
    140004d46:	ba 18 00 00 00       	mov    $0x18,%edx
-   140004d4b:	e8 00 16 00 00       	call   140006350 <_ZdlPvy>
+   140004d4b:	e8 70 20 00 00       	call   140006dc0 <_ZdlPvy>
    140004d50:	4c 39 e3             	cmp    %r12,%rbx
    140004d53:	75 eb                	jne    140004d40 <_ZNSt7__cxx114listI4ByteSaIS1_EEaSERKS3_.part.0+0x100>
    140004d55:	48 83 c4 40          	add    $0x40,%rsp
@@ -4466,11 +4466,11 @@ Disassembly of section .text:
    140004d6b:	74 12                	je     140004d7f <_ZNSt7__cxx114listI4ByteSaIS1_EEaSERKS3_.part.0+0x13f>
    140004d6d:	48 8b 31             	mov    (%rcx),%rsi
    140004d70:	ba 18 00 00 00       	mov    $0x18,%edx
-   140004d75:	e8 d6 15 00 00       	call   140006350 <_ZdlPvy>
+   140004d75:	e8 46 20 00 00       	call   140006dc0 <_ZdlPvy>
    140004d7a:	48 89 f1             	mov    %rsi,%rcx
    140004d7d:	eb e9                	jmp    140004d68 <_ZNSt7__cxx114listI4ByteSaIS1_EEaSERKS3_.part.0+0x128>
    140004d7f:	48 89 d9             	mov    %rbx,%rcx
-   140004d82:	e8 19 27 00 00       	call   1400074a0 <_Unwind_Resume>
+   140004d82:	e8 89 31 00 00       	call   140007f10 <_Unwind_Resume>
    140004d87:	90                   	nop
    140004d88:	0f 1f 84 00 00 00 00 	nopl   0x0(%rax,%rax,1)
    140004d8f:	00 
@@ -4514,7 +4514,7 @@ Disassembly of section .text:
    140004dfb:	48 89 d9             	mov    %rbx,%rcx
    140004dfe:	e8 dd cc ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
    140004e03:	48 89 f1             	mov    %rsi,%rcx
-   140004e06:	e8 95 26 00 00       	call   1400074a0 <_Unwind_Resume>
+   140004e06:	e8 05 31 00 00       	call   140007f10 <_Unwind_Resume>
    140004e0b:	90                   	nop
    140004e0c:	0f 1f 40 00          	nopl   0x0(%rax)
 
@@ -4551,42 +4551,42 @@ Disassembly of section .text:
    140004e69:	48 89 d9             	mov    %rbx,%rcx
    140004e6c:	e8 6f cc ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
    140004e71:	48 89 f9             	mov    %rdi,%rcx
-   140004e74:	e8 27 26 00 00       	call   1400074a0 <_Unwind_Resume>
+   140004e74:	e8 97 30 00 00       	call   140007f10 <_Unwind_Resume>
    140004e79:	90                   	nop
    140004e7a:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
 
 0000000140004e80 <_ZN15SignedMagnitudeC1ENSt7__cxx114listI4ByteSaIS2_EEEjb>:
-   140004e80:	41 54                	push   %r12
-   140004e82:	55                   	push   %rbp
-   140004e83:	57                   	push   %rdi
-   140004e84:	56                   	push   %rsi
-   140004e85:	53                   	push   %rbx
-   140004e86:	48 83 ec 70          	sub    $0x70,%rsp
-   140004e8a:	0f 11 74 24 60       	movups %xmm6,0x60(%rsp)
-   140004e8f:	48 89 cd             	mov    %rcx,%rbp
-   140004e92:	44 89 c3             	mov    %r8d,%ebx
-   140004e95:	48 89 d7             	mov    %rdx,%rdi
-   140004e98:	45 89 cc             	mov    %r9d,%r12d
-   140004e9b:	e8 a0 ca ff ff       	call   140001940 <_ZN13NaturalBinaryC1Ev>
-   140004ea0:	48 8d 74 24 40       	lea    0x40(%rsp),%rsi
-   140004ea5:	89 5d 18             	mov    %ebx,0x18(%rbp)
-   140004ea8:	48 8b 1f             	mov    (%rdi),%rbx
-   140004eab:	66 48 0f 6e f6       	movq   %rsi,%xmm6
-   140004eb0:	44 88 65 1c          	mov    %r12b,0x1c(%rbp)
-   140004eb4:	48 c7 44 24 50 00 00 	movq   $0x0,0x50(%rsp)
-   140004ebb:	00 00 
-   140004ebd:	66 0f 6c f6          	punpcklqdq %xmm6,%xmm6
-   140004ec1:	0f 11 74 24 40       	movups %xmm6,0x40(%rsp)
-   140004ec6:	48 39 df             	cmp    %rbx,%rdi
-   140004ec9:	74 2f                	je     140004efa <_ZN15SignedMagnitudeC1ENSt7__cxx114listI4ByteSaIS2_EEEjb+0x7a>
-   140004ecb:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+   140004e80:	55                   	push   %rbp
+   140004e81:	57                   	push   %rdi
+   140004e82:	56                   	push   %rsi
+   140004e83:	53                   	push   %rbx
+   140004e84:	48 83 ec 68          	sub    $0x68,%rsp
+   140004e88:	48 89 d7             	mov    %rdx,%rdi
+   140004e8b:	48 89 cd             	mov    %rcx,%rbp
+   140004e8e:	44 89 c3             	mov    %r8d,%ebx
+   140004e91:	44 89 ce             	mov    %r9d,%esi
+   140004e94:	e8 a7 ca ff ff       	call   140001940 <_ZN13NaturalBinaryC1Ev>
+   140004e99:	48 83 7f 10 00       	cmpq   $0x0,0x10(%rdi)
+   140004e9e:	0f 84 ac 00 00 00    	je     140004f50 <_ZN15SignedMagnitudeC1ENSt7__cxx114listI4ByteSaIS2_EEEjb+0xd0>
+   140004ea4:	40 88 75 1c          	mov    %sil,0x1c(%rbp)
+   140004ea8:	48 8d 74 24 40       	lea    0x40(%rsp),%rsi
+   140004ead:	89 5d 18             	mov    %ebx,0x18(%rbp)
+   140004eb0:	66 48 0f 6e c6       	movq   %rsi,%xmm0
+   140004eb5:	48 8b 1f             	mov    (%rdi),%rbx
+   140004eb8:	48 c7 44 24 50 00 00 	movq   $0x0,0x50(%rsp)
+   140004ebf:	00 00 
+   140004ec1:	66 0f 6c c0          	punpcklqdq %xmm0,%xmm0
+   140004ec5:	0f 11 44 24 40       	movups %xmm0,0x40(%rsp)
+   140004eca:	48 39 df             	cmp    %rbx,%rdi
+   140004ecd:	74 2b                	je     140004efa <_ZN15SignedMagnitudeC1ENSt7__cxx114listI4ByteSaIS2_EEEjb+0x7a>
+   140004ecf:	90                   	nop
    140004ed0:	b9 18 00 00 00       	mov    $0x18,%ecx
-   140004ed5:	e8 6e 14 00 00       	call   140006348 <_Znwy>
+   140004ed5:	e8 de 1e 00 00       	call   140006db8 <_Znwy>
    140004eda:	48 89 c1             	mov    %rax,%rcx
    140004edd:	0f b6 43 10          	movzbl 0x10(%rbx),%eax
    140004ee1:	48 89 f2             	mov    %rsi,%rdx
    140004ee4:	88 41 10             	mov    %al,0x10(%rcx)
-   140004ee7:	e8 bc 14 00 00       	call   1400063a8 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
+   140004ee7:	e8 2c 1f 00 00       	call   140006e18 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
    140004eec:	48 8b 1b             	mov    (%rbx),%rbx
    140004eef:	48 83 44 24 50 01    	addq   $0x1,0x50(%rsp)
    140004ef5:	48 39 df             	cmp    %rbx,%rdi
@@ -4609,3935 +4609,4540 @@ Disassembly of section .text:
    140004f30:	48 89 d9             	mov    %rbx,%rcx
    140004f33:	48 8b 1b             	mov    (%rbx),%rbx
    140004f36:	ba 18 00 00 00       	mov    $0x18,%edx
-   140004f3b:	e8 10 14 00 00       	call   140006350 <_ZdlPvy>
+   140004f3b:	e8 80 1e 00 00       	call   140006dc0 <_ZdlPvy>
    140004f40:	48 39 f3             	cmp    %rsi,%rbx
    140004f43:	75 eb                	jne    140004f30 <_ZN15SignedMagnitudeC1ENSt7__cxx114listI4ByteSaIS2_EEEjb+0xb0>
-   140004f45:	0f 10 74 24 60       	movups 0x60(%rsp),%xmm6
-   140004f4a:	48 83 c4 70          	add    $0x70,%rsp
-   140004f4e:	5b                   	pop    %rbx
-   140004f4f:	5e                   	pop    %rsi
-   140004f50:	5f                   	pop    %rdi
-   140004f51:	5d                   	pop    %rbp
-   140004f52:	41 5c                	pop    %r12
-   140004f54:	c3                   	ret
-   140004f55:	48 89 c7             	mov    %rax,%rdi
-   140004f58:	48 89 d9             	mov    %rbx,%rcx
-   140004f5b:	e8 80 cb ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
-   140004f60:	48 89 fb             	mov    %rdi,%rbx
-   140004f63:	48 8b 4c 24 40       	mov    0x40(%rsp),%rcx
-   140004f68:	48 39 f1             	cmp    %rsi,%rcx
-   140004f6b:	74 36                	je     140004fa3 <_ZN15SignedMagnitudeC1ENSt7__cxx114listI4ByteSaIS2_EEEjb+0x123>
-   140004f6d:	48 8b 39             	mov    (%rcx),%rdi
-   140004f70:	ba 18 00 00 00       	mov    $0x18,%edx
-   140004f75:	e8 d6 13 00 00       	call   140006350 <_ZdlPvy>
-   140004f7a:	48 89 f9             	mov    %rdi,%rcx
-   140004f7d:	eb e9                	jmp    140004f68 <_ZN15SignedMagnitudeC1ENSt7__cxx114listI4ByteSaIS2_EEEjb+0xe8>
-   140004f7f:	48 89 c3             	mov    %rax,%rbx
-   140004f82:	eb df                	jmp    140004f63 <_ZN15SignedMagnitudeC1ENSt7__cxx114listI4ByteSaIS2_EEEjb+0xe3>
-   140004f84:	48 8b 4c 24 40       	mov    0x40(%rsp),%rcx
-   140004f89:	48 89 c3             	mov    %rax,%rbx
-   140004f8c:	48 39 f1             	cmp    %rsi,%rcx
-   140004f8f:	74 12                	je     140004fa3 <_ZN15SignedMagnitudeC1ENSt7__cxx114listI4ByteSaIS2_EEEjb+0x123>
-   140004f91:	48 8b 39             	mov    (%rcx),%rdi
-   140004f94:	ba 18 00 00 00       	mov    $0x18,%edx
-   140004f99:	e8 b2 13 00 00       	call   140006350 <_ZdlPvy>
-   140004f9e:	48 89 f9             	mov    %rdi,%rcx
-   140004fa1:	eb e9                	jmp    140004f8c <_ZN15SignedMagnitudeC1ENSt7__cxx114listI4ByteSaIS2_EEEjb+0x10c>
-   140004fa3:	48 89 e9             	mov    %rbp,%rcx
-   140004fa6:	e8 35 cb ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
-   140004fab:	48 89 d9             	mov    %rbx,%rcx
-   140004fae:	e8 ed 24 00 00       	call   1400074a0 <_Unwind_Resume>
-   140004fb3:	90                   	nop
-   140004fb4:	66 66 2e 0f 1f 84 00 	data16 cs nopw 0x0(%rax,%rax,1)
-   140004fbb:	00 00 00 00 
-   140004fbf:	90                   	nop
+   140004f45:	48 83 c4 68          	add    $0x68,%rsp
+   140004f49:	5b                   	pop    %rbx
+   140004f4a:	5e                   	pop    %rsi
+   140004f4b:	5f                   	pop    %rdi
+   140004f4c:	5d                   	pop    %rbp
+   140004f4d:	c3                   	ret
+   140004f4e:	66 90                	xchg   %ax,%ax
+   140004f50:	48 8d 74 24 40       	lea    0x40(%rsp),%rsi
+   140004f55:	48 89 f1             	mov    %rsi,%rcx
+   140004f58:	e8 e3 c9 ff ff       	call   140001940 <_ZN13NaturalBinaryC1Ev>
+   140004f5d:	48 8d 5c 24 20       	lea    0x20(%rsp),%rbx
+   140004f62:	31 d2                	xor    %edx,%edx
+   140004f64:	c6 44 24 5c 00       	movb   $0x0,0x5c(%rsp)
+   140004f69:	48 89 d9             	mov    %rbx,%rcx
+   140004f6c:	e8 df c9 ff ff       	call   140001950 <_ZN13NaturalBinaryC1Ex>
+   140004f71:	48 89 da             	mov    %rbx,%rdx
+   140004f74:	48 89 f1             	mov    %rsi,%rcx
+   140004f77:	e8 c4 fc ff ff       	call   140004c40 <_ZNSt7__cxx114listI4ByteSaIS1_EEaSERKS3_.part.0>
+   140004f7c:	48 89 d9             	mov    %rbx,%rcx
+   140004f7f:	e8 5c cb ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
+   140004f84:	48 89 f1             	mov    %rsi,%rcx
+   140004f87:	c7 44 24 58 00 00 00 	movl   $0x0,0x58(%rsp)
+   140004f8e:	00 
+   140004f8f:	e8 4c cb ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
+   140004f94:	90                   	nop
+   140004f95:	48 83 c4 68          	add    $0x68,%rsp
+   140004f99:	5b                   	pop    %rbx
+   140004f9a:	5e                   	pop    %rsi
+   140004f9b:	5f                   	pop    %rdi
+   140004f9c:	5d                   	pop    %rbp
+   140004f9d:	c3                   	ret
+   140004f9e:	48 89 c7             	mov    %rax,%rdi
+   140004fa1:	48 89 d9             	mov    %rbx,%rcx
+   140004fa4:	e8 37 cb ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
+   140004fa9:	48 89 fb             	mov    %rdi,%rbx
+   140004fac:	48 8b 4c 24 40       	mov    0x40(%rsp),%rcx
+   140004fb1:	48 39 f1             	cmp    %rsi,%rcx
+   140004fb4:	74 15                	je     140004fcb <_ZN15SignedMagnitudeC1ENSt7__cxx114listI4ByteSaIS2_EEEjb+0x14b>
+   140004fb6:	48 8b 39             	mov    (%rcx),%rdi
+   140004fb9:	ba 18 00 00 00       	mov    $0x18,%edx
+   140004fbe:	e8 fd 1d 00 00       	call   140006dc0 <_ZdlPvy>
+   140004fc3:	48 89 f9             	mov    %rdi,%rcx
+   140004fc6:	eb e9                	jmp    140004fb1 <_ZN15SignedMagnitudeC1ENSt7__cxx114listI4ByteSaIS2_EEEjb+0x131>
+   140004fc8:	48 89 c3             	mov    %rax,%rbx
+   140004fcb:	48 89 e9             	mov    %rbp,%rcx
+   140004fce:	e8 0d cb ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
+   140004fd3:	48 89 d9             	mov    %rbx,%rcx
+   140004fd6:	e8 35 2f 00 00       	call   140007f10 <_Unwind_Resume>
+   140004fdb:	48 89 c3             	mov    %rax,%rbx
+   140004fde:	48 89 f1             	mov    %rsi,%rcx
+   140004fe1:	e8 fa ca ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
+   140004fe6:	eb e3                	jmp    140004fcb <_ZN15SignedMagnitudeC1ENSt7__cxx114listI4ByteSaIS2_EEEjb+0x14b>
+   140004fe8:	48 8b 4c 24 40       	mov    0x40(%rsp),%rcx
+   140004fed:	48 89 c3             	mov    %rax,%rbx
+   140004ff0:	48 39 f1             	cmp    %rsi,%rcx
+   140004ff3:	74 d6                	je     140004fcb <_ZN15SignedMagnitudeC1ENSt7__cxx114listI4ByteSaIS2_EEEjb+0x14b>
+   140004ff5:	48 8b 39             	mov    (%rcx),%rdi
+   140004ff8:	ba 18 00 00 00       	mov    $0x18,%edx
+   140004ffd:	e8 be 1d 00 00       	call   140006dc0 <_ZdlPvy>
+   140005002:	48 89 f9             	mov    %rdi,%rcx
+   140005005:	eb e9                	jmp    140004ff0 <_ZN15SignedMagnitudeC1ENSt7__cxx114listI4ByteSaIS2_EEEjb+0x170>
+   140005007:	48 89 c7             	mov    %rax,%rdi
+   14000500a:	48 89 d9             	mov    %rbx,%rcx
+   14000500d:	e8 ce ca ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
+   140005012:	48 89 fb             	mov    %rdi,%rbx
+   140005015:	eb c7                	jmp    140004fde <_ZN15SignedMagnitudeC1ENSt7__cxx114listI4ByteSaIS2_EEEjb+0x15e>
+   140005017:	48 89 c3             	mov    %rax,%rbx
+   14000501a:	eb 90                	jmp    140004fac <_ZN15SignedMagnitudeC1ENSt7__cxx114listI4ByteSaIS2_EEEjb+0x12c>
+   14000501c:	0f 1f 40 00          	nopl   0x0(%rax)
 
-0000000140004fc0 <_ZN15SignedMagnitudeD1Ev>:
-   140004fc0:	e9 1b cb ff ff       	jmp    140001ae0 <_ZN13NaturalBinaryD1Ev>
-   140004fc5:	90                   	nop
-   140004fc6:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
-   140004fcd:	00 00 00 
+0000000140005020 <_ZN15SignedMagnitudeD1Ev>:
+   140005020:	e9 bb ca ff ff       	jmp    140001ae0 <_ZN13NaturalBinaryD1Ev>
+   140005025:	90                   	nop
+   140005026:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
+   14000502d:	00 00 00 
 
-0000000140004fd0 <_ZN15SignedMagnitude7getByteB5cxx11Ev>:
-   140004fd0:	48 89 c8             	mov    %rcx,%rax
-   140004fd3:	c3                   	ret
-   140004fd4:	66 66 2e 0f 1f 84 00 	data16 cs nopw 0x0(%rax,%rax,1)
-   140004fdb:	00 00 00 00 
-   140004fdf:	90                   	nop
+0000000140005030 <_ZN15SignedMagnitude10isNegativeEv>:
+   140005030:	0f b6 41 1c          	movzbl 0x1c(%rcx),%eax
+   140005034:	c3                   	ret
+   140005035:	90                   	nop
+   140005036:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
+   14000503d:	00 00 00 
 
-0000000140004fe0 <_ZN15SignedMagnitude11getNegativeEv>:
-   140004fe0:	0f b6 41 1c          	movzbl 0x1c(%rcx),%eax
-   140004fe4:	c3                   	ret
-   140004fe5:	90                   	nop
-   140004fe6:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
-   140004fed:	00 00 00 
+0000000140005040 <_ZN15SignedMagnitude8toStringB5cxx11Ev>:
+   140005040:	41 54                	push   %r12
+   140005042:	55                   	push   %rbp
+   140005043:	57                   	push   %rdi
+   140005044:	56                   	push   %rsi
+   140005045:	53                   	push   %rbx
+   140005046:	48 83 ec 50          	sub    $0x50,%rsp
+   14000504a:	48 89 d6             	mov    %rdx,%rsi
+   14000504d:	48 89 cb             	mov    %rcx,%rbx
+   140005050:	e8 ab dc ff ff       	call   140002d00 <_ZN13NaturalBinary8toStringB5cxx11Ev>
+   140005055:	8b 46 18             	mov    0x18(%rsi),%eax
+   140005058:	85 c0                	test   %eax,%eax
+   14000505a:	0f 85 30 01 00 00    	jne    140005190 <_ZN15SignedMagnitude8toStringB5cxx11Ev+0x150>
+   140005060:	80 7e 1c 01          	cmpb   $0x1,0x1c(%rsi)
+   140005064:	48 8b 53 08          	mov    0x8(%rbx),%rdx
+   140005068:	4c 8d 25 03 50 00 00 	lea    0x5003(%rip),%r12        # 14000a072 <.rdata+0x2>
+   14000506f:	48 8d 05 fa 4f 00 00 	lea    0x4ffa(%rip),%rax        # 14000a070 <.rdata>
+   140005076:	48 19 ff             	sbb    %rdi,%rdi
+   140005079:	48 8d 6c 24 30       	lea    0x30(%rsp),%rbp
+   14000507e:	c6 44 24 40 00       	movb   $0x0,0x40(%rsp)
+   140005083:	48 c7 44 24 38 00 00 	movq   $0x0,0x38(%rsp)
+   14000508a:	00 00 
+   14000508c:	48 83 c7 01          	add    $0x1,%rdi
+   140005090:	48 89 e9             	mov    %rbp,%rcx
+   140005093:	80 7e 1c 00          	cmpb   $0x0,0x1c(%rsi)
+   140005097:	4c 0f 45 e0          	cmovne %rax,%r12
+   14000509b:	48 8d 74 24 40       	lea    0x40(%rsp),%rsi
+   1400050a0:	48 01 fa             	add    %rdi,%rdx
+   1400050a3:	48 89 74 24 30       	mov    %rsi,0x30(%rsp)
+   1400050a8:	e8 9b 1d 00 00       	call   140006e48 <_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEy>
+   1400050ad:	48 b8 ff ff ff ff ff 	movabs $0x3fffffffffffffff,%rax
+   1400050b4:	ff ff 3f 
+   1400050b7:	48 2b 44 24 38       	sub    0x38(%rsp),%rax
+   1400050bc:	48 39 f8             	cmp    %rdi,%rax
+   1400050bf:	0f 82 58 01 00 00    	jb     14000521d <_ZN15SignedMagnitude8toStringB5cxx11Ev+0x1dd>
+   1400050c5:	49 89 f8             	mov    %rdi,%r8
+   1400050c8:	4c 89 e2             	mov    %r12,%rdx
+   1400050cb:	48 89 e9             	mov    %rbp,%rcx
+   1400050ce:	e8 6d 1d 00 00       	call   140006e40 <_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcy>
+   1400050d3:	4c 8b 43 08          	mov    0x8(%rbx),%r8
+   1400050d7:	48 8b 13             	mov    (%rbx),%rdx
+   1400050da:	48 b8 ff ff ff ff ff 	movabs $0x3fffffffffffffff,%rax
+   1400050e1:	ff ff 3f 
+   1400050e4:	48 2b 44 24 38       	sub    0x38(%rsp),%rax
+   1400050e9:	4c 39 c0             	cmp    %r8,%rax
+   1400050ec:	0f 82 1f 01 00 00    	jb     140005211 <_ZN15SignedMagnitude8toStringB5cxx11Ev+0x1d1>
+   1400050f2:	48 89 e9             	mov    %rbp,%rcx
+   1400050f5:	e8 46 1d 00 00       	call   140006e40 <_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcy>
+   1400050fa:	48 8b 44 24 30       	mov    0x30(%rsp),%rax
+   1400050ff:	48 8b 0b             	mov    (%rbx),%rcx
+   140005102:	48 39 f0             	cmp    %rsi,%rax
+   140005105:	0f 84 bd 00 00 00    	je     1400051c8 <_ZN15SignedMagnitude8toStringB5cxx11Ev+0x188>
+   14000510b:	48 8d 53 10          	lea    0x10(%rbx),%rdx
+   14000510f:	48 39 d1             	cmp    %rdx,%rcx
+   140005112:	74 5c                	je     140005170 <_ZN15SignedMagnitude8toStringB5cxx11Ev+0x130>
+   140005114:	f3 0f 6f 44 24 38    	movdqu 0x38(%rsp),%xmm0
+   14000511a:	48 8b 53 10          	mov    0x10(%rbx),%rdx
+   14000511e:	48 89 03             	mov    %rax,(%rbx)
+   140005121:	0f 11 43 08          	movups %xmm0,0x8(%rbx)
+   140005125:	48 85 c9             	test   %rcx,%rcx
+   140005128:	74 53                	je     14000517d <_ZN15SignedMagnitude8toStringB5cxx11Ev+0x13d>
+   14000512a:	48 89 4c 24 30       	mov    %rcx,0x30(%rsp)
+   14000512f:	48 89 54 24 40       	mov    %rdx,0x40(%rsp)
+   140005134:	48 c7 44 24 38 00 00 	movq   $0x0,0x38(%rsp)
+   14000513b:	00 00 
+   14000513d:	c6 01 00             	movb   $0x0,(%rcx)
+   140005140:	48 8b 4c 24 30       	mov    0x30(%rsp),%rcx
+   140005145:	48 39 f1             	cmp    %rsi,%rcx
+   140005148:	74 0e                	je     140005158 <_ZN15SignedMagnitude8toStringB5cxx11Ev+0x118>
+   14000514a:	48 8b 44 24 40       	mov    0x40(%rsp),%rax
+   14000514f:	48 8d 50 01          	lea    0x1(%rax),%rdx
+   140005153:	e8 68 1c 00 00       	call   140006dc0 <_ZdlPvy>
+   140005158:	48 89 d8             	mov    %rbx,%rax
+   14000515b:	48 83 c4 50          	add    $0x50,%rsp
+   14000515f:	5b                   	pop    %rbx
+   140005160:	5e                   	pop    %rsi
+   140005161:	5f                   	pop    %rdi
+   140005162:	5d                   	pop    %rbp
+   140005163:	41 5c                	pop    %r12
+   140005165:	c3                   	ret
+   140005166:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
+   14000516d:	00 00 00 
+   140005170:	f3 0f 6f 4c 24 38    	movdqu 0x38(%rsp),%xmm1
+   140005176:	48 89 03             	mov    %rax,(%rbx)
+   140005179:	0f 11 4b 08          	movups %xmm1,0x8(%rbx)
+   14000517d:	48 89 74 24 30       	mov    %rsi,0x30(%rsp)
+   140005182:	48 8d 74 24 40       	lea    0x40(%rsp),%rsi
+   140005187:	48 89 f1             	mov    %rsi,%rcx
+   14000518a:	eb a8                	jmp    140005134 <_ZN15SignedMagnitude8toStringB5cxx11Ev+0xf4>
+   14000518c:	0f 1f 40 00          	nopl   0x0(%rax)
+   140005190:	4c 8b 4b 08          	mov    0x8(%rbx),%r9
+   140005194:	01 c0                	add    %eax,%eax
+   140005196:	89 c0                	mov    %eax,%eax
+   140005198:	4c 89 ca             	mov    %r9,%rdx
+   14000519b:	48 29 c2             	sub    %rax,%rdx
+   14000519e:	0f 82 85 00 00 00    	jb     140005229 <_ZN15SignedMagnitude8toStringB5cxx11Ev+0x1e9>
+   1400051a4:	48 c7 44 24 20 01 00 	movq   $0x1,0x20(%rsp)
+   1400051ab:	00 00 
+   1400051ad:	4c 8d 0d 13 4f 00 00 	lea    0x4f13(%rip),%r9        # 14000a0c7 <.rdata+0x57>
+   1400051b4:	45 31 c0             	xor    %r8d,%r8d
+   1400051b7:	48 89 d9             	mov    %rbx,%rcx
+   1400051ba:	e8 91 1c 00 00       	call   140006e50 <_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEyyPKcy>
+   1400051bf:	e9 9c fe ff ff       	jmp    140005060 <_ZN15SignedMagnitude8toStringB5cxx11Ev+0x20>
+   1400051c4:	0f 1f 40 00          	nopl   0x0(%rax)
+   1400051c8:	4c 8b 44 24 38       	mov    0x38(%rsp),%r8
+   1400051cd:	4d 85 c0             	test   %r8,%r8
+   1400051d0:	74 16                	je     1400051e8 <_ZN15SignedMagnitude8toStringB5cxx11Ev+0x1a8>
+   1400051d2:	49 83 f8 01          	cmp    $0x1,%r8
+   1400051d6:	74 28                	je     140005200 <_ZN15SignedMagnitude8toStringB5cxx11Ev+0x1c0>
+   1400051d8:	48 89 f2             	mov    %rsi,%rdx
+   1400051db:	e8 60 2e 00 00       	call   140008040 <memcpy>
+   1400051e0:	4c 8b 44 24 38       	mov    0x38(%rsp),%r8
+   1400051e5:	48 8b 0b             	mov    (%rbx),%rcx
+   1400051e8:	4c 89 43 08          	mov    %r8,0x8(%rbx)
+   1400051ec:	42 c6 04 01 00       	movb   $0x0,(%rcx,%r8,1)
+   1400051f1:	48 8b 4c 24 30       	mov    0x30(%rsp),%rcx
+   1400051f6:	e9 39 ff ff ff       	jmp    140005134 <_ZN15SignedMagnitude8toStringB5cxx11Ev+0xf4>
+   1400051fb:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+   140005200:	0f b6 44 24 40       	movzbl 0x40(%rsp),%eax
+   140005205:	88 01                	mov    %al,(%rcx)
+   140005207:	4c 8b 44 24 38       	mov    0x38(%rsp),%r8
+   14000520c:	48 8b 0b             	mov    (%rbx),%rcx
+   14000520f:	eb d7                	jmp    1400051e8 <_ZN15SignedMagnitude8toStringB5cxx11Ev+0x1a8>
+   140005211:	48 8d 0d b1 4e 00 00 	lea    0x4eb1(%rip),%rcx        # 14000a0c9 <.rdata+0x59>
+   140005218:	e8 b3 1b 00 00       	call   140006dd0 <_ZSt20__throw_length_errorPKc>
+   14000521d:	48 8d 0d a5 4e 00 00 	lea    0x4ea5(%rip),%rcx        # 14000a0c9 <.rdata+0x59>
+   140005224:	e8 a7 1b 00 00       	call   140006dd0 <_ZSt20__throw_length_errorPKc>
+   140005229:	49 89 d0             	mov    %rdx,%r8
+   14000522c:	48 8d 0d 5d 4e 00 00 	lea    0x4e5d(%rip),%rcx        # 14000a090 <.rdata+0x20>
+   140005233:	48 8d 15 39 4e 00 00 	lea    0x4e39(%rip),%rdx        # 14000a073 <.rdata+0x3>
+   14000523a:	e8 89 1b 00 00       	call   140006dc8 <_ZSt24__throw_out_of_range_fmtPKcz>
+   14000523f:	48 8b 4c 24 30       	mov    0x30(%rsp),%rcx
+   140005244:	48 89 c7             	mov    %rax,%rdi
+   140005247:	48 39 f1             	cmp    %rsi,%rcx
+   14000524a:	74 0e                	je     14000525a <_ZN15SignedMagnitude8toStringB5cxx11Ev+0x21a>
+   14000524c:	48 8b 44 24 40       	mov    0x40(%rsp),%rax
+   140005251:	48 8d 50 01          	lea    0x1(%rax),%rdx
+   140005255:	e8 66 1b 00 00       	call   140006dc0 <_ZdlPvy>
+   14000525a:	48 8b 0b             	mov    (%rbx),%rcx
+   14000525d:	48 8d 43 10          	lea    0x10(%rbx),%rax
+   140005261:	48 39 c1             	cmp    %rax,%rcx
+   140005264:	74 0d                	je     140005273 <_ZN15SignedMagnitude8toStringB5cxx11Ev+0x233>
+   140005266:	48 8b 53 10          	mov    0x10(%rbx),%rdx
+   14000526a:	48 83 c2 01          	add    $0x1,%rdx
+   14000526e:	e8 4d 1b 00 00       	call   140006dc0 <_ZdlPvy>
+   140005273:	48 89 f9             	mov    %rdi,%rcx
+   140005276:	e8 95 2c 00 00       	call   140007f10 <_Unwind_Resume>
+   14000527b:	48 89 c7             	mov    %rax,%rdi
+   14000527e:	eb da                	jmp    14000525a <_ZN15SignedMagnitude8toStringB5cxx11Ev+0x21a>
 
-0000000140004ff0 <_ZN15SignedMagnitude8toStringB5cxx11Ev>:
-   140004ff0:	41 54                	push   %r12
-   140004ff2:	55                   	push   %rbp
-   140004ff3:	57                   	push   %rdi
-   140004ff4:	56                   	push   %rsi
-   140004ff5:	53                   	push   %rbx
-   140004ff6:	48 83 ec 50          	sub    $0x50,%rsp
-   140004ffa:	48 89 d6             	mov    %rdx,%rsi
-   140004ffd:	48 89 cb             	mov    %rcx,%rbx
-   140005000:	e8 fb dc ff ff       	call   140002d00 <_ZN13NaturalBinary8toStringB5cxx11Ev>
-   140005005:	8b 46 18             	mov    0x18(%rsi),%eax
-   140005008:	85 c0                	test   %eax,%eax
-   14000500a:	0f 85 30 01 00 00    	jne    140005140 <_ZN15SignedMagnitude8toStringB5cxx11Ev+0x150>
-   140005010:	80 7e 1c 01          	cmpb   $0x1,0x1c(%rsi)
-   140005014:	48 8b 53 08          	mov    0x8(%rbx),%rdx
-   140005018:	4c 8d 25 53 50 00 00 	lea    0x5053(%rip),%r12        # 14000a072 <.rdata+0x2>
-   14000501f:	48 8d 05 4a 50 00 00 	lea    0x504a(%rip),%rax        # 14000a070 <.rdata>
-   140005026:	48 19 ff             	sbb    %rdi,%rdi
-   140005029:	48 8d 6c 24 30       	lea    0x30(%rsp),%rbp
-   14000502e:	c6 44 24 40 00       	movb   $0x0,0x40(%rsp)
-   140005033:	48 c7 44 24 38 00 00 	movq   $0x0,0x38(%rsp)
-   14000503a:	00 00 
-   14000503c:	48 83 c7 01          	add    $0x1,%rdi
-   140005040:	48 89 e9             	mov    %rbp,%rcx
-   140005043:	80 7e 1c 00          	cmpb   $0x0,0x1c(%rsi)
-   140005047:	4c 0f 45 e0          	cmovne %rax,%r12
-   14000504b:	48 8d 74 24 40       	lea    0x40(%rsp),%rsi
-   140005050:	48 01 fa             	add    %rdi,%rdx
-   140005053:	48 89 74 24 30       	mov    %rsi,0x30(%rsp)
-   140005058:	e8 7b 13 00 00       	call   1400063d8 <_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEy>
-   14000505d:	48 b8 ff ff ff ff ff 	movabs $0x3fffffffffffffff,%rax
-   140005064:	ff ff 3f 
-   140005067:	48 2b 44 24 38       	sub    0x38(%rsp),%rax
-   14000506c:	48 39 f8             	cmp    %rdi,%rax
-   14000506f:	0f 82 58 01 00 00    	jb     1400051cd <_ZN15SignedMagnitude8toStringB5cxx11Ev+0x1dd>
-   140005075:	49 89 f8             	mov    %rdi,%r8
-   140005078:	4c 89 e2             	mov    %r12,%rdx
-   14000507b:	48 89 e9             	mov    %rbp,%rcx
-   14000507e:	e8 4d 13 00 00       	call   1400063d0 <_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcy>
-   140005083:	4c 8b 43 08          	mov    0x8(%rbx),%r8
-   140005087:	48 8b 13             	mov    (%rbx),%rdx
-   14000508a:	48 b8 ff ff ff ff ff 	movabs $0x3fffffffffffffff,%rax
-   140005091:	ff ff 3f 
-   140005094:	48 2b 44 24 38       	sub    0x38(%rsp),%rax
-   140005099:	4c 39 c0             	cmp    %r8,%rax
-   14000509c:	0f 82 1f 01 00 00    	jb     1400051c1 <_ZN15SignedMagnitude8toStringB5cxx11Ev+0x1d1>
-   1400050a2:	48 89 e9             	mov    %rbp,%rcx
-   1400050a5:	e8 26 13 00 00       	call   1400063d0 <_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcy>
-   1400050aa:	48 8b 44 24 30       	mov    0x30(%rsp),%rax
-   1400050af:	48 8b 0b             	mov    (%rbx),%rcx
-   1400050b2:	48 39 f0             	cmp    %rsi,%rax
-   1400050b5:	0f 84 bd 00 00 00    	je     140005178 <_ZN15SignedMagnitude8toStringB5cxx11Ev+0x188>
-   1400050bb:	48 8d 53 10          	lea    0x10(%rbx),%rdx
-   1400050bf:	48 39 d1             	cmp    %rdx,%rcx
-   1400050c2:	74 5c                	je     140005120 <_ZN15SignedMagnitude8toStringB5cxx11Ev+0x130>
-   1400050c4:	f3 0f 6f 44 24 38    	movdqu 0x38(%rsp),%xmm0
-   1400050ca:	48 8b 53 10          	mov    0x10(%rbx),%rdx
-   1400050ce:	48 89 03             	mov    %rax,(%rbx)
-   1400050d1:	0f 11 43 08          	movups %xmm0,0x8(%rbx)
-   1400050d5:	48 85 c9             	test   %rcx,%rcx
-   1400050d8:	74 53                	je     14000512d <_ZN15SignedMagnitude8toStringB5cxx11Ev+0x13d>
-   1400050da:	48 89 4c 24 30       	mov    %rcx,0x30(%rsp)
-   1400050df:	48 89 54 24 40       	mov    %rdx,0x40(%rsp)
-   1400050e4:	48 c7 44 24 38 00 00 	movq   $0x0,0x38(%rsp)
-   1400050eb:	00 00 
-   1400050ed:	c6 01 00             	movb   $0x0,(%rcx)
-   1400050f0:	48 8b 4c 24 30       	mov    0x30(%rsp),%rcx
-   1400050f5:	48 39 f1             	cmp    %rsi,%rcx
-   1400050f8:	74 0e                	je     140005108 <_ZN15SignedMagnitude8toStringB5cxx11Ev+0x118>
-   1400050fa:	48 8b 44 24 40       	mov    0x40(%rsp),%rax
-   1400050ff:	48 8d 50 01          	lea    0x1(%rax),%rdx
-   140005103:	e8 48 12 00 00       	call   140006350 <_ZdlPvy>
-   140005108:	48 89 d8             	mov    %rbx,%rax
-   14000510b:	48 83 c4 50          	add    $0x50,%rsp
-   14000510f:	5b                   	pop    %rbx
-   140005110:	5e                   	pop    %rsi
-   140005111:	5f                   	pop    %rdi
-   140005112:	5d                   	pop    %rbp
-   140005113:	41 5c                	pop    %r12
-   140005115:	c3                   	ret
-   140005116:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
-   14000511d:	00 00 00 
-   140005120:	f3 0f 6f 4c 24 38    	movdqu 0x38(%rsp),%xmm1
-   140005126:	48 89 03             	mov    %rax,(%rbx)
-   140005129:	0f 11 4b 08          	movups %xmm1,0x8(%rbx)
-   14000512d:	48 89 74 24 30       	mov    %rsi,0x30(%rsp)
-   140005132:	48 8d 74 24 40       	lea    0x40(%rsp),%rsi
-   140005137:	48 89 f1             	mov    %rsi,%rcx
-   14000513a:	eb a8                	jmp    1400050e4 <_ZN15SignedMagnitude8toStringB5cxx11Ev+0xf4>
-   14000513c:	0f 1f 40 00          	nopl   0x0(%rax)
-   140005140:	4c 8b 4b 08          	mov    0x8(%rbx),%r9
-   140005144:	01 c0                	add    %eax,%eax
-   140005146:	89 c0                	mov    %eax,%eax
-   140005148:	4c 89 ca             	mov    %r9,%rdx
-   14000514b:	48 29 c2             	sub    %rax,%rdx
-   14000514e:	0f 82 85 00 00 00    	jb     1400051d9 <_ZN15SignedMagnitude8toStringB5cxx11Ev+0x1e9>
-   140005154:	48 c7 44 24 20 01 00 	movq   $0x1,0x20(%rsp)
-   14000515b:	00 00 
-   14000515d:	4c 8d 0d 63 4f 00 00 	lea    0x4f63(%rip),%r9        # 14000a0c7 <.rdata+0x57>
-   140005164:	45 31 c0             	xor    %r8d,%r8d
-   140005167:	48 89 d9             	mov    %rbx,%rcx
-   14000516a:	e8 71 12 00 00       	call   1400063e0 <_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEyyPKcy>
-   14000516f:	e9 9c fe ff ff       	jmp    140005010 <_ZN15SignedMagnitude8toStringB5cxx11Ev+0x20>
-   140005174:	0f 1f 40 00          	nopl   0x0(%rax)
-   140005178:	4c 8b 44 24 38       	mov    0x38(%rsp),%r8
-   14000517d:	4d 85 c0             	test   %r8,%r8
-   140005180:	74 16                	je     140005198 <_ZN15SignedMagnitude8toStringB5cxx11Ev+0x1a8>
-   140005182:	49 83 f8 01          	cmp    $0x1,%r8
-   140005186:	74 28                	je     1400051b0 <_ZN15SignedMagnitude8toStringB5cxx11Ev+0x1c0>
-   140005188:	48 89 f2             	mov    %rsi,%rdx
-   14000518b:	e8 40 24 00 00       	call   1400075d0 <memcpy>
-   140005190:	4c 8b 44 24 38       	mov    0x38(%rsp),%r8
-   140005195:	48 8b 0b             	mov    (%rbx),%rcx
-   140005198:	4c 89 43 08          	mov    %r8,0x8(%rbx)
-   14000519c:	42 c6 04 01 00       	movb   $0x0,(%rcx,%r8,1)
-   1400051a1:	48 8b 4c 24 30       	mov    0x30(%rsp),%rcx
-   1400051a6:	e9 39 ff ff ff       	jmp    1400050e4 <_ZN15SignedMagnitude8toStringB5cxx11Ev+0xf4>
-   1400051ab:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
-   1400051b0:	0f b6 44 24 40       	movzbl 0x40(%rsp),%eax
-   1400051b5:	88 01                	mov    %al,(%rcx)
-   1400051b7:	4c 8b 44 24 38       	mov    0x38(%rsp),%r8
-   1400051bc:	48 8b 0b             	mov    (%rbx),%rcx
-   1400051bf:	eb d7                	jmp    140005198 <_ZN15SignedMagnitude8toStringB5cxx11Ev+0x1a8>
-   1400051c1:	48 8d 0d 01 4f 00 00 	lea    0x4f01(%rip),%rcx        # 14000a0c9 <.rdata+0x59>
-   1400051c8:	e8 93 11 00 00       	call   140006360 <_ZSt20__throw_length_errorPKc>
-   1400051cd:	48 8d 0d f5 4e 00 00 	lea    0x4ef5(%rip),%rcx        # 14000a0c9 <.rdata+0x59>
-   1400051d4:	e8 87 11 00 00       	call   140006360 <_ZSt20__throw_length_errorPKc>
-   1400051d9:	49 89 d0             	mov    %rdx,%r8
-   1400051dc:	48 8d 0d ad 4e 00 00 	lea    0x4ead(%rip),%rcx        # 14000a090 <.rdata+0x20>
-   1400051e3:	48 8d 15 89 4e 00 00 	lea    0x4e89(%rip),%rdx        # 14000a073 <.rdata+0x3>
-   1400051ea:	e8 69 11 00 00       	call   140006358 <_ZSt24__throw_out_of_range_fmtPKcz>
-   1400051ef:	48 8b 4c 24 30       	mov    0x30(%rsp),%rcx
-   1400051f4:	48 89 c7             	mov    %rax,%rdi
-   1400051f7:	48 39 f1             	cmp    %rsi,%rcx
-   1400051fa:	74 0e                	je     14000520a <_ZN15SignedMagnitude8toStringB5cxx11Ev+0x21a>
-   1400051fc:	48 8b 44 24 40       	mov    0x40(%rsp),%rax
-   140005201:	48 8d 50 01          	lea    0x1(%rax),%rdx
-   140005205:	e8 46 11 00 00       	call   140006350 <_ZdlPvy>
-   14000520a:	48 8b 0b             	mov    (%rbx),%rcx
-   14000520d:	48 8d 43 10          	lea    0x10(%rbx),%rax
-   140005211:	48 39 c1             	cmp    %rax,%rcx
-   140005214:	74 0d                	je     140005223 <_ZN15SignedMagnitude8toStringB5cxx11Ev+0x233>
-   140005216:	48 8b 53 10          	mov    0x10(%rbx),%rdx
-   14000521a:	48 83 c2 01          	add    $0x1,%rdx
-   14000521e:	e8 2d 11 00 00       	call   140006350 <_ZdlPvy>
-   140005223:	48 89 f9             	mov    %rdi,%rcx
-   140005226:	e8 75 22 00 00       	call   1400074a0 <_Unwind_Resume>
-   14000522b:	48 89 c7             	mov    %rax,%rdi
-   14000522e:	eb da                	jmp    14000520a <_ZN15SignedMagnitude8toStringB5cxx11Ev+0x21a>
+0000000140005280 <_ZN15SignedMagnitude15alignModuleWithES_>:
+   140005280:	41 54                	push   %r12
+   140005282:	55                   	push   %rbp
+   140005283:	57                   	push   %rdi
+   140005284:	56                   	push   %rsi
+   140005285:	53                   	push   %rbx
+   140005286:	48 83 ec 30          	sub    $0x30,%rsp
+   14000528a:	48 89 cb             	mov    %rcx,%rbx
+   14000528d:	48 89 d5             	mov    %rdx,%rbp
+   140005290:	4d 89 c4             	mov    %r8,%r12
+   140005293:	e8 a8 c6 ff ff       	call   140001940 <_ZN13NaturalBinaryC1Ev>
+   140005298:	48 39 dd             	cmp    %rbx,%rbp
+   14000529b:	74 0b                	je     1400052a8 <_ZN15SignedMagnitude15alignModuleWithES_+0x28>
+   14000529d:	48 89 ea             	mov    %rbp,%rdx
+   1400052a0:	48 89 d9             	mov    %rbx,%rcx
+   1400052a3:	e8 98 f9 ff ff       	call   140004c40 <_ZNSt7__cxx114listI4ByteSaIS1_EEaSERKS3_.part.0>
+   1400052a8:	8b 55 18             	mov    0x18(%rbp),%edx
+   1400052ab:	41 8b 74 24 10       	mov    0x10(%r12),%esi
+   1400052b0:	48 8d 7c 24 2f       	lea    0x2f(%rsp),%rdi
+   1400052b5:	41 8b 44 24 18       	mov    0x18(%r12),%eax
+   1400052ba:	01 d6                	add    %edx,%esi
+   1400052bc:	29 c6                	sub    %eax,%esi
+   1400052be:	2b 73 10             	sub    0x10(%rbx),%esi
+   1400052c1:	85 f6                	test   %esi,%esi
+   1400052c3:	7e 3c                	jle    140005301 <_ZN15SignedMagnitude15alignModuleWithES_+0x81>
+   1400052c5:	0f 1f 00             	nopl   (%rax)
+   1400052c8:	31 d2                	xor    %edx,%edx
+   1400052ca:	48 89 f9             	mov    %rdi,%rcx
+   1400052cd:	e8 ae c3 ff ff       	call   140001680 <_ZN4ByteC1Ey>
+   1400052d2:	b9 18 00 00 00       	mov    $0x18,%ecx
+   1400052d7:	e8 dc 1a 00 00       	call   140006db8 <_Znwy>
+   1400052dc:	48 89 c1             	mov    %rax,%rcx
+   1400052df:	0f b6 44 24 2f       	movzbl 0x2f(%rsp),%eax
+   1400052e4:	48 89 da             	mov    %rbx,%rdx
+   1400052e7:	88 41 10             	mov    %al,0x10(%rcx)
+   1400052ea:	e8 29 1b 00 00       	call   140006e18 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
+   1400052ef:	48 83 43 10 01       	addq   $0x1,0x10(%rbx)
+   1400052f4:	83 ee 01             	sub    $0x1,%esi
+   1400052f7:	75 cf                	jne    1400052c8 <_ZN15SignedMagnitude15alignModuleWithES_+0x48>
+   1400052f9:	41 8b 44 24 18       	mov    0x18(%r12),%eax
+   1400052fe:	8b 55 18             	mov    0x18(%rbp),%edx
+   140005301:	29 d0                	sub    %edx,%eax
+   140005303:	48 8d 7c 24 2f       	lea    0x2f(%rsp),%rdi
+   140005308:	89 c6                	mov    %eax,%esi
+   14000530a:	85 c0                	test   %eax,%eax
+   14000530c:	7e 36                	jle    140005344 <_ZN15SignedMagnitude15alignModuleWithES_+0xc4>
+   14000530e:	66 90                	xchg   %ax,%ax
+   140005310:	31 d2                	xor    %edx,%edx
+   140005312:	48 89 f9             	mov    %rdi,%rcx
+   140005315:	e8 66 c3 ff ff       	call   140001680 <_ZN4ByteC1Ey>
+   14000531a:	b9 18 00 00 00       	mov    $0x18,%ecx
+   14000531f:	48 8b 2b             	mov    (%rbx),%rbp
+   140005322:	e8 91 1a 00 00       	call   140006db8 <_Znwy>
+   140005327:	48 89 c1             	mov    %rax,%rcx
+   14000532a:	0f b6 44 24 2f       	movzbl 0x2f(%rsp),%eax
+   14000532f:	48 89 ea             	mov    %rbp,%rdx
+   140005332:	88 41 10             	mov    %al,0x10(%rcx)
+   140005335:	e8 de 1a 00 00       	call   140006e18 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
+   14000533a:	48 83 43 10 01       	addq   $0x1,0x10(%rbx)
+   14000533f:	83 ee 01             	sub    $0x1,%esi
+   140005342:	75 cc                	jne    140005310 <_ZN15SignedMagnitude15alignModuleWithES_+0x90>
+   140005344:	48 89 d8             	mov    %rbx,%rax
+   140005347:	48 83 c4 30          	add    $0x30,%rsp
+   14000534b:	5b                   	pop    %rbx
+   14000534c:	5e                   	pop    %rsi
+   14000534d:	5f                   	pop    %rdi
+   14000534e:	5d                   	pop    %rbp
+   14000534f:	41 5c                	pop    %r12
+   140005351:	c3                   	ret
+   140005352:	48 89 c6             	mov    %rax,%rsi
+   140005355:	48 89 d9             	mov    %rbx,%rcx
+   140005358:	e8 83 c7 ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
+   14000535d:	48 89 f1             	mov    %rsi,%rcx
+   140005360:	e8 ab 2b 00 00       	call   140007f10 <_Unwind_Resume>
+   140005365:	90                   	nop
+   140005366:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
+   14000536d:	00 00 00 
 
-0000000140005230 <_ZN15SignedMagnitude10mulDivSignES_>:
-   140005230:	0f b6 42 1c          	movzbl 0x1c(%rdx),%eax
-   140005234:	22 41 1c             	and    0x1c(%rcx),%al
-   140005237:	83 f0 01             	xor    $0x1,%eax
-   14000523a:	c3                   	ret
-   14000523b:	90                   	nop
-   14000523c:	0f 1f 40 00          	nopl   0x0(%rax)
+0000000140005370 <_ZN15SignedMagnitudeeqES_>:
+   140005370:	41 55                	push   %r13
+   140005372:	41 54                	push   %r12
+   140005374:	55                   	push   %rbp
+   140005375:	57                   	push   %rdi
+   140005376:	56                   	push   %rsi
+   140005377:	53                   	push   %rbx
+   140005378:	48 81 ec b8 00 00 00 	sub    $0xb8,%rsp
+   14000537f:	31 c0                	xor    %eax,%eax
+   140005381:	48 89 d7             	mov    %rdx,%rdi
+   140005384:	48 89 cb             	mov    %rcx,%rbx
+   140005387:	0f b6 51 1c          	movzbl 0x1c(%rcx),%edx
+   14000538b:	3a 57 1c             	cmp    0x1c(%rdi),%dl
+   14000538e:	74 10                	je     1400053a0 <_ZN15SignedMagnitudeeqES_+0x30>
+   140005390:	48 81 c4 b8 00 00 00 	add    $0xb8,%rsp
+   140005397:	5b                   	pop    %rbx
+   140005398:	5e                   	pop    %rsi
+   140005399:	5f                   	pop    %rdi
+   14000539a:	5d                   	pop    %rbp
+   14000539b:	41 5c                	pop    %r12
+   14000539d:	41 5d                	pop    %r13
+   14000539f:	c3                   	ret
+   1400053a0:	48 8d ac 24 90 00 00 	lea    0x90(%rsp),%rbp
+   1400053a7:	00 
+   1400053a8:	48 8b 31             	mov    (%rcx),%rsi
+   1400053ab:	48 c7 84 24 a0 00 00 	movq   $0x0,0xa0(%rsp)
+   1400053b2:	00 00 00 00 00 
+   1400053b7:	66 48 0f 6e c5       	movq   %rbp,%xmm0
+   1400053bc:	66 0f 6c c0          	punpcklqdq %xmm0,%xmm0
+   1400053c0:	0f 11 84 24 90 00 00 	movups %xmm0,0x90(%rsp)
+   1400053c7:	00 
+   1400053c8:	48 39 f1             	cmp    %rsi,%rcx
+   1400053cb:	74 34                	je     140005401 <_ZN15SignedMagnitudeeqES_+0x91>
+   1400053cd:	0f 1f 00             	nopl   (%rax)
+   1400053d0:	b9 18 00 00 00       	mov    $0x18,%ecx
+   1400053d5:	e8 de 19 00 00       	call   140006db8 <_Znwy>
+   1400053da:	48 89 c1             	mov    %rax,%rcx
+   1400053dd:	0f b6 46 10          	movzbl 0x10(%rsi),%eax
+   1400053e1:	48 89 ea             	mov    %rbp,%rdx
+   1400053e4:	88 41 10             	mov    %al,0x10(%rcx)
+   1400053e7:	e8 2c 1a 00 00       	call   140006e18 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
+   1400053ec:	48 8b 36             	mov    (%rsi),%rsi
+   1400053ef:	48 83 84 24 a0 00 00 	addq   $0x1,0xa0(%rsp)
+   1400053f6:	00 01 
+   1400053f8:	48 39 f3             	cmp    %rsi,%rbx
+   1400053fb:	75 d3                	jne    1400053d0 <_ZN15SignedMagnitudeeqES_+0x60>
+   1400053fd:	0f b6 53 1c          	movzbl 0x1c(%rbx),%edx
+   140005401:	8b 43 18             	mov    0x18(%rbx),%eax
+   140005404:	4c 8d 6c 24 50       	lea    0x50(%rsp),%r13
+   140005409:	88 94 24 ac 00 00 00 	mov    %dl,0xac(%rsp)
+   140005410:	49 89 e8             	mov    %rbp,%r8
+   140005413:	48 89 fa             	mov    %rdi,%rdx
+   140005416:	4c 89 e9             	mov    %r13,%rcx
+   140005419:	89 84 24 a8 00 00 00 	mov    %eax,0xa8(%rsp)
+   140005420:	e8 5b fe ff ff       	call   140005280 <_ZN15SignedMagnitude15alignModuleWithES_>
+   140005425:	4c 8d 64 24 70       	lea    0x70(%rsp),%r12
+   14000542a:	48 8b 37             	mov    (%rdi),%rsi
+   14000542d:	48 c7 84 24 80 00 00 	movq   $0x0,0x80(%rsp)
+   140005434:	00 00 00 00 00 
+   140005439:	66 49 0f 6e c4       	movq   %r12,%xmm0
+   14000543e:	66 0f 6c c0          	punpcklqdq %xmm0,%xmm0
+   140005442:	0f 11 44 24 70       	movups %xmm0,0x70(%rsp)
+   140005447:	48 39 f7             	cmp    %rsi,%rdi
+   14000544a:	74 31                	je     14000547d <_ZN15SignedMagnitudeeqES_+0x10d>
+   14000544c:	0f 1f 40 00          	nopl   0x0(%rax)
+   140005450:	b9 18 00 00 00       	mov    $0x18,%ecx
+   140005455:	e8 5e 19 00 00       	call   140006db8 <_Znwy>
+   14000545a:	48 89 c1             	mov    %rax,%rcx
+   14000545d:	0f b6 46 10          	movzbl 0x10(%rsi),%eax
+   140005461:	4c 89 e2             	mov    %r12,%rdx
+   140005464:	88 41 10             	mov    %al,0x10(%rcx)
+   140005467:	e8 ac 19 00 00       	call   140006e18 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
+   14000546c:	48 8b 36             	mov    (%rsi),%rsi
+   14000546f:	48 83 84 24 80 00 00 	addq   $0x1,0x80(%rsp)
+   140005476:	00 01 
+   140005478:	48 39 f7             	cmp    %rsi,%rdi
+   14000547b:	75 d3                	jne    140005450 <_ZN15SignedMagnitudeeqES_+0xe0>
+   14000547d:	8b 47 18             	mov    0x18(%rdi),%eax
+   140005480:	48 8d 74 24 30       	lea    0x30(%rsp),%rsi
+   140005485:	4d 89 e0             	mov    %r12,%r8
+   140005488:	48 89 da             	mov    %rbx,%rdx
+   14000548b:	48 89 f1             	mov    %rsi,%rcx
+   14000548e:	89 84 24 88 00 00 00 	mov    %eax,0x88(%rsp)
+   140005495:	0f b6 47 1c          	movzbl 0x1c(%rdi),%eax
+   140005499:	88 84 24 8c 00 00 00 	mov    %al,0x8c(%rsp)
+   1400054a0:	e8 db fd ff ff       	call   140005280 <_ZN15SignedMagnitude15alignModuleWithES_>
+   1400054a5:	4c 89 ea             	mov    %r13,%rdx
+   1400054a8:	48 89 f1             	mov    %rsi,%rcx
+   1400054ab:	e8 b0 d3 ff ff       	call   140002860 <_ZN13NaturalBinaryeqES_>
+   1400054b0:	48 89 f1             	mov    %rsi,%rcx
+   1400054b3:	88 44 24 2f          	mov    %al,0x2f(%rsp)
+   1400054b7:	e8 24 c6 ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
+   1400054bc:	4c 89 e1             	mov    %r12,%rcx
+   1400054bf:	e8 1c c6 ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
+   1400054c4:	4c 89 e9             	mov    %r13,%rcx
+   1400054c7:	e8 14 c6 ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
+   1400054cc:	48 89 e9             	mov    %rbp,%rcx
+   1400054cf:	e8 0c c6 ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
+   1400054d4:	0f b6 44 24 2f       	movzbl 0x2f(%rsp),%eax
+   1400054d9:	48 81 c4 b8 00 00 00 	add    $0xb8,%rsp
+   1400054e0:	5b                   	pop    %rbx
+   1400054e1:	5e                   	pop    %rsi
+   1400054e2:	5f                   	pop    %rdi
+   1400054e3:	5d                   	pop    %rbp
+   1400054e4:	41 5c                	pop    %r12
+   1400054e6:	41 5d                	pop    %r13
+   1400054e8:	c3                   	ret
+   1400054e9:	48 89 c3             	mov    %rax,%rbx
+   1400054ec:	eb 42                	jmp    140005530 <_ZN15SignedMagnitudeeqES_+0x1c0>
+   1400054ee:	48 8b 8c 24 90 00 00 	mov    0x90(%rsp),%rcx
+   1400054f5:	00 
+   1400054f6:	48 89 c3             	mov    %rax,%rbx
+   1400054f9:	48 39 e9             	cmp    %rbp,%rcx
+   1400054fc:	74 3a                	je     140005538 <_ZN15SignedMagnitudeeqES_+0x1c8>
+   1400054fe:	48 8b 31             	mov    (%rcx),%rsi
+   140005501:	ba 18 00 00 00       	mov    $0x18,%edx
+   140005506:	e8 b5 18 00 00       	call   140006dc0 <_ZdlPvy>
+   14000550b:	48 89 f1             	mov    %rsi,%rcx
+   14000550e:	eb e9                	jmp    1400054f9 <_ZN15SignedMagnitudeeqES_+0x189>
+   140005510:	48 89 c3             	mov    %rax,%rbx
+   140005513:	eb 0b                	jmp    140005520 <_ZN15SignedMagnitudeeqES_+0x1b0>
+   140005515:	48 89 f1             	mov    %rsi,%rcx
+   140005518:	48 89 c3             	mov    %rax,%rbx
+   14000551b:	e8 c0 c5 ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
+   140005520:	4c 89 e1             	mov    %r12,%rcx
+   140005523:	e8 b8 c5 ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
+   140005528:	4c 89 e9             	mov    %r13,%rcx
+   14000552b:	e8 b0 c5 ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
+   140005530:	48 89 e9             	mov    %rbp,%rcx
+   140005533:	e8 a8 c5 ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
+   140005538:	48 89 d9             	mov    %rbx,%rcx
+   14000553b:	e8 d0 29 00 00       	call   140007f10 <_Unwind_Resume>
+   140005540:	48 8b 4c 24 70       	mov    0x70(%rsp),%rcx
+   140005545:	48 89 c3             	mov    %rax,%rbx
+   140005548:	4c 39 e1             	cmp    %r12,%rcx
+   14000554b:	74 db                	je     140005528 <_ZN15SignedMagnitudeeqES_+0x1b8>
+   14000554d:	48 8b 31             	mov    (%rcx),%rsi
+   140005550:	ba 18 00 00 00       	mov    $0x18,%edx
+   140005555:	e8 66 18 00 00       	call   140006dc0 <_ZdlPvy>
+   14000555a:	48 89 f1             	mov    %rsi,%rcx
+   14000555d:	eb e9                	jmp    140005548 <_ZN15SignedMagnitudeeqES_+0x1d8>
+   14000555f:	90                   	nop
 
-0000000140005240 <_ZN15SignedMagnitude7subSignES_>:
-   140005240:	41 54                	push   %r12
-   140005242:	55                   	push   %rbp
-   140005243:	57                   	push   %rdi
-   140005244:	56                   	push   %rsi
-   140005245:	53                   	push   %rbx
-   140005246:	48 83 ec 40          	sub    $0x40,%rsp
-   14000524a:	48 8b 1a             	mov    (%rdx),%rbx
-   14000524d:	48 8d 7c 24 20       	lea    0x20(%rsp),%rdi
-   140005252:	48 89 cd             	mov    %rcx,%rbp
-   140005255:	48 89 d6             	mov    %rdx,%rsi
-   140005258:	48 c7 44 24 30 00 00 	movq   $0x0,0x30(%rsp)
-   14000525f:	00 00 
-   140005261:	66 48 0f 6e c7       	movq   %rdi,%xmm0
-   140005266:	66 0f 6c c0          	punpcklqdq %xmm0,%xmm0
-   14000526a:	0f 11 44 24 20       	movups %xmm0,0x20(%rsp)
-   14000526f:	48 39 da             	cmp    %rbx,%rdx
-   140005272:	74 2e                	je     1400052a2 <_ZN15SignedMagnitude7subSignES_+0x62>
-   140005274:	0f 1f 40 00          	nopl   0x0(%rax)
-   140005278:	b9 18 00 00 00       	mov    $0x18,%ecx
-   14000527d:	e8 c6 10 00 00       	call   140006348 <_Znwy>
-   140005282:	48 89 c1             	mov    %rax,%rcx
-   140005285:	0f b6 43 10          	movzbl 0x10(%rbx),%eax
-   140005289:	48 89 fa             	mov    %rdi,%rdx
-   14000528c:	88 41 10             	mov    %al,0x10(%rcx)
-   14000528f:	e8 14 11 00 00       	call   1400063a8 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
-   140005294:	48 8b 1b             	mov    (%rbx),%rbx
-   140005297:	48 83 44 24 30 01    	addq   $0x1,0x30(%rsp)
-   14000529d:	48 39 de             	cmp    %rbx,%rsi
-   1400052a0:	75 d6                	jne    140005278 <_ZN15SignedMagnitude7subSignES_+0x38>
-   1400052a2:	48 89 fa             	mov    %rdi,%rdx
-   1400052a5:	48 89 e9             	mov    %rbp,%rcx
-   1400052a8:	e8 03 d4 ff ff       	call   1400026b0 <_ZN13NaturalBinarygtES_>
-   1400052ad:	41 89 c4             	mov    %eax,%r12d
-   1400052b0:	48 89 f9             	mov    %rdi,%rcx
-   1400052b3:	e8 28 c8 ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
-   1400052b8:	45 84 e4             	test   %r12b,%r12b
-   1400052bb:	74 13                	je     1400052d0 <_ZN15SignedMagnitude7subSignES_+0x90>
-   1400052bd:	44 0f b6 65 1c       	movzbl 0x1c(%rbp),%r12d
-   1400052c2:	44 89 e0             	mov    %r12d,%eax
-   1400052c5:	48 83 c4 40          	add    $0x40,%rsp
-   1400052c9:	5b                   	pop    %rbx
-   1400052ca:	5e                   	pop    %rsi
-   1400052cb:	5f                   	pop    %rdi
-   1400052cc:	5d                   	pop    %rbp
-   1400052cd:	41 5c                	pop    %r12
-   1400052cf:	c3                   	ret
-   1400052d0:	66 48 0f 6e c7       	movq   %rdi,%xmm0
-   1400052d5:	48 8b 1e             	mov    (%rsi),%rbx
-   1400052d8:	48 c7 44 24 30 00 00 	movq   $0x0,0x30(%rsp)
-   1400052df:	00 00 
-   1400052e1:	66 0f 6c c0          	punpcklqdq %xmm0,%xmm0
-   1400052e5:	0f 11 44 24 20       	movups %xmm0,0x20(%rsp)
-   1400052ea:	48 39 de             	cmp    %rbx,%rsi
-   1400052ed:	74 2b                	je     14000531a <_ZN15SignedMagnitude7subSignES_+0xda>
-   1400052ef:	90                   	nop
-   1400052f0:	b9 18 00 00 00       	mov    $0x18,%ecx
-   1400052f5:	e8 4e 10 00 00       	call   140006348 <_Znwy>
-   1400052fa:	48 89 c1             	mov    %rax,%rcx
-   1400052fd:	0f b6 43 10          	movzbl 0x10(%rbx),%eax
-   140005301:	48 89 fa             	mov    %rdi,%rdx
-   140005304:	88 41 10             	mov    %al,0x10(%rcx)
-   140005307:	e8 9c 10 00 00       	call   1400063a8 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
-   14000530c:	48 8b 1b             	mov    (%rbx),%rbx
-   14000530f:	48 83 44 24 30 01    	addq   $0x1,0x30(%rsp)
-   140005315:	48 39 de             	cmp    %rbx,%rsi
-   140005318:	75 d6                	jne    1400052f0 <_ZN15SignedMagnitude7subSignES_+0xb0>
-   14000531a:	48 89 fa             	mov    %rdi,%rdx
-   14000531d:	48 89 e9             	mov    %rbp,%rcx
-   140005320:	e8 3b d5 ff ff       	call   140002860 <_ZN13NaturalBinaryeqES_>
-   140005325:	89 c3                	mov    %eax,%ebx
-   140005327:	48 89 f9             	mov    %rdi,%rcx
-   14000532a:	e8 b1 c7 ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
-   14000532f:	84 db                	test   %bl,%bl
-   140005331:	75 8f                	jne    1400052c2 <_ZN15SignedMagnitude7subSignES_+0x82>
-   140005333:	44 0f b6 66 1c       	movzbl 0x1c(%rsi),%r12d
-   140005338:	41 83 f4 01          	xor    $0x1,%r12d
-   14000533c:	eb 84                	jmp    1400052c2 <_ZN15SignedMagnitude7subSignES_+0x82>
-   14000533e:	48 8b 4c 24 20       	mov    0x20(%rsp),%rcx
-   140005343:	48 89 c3             	mov    %rax,%rbx
-   140005346:	48 39 f9             	cmp    %rdi,%rcx
-   140005349:	74 1d                	je     140005368 <_ZN15SignedMagnitude7subSignES_+0x128>
-   14000534b:	48 8b 31             	mov    (%rcx),%rsi
-   14000534e:	ba 18 00 00 00       	mov    $0x18,%edx
-   140005353:	e8 f8 0f 00 00       	call   140006350 <_ZdlPvy>
-   140005358:	48 89 f1             	mov    %rsi,%rcx
-   14000535b:	eb e9                	jmp    140005346 <_ZN15SignedMagnitude7subSignES_+0x106>
-   14000535d:	48 89 f9             	mov    %rdi,%rcx
-   140005360:	48 89 c3             	mov    %rax,%rbx
-   140005363:	e8 78 c7 ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
-   140005368:	48 89 d9             	mov    %rbx,%rcx
-   14000536b:	e8 30 21 00 00       	call   1400074a0 <_Unwind_Resume>
-   140005370:	48 8b 4c 24 20       	mov    0x20(%rsp),%rcx
-   140005375:	48 89 c3             	mov    %rax,%rbx
-   140005378:	48 39 f9             	cmp    %rdi,%rcx
-   14000537b:	74 eb                	je     140005368 <_ZN15SignedMagnitude7subSignES_+0x128>
-   14000537d:	48 8b 31             	mov    (%rcx),%rsi
-   140005380:	ba 18 00 00 00       	mov    $0x18,%edx
-   140005385:	e8 c6 0f 00 00       	call   140006350 <_ZdlPvy>
-   14000538a:	48 89 f1             	mov    %rsi,%rcx
-   14000538d:	eb e9                	jmp    140005378 <_ZN15SignedMagnitude7subSignES_+0x138>
-   14000538f:	eb cc                	jmp    14000535d <_ZN15SignedMagnitude7subSignES_+0x11d>
-   140005391:	90                   	nop
-   140005392:	66 66 2e 0f 1f 84 00 	data16 cs nopw 0x0(%rax,%rax,1)
-   140005399:	00 00 00 00 
-   14000539d:	0f 1f 00             	nopl   (%rax)
-
-00000001400053a0 <_ZN15SignedMagnitude15alignModuleWithES_>:
-   1400053a0:	41 54                	push   %r12
-   1400053a2:	55                   	push   %rbp
-   1400053a3:	57                   	push   %rdi
-   1400053a4:	56                   	push   %rsi
-   1400053a5:	53                   	push   %rbx
-   1400053a6:	48 83 ec 30          	sub    $0x30,%rsp
-   1400053aa:	48 89 cb             	mov    %rcx,%rbx
-   1400053ad:	48 89 d5             	mov    %rdx,%rbp
-   1400053b0:	4d 89 c4             	mov    %r8,%r12
-   1400053b3:	e8 88 c5 ff ff       	call   140001940 <_ZN13NaturalBinaryC1Ev>
-   1400053b8:	48 39 dd             	cmp    %rbx,%rbp
-   1400053bb:	74 0b                	je     1400053c8 <_ZN15SignedMagnitude15alignModuleWithES_+0x28>
-   1400053bd:	48 89 ea             	mov    %rbp,%rdx
-   1400053c0:	48 89 d9             	mov    %rbx,%rcx
-   1400053c3:	e8 78 f8 ff ff       	call   140004c40 <_ZNSt7__cxx114listI4ByteSaIS1_EEaSERKS3_.part.0>
-   1400053c8:	8b 55 18             	mov    0x18(%rbp),%edx
-   1400053cb:	41 8b 74 24 10       	mov    0x10(%r12),%esi
-   1400053d0:	48 8d 7c 24 2f       	lea    0x2f(%rsp),%rdi
-   1400053d5:	41 8b 44 24 18       	mov    0x18(%r12),%eax
-   1400053da:	01 d6                	add    %edx,%esi
-   1400053dc:	29 c6                	sub    %eax,%esi
-   1400053de:	2b 73 10             	sub    0x10(%rbx),%esi
-   1400053e1:	85 f6                	test   %esi,%esi
-   1400053e3:	7e 3c                	jle    140005421 <_ZN15SignedMagnitude15alignModuleWithES_+0x81>
-   1400053e5:	0f 1f 00             	nopl   (%rax)
-   1400053e8:	31 d2                	xor    %edx,%edx
-   1400053ea:	48 89 f9             	mov    %rdi,%rcx
-   1400053ed:	e8 8e c2 ff ff       	call   140001680 <_ZN4ByteC1Ey>
-   1400053f2:	b9 18 00 00 00       	mov    $0x18,%ecx
-   1400053f7:	e8 4c 0f 00 00       	call   140006348 <_Znwy>
-   1400053fc:	48 89 c1             	mov    %rax,%rcx
-   1400053ff:	0f b6 44 24 2f       	movzbl 0x2f(%rsp),%eax
-   140005404:	48 89 da             	mov    %rbx,%rdx
-   140005407:	88 41 10             	mov    %al,0x10(%rcx)
-   14000540a:	e8 99 0f 00 00       	call   1400063a8 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
-   14000540f:	48 83 43 10 01       	addq   $0x1,0x10(%rbx)
-   140005414:	83 ee 01             	sub    $0x1,%esi
-   140005417:	75 cf                	jne    1400053e8 <_ZN15SignedMagnitude15alignModuleWithES_+0x48>
-   140005419:	41 8b 44 24 18       	mov    0x18(%r12),%eax
-   14000541e:	8b 55 18             	mov    0x18(%rbp),%edx
-   140005421:	29 d0                	sub    %edx,%eax
-   140005423:	48 8d 7c 24 2f       	lea    0x2f(%rsp),%rdi
-   140005428:	89 c6                	mov    %eax,%esi
-   14000542a:	85 c0                	test   %eax,%eax
-   14000542c:	7e 36                	jle    140005464 <_ZN15SignedMagnitude15alignModuleWithES_+0xc4>
-   14000542e:	66 90                	xchg   %ax,%ax
-   140005430:	31 d2                	xor    %edx,%edx
-   140005432:	48 89 f9             	mov    %rdi,%rcx
-   140005435:	e8 46 c2 ff ff       	call   140001680 <_ZN4ByteC1Ey>
-   14000543a:	b9 18 00 00 00       	mov    $0x18,%ecx
-   14000543f:	48 8b 2b             	mov    (%rbx),%rbp
-   140005442:	e8 01 0f 00 00       	call   140006348 <_Znwy>
-   140005447:	48 89 c1             	mov    %rax,%rcx
-   14000544a:	0f b6 44 24 2f       	movzbl 0x2f(%rsp),%eax
-   14000544f:	48 89 ea             	mov    %rbp,%rdx
-   140005452:	88 41 10             	mov    %al,0x10(%rcx)
-   140005455:	e8 4e 0f 00 00       	call   1400063a8 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
-   14000545a:	48 83 43 10 01       	addq   $0x1,0x10(%rbx)
-   14000545f:	83 ee 01             	sub    $0x1,%esi
-   140005462:	75 cc                	jne    140005430 <_ZN15SignedMagnitude15alignModuleWithES_+0x90>
-   140005464:	48 89 d8             	mov    %rbx,%rax
-   140005467:	48 83 c4 30          	add    $0x30,%rsp
-   14000546b:	5b                   	pop    %rbx
-   14000546c:	5e                   	pop    %rsi
-   14000546d:	5f                   	pop    %rdi
-   14000546e:	5d                   	pop    %rbp
-   14000546f:	41 5c                	pop    %r12
-   140005471:	c3                   	ret
-   140005472:	48 89 c6             	mov    %rax,%rsi
-   140005475:	48 89 d9             	mov    %rbx,%rcx
-   140005478:	e8 63 c6 ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
-   14000547d:	48 89 f1             	mov    %rsi,%rcx
-   140005480:	e8 1b 20 00 00       	call   1400074a0 <_Unwind_Resume>
-   140005485:	90                   	nop
-   140005486:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
-   14000548d:	00 00 00 
-
-0000000140005490 <_ZN15SignedMagnitudeplES_>:
-   140005490:	41 57                	push   %r15
-   140005492:	41 56                	push   %r14
-   140005494:	41 55                	push   %r13
-   140005496:	41 54                	push   %r12
-   140005498:	55                   	push   %rbp
-   140005499:	57                   	push   %rdi
-   14000549a:	56                   	push   %rsi
-   14000549b:	53                   	push   %rbx
-   14000549c:	48 81 ec c8 00 00 00 	sub    $0xc8,%rsp
-   1400054a3:	0f 11 b4 24 b0 00 00 	movups %xmm6,0xb0(%rsp)
-   1400054aa:	00 
-   1400054ab:	49 8b 28             	mov    (%r8),%rbp
-   1400054ae:	48 8d 74 24 70       	lea    0x70(%rsp),%rsi
-   1400054b3:	49 89 cc             	mov    %rcx,%r12
-   1400054b6:	48 89 d7             	mov    %rdx,%rdi
-   1400054b9:	4c 89 c3             	mov    %r8,%rbx
-   1400054bc:	66 48 0f 6e c6       	movq   %rsi,%xmm0
-   1400054c1:	48 c7 84 24 80 00 00 	movq   $0x0,0x80(%rsp)
-   1400054c8:	00 00 00 00 00 
-   1400054cd:	66 0f 6c c0          	punpcklqdq %xmm0,%xmm0
-   1400054d1:	0f 11 44 24 70       	movups %xmm0,0x70(%rsp)
-   1400054d6:	49 39 e8             	cmp    %rbp,%r8
-   1400054d9:	74 33                	je     14000550e <_ZN15SignedMagnitudeplES_+0x7e>
-   1400054db:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
-   1400054e0:	b9 18 00 00 00       	mov    $0x18,%ecx
-   1400054e5:	e8 5e 0e 00 00       	call   140006348 <_Znwy>
-   1400054ea:	48 89 c1             	mov    %rax,%rcx
-   1400054ed:	0f b6 45 10          	movzbl 0x10(%rbp),%eax
-   1400054f1:	48 89 f2             	mov    %rsi,%rdx
-   1400054f4:	88 41 10             	mov    %al,0x10(%rcx)
-   1400054f7:	e8 ac 0e 00 00       	call   1400063a8 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
-   1400054fc:	48 8b 6d 00          	mov    0x0(%rbp),%rbp
-   140005500:	48 83 84 24 80 00 00 	addq   $0x1,0x80(%rsp)
-   140005507:	00 01 
-   140005509:	48 39 eb             	cmp    %rbp,%rbx
-   14000550c:	75 d2                	jne    1400054e0 <_ZN15SignedMagnitudeplES_+0x50>
-   14000550e:	8b 43 18             	mov    0x18(%rbx),%eax
-   140005511:	4c 8d 74 24 30       	lea    0x30(%rsp),%r14
-   140005516:	49 89 f0             	mov    %rsi,%r8
-   140005519:	48 89 fa             	mov    %rdi,%rdx
-   14000551c:	4c 89 f1             	mov    %r14,%rcx
-   14000551f:	89 84 24 88 00 00 00 	mov    %eax,0x88(%rsp)
-   140005526:	0f b6 43 1c          	movzbl 0x1c(%rbx),%eax
-   14000552a:	88 84 24 8c 00 00 00 	mov    %al,0x8c(%rsp)
-   140005531:	e8 6a fe ff ff       	call   1400053a0 <_ZN15SignedMagnitude15alignModuleWithES_>
-   140005536:	48 8d ac 24 90 00 00 	lea    0x90(%rsp),%rbp
-   14000553d:	00 
-   14000553e:	48 89 f1             	mov    %rsi,%rcx
-   140005541:	e8 9a c5 ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
-   140005546:	66 48 0f 6e f5       	movq   %rbp,%xmm6
-   14000554b:	4c 8b 2f             	mov    (%rdi),%r13
-   14000554e:	48 c7 84 24 a0 00 00 	movq   $0x0,0xa0(%rsp)
-   140005555:	00 00 00 00 00 
-   14000555a:	66 0f 6c f6          	punpcklqdq %xmm6,%xmm6
-   14000555e:	0f 11 b4 24 90 00 00 	movups %xmm6,0x90(%rsp)
-   140005565:	00 
-   140005566:	4c 39 ef             	cmp    %r13,%rdi
-   140005569:	74 34                	je     14000559f <_ZN15SignedMagnitudeplES_+0x10f>
-   14000556b:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
-   140005570:	b9 18 00 00 00       	mov    $0x18,%ecx
-   140005575:	e8 ce 0d 00 00       	call   140006348 <_Znwy>
-   14000557a:	48 89 c1             	mov    %rax,%rcx
-   14000557d:	41 0f b6 45 10       	movzbl 0x10(%r13),%eax
-   140005582:	48 89 ea             	mov    %rbp,%rdx
-   140005585:	88 41 10             	mov    %al,0x10(%rcx)
-   140005588:	e8 1b 0e 00 00       	call   1400063a8 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
-   14000558d:	4d 8b 6d 00          	mov    0x0(%r13),%r13
-   140005591:	48 83 84 24 a0 00 00 	addq   $0x1,0xa0(%rsp)
-   140005598:	00 01 
-   14000559a:	4c 39 ef             	cmp    %r13,%rdi
-   14000559d:	75 d1                	jne    140005570 <_ZN15SignedMagnitudeplES_+0xe0>
-   14000559f:	8b 47 18             	mov    0x18(%rdi),%eax
-   1400055a2:	4c 8d 6c 24 50       	lea    0x50(%rsp),%r13
-   1400055a7:	49 89 e8             	mov    %rbp,%r8
-   1400055aa:	48 89 da             	mov    %rbx,%rdx
-   1400055ad:	4c 89 e9             	mov    %r13,%rcx
-   1400055b0:	89 84 24 a8 00 00 00 	mov    %eax,0xa8(%rsp)
-   1400055b7:	0f b6 47 1c          	movzbl 0x1c(%rdi),%eax
-   1400055bb:	88 84 24 ac 00 00 00 	mov    %al,0xac(%rsp)
-   1400055c2:	e8 d9 fd ff ff       	call   1400053a0 <_ZN15SignedMagnitude15alignModuleWithES_>
-   1400055c7:	48 89 e9             	mov    %rbp,%rcx
-   1400055ca:	e8 11 c5 ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
-   1400055cf:	4c 89 e1             	mov    %r12,%rcx
-   1400055d2:	e8 69 c3 ff ff       	call   140001940 <_ZN13NaturalBinaryC1Ev>
-   1400055d7:	41 c6 44 24 1c 00    	movb   $0x0,0x1c(%r12)
-   1400055dd:	31 d2                	xor    %edx,%edx
-   1400055df:	48 89 e9             	mov    %rbp,%rcx
-   1400055e2:	e8 69 c3 ff ff       	call   140001950 <_ZN13NaturalBinaryC1Ex>
-   1400055e7:	48 89 ea             	mov    %rbp,%rdx
-   1400055ea:	4c 89 e1             	mov    %r12,%rcx
-   1400055ed:	e8 4e f6 ff ff       	call   140004c40 <_ZNSt7__cxx114listI4ByteSaIS1_EEaSERKS3_.part.0>
-   1400055f2:	48 89 e9             	mov    %rbp,%rcx
-   1400055f5:	e8 e6 c4 ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
-   1400055fa:	0f b6 43 1c          	movzbl 0x1c(%rbx),%eax
-   1400055fe:	41 c7 44 24 18 00 00 	movl   $0x0,0x18(%r12)
-   140005605:	00 00 
-   140005607:	38 47 1c             	cmp    %al,0x1c(%rdi)
-   14000560a:	0f 84 f8 00 00 00    	je     140005708 <_ZN15SignedMagnitudeplES_+0x278>
-   140005610:	66 48 0f 6e c5       	movq   %rbp,%xmm0
-   140005615:	4c 8b 7c 24 50       	mov    0x50(%rsp),%r15
-   14000561a:	48 c7 84 24 a0 00 00 	movq   $0x0,0xa0(%rsp)
-   140005621:	00 00 00 00 00 
-   140005626:	66 0f 6c c0          	punpcklqdq %xmm0,%xmm0
-   14000562a:	0f 11 84 24 90 00 00 	movups %xmm0,0x90(%rsp)
-   140005631:	00 
-   140005632:	4d 39 ef             	cmp    %r13,%r15
-   140005635:	74 37                	je     14000566e <_ZN15SignedMagnitudeplES_+0x1de>
-   140005637:	66 0f 1f 84 00 00 00 	nopw   0x0(%rax,%rax,1)
-   14000563e:	00 00 
+0000000140005560 <_ZN15SignedMagnitudeltES_>:
+   140005560:	41 55                	push   %r13
+   140005562:	41 54                	push   %r12
+   140005564:	55                   	push   %rbp
+   140005565:	57                   	push   %rdi
+   140005566:	56                   	push   %rsi
+   140005567:	53                   	push   %rbx
+   140005568:	48 81 ec a8 00 00 00 	sub    $0xa8,%rsp
+   14000556f:	0f b6 59 1c          	movzbl 0x1c(%rcx),%ebx
+   140005573:	0f b6 42 1c          	movzbl 0x1c(%rdx),%eax
+   140005577:	48 89 ce             	mov    %rcx,%rsi
+   14000557a:	48 89 d7             	mov    %rdx,%rdi
+   14000557d:	84 db                	test   %bl,%bl
+   14000557f:	0f 84 4b 01 00 00    	je     1400056d0 <_ZN15SignedMagnitudeltES_+0x170>
+   140005585:	84 c0                	test   %al,%al
+   140005587:	0f 84 2c 01 00 00    	je     1400056b9 <_ZN15SignedMagnitudeltES_+0x159>
+   14000558d:	48 8d ac 24 80 00 00 	lea    0x80(%rsp),%rbp
+   140005594:	00 
+   140005595:	48 8b 19             	mov    (%rcx),%rbx
+   140005598:	48 c7 84 24 90 00 00 	movq   $0x0,0x90(%rsp)
+   14000559f:	00 00 00 00 00 
+   1400055a4:	66 48 0f 6e c5       	movq   %rbp,%xmm0
+   1400055a9:	66 0f 6c c0          	punpcklqdq %xmm0,%xmm0
+   1400055ad:	0f 11 84 24 80 00 00 	movups %xmm0,0x80(%rsp)
+   1400055b4:	00 
+   1400055b5:	48 39 d9             	cmp    %rbx,%rcx
+   1400055b8:	74 37                	je     1400055f1 <_ZN15SignedMagnitudeltES_+0x91>
+   1400055ba:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+   1400055c0:	b9 18 00 00 00       	mov    $0x18,%ecx
+   1400055c5:	e8 ee 17 00 00       	call   140006db8 <_Znwy>
+   1400055ca:	48 89 c1             	mov    %rax,%rcx
+   1400055cd:	0f b6 43 10          	movzbl 0x10(%rbx),%eax
+   1400055d1:	48 89 ea             	mov    %rbp,%rdx
+   1400055d4:	88 41 10             	mov    %al,0x10(%rcx)
+   1400055d7:	e8 3c 18 00 00       	call   140006e18 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
+   1400055dc:	48 8b 1b             	mov    (%rbx),%rbx
+   1400055df:	48 83 84 24 90 00 00 	addq   $0x1,0x90(%rsp)
+   1400055e6:	00 01 
+   1400055e8:	48 39 de             	cmp    %rbx,%rsi
+   1400055eb:	75 d3                	jne    1400055c0 <_ZN15SignedMagnitudeltES_+0x60>
+   1400055ed:	0f b6 46 1c          	movzbl 0x1c(%rsi),%eax
+   1400055f1:	8b 56 18             	mov    0x18(%rsi),%edx
+   1400055f4:	4c 8d 6c 24 40       	lea    0x40(%rsp),%r13
+   1400055f9:	49 89 e8             	mov    %rbp,%r8
+   1400055fc:	88 84 24 9c 00 00 00 	mov    %al,0x9c(%rsp)
+   140005603:	4c 89 e9             	mov    %r13,%rcx
+   140005606:	89 94 24 98 00 00 00 	mov    %edx,0x98(%rsp)
+   14000560d:	48 89 fa             	mov    %rdi,%rdx
+   140005610:	e8 6b fc ff ff       	call   140005280 <_ZN15SignedMagnitude15alignModuleWithES_>
+   140005615:	4c 8d 64 24 60       	lea    0x60(%rsp),%r12
+   14000561a:	48 8b 1f             	mov    (%rdi),%rbx
+   14000561d:	48 c7 44 24 70 00 00 	movq   $0x0,0x70(%rsp)
+   140005624:	00 00 
+   140005626:	66 49 0f 6e c4       	movq   %r12,%xmm0
+   14000562b:	66 0f 6c c0          	punpcklqdq %xmm0,%xmm0
+   14000562f:	0f 11 44 24 60       	movups %xmm0,0x60(%rsp)
+   140005634:	48 39 df             	cmp    %rbx,%rdi
+   140005637:	74 31                	je     14000566a <_ZN15SignedMagnitudeltES_+0x10a>
+   140005639:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
    140005640:	b9 18 00 00 00       	mov    $0x18,%ecx
-   140005645:	e8 fe 0c 00 00       	call   140006348 <_Znwy>
+   140005645:	e8 6e 17 00 00       	call   140006db8 <_Znwy>
    14000564a:	48 89 c1             	mov    %rax,%rcx
-   14000564d:	41 0f b6 47 10       	movzbl 0x10(%r15),%eax
-   140005652:	48 89 ea             	mov    %rbp,%rdx
-   140005655:	88 41 10             	mov    %al,0x10(%rcx)
-   140005658:	e8 4b 0d 00 00       	call   1400063a8 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
-   14000565d:	4d 8b 3f             	mov    (%r15),%r15
-   140005660:	48 83 84 24 a0 00 00 	addq   $0x1,0xa0(%rsp)
-   140005667:	00 01 
-   140005669:	4d 39 ef             	cmp    %r13,%r15
-   14000566c:	75 d2                	jne    140005640 <_ZN15SignedMagnitudeplES_+0x1b0>
-   14000566e:	48 89 ea             	mov    %rbp,%rdx
-   140005671:	4c 89 f1             	mov    %r14,%rcx
-   140005674:	e8 c7 d4 ff ff       	call   140002b40 <_ZN13NaturalBinarygeES_>
-   140005679:	48 89 e9             	mov    %rbp,%rcx
-   14000567c:	41 89 c7             	mov    %eax,%r15d
-   14000567f:	e8 5c c4 ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
-   140005684:	66 48 0f 6e c6       	movq   %rsi,%xmm0
-   140005689:	48 c7 84 24 80 00 00 	movq   $0x0,0x80(%rsp)
-   140005690:	00 00 00 00 00 
-   140005695:	66 0f 6c c0          	punpcklqdq %xmm0,%xmm0
-   140005699:	0f 11 44 24 70       	movups %xmm0,0x70(%rsp)
-   14000569e:	45 84 ff             	test   %r15b,%r15b
-   1400056a1:	0f 84 89 01 00 00    	je     140005830 <_ZN15SignedMagnitudeplES_+0x3a0>
-   1400056a7:	4c 8b 7c 24 50       	mov    0x50(%rsp),%r15
-   1400056ac:	4d 39 ef             	cmp    %r13,%r15
-   1400056af:	74 35                	je     1400056e6 <_ZN15SignedMagnitudeplES_+0x256>
-   1400056b1:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
-   1400056b8:	b9 18 00 00 00       	mov    $0x18,%ecx
-   1400056bd:	e8 86 0c 00 00       	call   140006348 <_Znwy>
-   1400056c2:	48 89 c1             	mov    %rax,%rcx
-   1400056c5:	41 0f b6 47 10       	movzbl 0x10(%r15),%eax
-   1400056ca:	48 89 f2             	mov    %rsi,%rdx
-   1400056cd:	88 41 10             	mov    %al,0x10(%rcx)
-   1400056d0:	e8 d3 0c 00 00       	call   1400063a8 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
-   1400056d5:	4d 8b 3f             	mov    (%r15),%r15
-   1400056d8:	48 83 84 24 80 00 00 	addq   $0x1,0x80(%rsp)
-   1400056df:	00 01 
-   1400056e1:	4d 39 ef             	cmp    %r13,%r15
-   1400056e4:	75 d2                	jne    1400056b8 <_ZN15SignedMagnitudeplES_+0x228>
-   1400056e6:	49 89 f0             	mov    %rsi,%r8
-   1400056e9:	4c 89 f2             	mov    %r14,%rdx
-   1400056ec:	48 89 e9             	mov    %rbp,%rcx
-   1400056ef:	e8 4c c7 ff ff       	call   140001e40 <_ZN13NaturalBinarymiES_>
-   1400056f4:	48 89 ea             	mov    %rbp,%rdx
-   1400056f7:	4c 89 e1             	mov    %r12,%rcx
-   1400056fa:	e8 41 f5 ff ff       	call   140004c40 <_ZNSt7__cxx114listI4ByteSaIS1_EEaSERKS3_.part.0>
-   1400056ff:	eb 76                	jmp    140005777 <_ZN15SignedMagnitudeplES_+0x2e7>
-   140005701:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
-   140005708:	66 48 0f 6e c6       	movq   %rsi,%xmm0
-   14000570d:	4c 8b 7c 24 50       	mov    0x50(%rsp),%r15
-   140005712:	48 c7 84 24 80 00 00 	movq   $0x0,0x80(%rsp)
-   140005719:	00 00 00 00 00 
-   14000571e:	66 0f 6c c0          	punpcklqdq %xmm0,%xmm0
-   140005722:	0f 11 44 24 70       	movups %xmm0,0x70(%rsp)
-   140005727:	4d 39 ef             	cmp    %r13,%r15
-   14000572a:	74 32                	je     14000575e <_ZN15SignedMagnitudeplES_+0x2ce>
-   14000572c:	0f 1f 40 00          	nopl   0x0(%rax)
-   140005730:	b9 18 00 00 00       	mov    $0x18,%ecx
-   140005735:	e8 0e 0c 00 00       	call   140006348 <_Znwy>
-   14000573a:	48 89 c1             	mov    %rax,%rcx
-   14000573d:	41 0f b6 47 10       	movzbl 0x10(%r15),%eax
-   140005742:	48 89 f2             	mov    %rsi,%rdx
-   140005745:	88 41 10             	mov    %al,0x10(%rcx)
-   140005748:	e8 5b 0c 00 00       	call   1400063a8 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
-   14000574d:	4d 8b 3f             	mov    (%r15),%r15
-   140005750:	48 83 84 24 80 00 00 	addq   $0x1,0x80(%rsp)
-   140005757:	00 01 
-   140005759:	4d 39 ef             	cmp    %r13,%r15
-   14000575c:	75 d2                	jne    140005730 <_ZN15SignedMagnitudeplES_+0x2a0>
-   14000575e:	49 89 f0             	mov    %rsi,%r8
-   140005761:	4c 89 f2             	mov    %r14,%rdx
-   140005764:	48 89 e9             	mov    %rbp,%rcx
-   140005767:	e8 b4 c3 ff ff       	call   140001b20 <_ZN13NaturalBinaryplES_>
-   14000576c:	48 89 ea             	mov    %rbp,%rdx
-   14000576f:	4c 89 e1             	mov    %r12,%rcx
-   140005772:	e8 c9 f4 ff ff       	call   140004c40 <_ZNSt7__cxx114listI4ByteSaIS1_EEaSERKS3_.part.0>
-   140005777:	48 89 e9             	mov    %rbp,%rcx
-   14000577a:	e8 61 c3 ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
-   14000577f:	48 89 f1             	mov    %rsi,%rcx
-   140005782:	e8 59 c3 ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
-   140005787:	0f b6 53 1c          	movzbl 0x1c(%rbx),%edx
-   14000578b:	0f b6 47 1c          	movzbl 0x1c(%rdi),%eax
-   14000578f:	88 54 24 2f          	mov    %dl,0x2f(%rsp)
-   140005793:	84 d2                	test   %dl,%dl
-   140005795:	74 19                	je     1400057b0 <_ZN15SignedMagnitudeplES_+0x320>
-   140005797:	84 c0                	test   %al,%al
-   140005799:	0f 84 77 01 00 00    	je     140005916 <_ZN15SignedMagnitudeplES_+0x486>
-   14000579f:	41 c6 44 24 1c 01    	movb   $0x1,0x1c(%r12)
-   1400057a5:	eb 17                	jmp    1400057be <_ZN15SignedMagnitudeplES_+0x32e>
-   1400057a7:	66 0f 1f 84 00 00 00 	nopw   0x0(%rax,%rax,1)
-   1400057ae:	00 00 
-   1400057b0:	84 c0                	test   %al,%al
-   1400057b2:	0f 85 d4 00 00 00    	jne    14000588c <_ZN15SignedMagnitudeplES_+0x3fc>
-   1400057b8:	41 c6 44 24 1c 00    	movb   $0x0,0x1c(%r12)
-   1400057be:	4c 89 e1             	mov    %r12,%rcx
-   1400057c1:	e8 9a cc ff ff       	call   140002460 <_ZN13NaturalBinary8optimizeEv>
-   1400057c6:	31 d2                	xor    %edx,%edx
-   1400057c8:	48 89 e9             	mov    %rbp,%rcx
-   1400057cb:	e8 80 c1 ff ff       	call   140001950 <_ZN13NaturalBinaryC1Ex>
-   1400057d0:	48 89 ea             	mov    %rbp,%rdx
-   1400057d3:	4c 89 e1             	mov    %r12,%rcx
-   1400057d6:	e8 d5 ce ff ff       	call   1400026b0 <_ZN13NaturalBinarygtES_>
-   1400057db:	89 c6                	mov    %eax,%esi
-   1400057dd:	48 89 e9             	mov    %rbp,%rcx
-   1400057e0:	e8 fb c2 ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
-   1400057e5:	40 84 f6             	test   %sil,%sil
-   1400057e8:	74 10                	je     1400057fa <_ZN15SignedMagnitudeplES_+0x36a>
-   1400057ea:	8b 47 18             	mov    0x18(%rdi),%eax
-   1400057ed:	8b 53 18             	mov    0x18(%rbx),%edx
-   1400057f0:	39 d0                	cmp    %edx,%eax
-   1400057f2:	0f 42 c2             	cmovb  %edx,%eax
-   1400057f5:	41 89 44 24 18       	mov    %eax,0x18(%r12)
-   1400057fa:	4c 89 e9             	mov    %r13,%rcx
-   1400057fd:	e8 de c2 ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
-   140005802:	4c 89 f1             	mov    %r14,%rcx
-   140005805:	e8 d6 c2 ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
-   14000580a:	90                   	nop
-   14000580b:	0f 10 b4 24 b0 00 00 	movups 0xb0(%rsp),%xmm6
-   140005812:	00 
-   140005813:	4c 89 e0             	mov    %r12,%rax
-   140005816:	48 81 c4 c8 00 00 00 	add    $0xc8,%rsp
-   14000581d:	5b                   	pop    %rbx
-   14000581e:	5e                   	pop    %rsi
-   14000581f:	5f                   	pop    %rdi
-   140005820:	5d                   	pop    %rbp
-   140005821:	41 5c                	pop    %r12
-   140005823:	41 5d                	pop    %r13
-   140005825:	41 5e                	pop    %r14
-   140005827:	41 5f                	pop    %r15
-   140005829:	c3                   	ret
-   14000582a:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
-   140005830:	4c 8b 7c 24 30       	mov    0x30(%rsp),%r15
-   140005835:	4d 39 f7             	cmp    %r14,%r15
-   140005838:	74 34                	je     14000586e <_ZN15SignedMagnitudeplES_+0x3de>
-   14000583a:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
-   140005840:	b9 18 00 00 00       	mov    $0x18,%ecx
-   140005845:	e8 fe 0a 00 00       	call   140006348 <_Znwy>
-   14000584a:	48 89 c1             	mov    %rax,%rcx
-   14000584d:	41 0f b6 47 10       	movzbl 0x10(%r15),%eax
-   140005852:	48 89 f2             	mov    %rsi,%rdx
-   140005855:	88 41 10             	mov    %al,0x10(%rcx)
-   140005858:	e8 4b 0b 00 00       	call   1400063a8 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
-   14000585d:	4d 8b 3f             	mov    (%r15),%r15
-   140005860:	48 83 84 24 80 00 00 	addq   $0x1,0x80(%rsp)
-   140005867:	00 01 
-   140005869:	4d 39 f7             	cmp    %r14,%r15
-   14000586c:	75 d2                	jne    140005840 <_ZN15SignedMagnitudeplES_+0x3b0>
-   14000586e:	49 89 f0             	mov    %rsi,%r8
-   140005871:	4c 89 ea             	mov    %r13,%rdx
-   140005874:	48 89 e9             	mov    %rbp,%rcx
-   140005877:	e8 c4 c5 ff ff       	call   140001e40 <_ZN13NaturalBinarymiES_>
-   14000587c:	48 89 ea             	mov    %rbp,%rdx
-   14000587f:	4c 89 e1             	mov    %r12,%rcx
-   140005882:	e8 b9 f3 ff ff       	call   140004c40 <_ZNSt7__cxx114listI4ByteSaIS1_EEaSERKS3_.part.0>
-   140005887:	e9 eb fe ff ff       	jmp    140005777 <_ZN15SignedMagnitudeplES_+0x2e7>
-   14000588c:	66 48 0f 6e c5       	movq   %rbp,%xmm0
-   140005891:	4c 8b 7c 24 50       	mov    0x50(%rsp),%r15
-   140005896:	48 c7 84 24 a0 00 00 	movq   $0x0,0xa0(%rsp)
-   14000589d:	00 00 00 00 00 
-   1400058a2:	66 0f 6c c0          	punpcklqdq %xmm0,%xmm0
-   1400058a6:	0f 11 84 24 90 00 00 	movups %xmm0,0x90(%rsp)
-   1400058ad:	00 
-   1400058ae:	4d 39 ef             	cmp    %r13,%r15
-   1400058b1:	74 33                	je     1400058e6 <_ZN15SignedMagnitudeplES_+0x456>
-   1400058b3:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
-   1400058b8:	b9 18 00 00 00       	mov    $0x18,%ecx
-   1400058bd:	e8 86 0a 00 00       	call   140006348 <_Znwy>
-   1400058c2:	48 89 c1             	mov    %rax,%rcx
-   1400058c5:	41 0f b6 47 10       	movzbl 0x10(%r15),%eax
-   1400058ca:	48 89 ea             	mov    %rbp,%rdx
-   1400058cd:	88 41 10             	mov    %al,0x10(%rcx)
-   1400058d0:	e8 d3 0a 00 00       	call   1400063a8 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
-   1400058d5:	4d 8b 3f             	mov    (%r15),%r15
-   1400058d8:	48 83 84 24 a0 00 00 	addq   $0x1,0xa0(%rsp)
-   1400058df:	00 01 
-   1400058e1:	4d 39 ef             	cmp    %r13,%r15
-   1400058e4:	75 d2                	jne    1400058b8 <_ZN15SignedMagnitudeplES_+0x428>
-   1400058e6:	48 89 ea             	mov    %rbp,%rdx
-   1400058e9:	4c 89 f1             	mov    %r14,%rcx
-   1400058ec:	e8 bf cd ff ff       	call   1400026b0 <_ZN13NaturalBinarygtES_>
-   1400058f1:	41 88 44 24 1c       	mov    %al,0x1c(%r12)
-   1400058f6:	48 89 e9             	mov    %rbp,%rcx
-   1400058f9:	e8 e2 c1 ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
-   1400058fe:	80 7c 24 2f 00       	cmpb   $0x0,0x2f(%rsp)
-   140005903:	0f 84 b5 fe ff ff    	je     1400057be <_ZN15SignedMagnitudeplES_+0x32e>
-   140005909:	48 89 f1             	mov    %rsi,%rcx
-   14000590c:	e8 cf c1 ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
-   140005911:	e9 a8 fe ff ff       	jmp    1400057be <_ZN15SignedMagnitudeplES_+0x32e>
-   140005916:	66 48 0f 6e c6       	movq   %rsi,%xmm0
-   14000591b:	4c 8b 7c 24 50       	mov    0x50(%rsp),%r15
-   140005920:	48 c7 84 24 80 00 00 	movq   $0x0,0x80(%rsp)
-   140005927:	00 00 00 00 00 
-   14000592c:	66 0f 6c c0          	punpcklqdq %xmm0,%xmm0
-   140005930:	0f 11 44 24 70       	movups %xmm0,0x70(%rsp)
-   140005935:	4d 39 ef             	cmp    %r13,%r15
-   140005938:	74 34                	je     14000596e <_ZN15SignedMagnitudeplES_+0x4de>
-   14000593a:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
-   140005940:	b9 18 00 00 00       	mov    $0x18,%ecx
-   140005945:	e8 fe 09 00 00       	call   140006348 <_Znwy>
-   14000594a:	48 89 c1             	mov    %rax,%rcx
-   14000594d:	41 0f b6 47 10       	movzbl 0x10(%r15),%eax
-   140005952:	48 89 f2             	mov    %rsi,%rdx
-   140005955:	88 41 10             	mov    %al,0x10(%rcx)
-   140005958:	e8 4b 0a 00 00       	call   1400063a8 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
-   14000595d:	4d 8b 3f             	mov    (%r15),%r15
-   140005960:	48 83 84 24 80 00 00 	addq   $0x1,0x80(%rsp)
-   140005967:	00 01 
-   140005969:	4d 39 ef             	cmp    %r13,%r15
-   14000596c:	75 d2                	jne    140005940 <_ZN15SignedMagnitudeplES_+0x4b0>
-   14000596e:	48 89 f2             	mov    %rsi,%rdx
-   140005971:	4c 89 f1             	mov    %r14,%rcx
-   140005974:	e8 97 cb ff ff       	call   140002510 <_ZN13NaturalBinaryltES_>
-   140005979:	84 c0                	test   %al,%al
-   14000597b:	74 08                	je     140005985 <_ZN15SignedMagnitudeplES_+0x4f5>
-   14000597d:	41 c6 44 24 1c 01    	movb   $0x1,0x1c(%r12)
-   140005983:	eb 84                	jmp    140005909 <_ZN15SignedMagnitudeplES_+0x479>
-   140005985:	0f b6 47 1c          	movzbl 0x1c(%rdi),%eax
-   140005989:	88 44 24 2f          	mov    %al,0x2f(%rsp)
-   14000598d:	84 c0                	test   %al,%al
-   14000598f:	0f 85 f7 fe ff ff    	jne    14000588c <_ZN15SignedMagnitudeplES_+0x3fc>
-   140005995:	41 c6 44 24 1c 00    	movb   $0x0,0x1c(%r12)
-   14000599b:	e9 69 ff ff ff       	jmp    140005909 <_ZN15SignedMagnitudeplES_+0x479>
-   1400059a0:	48 89 c3             	mov    %rax,%rbx
-   1400059a3:	48 89 f1             	mov    %rsi,%rcx
-   1400059a6:	e8 35 c1 ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
-   1400059ab:	4c 89 e1             	mov    %r12,%rcx
-   1400059ae:	e8 2d c1 ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
-   1400059b3:	4c 89 e9             	mov    %r13,%rcx
-   1400059b6:	e8 25 c1 ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
-   1400059bb:	4c 89 f1             	mov    %r14,%rcx
-   1400059be:	e8 1d c1 ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
-   1400059c3:	48 89 d9             	mov    %rbx,%rcx
-   1400059c6:	e8 d5 1a 00 00       	call   1400074a0 <_Unwind_Resume>
-   1400059cb:	48 8b 8c 24 90 00 00 	mov    0x90(%rsp),%rcx
-   1400059d2:	00 
-   1400059d3:	48 89 c3             	mov    %rax,%rbx
-   1400059d6:	48 39 e9             	cmp    %rbp,%rcx
-   1400059d9:	74 1d                	je     1400059f8 <_ZN15SignedMagnitudeplES_+0x568>
-   1400059db:	48 8b 39             	mov    (%rcx),%rdi
-   1400059de:	ba 18 00 00 00       	mov    $0x18,%edx
-   1400059e3:	e8 68 09 00 00       	call   140006350 <_ZdlPvy>
-   1400059e8:	48 89 f9             	mov    %rdi,%rcx
-   1400059eb:	eb e9                	jmp    1400059d6 <_ZN15SignedMagnitudeplES_+0x546>
-   1400059ed:	48 89 e9             	mov    %rbp,%rcx
-   1400059f0:	48 89 c3             	mov    %rax,%rbx
-   1400059f3:	e8 e8 c0 ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
-   1400059f8:	80 7c 24 2f 00       	cmpb   $0x0,0x2f(%rsp)
-   1400059fd:	75 a4                	jne    1400059a3 <_ZN15SignedMagnitudeplES_+0x513>
-   1400059ff:	eb aa                	jmp    1400059ab <_ZN15SignedMagnitudeplES_+0x51b>
-   140005a01:	48 89 c3             	mov    %rax,%rbx
-   140005a04:	eb a5                	jmp    1400059ab <_ZN15SignedMagnitudeplES_+0x51b>
-   140005a06:	48 89 e9             	mov    %rbp,%rcx
-   140005a09:	48 89 c3             	mov    %rax,%rbx
-   140005a0c:	e8 cf c0 ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
-   140005a11:	eb 98                	jmp    1400059ab <_ZN15SignedMagnitudeplES_+0x51b>
-   140005a13:	48 8b 8c 24 90 00 00 	mov    0x90(%rsp),%rcx
-   140005a1a:	00 
-   140005a1b:	48 89 c3             	mov    %rax,%rbx
-   140005a1e:	48 39 e9             	cmp    %rbp,%rcx
-   140005a21:	74 88                	je     1400059ab <_ZN15SignedMagnitudeplES_+0x51b>
-   140005a23:	48 8b 31             	mov    (%rcx),%rsi
-   140005a26:	ba 18 00 00 00       	mov    $0x18,%edx
-   140005a2b:	e8 20 09 00 00       	call   140006350 <_ZdlPvy>
-   140005a30:	48 89 f1             	mov    %rsi,%rcx
-   140005a33:	eb e9                	jmp    140005a1e <_ZN15SignedMagnitudeplES_+0x58e>
-   140005a35:	48 89 f1             	mov    %rsi,%rcx
-   140005a38:	48 89 c3             	mov    %rax,%rbx
-   140005a3b:	e8 a0 c0 ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
-   140005a40:	48 89 d9             	mov    %rbx,%rcx
-   140005a43:	e8 58 1a 00 00       	call   1400074a0 <_Unwind_Resume>
-   140005a48:	eb bc                	jmp    140005a06 <_ZN15SignedMagnitudeplES_+0x576>
-   140005a4a:	48 8b 4c 24 70       	mov    0x70(%rsp),%rcx
-   140005a4f:	48 89 c3             	mov    %rax,%rbx
-   140005a52:	48 39 f1             	cmp    %rsi,%rcx
-   140005a55:	0f 84 50 ff ff ff    	je     1400059ab <_ZN15SignedMagnitudeplES_+0x51b>
-   140005a5b:	48 8b 39             	mov    (%rcx),%rdi
-   140005a5e:	ba 18 00 00 00       	mov    $0x18,%edx
-   140005a63:	e8 e8 08 00 00       	call   140006350 <_ZdlPvy>
-   140005a68:	48 89 f9             	mov    %rdi,%rcx
-   140005a6b:	eb e5                	jmp    140005a52 <_ZN15SignedMagnitudeplES_+0x5c2>
-   140005a6d:	48 8b 4c 24 70       	mov    0x70(%rsp),%rcx
-   140005a72:	48 89 c3             	mov    %rax,%rbx
-   140005a75:	48 39 f1             	cmp    %rsi,%rcx
-   140005a78:	74 c6                	je     140005a40 <_ZN15SignedMagnitudeplES_+0x5b0>
-   140005a7a:	48 8b 39             	mov    (%rcx),%rdi
-   140005a7d:	ba 18 00 00 00       	mov    $0x18,%edx
-   140005a82:	e8 c9 08 00 00       	call   140006350 <_ZdlPvy>
-   140005a87:	48 89 f9             	mov    %rdi,%rcx
-   140005a8a:	eb e9                	jmp    140005a75 <_ZN15SignedMagnitudeplES_+0x5e5>
-   140005a8c:	48 89 e9             	mov    %rbp,%rcx
-   140005a8f:	48 89 c3             	mov    %rax,%rbx
-   140005a92:	e8 49 c0 ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
-   140005a97:	e9 07 ff ff ff       	jmp    1400059a3 <_ZN15SignedMagnitudeplES_+0x513>
-   140005a9c:	e9 60 ff ff ff       	jmp    140005a01 <_ZN15SignedMagnitudeplES_+0x571>
-   140005aa1:	eb e9                	jmp    140005a8c <_ZN15SignedMagnitudeplES_+0x5fc>
-   140005aa3:	e9 f8 fe ff ff       	jmp    1400059a0 <_ZN15SignedMagnitudeplES_+0x510>
-   140005aa8:	48 8b 4c 24 70       	mov    0x70(%rsp),%rcx
-   140005aad:	48 89 c3             	mov    %rax,%rbx
-   140005ab0:	48 39 f1             	cmp    %rsi,%rcx
-   140005ab3:	0f 84 f2 fe ff ff    	je     1400059ab <_ZN15SignedMagnitudeplES_+0x51b>
-   140005ab9:	48 8b 39             	mov    (%rcx),%rdi
-   140005abc:	ba 18 00 00 00       	mov    $0x18,%edx
-   140005ac1:	e8 8a 08 00 00       	call   140006350 <_ZdlPvy>
-   140005ac6:	48 89 f9             	mov    %rdi,%rcx
-   140005ac9:	eb e5                	jmp    140005ab0 <_ZN15SignedMagnitudeplES_+0x620>
-   140005acb:	48 8b 4c 24 70       	mov    0x70(%rsp),%rcx
-   140005ad0:	48 89 c3             	mov    %rax,%rbx
-   140005ad3:	48 39 f1             	cmp    %rsi,%rcx
-   140005ad6:	0f 84 cf fe ff ff    	je     1400059ab <_ZN15SignedMagnitudeplES_+0x51b>
-   140005adc:	48 8b 39             	mov    (%rcx),%rdi
-   140005adf:	ba 18 00 00 00       	mov    $0x18,%edx
-   140005ae4:	e8 67 08 00 00       	call   140006350 <_ZdlPvy>
-   140005ae9:	48 89 f9             	mov    %rdi,%rcx
-   140005aec:	eb e5                	jmp    140005ad3 <_ZN15SignedMagnitudeplES_+0x643>
-   140005aee:	e9 ad fe ff ff       	jmp    1400059a0 <_ZN15SignedMagnitudeplES_+0x510>
-   140005af3:	48 8b 4c 24 70       	mov    0x70(%rsp),%rcx
-   140005af8:	48 89 c3             	mov    %rax,%rbx
-   140005afb:	48 39 f1             	cmp    %rsi,%rcx
-   140005afe:	0f 84 a7 fe ff ff    	je     1400059ab <_ZN15SignedMagnitudeplES_+0x51b>
-   140005b04:	48 8b 39             	mov    (%rcx),%rdi
-   140005b07:	ba 18 00 00 00       	mov    $0x18,%edx
-   140005b0c:	e8 3f 08 00 00       	call   140006350 <_ZdlPvy>
-   140005b11:	48 89 f9             	mov    %rdi,%rcx
-   140005b14:	eb e5                	jmp    140005afb <_ZN15SignedMagnitudeplES_+0x66b>
-   140005b16:	48 89 e9             	mov    %rbp,%rcx
-   140005b19:	48 89 c3             	mov    %rax,%rbx
-   140005b1c:	e8 bf bf ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
-   140005b21:	e9 95 fe ff ff       	jmp    1400059bb <_ZN15SignedMagnitudeplES_+0x52b>
-   140005b26:	48 89 c3             	mov    %rax,%rbx
-   140005b29:	e9 85 fe ff ff       	jmp    1400059b3 <_ZN15SignedMagnitudeplES_+0x523>
-   140005b2e:	48 8b 8c 24 90 00 00 	mov    0x90(%rsp),%rcx
-   140005b35:	00 
-   140005b36:	48 89 c3             	mov    %rax,%rbx
-   140005b39:	48 39 e9             	cmp    %rbp,%rcx
-   140005b3c:	0f 84 79 fe ff ff    	je     1400059bb <_ZN15SignedMagnitudeplES_+0x52b>
-   140005b42:	48 8b 31             	mov    (%rcx),%rsi
-   140005b45:	ba 18 00 00 00       	mov    $0x18,%edx
-   140005b4a:	e8 01 08 00 00       	call   140006350 <_ZdlPvy>
-   140005b4f:	48 89 f1             	mov    %rsi,%rcx
-   140005b52:	eb e5                	jmp    140005b39 <_ZN15SignedMagnitudeplES_+0x6a9>
-   140005b54:	e9 33 ff ff ff       	jmp    140005a8c <_ZN15SignedMagnitudeplES_+0x5fc>
-   140005b59:	e9 a8 fe ff ff       	jmp    140005a06 <_ZN15SignedMagnitudeplES_+0x576>
-   140005b5e:	e9 3d fe ff ff       	jmp    1400059a0 <_ZN15SignedMagnitudeplES_+0x510>
-   140005b63:	90                   	nop
-   140005b64:	66 66 2e 0f 1f 84 00 	data16 cs nopw 0x0(%rax,%rax,1)
-   140005b6b:	00 00 00 00 
-   140005b6f:	90                   	nop
+   14000564d:	0f b6 43 10          	movzbl 0x10(%rbx),%eax
+   140005651:	4c 89 e2             	mov    %r12,%rdx
+   140005654:	88 41 10             	mov    %al,0x10(%rcx)
+   140005657:	e8 bc 17 00 00       	call   140006e18 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
+   14000565c:	48 8b 1b             	mov    (%rbx),%rbx
+   14000565f:	48 83 44 24 70 01    	addq   $0x1,0x70(%rsp)
+   140005665:	48 39 df             	cmp    %rbx,%rdi
+   140005668:	75 d6                	jne    140005640 <_ZN15SignedMagnitudeltES_+0xe0>
+   14000566a:	8b 47 18             	mov    0x18(%rdi),%eax
+   14000566d:	4d 89 e0             	mov    %r12,%r8
+   140005670:	48 89 f2             	mov    %rsi,%rdx
+   140005673:	89 44 24 78          	mov    %eax,0x78(%rsp)
+   140005677:	0f b6 47 1c          	movzbl 0x1c(%rdi),%eax
+   14000567b:	48 8d 7c 24 20       	lea    0x20(%rsp),%rdi
+   140005680:	48 89 f9             	mov    %rdi,%rcx
+   140005683:	88 44 24 7c          	mov    %al,0x7c(%rsp)
+   140005687:	e8 f4 fb ff ff       	call   140005280 <_ZN15SignedMagnitude15alignModuleWithES_>
+   14000568c:	4c 89 ea             	mov    %r13,%rdx
+   14000568f:	48 89 f9             	mov    %rdi,%rcx
+   140005692:	e8 19 d0 ff ff       	call   1400026b0 <_ZN13NaturalBinarygtES_>
+   140005697:	48 89 f9             	mov    %rdi,%rcx
+   14000569a:	89 c3                	mov    %eax,%ebx
+   14000569c:	e8 3f c4 ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
+   1400056a1:	4c 89 e1             	mov    %r12,%rcx
+   1400056a4:	e8 37 c4 ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
+   1400056a9:	4c 89 e9             	mov    %r13,%rcx
+   1400056ac:	e8 2f c4 ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
+   1400056b1:	48 89 e9             	mov    %rbp,%rcx
+   1400056b4:	e8 27 c4 ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
+   1400056b9:	89 d8                	mov    %ebx,%eax
+   1400056bb:	48 81 c4 a8 00 00 00 	add    $0xa8,%rsp
+   1400056c2:	5b                   	pop    %rbx
+   1400056c3:	5e                   	pop    %rsi
+   1400056c4:	5f                   	pop    %rdi
+   1400056c5:	5d                   	pop    %rbp
+   1400056c6:	41 5c                	pop    %r12
+   1400056c8:	41 5d                	pop    %r13
+   1400056ca:	c3                   	ret
+   1400056cb:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+   1400056d0:	48 8d ac 24 80 00 00 	lea    0x80(%rsp),%rbp
+   1400056d7:	00 
+   1400056d8:	66 48 0f 6e c5       	movq   %rbp,%xmm0
+   1400056dd:	66 0f 6c c0          	punpcklqdq %xmm0,%xmm0
+   1400056e1:	84 c0                	test   %al,%al
+   1400056e3:	75 d4                	jne    1400056b9 <_ZN15SignedMagnitudeltES_+0x159>
+   1400056e5:	48 8b 19             	mov    (%rcx),%rbx
+   1400056e8:	0f 11 84 24 80 00 00 	movups %xmm0,0x80(%rsp)
+   1400056ef:	00 
+   1400056f0:	48 c7 84 24 90 00 00 	movq   $0x0,0x90(%rsp)
+   1400056f7:	00 00 00 00 00 
+   1400056fc:	48 39 d9             	cmp    %rbx,%rcx
+   1400056ff:	74 31                	je     140005732 <_ZN15SignedMagnitudeltES_+0x1d2>
+   140005701:	b9 18 00 00 00       	mov    $0x18,%ecx
+   140005706:	e8 ad 16 00 00       	call   140006db8 <_Znwy>
+   14000570b:	48 89 c1             	mov    %rax,%rcx
+   14000570e:	0f b6 43 10          	movzbl 0x10(%rbx),%eax
+   140005712:	48 89 ea             	mov    %rbp,%rdx
+   140005715:	88 41 10             	mov    %al,0x10(%rcx)
+   140005718:	e8 fb 16 00 00       	call   140006e18 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
+   14000571d:	48 8b 1b             	mov    (%rbx),%rbx
+   140005720:	48 83 84 24 90 00 00 	addq   $0x1,0x90(%rsp)
+   140005727:	00 01 
+   140005729:	48 39 de             	cmp    %rbx,%rsi
+   14000572c:	75 d3                	jne    140005701 <_ZN15SignedMagnitudeltES_+0x1a1>
+   14000572e:	0f b6 46 1c          	movzbl 0x1c(%rsi),%eax
+   140005732:	8b 56 18             	mov    0x18(%rsi),%edx
+   140005735:	4c 8d 6c 24 40       	lea    0x40(%rsp),%r13
+   14000573a:	49 89 e8             	mov    %rbp,%r8
+   14000573d:	88 84 24 9c 00 00 00 	mov    %al,0x9c(%rsp)
+   140005744:	4c 89 e9             	mov    %r13,%rcx
+   140005747:	89 94 24 98 00 00 00 	mov    %edx,0x98(%rsp)
+   14000574e:	48 89 fa             	mov    %rdi,%rdx
+   140005751:	e8 2a fb ff ff       	call   140005280 <_ZN15SignedMagnitude15alignModuleWithES_>
+   140005756:	4c 8d 64 24 60       	lea    0x60(%rsp),%r12
+   14000575b:	48 8b 1f             	mov    (%rdi),%rbx
+   14000575e:	48 c7 44 24 70 00 00 	movq   $0x0,0x70(%rsp)
+   140005765:	00 00 
+   140005767:	66 49 0f 6e c4       	movq   %r12,%xmm0
+   14000576c:	66 0f 6c c0          	punpcklqdq %xmm0,%xmm0
+   140005770:	0f 11 44 24 60       	movups %xmm0,0x60(%rsp)
+   140005775:	48 39 df             	cmp    %rbx,%rdi
+   140005778:	74 30                	je     1400057aa <_ZN15SignedMagnitudeltES_+0x24a>
+   14000577a:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+   140005780:	b9 18 00 00 00       	mov    $0x18,%ecx
+   140005785:	e8 2e 16 00 00       	call   140006db8 <_Znwy>
+   14000578a:	48 89 c1             	mov    %rax,%rcx
+   14000578d:	0f b6 43 10          	movzbl 0x10(%rbx),%eax
+   140005791:	4c 89 e2             	mov    %r12,%rdx
+   140005794:	88 41 10             	mov    %al,0x10(%rcx)
+   140005797:	e8 7c 16 00 00       	call   140006e18 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
+   14000579c:	48 8b 1b             	mov    (%rbx),%rbx
+   14000579f:	48 83 44 24 70 01    	addq   $0x1,0x70(%rsp)
+   1400057a5:	48 39 df             	cmp    %rbx,%rdi
+   1400057a8:	75 d6                	jne    140005780 <_ZN15SignedMagnitudeltES_+0x220>
+   1400057aa:	8b 47 18             	mov    0x18(%rdi),%eax
+   1400057ad:	4d 89 e0             	mov    %r12,%r8
+   1400057b0:	48 89 f2             	mov    %rsi,%rdx
+   1400057b3:	89 44 24 78          	mov    %eax,0x78(%rsp)
+   1400057b7:	0f b6 47 1c          	movzbl 0x1c(%rdi),%eax
+   1400057bb:	48 8d 7c 24 20       	lea    0x20(%rsp),%rdi
+   1400057c0:	48 89 f9             	mov    %rdi,%rcx
+   1400057c3:	88 44 24 7c          	mov    %al,0x7c(%rsp)
+   1400057c7:	e8 b4 fa ff ff       	call   140005280 <_ZN15SignedMagnitude15alignModuleWithES_>
+   1400057cc:	4c 89 ea             	mov    %r13,%rdx
+   1400057cf:	48 89 f9             	mov    %rdi,%rcx
+   1400057d2:	e8 39 cd ff ff       	call   140002510 <_ZN13NaturalBinaryltES_>
+   1400057d7:	e9 bb fe ff ff       	jmp    140005697 <_ZN15SignedMagnitudeltES_+0x137>
+   1400057dc:	48 89 c3             	mov    %rax,%rbx
+   1400057df:	eb 1b                	jmp    1400057fc <_ZN15SignedMagnitudeltES_+0x29c>
+   1400057e1:	48 89 f9             	mov    %rdi,%rcx
+   1400057e4:	48 89 c3             	mov    %rax,%rbx
+   1400057e7:	e8 f4 c2 ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
+   1400057ec:	4c 89 e1             	mov    %r12,%rcx
+   1400057ef:	e8 ec c2 ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
+   1400057f4:	4c 89 e9             	mov    %r13,%rcx
+   1400057f7:	e8 e4 c2 ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
+   1400057fc:	48 89 e9             	mov    %rbp,%rcx
+   1400057ff:	e8 dc c2 ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
+   140005804:	48 89 d9             	mov    %rbx,%rcx
+   140005807:	e8 04 27 00 00       	call   140007f10 <_Unwind_Resume>
+   14000580c:	48 8b 8c 24 80 00 00 	mov    0x80(%rsp),%rcx
+   140005813:	00 
+   140005814:	48 89 c3             	mov    %rax,%rbx
+   140005817:	48 39 e9             	cmp    %rbp,%rcx
+   14000581a:	74 e8                	je     140005804 <_ZN15SignedMagnitudeltES_+0x2a4>
+   14000581c:	48 8b 31             	mov    (%rcx),%rsi
+   14000581f:	ba 18 00 00 00       	mov    $0x18,%edx
+   140005824:	e8 97 15 00 00       	call   140006dc0 <_ZdlPvy>
+   140005829:	48 89 f1             	mov    %rsi,%rcx
+   14000582c:	eb e9                	jmp    140005817 <_ZN15SignedMagnitudeltES_+0x2b7>
+   14000582e:	48 8b 8c 24 80 00 00 	mov    0x80(%rsp),%rcx
+   140005835:	00 
+   140005836:	48 89 c3             	mov    %rax,%rbx
+   140005839:	48 39 e9             	cmp    %rbp,%rcx
+   14000583c:	74 c6                	je     140005804 <_ZN15SignedMagnitudeltES_+0x2a4>
+   14000583e:	48 8b 31             	mov    (%rcx),%rsi
+   140005841:	ba 18 00 00 00       	mov    $0x18,%edx
+   140005846:	e8 75 15 00 00       	call   140006dc0 <_ZdlPvy>
+   14000584b:	48 89 f1             	mov    %rsi,%rcx
+   14000584e:	eb e9                	jmp    140005839 <_ZN15SignedMagnitudeltES_+0x2d9>
+   140005850:	eb 8a                	jmp    1400057dc <_ZN15SignedMagnitudeltES_+0x27c>
+   140005852:	48 8b 4c 24 60       	mov    0x60(%rsp),%rcx
+   140005857:	48 89 c3             	mov    %rax,%rbx
+   14000585a:	4c 39 e1             	cmp    %r12,%rcx
+   14000585d:	74 95                	je     1400057f4 <_ZN15SignedMagnitudeltES_+0x294>
+   14000585f:	48 8b 31             	mov    (%rcx),%rsi
+   140005862:	ba 18 00 00 00       	mov    $0x18,%edx
+   140005867:	e8 54 15 00 00       	call   140006dc0 <_ZdlPvy>
+   14000586c:	48 89 f1             	mov    %rsi,%rcx
+   14000586f:	eb e9                	jmp    14000585a <_ZN15SignedMagnitudeltES_+0x2fa>
+   140005871:	48 89 c3             	mov    %rax,%rbx
+   140005874:	e9 73 ff ff ff       	jmp    1400057ec <_ZN15SignedMagnitudeltES_+0x28c>
+   140005879:	e9 63 ff ff ff       	jmp    1400057e1 <_ZN15SignedMagnitudeltES_+0x281>
+   14000587e:	48 8b 4c 24 60       	mov    0x60(%rsp),%rcx
+   140005883:	48 89 c3             	mov    %rax,%rbx
+   140005886:	4c 39 e1             	cmp    %r12,%rcx
+   140005889:	0f 84 65 ff ff ff    	je     1400057f4 <_ZN15SignedMagnitudeltES_+0x294>
+   14000588f:	48 8b 31             	mov    (%rcx),%rsi
+   140005892:	ba 18 00 00 00       	mov    $0x18,%edx
+   140005897:	e8 24 15 00 00       	call   140006dc0 <_ZdlPvy>
+   14000589c:	48 89 f1             	mov    %rsi,%rcx
+   14000589f:	eb e5                	jmp    140005886 <_ZN15SignedMagnitudeltES_+0x326>
+   1400058a1:	eb ce                	jmp    140005871 <_ZN15SignedMagnitudeltES_+0x311>
+   1400058a3:	90                   	nop
+   1400058a4:	66 66 2e 0f 1f 84 00 	data16 cs nopw 0x0(%rax,%rax,1)
+   1400058ab:	00 00 00 00 
+   1400058af:	90                   	nop
 
-0000000140005b70 <_ZN15SignedMagnitudemiES_>:
-   140005b70:	41 54                	push   %r12
-   140005b72:	55                   	push   %rbp
-   140005b73:	57                   	push   %rdi
-   140005b74:	56                   	push   %rsi
-   140005b75:	53                   	push   %rbx
-   140005b76:	48 83 ec 40          	sub    $0x40,%rsp
-   140005b7a:	41 0f b6 40 1c       	movzbl 0x1c(%r8),%eax
-   140005b7f:	49 8b 18             	mov    (%r8),%rbx
-   140005b82:	83 f0 01             	xor    $0x1,%eax
-   140005b85:	48 8d 7c 24 20       	lea    0x20(%rsp),%rdi
-   140005b8a:	41 88 40 1c          	mov    %al,0x1c(%r8)
-   140005b8e:	48 89 cd             	mov    %rcx,%rbp
-   140005b91:	49 89 d4             	mov    %rdx,%r12
-   140005b94:	66 48 0f 6e c7       	movq   %rdi,%xmm0
-   140005b99:	4c 89 c6             	mov    %r8,%rsi
-   140005b9c:	48 c7 44 24 30 00 00 	movq   $0x0,0x30(%rsp)
-   140005ba3:	00 00 
-   140005ba5:	66 0f 6c c0          	punpcklqdq %xmm0,%xmm0
-   140005ba9:	0f 11 44 24 20       	movups %xmm0,0x20(%rsp)
-   140005bae:	49 39 d8             	cmp    %rbx,%r8
-   140005bb1:	74 33                	je     140005be6 <_ZN15SignedMagnitudemiES_+0x76>
-   140005bb3:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
-   140005bb8:	b9 18 00 00 00       	mov    $0x18,%ecx
-   140005bbd:	e8 86 07 00 00       	call   140006348 <_Znwy>
-   140005bc2:	48 89 c1             	mov    %rax,%rcx
-   140005bc5:	0f b6 43 10          	movzbl 0x10(%rbx),%eax
-   140005bc9:	48 89 fa             	mov    %rdi,%rdx
-   140005bcc:	88 41 10             	mov    %al,0x10(%rcx)
-   140005bcf:	e8 d4 07 00 00       	call   1400063a8 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
-   140005bd4:	48 8b 1b             	mov    (%rbx),%rbx
-   140005bd7:	48 83 44 24 30 01    	addq   $0x1,0x30(%rsp)
-   140005bdd:	48 39 de             	cmp    %rbx,%rsi
-   140005be0:	75 d6                	jne    140005bb8 <_ZN15SignedMagnitudemiES_+0x48>
-   140005be2:	0f b6 46 1c          	movzbl 0x1c(%rsi),%eax
-   140005be6:	8b 56 18             	mov    0x18(%rsi),%edx
-   140005be9:	49 89 f8             	mov    %rdi,%r8
-   140005bec:	48 89 e9             	mov    %rbp,%rcx
-   140005bef:	88 44 24 3c          	mov    %al,0x3c(%rsp)
-   140005bf3:	89 54 24 38          	mov    %edx,0x38(%rsp)
-   140005bf7:	4c 89 e2             	mov    %r12,%rdx
-   140005bfa:	e8 91 f8 ff ff       	call   140005490 <_ZN15SignedMagnitudeplES_>
-   140005bff:	48 89 f9             	mov    %rdi,%rcx
-   140005c02:	e8 d9 be ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
-   140005c07:	48 89 e8             	mov    %rbp,%rax
-   140005c0a:	48 83 c4 40          	add    $0x40,%rsp
-   140005c0e:	5b                   	pop    %rbx
-   140005c0f:	5e                   	pop    %rsi
-   140005c10:	5f                   	pop    %rdi
-   140005c11:	5d                   	pop    %rbp
-   140005c12:	41 5c                	pop    %r12
-   140005c14:	c3                   	ret
-   140005c15:	48 8b 4c 24 20       	mov    0x20(%rsp),%rcx
-   140005c1a:	48 89 c3             	mov    %rax,%rbx
-   140005c1d:	48 39 f9             	cmp    %rdi,%rcx
-   140005c20:	74 1d                	je     140005c3f <_ZN15SignedMagnitudemiES_+0xcf>
-   140005c22:	48 8b 31             	mov    (%rcx),%rsi
-   140005c25:	ba 18 00 00 00       	mov    $0x18,%edx
-   140005c2a:	e8 21 07 00 00       	call   140006350 <_ZdlPvy>
-   140005c2f:	48 89 f1             	mov    %rsi,%rcx
-   140005c32:	eb e9                	jmp    140005c1d <_ZN15SignedMagnitudemiES_+0xad>
-   140005c34:	48 89 f9             	mov    %rdi,%rcx
-   140005c37:	48 89 c3             	mov    %rax,%rbx
-   140005c3a:	e8 a1 be ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
-   140005c3f:	48 89 d9             	mov    %rbx,%rcx
-   140005c42:	e8 59 18 00 00       	call   1400074a0 <_Unwind_Resume>
-   140005c47:	90                   	nop
-   140005c48:	0f 1f 84 00 00 00 00 	nopl   0x0(%rax,%rax,1)
-   140005c4f:	00 
+00000001400058b0 <_ZN15SignedMagnitudeleES_>:
+   1400058b0:	41 54                	push   %r12
+   1400058b2:	55                   	push   %rbp
+   1400058b3:	57                   	push   %rdi
+   1400058b4:	56                   	push   %rsi
+   1400058b5:	53                   	push   %rbx
+   1400058b6:	48 83 ec 60          	sub    $0x60,%rsp
+   1400058ba:	48 8b 1a             	mov    (%rdx),%rbx
+   1400058bd:	48 8d 7c 24 20       	lea    0x20(%rsp),%rdi
+   1400058c2:	48 89 cd             	mov    %rcx,%rbp
+   1400058c5:	48 89 d6             	mov    %rdx,%rsi
+   1400058c8:	48 c7 44 24 30 00 00 	movq   $0x0,0x30(%rsp)
+   1400058cf:	00 00 
+   1400058d1:	66 48 0f 6e c7       	movq   %rdi,%xmm0
+   1400058d6:	66 0f 6c c0          	punpcklqdq %xmm0,%xmm0
+   1400058da:	0f 11 44 24 20       	movups %xmm0,0x20(%rsp)
+   1400058df:	48 39 da             	cmp    %rbx,%rdx
+   1400058e2:	74 2e                	je     140005912 <_ZN15SignedMagnitudeleES_+0x62>
+   1400058e4:	0f 1f 40 00          	nopl   0x0(%rax)
+   1400058e8:	b9 18 00 00 00       	mov    $0x18,%ecx
+   1400058ed:	e8 c6 14 00 00       	call   140006db8 <_Znwy>
+   1400058f2:	48 89 c1             	mov    %rax,%rcx
+   1400058f5:	0f b6 43 10          	movzbl 0x10(%rbx),%eax
+   1400058f9:	48 89 fa             	mov    %rdi,%rdx
+   1400058fc:	88 41 10             	mov    %al,0x10(%rcx)
+   1400058ff:	e8 14 15 00 00       	call   140006e18 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
+   140005904:	48 8b 1b             	mov    (%rbx),%rbx
+   140005907:	48 83 44 24 30 01    	addq   $0x1,0x30(%rsp)
+   14000590d:	48 39 de             	cmp    %rbx,%rsi
+   140005910:	75 d6                	jne    1400058e8 <_ZN15SignedMagnitudeleES_+0x38>
+   140005912:	8b 46 18             	mov    0x18(%rsi),%eax
+   140005915:	48 89 fa             	mov    %rdi,%rdx
+   140005918:	48 89 e9             	mov    %rbp,%rcx
+   14000591b:	89 44 24 38          	mov    %eax,0x38(%rsp)
+   14000591f:	0f b6 46 1c          	movzbl 0x1c(%rsi),%eax
+   140005923:	88 44 24 3c          	mov    %al,0x3c(%rsp)
+   140005927:	e8 44 fa ff ff       	call   140005370 <_ZN15SignedMagnitudeeqES_>
+   14000592c:	89 c3                	mov    %eax,%ebx
+   14000592e:	84 c0                	test   %al,%al
+   140005930:	75 7c                	jne    1400059ae <_ZN15SignedMagnitudeleES_+0xfe>
+   140005932:	4c 8d 64 24 40       	lea    0x40(%rsp),%r12
+   140005937:	48 8b 1e             	mov    (%rsi),%rbx
+   14000593a:	48 c7 44 24 50 00 00 	movq   $0x0,0x50(%rsp)
+   140005941:	00 00 
+   140005943:	66 49 0f 6e c4       	movq   %r12,%xmm0
+   140005948:	66 0f 6c c0          	punpcklqdq %xmm0,%xmm0
+   14000594c:	0f 11 44 24 40       	movups %xmm0,0x40(%rsp)
+   140005951:	48 39 de             	cmp    %rbx,%rsi
+   140005954:	74 34                	je     14000598a <_ZN15SignedMagnitudeleES_+0xda>
+   140005956:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
+   14000595d:	00 00 00 
+   140005960:	b9 18 00 00 00       	mov    $0x18,%ecx
+   140005965:	e8 4e 14 00 00       	call   140006db8 <_Znwy>
+   14000596a:	48 89 c1             	mov    %rax,%rcx
+   14000596d:	0f b6 43 10          	movzbl 0x10(%rbx),%eax
+   140005971:	4c 89 e2             	mov    %r12,%rdx
+   140005974:	88 41 10             	mov    %al,0x10(%rcx)
+   140005977:	e8 9c 14 00 00       	call   140006e18 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
+   14000597c:	48 8b 1b             	mov    (%rbx),%rbx
+   14000597f:	48 83 44 24 50 01    	addq   $0x1,0x50(%rsp)
+   140005985:	48 39 de             	cmp    %rbx,%rsi
+   140005988:	75 d6                	jne    140005960 <_ZN15SignedMagnitudeleES_+0xb0>
+   14000598a:	8b 46 18             	mov    0x18(%rsi),%eax
+   14000598d:	4c 89 e2             	mov    %r12,%rdx
+   140005990:	48 89 e9             	mov    %rbp,%rcx
+   140005993:	89 44 24 58          	mov    %eax,0x58(%rsp)
+   140005997:	0f b6 46 1c          	movzbl 0x1c(%rsi),%eax
+   14000599b:	88 44 24 5c          	mov    %al,0x5c(%rsp)
+   14000599f:	e8 bc fb ff ff       	call   140005560 <_ZN15SignedMagnitudeltES_>
+   1400059a4:	4c 89 e1             	mov    %r12,%rcx
+   1400059a7:	89 c3                	mov    %eax,%ebx
+   1400059a9:	e8 32 c1 ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
+   1400059ae:	48 89 f9             	mov    %rdi,%rcx
+   1400059b1:	e8 2a c1 ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
+   1400059b6:	89 d8                	mov    %ebx,%eax
+   1400059b8:	48 83 c4 60          	add    $0x60,%rsp
+   1400059bc:	5b                   	pop    %rbx
+   1400059bd:	5e                   	pop    %rsi
+   1400059be:	5f                   	pop    %rdi
+   1400059bf:	5d                   	pop    %rbp
+   1400059c0:	41 5c                	pop    %r12
+   1400059c2:	c3                   	ret
+   1400059c3:	4c 89 e1             	mov    %r12,%rcx
+   1400059c6:	48 89 c3             	mov    %rax,%rbx
+   1400059c9:	e8 12 c1 ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
+   1400059ce:	48 89 f9             	mov    %rdi,%rcx
+   1400059d1:	e8 0a c1 ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
+   1400059d6:	48 89 d9             	mov    %rbx,%rcx
+   1400059d9:	e8 32 25 00 00       	call   140007f10 <_Unwind_Resume>
+   1400059de:	48 8b 4c 24 40       	mov    0x40(%rsp),%rcx
+   1400059e3:	48 89 c3             	mov    %rax,%rbx
+   1400059e6:	4c 39 e1             	cmp    %r12,%rcx
+   1400059e9:	74 e3                	je     1400059ce <_ZN15SignedMagnitudeleES_+0x11e>
+   1400059eb:	48 8b 31             	mov    (%rcx),%rsi
+   1400059ee:	ba 18 00 00 00       	mov    $0x18,%edx
+   1400059f3:	e8 c8 13 00 00       	call   140006dc0 <_ZdlPvy>
+   1400059f8:	48 89 f1             	mov    %rsi,%rcx
+   1400059fb:	eb e9                	jmp    1400059e6 <_ZN15SignedMagnitudeleES_+0x136>
+   1400059fd:	48 89 c3             	mov    %rax,%rbx
+   140005a00:	eb cc                	jmp    1400059ce <_ZN15SignedMagnitudeleES_+0x11e>
+   140005a02:	48 8b 4c 24 20       	mov    0x20(%rsp),%rcx
+   140005a07:	48 89 c3             	mov    %rax,%rbx
+   140005a0a:	48 39 f9             	cmp    %rdi,%rcx
+   140005a0d:	74 c7                	je     1400059d6 <_ZN15SignedMagnitudeleES_+0x126>
+   140005a0f:	48 8b 31             	mov    (%rcx),%rsi
+   140005a12:	ba 18 00 00 00       	mov    $0x18,%edx
+   140005a17:	e8 a4 13 00 00       	call   140006dc0 <_ZdlPvy>
+   140005a1c:	48 89 f1             	mov    %rsi,%rcx
+   140005a1f:	eb e9                	jmp    140005a0a <_ZN15SignedMagnitudeleES_+0x15a>
+   140005a21:	90                   	nop
+   140005a22:	66 66 2e 0f 1f 84 00 	data16 cs nopw 0x0(%rax,%rax,1)
+   140005a29:	00 00 00 00 
+   140005a2d:	0f 1f 00             	nopl   (%rax)
 
-0000000140005c50 <_ZN15SignedMagnitudemlES_>:
-   140005c50:	41 55                	push   %r13
-   140005c52:	41 54                	push   %r12
-   140005c54:	55                   	push   %rbp
-   140005c55:	57                   	push   %rdi
-   140005c56:	56                   	push   %rsi
-   140005c57:	53                   	push   %rbx
-   140005c58:	48 83 ec 78          	sub    $0x78,%rsp
-   140005c5c:	0f 11 74 24 60       	movups %xmm6,0x60(%rsp)
-   140005c61:	48 89 cb             	mov    %rcx,%rbx
-   140005c64:	49 89 d5             	mov    %rdx,%r13
-   140005c67:	4c 8d 64 24 20       	lea    0x20(%rsp),%r12
-   140005c6c:	4c 89 c5             	mov    %r8,%rbp
-   140005c6f:	e8 cc bc ff ff       	call   140001940 <_ZN13NaturalBinaryC1Ev>
-   140005c74:	c6 43 1c 00          	movb   $0x0,0x1c(%rbx)
-   140005c78:	48 8d 7c 24 40       	lea    0x40(%rsp),%rdi
-   140005c7d:	31 d2                	xor    %edx,%edx
-   140005c7f:	66 49 0f 6e f4       	movq   %r12,%xmm6
-   140005c84:	48 89 f9             	mov    %rdi,%rcx
-   140005c87:	66 0f 6c f6          	punpcklqdq %xmm6,%xmm6
-   140005c8b:	e8 c0 bc ff ff       	call   140001950 <_ZN13NaturalBinaryC1Ex>
-   140005c90:	48 89 fa             	mov    %rdi,%rdx
-   140005c93:	48 89 d9             	mov    %rbx,%rcx
-   140005c96:	e8 a5 ef ff ff       	call   140004c40 <_ZNSt7__cxx114listI4ByteSaIS1_EEaSERKS3_.part.0>
-   140005c9b:	48 89 f9             	mov    %rdi,%rcx
-   140005c9e:	e8 3d be ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
-   140005ca3:	48 8b 75 00          	mov    0x0(%rbp),%rsi
-   140005ca7:	0f 11 74 24 20       	movups %xmm6,0x20(%rsp)
-   140005cac:	c7 43 18 00 00 00 00 	movl   $0x0,0x18(%rbx)
-   140005cb3:	48 c7 44 24 30 00 00 	movq   $0x0,0x30(%rsp)
-   140005cba:	00 00 
-   140005cbc:	48 39 f5             	cmp    %rsi,%rbp
-   140005cbf:	74 31                	je     140005cf2 <_ZN15SignedMagnitudemlES_+0xa2>
-   140005cc1:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
-   140005cc8:	b9 18 00 00 00       	mov    $0x18,%ecx
-   140005ccd:	e8 76 06 00 00       	call   140006348 <_Znwy>
-   140005cd2:	48 89 c1             	mov    %rax,%rcx
-   140005cd5:	0f b6 46 10          	movzbl 0x10(%rsi),%eax
-   140005cd9:	4c 89 e2             	mov    %r12,%rdx
-   140005cdc:	88 41 10             	mov    %al,0x10(%rcx)
-   140005cdf:	e8 c4 06 00 00       	call   1400063a8 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
-   140005ce4:	48 8b 36             	mov    (%rsi),%rsi
-   140005ce7:	48 83 44 24 30 01    	addq   $0x1,0x30(%rsp)
-   140005ced:	48 39 f5             	cmp    %rsi,%rbp
-   140005cf0:	75 d6                	jne    140005cc8 <_ZN15SignedMagnitudemlES_+0x78>
-   140005cf2:	4d 89 e0             	mov    %r12,%r8
-   140005cf5:	4c 89 ea             	mov    %r13,%rdx
-   140005cf8:	48 89 f9             	mov    %rdi,%rcx
-   140005cfb:	e8 40 d9 ff ff       	call   140003640 <_ZN13NaturalBinarymlES_>
-   140005d00:	48 89 fa             	mov    %rdi,%rdx
-   140005d03:	48 89 d9             	mov    %rbx,%rcx
-   140005d06:	e8 35 ef ff ff       	call   140004c40 <_ZNSt7__cxx114listI4ByteSaIS1_EEaSERKS3_.part.0>
-   140005d0b:	48 89 f9             	mov    %rdi,%rcx
-   140005d0e:	e8 cd bd ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
-   140005d13:	4c 89 e1             	mov    %r12,%rcx
-   140005d16:	e8 c5 bd ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
-   140005d1b:	41 0f b6 45 1c       	movzbl 0x1c(%r13),%eax
-   140005d20:	32 45 1c             	xor    0x1c(%rbp),%al
-   140005d23:	48 89 d9             	mov    %rbx,%rcx
-   140005d26:	88 43 1c             	mov    %al,0x1c(%rbx)
-   140005d29:	8b 45 18             	mov    0x18(%rbp),%eax
-   140005d2c:	41 03 45 18          	add    0x18(%r13),%eax
-   140005d30:	89 43 18             	mov    %eax,0x18(%rbx)
-   140005d33:	e8 28 c7 ff ff       	call   140002460 <_ZN13NaturalBinary8optimizeEv>
-   140005d38:	8b 43 18             	mov    0x18(%rbx),%eax
-   140005d3b:	83 c0 01             	add    $0x1,%eax
-   140005d3e:	48 39 43 10          	cmp    %rax,0x10(%rbx)
-   140005d42:	73 42                	jae    140005d86 <_ZN15SignedMagnitudemlES_+0x136>
-   140005d44:	0f 1f 40 00          	nopl   0x0(%rax)
-   140005d48:	31 d2                	xor    %edx,%edx
-   140005d4a:	48 89 f9             	mov    %rdi,%rcx
-   140005d4d:	e8 2e b9 ff ff       	call   140001680 <_ZN4ByteC1Ey>
-   140005d52:	b9 18 00 00 00       	mov    $0x18,%ecx
-   140005d57:	e8 ec 05 00 00       	call   140006348 <_Znwy>
-   140005d5c:	48 89 c1             	mov    %rax,%rcx
-   140005d5f:	0f b6 44 24 40       	movzbl 0x40(%rsp),%eax
-   140005d64:	48 89 da             	mov    %rbx,%rdx
-   140005d67:	88 41 10             	mov    %al,0x10(%rcx)
-   140005d6a:	e8 39 06 00 00       	call   1400063a8 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
-   140005d6f:	48 8b 43 10          	mov    0x10(%rbx),%rax
-   140005d73:	8b 53 18             	mov    0x18(%rbx),%edx
-   140005d76:	48 83 c0 01          	add    $0x1,%rax
-   140005d7a:	83 c2 01             	add    $0x1,%edx
-   140005d7d:	48 89 43 10          	mov    %rax,0x10(%rbx)
-   140005d81:	48 39 d0             	cmp    %rdx,%rax
-   140005d84:	72 c2                	jb     140005d48 <_ZN15SignedMagnitudemlES_+0xf8>
-   140005d86:	0f 10 74 24 60       	movups 0x60(%rsp),%xmm6
-   140005d8b:	48 89 d8             	mov    %rbx,%rax
-   140005d8e:	48 83 c4 78          	add    $0x78,%rsp
-   140005d92:	5b                   	pop    %rbx
-   140005d93:	5e                   	pop    %rsi
-   140005d94:	5f                   	pop    %rdi
-   140005d95:	5d                   	pop    %rbp
-   140005d96:	41 5c                	pop    %r12
-   140005d98:	41 5d                	pop    %r13
-   140005d9a:	c3                   	ret
-   140005d9b:	48 89 c6             	mov    %rax,%rsi
-   140005d9e:	eb 13                	jmp    140005db3 <_ZN15SignedMagnitudemlES_+0x163>
-   140005da0:	48 89 f9             	mov    %rdi,%rcx
-   140005da3:	48 89 c6             	mov    %rax,%rsi
-   140005da6:	e8 35 bd ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
-   140005dab:	4c 89 e1             	mov    %r12,%rcx
-   140005dae:	e8 2d bd ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
-   140005db3:	48 89 d9             	mov    %rbx,%rcx
-   140005db6:	e8 25 bd ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
-   140005dbb:	48 89 f1             	mov    %rsi,%rcx
-   140005dbe:	e8 dd 16 00 00       	call   1400074a0 <_Unwind_Resume>
-   140005dc3:	48 89 c6             	mov    %rax,%rsi
-   140005dc6:	eb e3                	jmp    140005dab <_ZN15SignedMagnitudemlES_+0x15b>
-   140005dc8:	48 8b 4c 24 20       	mov    0x20(%rsp),%rcx
-   140005dcd:	48 89 c6             	mov    %rax,%rsi
-   140005dd0:	4c 39 e1             	cmp    %r12,%rcx
-   140005dd3:	74 de                	je     140005db3 <_ZN15SignedMagnitudemlES_+0x163>
-   140005dd5:	48 8b 39             	mov    (%rcx),%rdi
-   140005dd8:	ba 18 00 00 00       	mov    $0x18,%edx
-   140005ddd:	e8 6e 05 00 00       	call   140006350 <_ZdlPvy>
-   140005de2:	48 89 f9             	mov    %rdi,%rcx
-   140005de5:	eb e9                	jmp    140005dd0 <_ZN15SignedMagnitudemlES_+0x180>
-   140005de7:	48 89 f9             	mov    %rdi,%rcx
-   140005dea:	48 89 c6             	mov    %rax,%rsi
-   140005ded:	e8 ee bc ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
-   140005df2:	eb bf                	jmp    140005db3 <_ZN15SignedMagnitudemlES_+0x163>
-   140005df4:	eb a5                	jmp    140005d9b <_ZN15SignedMagnitudemlES_+0x14b>
-   140005df6:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
-   140005dfd:	00 00 00 
+0000000140005a30 <_ZN15SignedMagnitudegtES_>:
+   140005a30:	41 56                	push   %r14
+   140005a32:	41 55                	push   %r13
+   140005a34:	41 54                	push   %r12
+   140005a36:	55                   	push   %rbp
+   140005a37:	57                   	push   %rdi
+   140005a38:	56                   	push   %rsi
+   140005a39:	53                   	push   %rbx
+   140005a3a:	48 81 ec a0 00 00 00 	sub    $0xa0,%rsp
+   140005a41:	80 79 1c 00          	cmpb   $0x0,0x1c(%rcx)
+   140005a45:	44 0f b6 72 1c       	movzbl 0x1c(%rdx),%r14d
+   140005a4a:	48 89 ce             	mov    %rcx,%rsi
+   140005a4d:	48 89 d7             	mov    %rdx,%rdi
+   140005a50:	0f 84 4a 01 00 00    	je     140005ba0 <_ZN15SignedMagnitudegtES_+0x170>
+   140005a56:	45 84 f6             	test   %r14b,%r14b
+   140005a59:	0f 84 2b 01 00 00    	je     140005b8a <_ZN15SignedMagnitudegtES_+0x15a>
+   140005a5f:	48 8d ac 24 80 00 00 	lea    0x80(%rsp),%rbp
+   140005a66:	00 
+   140005a67:	48 8b 19             	mov    (%rcx),%rbx
+   140005a6a:	48 c7 84 24 90 00 00 	movq   $0x0,0x90(%rsp)
+   140005a71:	00 00 00 00 00 
+   140005a76:	66 48 0f 6e c5       	movq   %rbp,%xmm0
+   140005a7b:	66 0f 6c c0          	punpcklqdq %xmm0,%xmm0
+   140005a7f:	0f 11 84 24 80 00 00 	movups %xmm0,0x80(%rsp)
+   140005a86:	00 
+   140005a87:	48 39 d9             	cmp    %rbx,%rcx
+   140005a8a:	74 36                	je     140005ac2 <_ZN15SignedMagnitudegtES_+0x92>
+   140005a8c:	0f 1f 40 00          	nopl   0x0(%rax)
+   140005a90:	b9 18 00 00 00       	mov    $0x18,%ecx
+   140005a95:	e8 1e 13 00 00       	call   140006db8 <_Znwy>
+   140005a9a:	48 89 c1             	mov    %rax,%rcx
+   140005a9d:	0f b6 43 10          	movzbl 0x10(%rbx),%eax
+   140005aa1:	48 89 ea             	mov    %rbp,%rdx
+   140005aa4:	88 41 10             	mov    %al,0x10(%rcx)
+   140005aa7:	e8 6c 13 00 00       	call   140006e18 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
+   140005aac:	48 8b 1b             	mov    (%rbx),%rbx
+   140005aaf:	48 83 84 24 90 00 00 	addq   $0x1,0x90(%rsp)
+   140005ab6:	00 01 
+   140005ab8:	48 39 de             	cmp    %rbx,%rsi
+   140005abb:	75 d3                	jne    140005a90 <_ZN15SignedMagnitudegtES_+0x60>
+   140005abd:	44 0f b6 76 1c       	movzbl 0x1c(%rsi),%r14d
+   140005ac2:	8b 46 18             	mov    0x18(%rsi),%eax
+   140005ac5:	4c 8d 6c 24 40       	lea    0x40(%rsp),%r13
+   140005aca:	49 89 e8             	mov    %rbp,%r8
+   140005acd:	48 89 fa             	mov    %rdi,%rdx
+   140005ad0:	4c 89 e9             	mov    %r13,%rcx
+   140005ad3:	44 88 b4 24 9c 00 00 	mov    %r14b,0x9c(%rsp)
+   140005ada:	00 
+   140005adb:	89 84 24 98 00 00 00 	mov    %eax,0x98(%rsp)
+   140005ae2:	e8 99 f7 ff ff       	call   140005280 <_ZN15SignedMagnitude15alignModuleWithES_>
+   140005ae7:	4c 8d 64 24 60       	lea    0x60(%rsp),%r12
+   140005aec:	48 8b 1f             	mov    (%rdi),%rbx
+   140005aef:	48 c7 44 24 70 00 00 	movq   $0x0,0x70(%rsp)
+   140005af6:	00 00 
+   140005af8:	66 49 0f 6e c4       	movq   %r12,%xmm0
+   140005afd:	66 0f 6c c0          	punpcklqdq %xmm0,%xmm0
+   140005b01:	0f 11 44 24 60       	movups %xmm0,0x60(%rsp)
+   140005b06:	48 39 df             	cmp    %rbx,%rdi
+   140005b09:	74 2f                	je     140005b3a <_ZN15SignedMagnitudegtES_+0x10a>
+   140005b0b:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+   140005b10:	b9 18 00 00 00       	mov    $0x18,%ecx
+   140005b15:	e8 9e 12 00 00       	call   140006db8 <_Znwy>
+   140005b1a:	48 89 c1             	mov    %rax,%rcx
+   140005b1d:	0f b6 43 10          	movzbl 0x10(%rbx),%eax
+   140005b21:	4c 89 e2             	mov    %r12,%rdx
+   140005b24:	88 41 10             	mov    %al,0x10(%rcx)
+   140005b27:	e8 ec 12 00 00       	call   140006e18 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
+   140005b2c:	48 8b 1b             	mov    (%rbx),%rbx
+   140005b2f:	48 83 44 24 70 01    	addq   $0x1,0x70(%rsp)
+   140005b35:	48 39 df             	cmp    %rbx,%rdi
+   140005b38:	75 d6                	jne    140005b10 <_ZN15SignedMagnitudegtES_+0xe0>
+   140005b3a:	8b 47 18             	mov    0x18(%rdi),%eax
+   140005b3d:	48 8d 5c 24 20       	lea    0x20(%rsp),%rbx
+   140005b42:	4d 89 e0             	mov    %r12,%r8
+   140005b45:	48 89 f2             	mov    %rsi,%rdx
+   140005b48:	48 89 d9             	mov    %rbx,%rcx
+   140005b4b:	89 44 24 78          	mov    %eax,0x78(%rsp)
+   140005b4f:	0f b6 47 1c          	movzbl 0x1c(%rdi),%eax
+   140005b53:	88 44 24 7c          	mov    %al,0x7c(%rsp)
+   140005b57:	e8 24 f7 ff ff       	call   140005280 <_ZN15SignedMagnitude15alignModuleWithES_>
+   140005b5c:	4c 89 ea             	mov    %r13,%rdx
+   140005b5f:	48 89 d9             	mov    %rbx,%rcx
+   140005b62:	e8 a9 c9 ff ff       	call   140002510 <_ZN13NaturalBinaryltES_>
+   140005b67:	48 89 d9             	mov    %rbx,%rcx
+   140005b6a:	41 89 c6             	mov    %eax,%r14d
+   140005b6d:	e8 6e bf ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
+   140005b72:	4c 89 e1             	mov    %r12,%rcx
+   140005b75:	e8 66 bf ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
+   140005b7a:	4c 89 e9             	mov    %r13,%rcx
+   140005b7d:	e8 5e bf ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
+   140005b82:	48 89 e9             	mov    %rbp,%rcx
+   140005b85:	e8 56 bf ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
+   140005b8a:	44 89 f0             	mov    %r14d,%eax
+   140005b8d:	48 81 c4 a0 00 00 00 	add    $0xa0,%rsp
+   140005b94:	5b                   	pop    %rbx
+   140005b95:	5e                   	pop    %rsi
+   140005b96:	5f                   	pop    %rdi
+   140005b97:	5d                   	pop    %rbp
+   140005b98:	41 5c                	pop    %r12
+   140005b9a:	41 5d                	pop    %r13
+   140005b9c:	41 5e                	pop    %r14
+   140005b9e:	c3                   	ret
+   140005b9f:	90                   	nop
+   140005ba0:	48 8d ac 24 80 00 00 	lea    0x80(%rsp),%rbp
+   140005ba7:	00 
+   140005ba8:	66 48 0f 6e c5       	movq   %rbp,%xmm0
+   140005bad:	66 0f 6c c0          	punpcklqdq %xmm0,%xmm0
+   140005bb1:	45 84 f6             	test   %r14b,%r14b
+   140005bb4:	75 d4                	jne    140005b8a <_ZN15SignedMagnitudegtES_+0x15a>
+   140005bb6:	48 8b 19             	mov    (%rcx),%rbx
+   140005bb9:	0f 11 84 24 80 00 00 	movups %xmm0,0x80(%rsp)
+   140005bc0:	00 
+   140005bc1:	48 c7 84 24 90 00 00 	movq   $0x0,0x90(%rsp)
+   140005bc8:	00 00 00 00 00 
+   140005bcd:	48 39 d9             	cmp    %rbx,%rcx
+   140005bd0:	74 32                	je     140005c04 <_ZN15SignedMagnitudegtES_+0x1d4>
+   140005bd2:	b9 18 00 00 00       	mov    $0x18,%ecx
+   140005bd7:	e8 dc 11 00 00       	call   140006db8 <_Znwy>
+   140005bdc:	48 89 c1             	mov    %rax,%rcx
+   140005bdf:	0f b6 43 10          	movzbl 0x10(%rbx),%eax
+   140005be3:	48 89 ea             	mov    %rbp,%rdx
+   140005be6:	88 41 10             	mov    %al,0x10(%rcx)
+   140005be9:	e8 2a 12 00 00       	call   140006e18 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
+   140005bee:	48 8b 1b             	mov    (%rbx),%rbx
+   140005bf1:	48 83 84 24 90 00 00 	addq   $0x1,0x90(%rsp)
+   140005bf8:	00 01 
+   140005bfa:	48 39 de             	cmp    %rbx,%rsi
+   140005bfd:	75 d3                	jne    140005bd2 <_ZN15SignedMagnitudegtES_+0x1a2>
+   140005bff:	44 0f b6 76 1c       	movzbl 0x1c(%rsi),%r14d
+   140005c04:	8b 46 18             	mov    0x18(%rsi),%eax
+   140005c07:	4c 8d 6c 24 40       	lea    0x40(%rsp),%r13
+   140005c0c:	49 89 e8             	mov    %rbp,%r8
+   140005c0f:	48 89 fa             	mov    %rdi,%rdx
+   140005c12:	4c 89 e9             	mov    %r13,%rcx
+   140005c15:	44 88 b4 24 9c 00 00 	mov    %r14b,0x9c(%rsp)
+   140005c1c:	00 
+   140005c1d:	89 84 24 98 00 00 00 	mov    %eax,0x98(%rsp)
+   140005c24:	e8 57 f6 ff ff       	call   140005280 <_ZN15SignedMagnitude15alignModuleWithES_>
+   140005c29:	4c 8d 64 24 60       	lea    0x60(%rsp),%r12
+   140005c2e:	48 8b 1f             	mov    (%rdi),%rbx
+   140005c31:	48 c7 44 24 70 00 00 	movq   $0x0,0x70(%rsp)
+   140005c38:	00 00 
+   140005c3a:	66 49 0f 6e c4       	movq   %r12,%xmm0
+   140005c3f:	66 0f 6c c0          	punpcklqdq %xmm0,%xmm0
+   140005c43:	0f 11 44 24 60       	movups %xmm0,0x60(%rsp)
+   140005c48:	48 39 df             	cmp    %rbx,%rdi
+   140005c4b:	74 2d                	je     140005c7a <_ZN15SignedMagnitudegtES_+0x24a>
+   140005c4d:	0f 1f 00             	nopl   (%rax)
+   140005c50:	b9 18 00 00 00       	mov    $0x18,%ecx
+   140005c55:	e8 5e 11 00 00       	call   140006db8 <_Znwy>
+   140005c5a:	48 89 c1             	mov    %rax,%rcx
+   140005c5d:	0f b6 43 10          	movzbl 0x10(%rbx),%eax
+   140005c61:	4c 89 e2             	mov    %r12,%rdx
+   140005c64:	88 41 10             	mov    %al,0x10(%rcx)
+   140005c67:	e8 ac 11 00 00       	call   140006e18 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
+   140005c6c:	48 8b 1b             	mov    (%rbx),%rbx
+   140005c6f:	48 83 44 24 70 01    	addq   $0x1,0x70(%rsp)
+   140005c75:	48 39 df             	cmp    %rbx,%rdi
+   140005c78:	75 d6                	jne    140005c50 <_ZN15SignedMagnitudegtES_+0x220>
+   140005c7a:	8b 47 18             	mov    0x18(%rdi),%eax
+   140005c7d:	48 8d 5c 24 20       	lea    0x20(%rsp),%rbx
+   140005c82:	4d 89 e0             	mov    %r12,%r8
+   140005c85:	48 89 f2             	mov    %rsi,%rdx
+   140005c88:	48 89 d9             	mov    %rbx,%rcx
+   140005c8b:	89 44 24 78          	mov    %eax,0x78(%rsp)
+   140005c8f:	0f b6 47 1c          	movzbl 0x1c(%rdi),%eax
+   140005c93:	88 44 24 7c          	mov    %al,0x7c(%rsp)
+   140005c97:	e8 e4 f5 ff ff       	call   140005280 <_ZN15SignedMagnitude15alignModuleWithES_>
+   140005c9c:	4c 89 ea             	mov    %r13,%rdx
+   140005c9f:	48 89 d9             	mov    %rbx,%rcx
+   140005ca2:	e8 09 ca ff ff       	call   1400026b0 <_ZN13NaturalBinarygtES_>
+   140005ca7:	e9 bb fe ff ff       	jmp    140005b67 <_ZN15SignedMagnitudegtES_+0x137>
+   140005cac:	48 89 c3             	mov    %rax,%rbx
+   140005caf:	48 89 e9             	mov    %rbp,%rcx
+   140005cb2:	e8 29 be ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
+   140005cb7:	48 89 d9             	mov    %rbx,%rcx
+   140005cba:	e8 51 22 00 00       	call   140007f10 <_Unwind_Resume>
+   140005cbf:	48 89 c6             	mov    %rax,%rsi
+   140005cc2:	48 89 d9             	mov    %rbx,%rcx
+   140005cc5:	e8 16 be ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
+   140005cca:	48 89 f3             	mov    %rsi,%rbx
+   140005ccd:	4c 89 e1             	mov    %r12,%rcx
+   140005cd0:	e8 0b be ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
+   140005cd5:	4c 89 e9             	mov    %r13,%rcx
+   140005cd8:	e8 03 be ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
+   140005cdd:	eb d0                	jmp    140005caf <_ZN15SignedMagnitudegtES_+0x27f>
+   140005cdf:	48 8b 8c 24 80 00 00 	mov    0x80(%rsp),%rcx
+   140005ce6:	00 
+   140005ce7:	48 89 c3             	mov    %rax,%rbx
+   140005cea:	48 39 e9             	cmp    %rbp,%rcx
+   140005ced:	74 c8                	je     140005cb7 <_ZN15SignedMagnitudegtES_+0x287>
+   140005cef:	48 8b 31             	mov    (%rcx),%rsi
+   140005cf2:	ba 18 00 00 00       	mov    $0x18,%edx
+   140005cf7:	e8 c4 10 00 00       	call   140006dc0 <_ZdlPvy>
+   140005cfc:	48 89 f1             	mov    %rsi,%rcx
+   140005cff:	eb e9                	jmp    140005cea <_ZN15SignedMagnitudegtES_+0x2ba>
+   140005d01:	48 8b 8c 24 80 00 00 	mov    0x80(%rsp),%rcx
+   140005d08:	00 
+   140005d09:	48 89 c3             	mov    %rax,%rbx
+   140005d0c:	48 39 e9             	cmp    %rbp,%rcx
+   140005d0f:	74 a6                	je     140005cb7 <_ZN15SignedMagnitudegtES_+0x287>
+   140005d11:	48 8b 31             	mov    (%rcx),%rsi
+   140005d14:	ba 18 00 00 00       	mov    $0x18,%edx
+   140005d19:	e8 a2 10 00 00       	call   140006dc0 <_ZdlPvy>
+   140005d1e:	48 89 f1             	mov    %rsi,%rcx
+   140005d21:	eb e9                	jmp    140005d0c <_ZN15SignedMagnitudegtES_+0x2dc>
+   140005d23:	eb 87                	jmp    140005cac <_ZN15SignedMagnitudegtES_+0x27c>
+   140005d25:	48 8b 4c 24 60       	mov    0x60(%rsp),%rcx
+   140005d2a:	48 89 c3             	mov    %rax,%rbx
+   140005d2d:	4c 39 e1             	cmp    %r12,%rcx
+   140005d30:	74 a3                	je     140005cd5 <_ZN15SignedMagnitudegtES_+0x2a5>
+   140005d32:	48 8b 31             	mov    (%rcx),%rsi
+   140005d35:	ba 18 00 00 00       	mov    $0x18,%edx
+   140005d3a:	e8 81 10 00 00       	call   140006dc0 <_ZdlPvy>
+   140005d3f:	48 89 f1             	mov    %rsi,%rcx
+   140005d42:	eb e9                	jmp    140005d2d <_ZN15SignedMagnitudegtES_+0x2fd>
+   140005d44:	48 89 c3             	mov    %rax,%rbx
+   140005d47:	eb 84                	jmp    140005ccd <_ZN15SignedMagnitudegtES_+0x29d>
+   140005d49:	e9 71 ff ff ff       	jmp    140005cbf <_ZN15SignedMagnitudegtES_+0x28f>
+   140005d4e:	48 8b 4c 24 60       	mov    0x60(%rsp),%rcx
+   140005d53:	48 89 c3             	mov    %rax,%rbx
+   140005d56:	4c 39 e1             	cmp    %r12,%rcx
+   140005d59:	0f 84 76 ff ff ff    	je     140005cd5 <_ZN15SignedMagnitudegtES_+0x2a5>
+   140005d5f:	48 8b 31             	mov    (%rcx),%rsi
+   140005d62:	ba 18 00 00 00       	mov    $0x18,%edx
+   140005d67:	e8 54 10 00 00       	call   140006dc0 <_ZdlPvy>
+   140005d6c:	48 89 f1             	mov    %rsi,%rcx
+   140005d6f:	eb e5                	jmp    140005d56 <_ZN15SignedMagnitudegtES_+0x326>
+   140005d71:	eb d1                	jmp    140005d44 <_ZN15SignedMagnitudegtES_+0x314>
+   140005d73:	90                   	nop
+   140005d74:	66 66 2e 0f 1f 84 00 	data16 cs nopw 0x0(%rax,%rax,1)
+   140005d7b:	00 00 00 00 
+   140005d7f:	90                   	nop
 
-0000000140005e00 <_ZN15SignedMagnitudedvES_>:
-   140005e00:	41 57                	push   %r15
-   140005e02:	41 56                	push   %r14
-   140005e04:	41 55                	push   %r13
-   140005e06:	41 54                	push   %r12
-   140005e08:	55                   	push   %rbp
-   140005e09:	57                   	push   %rdi
-   140005e0a:	56                   	push   %rsi
-   140005e0b:	53                   	push   %rbx
-   140005e0c:	48 81 ec b8 00 00 00 	sub    $0xb8,%rsp
-   140005e13:	0f 11 b4 24 a0 00 00 	movups %xmm6,0xa0(%rsp)
-   140005e1a:	00 
-   140005e1b:	48 8b 1a             	mov    (%rdx),%rbx
-   140005e1e:	48 8d 6c 24 20       	lea    0x20(%rsp),%rbp
-   140005e23:	49 89 cc             	mov    %rcx,%r12
-   140005e26:	48 89 d6             	mov    %rdx,%rsi
-   140005e29:	4c 89 c7             	mov    %r8,%rdi
-   140005e2c:	48 c7 44 24 30 00 00 	movq   $0x0,0x30(%rsp)
-   140005e33:	00 00 
-   140005e35:	66 48 0f 6e c5       	movq   %rbp,%xmm0
-   140005e3a:	66 0f 6c c0          	punpcklqdq %xmm0,%xmm0
-   140005e3e:	0f 11 44 24 20       	movups %xmm0,0x20(%rsp)
-   140005e43:	48 39 da             	cmp    %rbx,%rdx
-   140005e46:	74 32                	je     140005e7a <_ZN15SignedMagnitudedvES_+0x7a>
-   140005e48:	0f 1f 84 00 00 00 00 	nopl   0x0(%rax,%rax,1)
-   140005e4f:	00 
-   140005e50:	b9 18 00 00 00       	mov    $0x18,%ecx
-   140005e55:	e8 ee 04 00 00       	call   140006348 <_Znwy>
-   140005e5a:	48 89 c1             	mov    %rax,%rcx
-   140005e5d:	0f b6 43 10          	movzbl 0x10(%rbx),%eax
-   140005e61:	48 89 ea             	mov    %rbp,%rdx
-   140005e64:	88 41 10             	mov    %al,0x10(%rcx)
-   140005e67:	e8 3c 05 00 00       	call   1400063a8 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
-   140005e6c:	48 8b 1b             	mov    (%rbx),%rbx
-   140005e6f:	48 83 44 24 30 01    	addq   $0x1,0x30(%rsp)
-   140005e75:	48 39 de             	cmp    %rbx,%rsi
-   140005e78:	75 d6                	jne    140005e50 <_ZN15SignedMagnitudedvES_+0x50>
-   140005e7a:	4c 8d 6c 24 40       	lea    0x40(%rsp),%r13
-   140005e7f:	48 8b 1f             	mov    (%rdi),%rbx
-   140005e82:	48 c7 44 24 50 00 00 	movq   $0x0,0x50(%rsp)
-   140005e89:	00 00 
-   140005e8b:	66 49 0f 6e c5       	movq   %r13,%xmm0
-   140005e90:	66 0f 6c c0          	punpcklqdq %xmm0,%xmm0
-   140005e94:	0f 11 44 24 40       	movups %xmm0,0x40(%rsp)
-   140005e99:	48 39 df             	cmp    %rbx,%rdi
-   140005e9c:	74 2c                	je     140005eca <_ZN15SignedMagnitudedvES_+0xca>
-   140005e9e:	66 90                	xchg   %ax,%ax
-   140005ea0:	b9 18 00 00 00       	mov    $0x18,%ecx
-   140005ea5:	e8 9e 04 00 00       	call   140006348 <_Znwy>
-   140005eaa:	48 89 c1             	mov    %rax,%rcx
-   140005ead:	0f b6 43 10          	movzbl 0x10(%rbx),%eax
-   140005eb1:	4c 89 ea             	mov    %r13,%rdx
-   140005eb4:	88 41 10             	mov    %al,0x10(%rcx)
-   140005eb7:	e8 ec 04 00 00       	call   1400063a8 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
-   140005ebc:	48 8b 1b             	mov    (%rbx),%rbx
-   140005ebf:	48 83 44 24 50 01    	addq   $0x1,0x50(%rsp)
-   140005ec5:	48 39 df             	cmp    %rbx,%rdi
-   140005ec8:	75 d6                	jne    140005ea0 <_ZN15SignedMagnitudedvES_+0xa0>
-   140005eca:	8b 5e 18             	mov    0x18(%rsi),%ebx
-   140005ecd:	89 d8                	mov    %ebx,%eax
-   140005ecf:	2b 47 18             	sub    0x18(%rdi),%eax
-   140005ed2:	39 c3                	cmp    %eax,%ebx
-   140005ed4:	74 4c                	je     140005f22 <_ZN15SignedMagnitudedvES_+0x122>
-   140005ed6:	4c 8d b4 24 80 00 00 	lea    0x80(%rsp),%r14
-   140005edd:	00 
-   140005ede:	66 90                	xchg   %ax,%ax
-   140005ee0:	31 d2                	xor    %edx,%edx
-   140005ee2:	4c 89 f1             	mov    %r14,%rcx
-   140005ee5:	e8 96 b7 ff ff       	call   140001680 <_ZN4ByteC1Ey>
-   140005eea:	b9 18 00 00 00       	mov    $0x18,%ecx
-   140005eef:	4c 8b 7c 24 20       	mov    0x20(%rsp),%r15
-   140005ef4:	e8 4f 04 00 00       	call   140006348 <_Znwy>
-   140005ef9:	48 89 c1             	mov    %rax,%rcx
-   140005efc:	0f b6 84 24 80 00 00 	movzbl 0x80(%rsp),%eax
-   140005f03:	00 
-   140005f04:	4c 89 fa             	mov    %r15,%rdx
-   140005f07:	83 c3 01             	add    $0x1,%ebx
-   140005f0a:	88 41 10             	mov    %al,0x10(%rcx)
-   140005f0d:	e8 96 04 00 00       	call   1400063a8 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
-   140005f12:	89 d8                	mov    %ebx,%eax
-   140005f14:	48 83 44 24 30 01    	addq   $0x1,0x30(%rsp)
-   140005f1a:	2b 47 18             	sub    0x18(%rdi),%eax
-   140005f1d:	3b 46 18             	cmp    0x18(%rsi),%eax
-   140005f20:	75 be                	jne    140005ee0 <_ZN15SignedMagnitudedvES_+0xe0>
-   140005f22:	4c 8d 7c 24 60       	lea    0x60(%rsp),%r15
-   140005f27:	4c 89 e1             	mov    %r12,%rcx
-   140005f2a:	66 49 0f 6e f7       	movq   %r15,%xmm6
-   140005f2f:	66 0f 6c f6          	punpcklqdq %xmm6,%xmm6
-   140005f33:	e8 08 ba ff ff       	call   140001940 <_ZN13NaturalBinaryC1Ev>
-   140005f38:	41 c6 44 24 1c 00    	movb   $0x0,0x1c(%r12)
-   140005f3e:	4c 8d b4 24 80 00 00 	lea    0x80(%rsp),%r14
-   140005f45:	00 
-   140005f46:	31 d2                	xor    %edx,%edx
-   140005f48:	4c 89 f1             	mov    %r14,%rcx
-   140005f4b:	e8 00 ba ff ff       	call   140001950 <_ZN13NaturalBinaryC1Ex>
-   140005f50:	4c 89 f2             	mov    %r14,%rdx
-   140005f53:	4c 89 e1             	mov    %r12,%rcx
-   140005f56:	e8 e5 ec ff ff       	call   140004c40 <_ZNSt7__cxx114listI4ByteSaIS1_EEaSERKS3_.part.0>
-   140005f5b:	4c 89 f1             	mov    %r14,%rcx
-   140005f5e:	e8 7d bb ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
-   140005f63:	48 8b 5c 24 40       	mov    0x40(%rsp),%rbx
-   140005f68:	0f 11 74 24 60       	movups %xmm6,0x60(%rsp)
-   140005f6d:	41 c7 44 24 18 00 00 	movl   $0x0,0x18(%r12)
-   140005f74:	00 00 
-   140005f76:	48 c7 44 24 70 00 00 	movq   $0x0,0x70(%rsp)
-   140005f7d:	00 00 
-   140005f7f:	4c 39 eb             	cmp    %r13,%rbx
-   140005f82:	74 2e                	je     140005fb2 <_ZN15SignedMagnitudedvES_+0x1b2>
-   140005f84:	0f 1f 40 00          	nopl   0x0(%rax)
-   140005f88:	b9 18 00 00 00       	mov    $0x18,%ecx
-   140005f8d:	e8 b6 03 00 00       	call   140006348 <_Znwy>
-   140005f92:	48 89 c1             	mov    %rax,%rcx
-   140005f95:	0f b6 43 10          	movzbl 0x10(%rbx),%eax
-   140005f99:	4c 89 fa             	mov    %r15,%rdx
-   140005f9c:	88 41 10             	mov    %al,0x10(%rcx)
-   140005f9f:	e8 04 04 00 00       	call   1400063a8 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
-   140005fa4:	48 8b 1b             	mov    (%rbx),%rbx
-   140005fa7:	48 83 44 24 70 01    	addq   $0x1,0x70(%rsp)
-   140005fad:	4c 39 eb             	cmp    %r13,%rbx
-   140005fb0:	75 d6                	jne    140005f88 <_ZN15SignedMagnitudedvES_+0x188>
-   140005fb2:	4d 89 f8             	mov    %r15,%r8
-   140005fb5:	48 89 ea             	mov    %rbp,%rdx
-   140005fb8:	4c 89 f1             	mov    %r14,%rcx
-   140005fbb:	e8 40 ea ff ff       	call   140004a00 <_ZN13NaturalBinarydvES_>
-   140005fc0:	4c 89 f2             	mov    %r14,%rdx
-   140005fc3:	4c 89 e1             	mov    %r12,%rcx
-   140005fc6:	e8 75 ec ff ff       	call   140004c40 <_ZNSt7__cxx114listI4ByteSaIS1_EEaSERKS3_.part.0>
-   140005fcb:	4c 89 f1             	mov    %r14,%rcx
-   140005fce:	e8 0d bb ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
-   140005fd3:	4c 89 f9             	mov    %r15,%rcx
-   140005fd6:	e8 05 bb ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
-   140005fdb:	31 d2                	xor    %edx,%edx
-   140005fdd:	4c 89 f1             	mov    %r14,%rcx
-   140005fe0:	e8 6b b9 ff ff       	call   140001950 <_ZN13NaturalBinaryC1Ex>
-   140005fe5:	4c 89 f2             	mov    %r14,%rdx
-   140005fe8:	4c 89 e1             	mov    %r12,%rcx
-   140005feb:	e8 c0 c6 ff ff       	call   1400026b0 <_ZN13NaturalBinarygtES_>
-   140005ff0:	89 c3                	mov    %eax,%ebx
-   140005ff2:	4c 89 f1             	mov    %r14,%rcx
-   140005ff5:	e8 e6 ba ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
-   140005ffa:	84 db                	test   %bl,%bl
-   140005ffc:	0f 85 9b 00 00 00    	jne    14000609d <_ZN15SignedMagnitudedvES_+0x29d>
-   140006002:	8b 46 18             	mov    0x18(%rsi),%eax
-   140006005:	4c 89 e1             	mov    %r12,%rcx
-   140006008:	41 89 44 24 18       	mov    %eax,0x18(%r12)
-   14000600d:	e8 4e c4 ff ff       	call   140002460 <_ZN13NaturalBinary8optimizeEv>
-   140006012:	41 8b 44 24 18       	mov    0x18(%r12),%eax
-   140006017:	83 c0 01             	add    $0x1,%eax
-   14000601a:	49 39 44 24 10       	cmp    %rax,0x10(%r12)
-   14000601f:	73 4c                	jae    14000606d <_ZN15SignedMagnitudedvES_+0x26d>
-   140006021:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
-   140006028:	31 d2                	xor    %edx,%edx
-   14000602a:	4c 89 f1             	mov    %r14,%rcx
-   14000602d:	e8 4e b6 ff ff       	call   140001680 <_ZN4ByteC1Ey>
-   140006032:	b9 18 00 00 00       	mov    $0x18,%ecx
-   140006037:	e8 0c 03 00 00       	call   140006348 <_Znwy>
-   14000603c:	48 89 c1             	mov    %rax,%rcx
-   14000603f:	0f b6 84 24 80 00 00 	movzbl 0x80(%rsp),%eax
-   140006046:	00 
-   140006047:	4c 89 e2             	mov    %r12,%rdx
-   14000604a:	88 41 10             	mov    %al,0x10(%rcx)
-   14000604d:	e8 56 03 00 00       	call   1400063a8 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
-   140006052:	49 8b 44 24 10       	mov    0x10(%r12),%rax
-   140006057:	41 8b 54 24 18       	mov    0x18(%r12),%edx
-   14000605c:	48 83 c0 01          	add    $0x1,%rax
-   140006060:	83 c2 01             	add    $0x1,%edx
-   140006063:	49 89 44 24 10       	mov    %rax,0x10(%r12)
-   140006068:	48 39 d0             	cmp    %rdx,%rax
-   14000606b:	72 bb                	jb     140006028 <_ZN15SignedMagnitudedvES_+0x228>
-   14000606d:	4c 89 e9             	mov    %r13,%rcx
-   140006070:	e8 6b ba ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
-   140006075:	48 89 e9             	mov    %rbp,%rcx
-   140006078:	e8 63 ba ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
-   14000607d:	90                   	nop
-   14000607e:	0f 10 b4 24 a0 00 00 	movups 0xa0(%rsp),%xmm6
-   140006085:	00 
-   140006086:	4c 89 e0             	mov    %r12,%rax
-   140006089:	48 81 c4 b8 00 00 00 	add    $0xb8,%rsp
-   140006090:	5b                   	pop    %rbx
-   140006091:	5e                   	pop    %rsi
-   140006092:	5f                   	pop    %rdi
-   140006093:	5d                   	pop    %rbp
-   140006094:	41 5c                	pop    %r12
-   140006096:	41 5d                	pop    %r13
-   140006098:	41 5e                	pop    %r14
-   14000609a:	41 5f                	pop    %r15
-   14000609c:	c3                   	ret
-   14000609d:	0f b6 46 1c          	movzbl 0x1c(%rsi),%eax
-   1400060a1:	32 47 1c             	xor    0x1c(%rdi),%al
-   1400060a4:	41 88 44 24 1c       	mov    %al,0x1c(%r12)
-   1400060a9:	e9 54 ff ff ff       	jmp    140006002 <_ZN15SignedMagnitudedvES_+0x202>
-   1400060ae:	4c 89 f1             	mov    %r14,%rcx
-   1400060b1:	48 89 c3             	mov    %rax,%rbx
-   1400060b4:	e8 27 ba ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
-   1400060b9:	4c 89 e1             	mov    %r12,%rcx
-   1400060bc:	e8 1f ba ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
-   1400060c1:	4c 89 e9             	mov    %r13,%rcx
-   1400060c4:	e8 17 ba ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
-   1400060c9:	48 89 e9             	mov    %rbp,%rcx
-   1400060cc:	e8 0f ba ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
-   1400060d1:	48 89 d9             	mov    %rbx,%rcx
-   1400060d4:	e8 c7 13 00 00       	call   1400074a0 <_Unwind_Resume>
-   1400060d9:	48 89 c3             	mov    %rax,%rbx
-   1400060dc:	eb db                	jmp    1400060b9 <_ZN15SignedMagnitudedvES_+0x2b9>
-   1400060de:	4c 89 f1             	mov    %r14,%rcx
-   1400060e1:	48 89 c3             	mov    %rax,%rbx
-   1400060e4:	e8 f7 b9 ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
-   1400060e9:	4c 89 f9             	mov    %r15,%rcx
-   1400060ec:	e8 ef b9 ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
-   1400060f1:	eb c6                	jmp    1400060b9 <_ZN15SignedMagnitudedvES_+0x2b9>
-   1400060f3:	48 89 c3             	mov    %rax,%rbx
-   1400060f6:	eb f1                	jmp    1400060e9 <_ZN15SignedMagnitudedvES_+0x2e9>
-   1400060f8:	48 8b 4c 24 60       	mov    0x60(%rsp),%rcx
-   1400060fd:	48 89 c3             	mov    %rax,%rbx
-   140006100:	4c 39 f9             	cmp    %r15,%rcx
-   140006103:	74 b4                	je     1400060b9 <_ZN15SignedMagnitudedvES_+0x2b9>
-   140006105:	48 8b 31             	mov    (%rcx),%rsi
-   140006108:	ba 18 00 00 00       	mov    $0x18,%edx
-   14000610d:	e8 3e 02 00 00       	call   140006350 <_ZdlPvy>
-   140006112:	48 89 f1             	mov    %rsi,%rcx
-   140006115:	eb e9                	jmp    140006100 <_ZN15SignedMagnitudedvES_+0x300>
-   140006117:	eb 95                	jmp    1400060ae <_ZN15SignedMagnitudedvES_+0x2ae>
-   140006119:	eb be                	jmp    1400060d9 <_ZN15SignedMagnitudedvES_+0x2d9>
-   14000611b:	48 8b 4c 24 20       	mov    0x20(%rsp),%rcx
-   140006120:	48 89 c3             	mov    %rax,%rbx
-   140006123:	48 39 e9             	cmp    %rbp,%rcx
-   140006126:	74 a9                	je     1400060d1 <_ZN15SignedMagnitudedvES_+0x2d1>
-   140006128:	48 8b 31             	mov    (%rcx),%rsi
-   14000612b:	ba 18 00 00 00       	mov    $0x18,%edx
-   140006130:	e8 1b 02 00 00       	call   140006350 <_ZdlPvy>
-   140006135:	48 89 f1             	mov    %rsi,%rcx
-   140006138:	eb e9                	jmp    140006123 <_ZN15SignedMagnitudedvES_+0x323>
-   14000613a:	48 8b 4c 24 40       	mov    0x40(%rsp),%rcx
-   14000613f:	48 89 c3             	mov    %rax,%rbx
-   140006142:	4c 39 e9             	cmp    %r13,%rcx
-   140006145:	74 82                	je     1400060c9 <_ZN15SignedMagnitudedvES_+0x2c9>
-   140006147:	48 8b 31             	mov    (%rcx),%rsi
-   14000614a:	ba 18 00 00 00       	mov    $0x18,%edx
-   14000614f:	e8 fc 01 00 00       	call   140006350 <_ZdlPvy>
-   140006154:	48 89 f1             	mov    %rsi,%rcx
-   140006157:	eb e9                	jmp    140006142 <_ZN15SignedMagnitudedvES_+0x342>
-   140006159:	48 89 c3             	mov    %rax,%rbx
-   14000615c:	e9 60 ff ff ff       	jmp    1400060c1 <_ZN15SignedMagnitudedvES_+0x2c1>
-   140006161:	90                   	nop
-   140006162:	66 66 2e 0f 1f 84 00 	data16 cs nopw 0x0(%rax,%rax,1)
-   140006169:	00 00 00 00 
-   14000616d:	0f 1f 00             	nopl   (%rax)
+0000000140005d80 <_ZN15SignedMagnitudegeES_>:
+   140005d80:	41 54                	push   %r12
+   140005d82:	55                   	push   %rbp
+   140005d83:	57                   	push   %rdi
+   140005d84:	56                   	push   %rsi
+   140005d85:	53                   	push   %rbx
+   140005d86:	48 83 ec 60          	sub    $0x60,%rsp
+   140005d8a:	48 8b 1a             	mov    (%rdx),%rbx
+   140005d8d:	48 8d 7c 24 20       	lea    0x20(%rsp),%rdi
+   140005d92:	48 89 cd             	mov    %rcx,%rbp
+   140005d95:	48 89 d6             	mov    %rdx,%rsi
+   140005d98:	48 c7 44 24 30 00 00 	movq   $0x0,0x30(%rsp)
+   140005d9f:	00 00 
+   140005da1:	66 48 0f 6e c7       	movq   %rdi,%xmm0
+   140005da6:	66 0f 6c c0          	punpcklqdq %xmm0,%xmm0
+   140005daa:	0f 11 44 24 20       	movups %xmm0,0x20(%rsp)
+   140005daf:	48 39 da             	cmp    %rbx,%rdx
+   140005db2:	74 2e                	je     140005de2 <_ZN15SignedMagnitudegeES_+0x62>
+   140005db4:	0f 1f 40 00          	nopl   0x0(%rax)
+   140005db8:	b9 18 00 00 00       	mov    $0x18,%ecx
+   140005dbd:	e8 f6 0f 00 00       	call   140006db8 <_Znwy>
+   140005dc2:	48 89 c1             	mov    %rax,%rcx
+   140005dc5:	0f b6 43 10          	movzbl 0x10(%rbx),%eax
+   140005dc9:	48 89 fa             	mov    %rdi,%rdx
+   140005dcc:	88 41 10             	mov    %al,0x10(%rcx)
+   140005dcf:	e8 44 10 00 00       	call   140006e18 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
+   140005dd4:	48 8b 1b             	mov    (%rbx),%rbx
+   140005dd7:	48 83 44 24 30 01    	addq   $0x1,0x30(%rsp)
+   140005ddd:	48 39 de             	cmp    %rbx,%rsi
+   140005de0:	75 d6                	jne    140005db8 <_ZN15SignedMagnitudegeES_+0x38>
+   140005de2:	8b 46 18             	mov    0x18(%rsi),%eax
+   140005de5:	48 89 fa             	mov    %rdi,%rdx
+   140005de8:	48 89 e9             	mov    %rbp,%rcx
+   140005deb:	89 44 24 38          	mov    %eax,0x38(%rsp)
+   140005def:	0f b6 46 1c          	movzbl 0x1c(%rsi),%eax
+   140005df3:	88 44 24 3c          	mov    %al,0x3c(%rsp)
+   140005df7:	e8 74 f5 ff ff       	call   140005370 <_ZN15SignedMagnitudeeqES_>
+   140005dfc:	89 c3                	mov    %eax,%ebx
+   140005dfe:	84 c0                	test   %al,%al
+   140005e00:	75 7c                	jne    140005e7e <_ZN15SignedMagnitudegeES_+0xfe>
+   140005e02:	4c 8d 64 24 40       	lea    0x40(%rsp),%r12
+   140005e07:	48 8b 1e             	mov    (%rsi),%rbx
+   140005e0a:	48 c7 44 24 50 00 00 	movq   $0x0,0x50(%rsp)
+   140005e11:	00 00 
+   140005e13:	66 49 0f 6e c4       	movq   %r12,%xmm0
+   140005e18:	66 0f 6c c0          	punpcklqdq %xmm0,%xmm0
+   140005e1c:	0f 11 44 24 40       	movups %xmm0,0x40(%rsp)
+   140005e21:	48 39 de             	cmp    %rbx,%rsi
+   140005e24:	74 34                	je     140005e5a <_ZN15SignedMagnitudegeES_+0xda>
+   140005e26:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
+   140005e2d:	00 00 00 
+   140005e30:	b9 18 00 00 00       	mov    $0x18,%ecx
+   140005e35:	e8 7e 0f 00 00       	call   140006db8 <_Znwy>
+   140005e3a:	48 89 c1             	mov    %rax,%rcx
+   140005e3d:	0f b6 43 10          	movzbl 0x10(%rbx),%eax
+   140005e41:	4c 89 e2             	mov    %r12,%rdx
+   140005e44:	88 41 10             	mov    %al,0x10(%rcx)
+   140005e47:	e8 cc 0f 00 00       	call   140006e18 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
+   140005e4c:	48 8b 1b             	mov    (%rbx),%rbx
+   140005e4f:	48 83 44 24 50 01    	addq   $0x1,0x50(%rsp)
+   140005e55:	48 39 de             	cmp    %rbx,%rsi
+   140005e58:	75 d6                	jne    140005e30 <_ZN15SignedMagnitudegeES_+0xb0>
+   140005e5a:	8b 46 18             	mov    0x18(%rsi),%eax
+   140005e5d:	4c 89 e2             	mov    %r12,%rdx
+   140005e60:	48 89 e9             	mov    %rbp,%rcx
+   140005e63:	89 44 24 58          	mov    %eax,0x58(%rsp)
+   140005e67:	0f b6 46 1c          	movzbl 0x1c(%rsi),%eax
+   140005e6b:	88 44 24 5c          	mov    %al,0x5c(%rsp)
+   140005e6f:	e8 bc fb ff ff       	call   140005a30 <_ZN15SignedMagnitudegtES_>
+   140005e74:	4c 89 e1             	mov    %r12,%rcx
+   140005e77:	89 c3                	mov    %eax,%ebx
+   140005e79:	e8 62 bc ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
+   140005e7e:	48 89 f9             	mov    %rdi,%rcx
+   140005e81:	e8 5a bc ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
+   140005e86:	89 d8                	mov    %ebx,%eax
+   140005e88:	48 83 c4 60          	add    $0x60,%rsp
+   140005e8c:	5b                   	pop    %rbx
+   140005e8d:	5e                   	pop    %rsi
+   140005e8e:	5f                   	pop    %rdi
+   140005e8f:	5d                   	pop    %rbp
+   140005e90:	41 5c                	pop    %r12
+   140005e92:	c3                   	ret
+   140005e93:	4c 89 e1             	mov    %r12,%rcx
+   140005e96:	48 89 c3             	mov    %rax,%rbx
+   140005e99:	e8 42 bc ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
+   140005e9e:	48 89 f9             	mov    %rdi,%rcx
+   140005ea1:	e8 3a bc ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
+   140005ea6:	48 89 d9             	mov    %rbx,%rcx
+   140005ea9:	e8 62 20 00 00       	call   140007f10 <_Unwind_Resume>
+   140005eae:	48 8b 4c 24 40       	mov    0x40(%rsp),%rcx
+   140005eb3:	48 89 c3             	mov    %rax,%rbx
+   140005eb6:	4c 39 e1             	cmp    %r12,%rcx
+   140005eb9:	74 e3                	je     140005e9e <_ZN15SignedMagnitudegeES_+0x11e>
+   140005ebb:	48 8b 31             	mov    (%rcx),%rsi
+   140005ebe:	ba 18 00 00 00       	mov    $0x18,%edx
+   140005ec3:	e8 f8 0e 00 00       	call   140006dc0 <_ZdlPvy>
+   140005ec8:	48 89 f1             	mov    %rsi,%rcx
+   140005ecb:	eb e9                	jmp    140005eb6 <_ZN15SignedMagnitudegeES_+0x136>
+   140005ecd:	48 89 c3             	mov    %rax,%rbx
+   140005ed0:	eb cc                	jmp    140005e9e <_ZN15SignedMagnitudegeES_+0x11e>
+   140005ed2:	48 8b 4c 24 20       	mov    0x20(%rsp),%rcx
+   140005ed7:	48 89 c3             	mov    %rax,%rbx
+   140005eda:	48 39 f9             	cmp    %rdi,%rcx
+   140005edd:	74 c7                	je     140005ea6 <_ZN15SignedMagnitudegeES_+0x126>
+   140005edf:	48 8b 31             	mov    (%rcx),%rsi
+   140005ee2:	ba 18 00 00 00       	mov    $0x18,%edx
+   140005ee7:	e8 d4 0e 00 00       	call   140006dc0 <_ZdlPvy>
+   140005eec:	48 89 f1             	mov    %rsi,%rcx
+   140005eef:	eb e9                	jmp    140005eda <_ZN15SignedMagnitudegeES_+0x15a>
+   140005ef1:	90                   	nop
+   140005ef2:	66 66 2e 0f 1f 84 00 	data16 cs nopw 0x0(%rax,%rax,1)
+   140005ef9:	00 00 00 00 
+   140005efd:	0f 1f 00             	nopl   (%rax)
 
-0000000140006170 <_ZN15SignedMagnitude8optimizeEv>:
-   140006170:	56                   	push   %rsi
-   140006171:	53                   	push   %rbx
-   140006172:	48 83 ec 38          	sub    $0x38,%rsp
-   140006176:	48 89 cb             	mov    %rcx,%rbx
-   140006179:	e8 e2 c2 ff ff       	call   140002460 <_ZN13NaturalBinary8optimizeEv>
-   14000617e:	8b 43 18             	mov    0x18(%rbx),%eax
-   140006181:	83 c0 01             	add    $0x1,%eax
-   140006184:	48 39 43 10          	cmp    %rax,0x10(%rbx)
-   140006188:	73 44                	jae    1400061ce <_ZN15SignedMagnitude8optimizeEv+0x5e>
-   14000618a:	48 8d 74 24 2f       	lea    0x2f(%rsp),%rsi
-   14000618f:	90                   	nop
-   140006190:	31 d2                	xor    %edx,%edx
-   140006192:	48 89 f1             	mov    %rsi,%rcx
-   140006195:	e8 e6 b4 ff ff       	call   140001680 <_ZN4ByteC1Ey>
-   14000619a:	b9 18 00 00 00       	mov    $0x18,%ecx
-   14000619f:	e8 a4 01 00 00       	call   140006348 <_Znwy>
-   1400061a4:	48 89 da             	mov    %rbx,%rdx
-   1400061a7:	48 89 c1             	mov    %rax,%rcx
-   1400061aa:	0f b6 44 24 2f       	movzbl 0x2f(%rsp),%eax
-   1400061af:	88 41 10             	mov    %al,0x10(%rcx)
-   1400061b2:	e8 f1 01 00 00       	call   1400063a8 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
-   1400061b7:	48 8b 43 10          	mov    0x10(%rbx),%rax
-   1400061bb:	8b 53 18             	mov    0x18(%rbx),%edx
-   1400061be:	48 83 c0 01          	add    $0x1,%rax
-   1400061c2:	83 c2 01             	add    $0x1,%edx
-   1400061c5:	48 89 43 10          	mov    %rax,0x10(%rbx)
-   1400061c9:	48 39 d0             	cmp    %rdx,%rax
-   1400061cc:	72 c2                	jb     140006190 <_ZN15SignedMagnitude8optimizeEv+0x20>
-   1400061ce:	48 83 c4 38          	add    $0x38,%rsp
-   1400061d2:	5b                   	pop    %rbx
-   1400061d3:	5e                   	pop    %rsi
-   1400061d4:	c3                   	ret
-   1400061d5:	90                   	nop
-   1400061d6:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
-   1400061dd:	00 00 00 
+0000000140005f00 <_ZN15SignedMagnitudeplES_>:
+   140005f00:	41 57                	push   %r15
+   140005f02:	41 56                	push   %r14
+   140005f04:	41 55                	push   %r13
+   140005f06:	41 54                	push   %r12
+   140005f08:	55                   	push   %rbp
+   140005f09:	57                   	push   %rdi
+   140005f0a:	56                   	push   %rsi
+   140005f0b:	53                   	push   %rbx
+   140005f0c:	48 81 ec c8 00 00 00 	sub    $0xc8,%rsp
+   140005f13:	0f 11 b4 24 b0 00 00 	movups %xmm6,0xb0(%rsp)
+   140005f1a:	00 
+   140005f1b:	49 8b 28             	mov    (%r8),%rbp
+   140005f1e:	48 8d 74 24 70       	lea    0x70(%rsp),%rsi
+   140005f23:	49 89 cc             	mov    %rcx,%r12
+   140005f26:	48 89 d7             	mov    %rdx,%rdi
+   140005f29:	4c 89 c3             	mov    %r8,%rbx
+   140005f2c:	66 48 0f 6e c6       	movq   %rsi,%xmm0
+   140005f31:	48 c7 84 24 80 00 00 	movq   $0x0,0x80(%rsp)
+   140005f38:	00 00 00 00 00 
+   140005f3d:	66 0f 6c c0          	punpcklqdq %xmm0,%xmm0
+   140005f41:	0f 11 44 24 70       	movups %xmm0,0x70(%rsp)
+   140005f46:	49 39 e8             	cmp    %rbp,%r8
+   140005f49:	74 33                	je     140005f7e <_ZN15SignedMagnitudeplES_+0x7e>
+   140005f4b:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+   140005f50:	b9 18 00 00 00       	mov    $0x18,%ecx
+   140005f55:	e8 5e 0e 00 00       	call   140006db8 <_Znwy>
+   140005f5a:	48 89 c1             	mov    %rax,%rcx
+   140005f5d:	0f b6 45 10          	movzbl 0x10(%rbp),%eax
+   140005f61:	48 89 f2             	mov    %rsi,%rdx
+   140005f64:	88 41 10             	mov    %al,0x10(%rcx)
+   140005f67:	e8 ac 0e 00 00       	call   140006e18 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
+   140005f6c:	48 8b 6d 00          	mov    0x0(%rbp),%rbp
+   140005f70:	48 83 84 24 80 00 00 	addq   $0x1,0x80(%rsp)
+   140005f77:	00 01 
+   140005f79:	48 39 eb             	cmp    %rbp,%rbx
+   140005f7c:	75 d2                	jne    140005f50 <_ZN15SignedMagnitudeplES_+0x50>
+   140005f7e:	8b 43 18             	mov    0x18(%rbx),%eax
+   140005f81:	4c 8d 74 24 30       	lea    0x30(%rsp),%r14
+   140005f86:	49 89 f0             	mov    %rsi,%r8
+   140005f89:	48 89 fa             	mov    %rdi,%rdx
+   140005f8c:	4c 89 f1             	mov    %r14,%rcx
+   140005f8f:	89 84 24 88 00 00 00 	mov    %eax,0x88(%rsp)
+   140005f96:	0f b6 43 1c          	movzbl 0x1c(%rbx),%eax
+   140005f9a:	88 84 24 8c 00 00 00 	mov    %al,0x8c(%rsp)
+   140005fa1:	e8 da f2 ff ff       	call   140005280 <_ZN15SignedMagnitude15alignModuleWithES_>
+   140005fa6:	48 8d ac 24 90 00 00 	lea    0x90(%rsp),%rbp
+   140005fad:	00 
+   140005fae:	48 89 f1             	mov    %rsi,%rcx
+   140005fb1:	e8 2a bb ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
+   140005fb6:	66 48 0f 6e f5       	movq   %rbp,%xmm6
+   140005fbb:	4c 8b 2f             	mov    (%rdi),%r13
+   140005fbe:	48 c7 84 24 a0 00 00 	movq   $0x0,0xa0(%rsp)
+   140005fc5:	00 00 00 00 00 
+   140005fca:	66 0f 6c f6          	punpcklqdq %xmm6,%xmm6
+   140005fce:	0f 11 b4 24 90 00 00 	movups %xmm6,0x90(%rsp)
+   140005fd5:	00 
+   140005fd6:	4c 39 ef             	cmp    %r13,%rdi
+   140005fd9:	74 34                	je     14000600f <_ZN15SignedMagnitudeplES_+0x10f>
+   140005fdb:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+   140005fe0:	b9 18 00 00 00       	mov    $0x18,%ecx
+   140005fe5:	e8 ce 0d 00 00       	call   140006db8 <_Znwy>
+   140005fea:	48 89 c1             	mov    %rax,%rcx
+   140005fed:	41 0f b6 45 10       	movzbl 0x10(%r13),%eax
+   140005ff2:	48 89 ea             	mov    %rbp,%rdx
+   140005ff5:	88 41 10             	mov    %al,0x10(%rcx)
+   140005ff8:	e8 1b 0e 00 00       	call   140006e18 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
+   140005ffd:	4d 8b 6d 00          	mov    0x0(%r13),%r13
+   140006001:	48 83 84 24 a0 00 00 	addq   $0x1,0xa0(%rsp)
+   140006008:	00 01 
+   14000600a:	4c 39 ef             	cmp    %r13,%rdi
+   14000600d:	75 d1                	jne    140005fe0 <_ZN15SignedMagnitudeplES_+0xe0>
+   14000600f:	8b 47 18             	mov    0x18(%rdi),%eax
+   140006012:	4c 8d 6c 24 50       	lea    0x50(%rsp),%r13
+   140006017:	49 89 e8             	mov    %rbp,%r8
+   14000601a:	48 89 da             	mov    %rbx,%rdx
+   14000601d:	4c 89 e9             	mov    %r13,%rcx
+   140006020:	89 84 24 a8 00 00 00 	mov    %eax,0xa8(%rsp)
+   140006027:	0f b6 47 1c          	movzbl 0x1c(%rdi),%eax
+   14000602b:	88 84 24 ac 00 00 00 	mov    %al,0xac(%rsp)
+   140006032:	e8 49 f2 ff ff       	call   140005280 <_ZN15SignedMagnitude15alignModuleWithES_>
+   140006037:	48 89 e9             	mov    %rbp,%rcx
+   14000603a:	e8 a1 ba ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
+   14000603f:	4c 89 e1             	mov    %r12,%rcx
+   140006042:	e8 f9 b8 ff ff       	call   140001940 <_ZN13NaturalBinaryC1Ev>
+   140006047:	41 c6 44 24 1c 00    	movb   $0x0,0x1c(%r12)
+   14000604d:	31 d2                	xor    %edx,%edx
+   14000604f:	48 89 e9             	mov    %rbp,%rcx
+   140006052:	e8 f9 b8 ff ff       	call   140001950 <_ZN13NaturalBinaryC1Ex>
+   140006057:	48 89 ea             	mov    %rbp,%rdx
+   14000605a:	4c 89 e1             	mov    %r12,%rcx
+   14000605d:	e8 de eb ff ff       	call   140004c40 <_ZNSt7__cxx114listI4ByteSaIS1_EEaSERKS3_.part.0>
+   140006062:	48 89 e9             	mov    %rbp,%rcx
+   140006065:	e8 76 ba ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
+   14000606a:	0f b6 43 1c          	movzbl 0x1c(%rbx),%eax
+   14000606e:	41 c7 44 24 18 00 00 	movl   $0x0,0x18(%r12)
+   140006075:	00 00 
+   140006077:	38 47 1c             	cmp    %al,0x1c(%rdi)
+   14000607a:	0f 84 f8 00 00 00    	je     140006178 <_ZN15SignedMagnitudeplES_+0x278>
+   140006080:	66 48 0f 6e c5       	movq   %rbp,%xmm0
+   140006085:	4c 8b 7c 24 50       	mov    0x50(%rsp),%r15
+   14000608a:	48 c7 84 24 a0 00 00 	movq   $0x0,0xa0(%rsp)
+   140006091:	00 00 00 00 00 
+   140006096:	66 0f 6c c0          	punpcklqdq %xmm0,%xmm0
+   14000609a:	0f 11 84 24 90 00 00 	movups %xmm0,0x90(%rsp)
+   1400060a1:	00 
+   1400060a2:	4d 39 ef             	cmp    %r13,%r15
+   1400060a5:	74 37                	je     1400060de <_ZN15SignedMagnitudeplES_+0x1de>
+   1400060a7:	66 0f 1f 84 00 00 00 	nopw   0x0(%rax,%rax,1)
+   1400060ae:	00 00 
+   1400060b0:	b9 18 00 00 00       	mov    $0x18,%ecx
+   1400060b5:	e8 fe 0c 00 00       	call   140006db8 <_Znwy>
+   1400060ba:	48 89 c1             	mov    %rax,%rcx
+   1400060bd:	41 0f b6 47 10       	movzbl 0x10(%r15),%eax
+   1400060c2:	48 89 ea             	mov    %rbp,%rdx
+   1400060c5:	88 41 10             	mov    %al,0x10(%rcx)
+   1400060c8:	e8 4b 0d 00 00       	call   140006e18 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
+   1400060cd:	4d 8b 3f             	mov    (%r15),%r15
+   1400060d0:	48 83 84 24 a0 00 00 	addq   $0x1,0xa0(%rsp)
+   1400060d7:	00 01 
+   1400060d9:	4d 39 ef             	cmp    %r13,%r15
+   1400060dc:	75 d2                	jne    1400060b0 <_ZN15SignedMagnitudeplES_+0x1b0>
+   1400060de:	48 89 ea             	mov    %rbp,%rdx
+   1400060e1:	4c 89 f1             	mov    %r14,%rcx
+   1400060e4:	e8 57 ca ff ff       	call   140002b40 <_ZN13NaturalBinarygeES_>
+   1400060e9:	48 89 e9             	mov    %rbp,%rcx
+   1400060ec:	41 89 c7             	mov    %eax,%r15d
+   1400060ef:	e8 ec b9 ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
+   1400060f4:	66 48 0f 6e c6       	movq   %rsi,%xmm0
+   1400060f9:	48 c7 84 24 80 00 00 	movq   $0x0,0x80(%rsp)
+   140006100:	00 00 00 00 00 
+   140006105:	66 0f 6c c0          	punpcklqdq %xmm0,%xmm0
+   140006109:	0f 11 44 24 70       	movups %xmm0,0x70(%rsp)
+   14000610e:	45 84 ff             	test   %r15b,%r15b
+   140006111:	0f 84 89 01 00 00    	je     1400062a0 <_ZN15SignedMagnitudeplES_+0x3a0>
+   140006117:	4c 8b 7c 24 50       	mov    0x50(%rsp),%r15
+   14000611c:	4d 39 ef             	cmp    %r13,%r15
+   14000611f:	74 35                	je     140006156 <_ZN15SignedMagnitudeplES_+0x256>
+   140006121:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+   140006128:	b9 18 00 00 00       	mov    $0x18,%ecx
+   14000612d:	e8 86 0c 00 00       	call   140006db8 <_Znwy>
+   140006132:	48 89 c1             	mov    %rax,%rcx
+   140006135:	41 0f b6 47 10       	movzbl 0x10(%r15),%eax
+   14000613a:	48 89 f2             	mov    %rsi,%rdx
+   14000613d:	88 41 10             	mov    %al,0x10(%rcx)
+   140006140:	e8 d3 0c 00 00       	call   140006e18 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
+   140006145:	4d 8b 3f             	mov    (%r15),%r15
+   140006148:	48 83 84 24 80 00 00 	addq   $0x1,0x80(%rsp)
+   14000614f:	00 01 
+   140006151:	4d 39 ef             	cmp    %r13,%r15
+   140006154:	75 d2                	jne    140006128 <_ZN15SignedMagnitudeplES_+0x228>
+   140006156:	49 89 f0             	mov    %rsi,%r8
+   140006159:	4c 89 f2             	mov    %r14,%rdx
+   14000615c:	48 89 e9             	mov    %rbp,%rcx
+   14000615f:	e8 dc bc ff ff       	call   140001e40 <_ZN13NaturalBinarymiES_>
+   140006164:	48 89 ea             	mov    %rbp,%rdx
+   140006167:	4c 89 e1             	mov    %r12,%rcx
+   14000616a:	e8 d1 ea ff ff       	call   140004c40 <_ZNSt7__cxx114listI4ByteSaIS1_EEaSERKS3_.part.0>
+   14000616f:	eb 76                	jmp    1400061e7 <_ZN15SignedMagnitudeplES_+0x2e7>
+   140006171:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+   140006178:	66 48 0f 6e c6       	movq   %rsi,%xmm0
+   14000617d:	4c 8b 7c 24 50       	mov    0x50(%rsp),%r15
+   140006182:	48 c7 84 24 80 00 00 	movq   $0x0,0x80(%rsp)
+   140006189:	00 00 00 00 00 
+   14000618e:	66 0f 6c c0          	punpcklqdq %xmm0,%xmm0
+   140006192:	0f 11 44 24 70       	movups %xmm0,0x70(%rsp)
+   140006197:	4d 39 ef             	cmp    %r13,%r15
+   14000619a:	74 32                	je     1400061ce <_ZN15SignedMagnitudeplES_+0x2ce>
+   14000619c:	0f 1f 40 00          	nopl   0x0(%rax)
+   1400061a0:	b9 18 00 00 00       	mov    $0x18,%ecx
+   1400061a5:	e8 0e 0c 00 00       	call   140006db8 <_Znwy>
+   1400061aa:	48 89 c1             	mov    %rax,%rcx
+   1400061ad:	41 0f b6 47 10       	movzbl 0x10(%r15),%eax
+   1400061b2:	48 89 f2             	mov    %rsi,%rdx
+   1400061b5:	88 41 10             	mov    %al,0x10(%rcx)
+   1400061b8:	e8 5b 0c 00 00       	call   140006e18 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
+   1400061bd:	4d 8b 3f             	mov    (%r15),%r15
+   1400061c0:	48 83 84 24 80 00 00 	addq   $0x1,0x80(%rsp)
+   1400061c7:	00 01 
+   1400061c9:	4d 39 ef             	cmp    %r13,%r15
+   1400061cc:	75 d2                	jne    1400061a0 <_ZN15SignedMagnitudeplES_+0x2a0>
+   1400061ce:	49 89 f0             	mov    %rsi,%r8
+   1400061d1:	4c 89 f2             	mov    %r14,%rdx
+   1400061d4:	48 89 e9             	mov    %rbp,%rcx
+   1400061d7:	e8 44 b9 ff ff       	call   140001b20 <_ZN13NaturalBinaryplES_>
+   1400061dc:	48 89 ea             	mov    %rbp,%rdx
+   1400061df:	4c 89 e1             	mov    %r12,%rcx
+   1400061e2:	e8 59 ea ff ff       	call   140004c40 <_ZNSt7__cxx114listI4ByteSaIS1_EEaSERKS3_.part.0>
+   1400061e7:	48 89 e9             	mov    %rbp,%rcx
+   1400061ea:	e8 f1 b8 ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
+   1400061ef:	48 89 f1             	mov    %rsi,%rcx
+   1400061f2:	e8 e9 b8 ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
+   1400061f7:	0f b6 53 1c          	movzbl 0x1c(%rbx),%edx
+   1400061fb:	0f b6 47 1c          	movzbl 0x1c(%rdi),%eax
+   1400061ff:	88 54 24 2f          	mov    %dl,0x2f(%rsp)
+   140006203:	84 d2                	test   %dl,%dl
+   140006205:	74 19                	je     140006220 <_ZN15SignedMagnitudeplES_+0x320>
+   140006207:	84 c0                	test   %al,%al
+   140006209:	0f 84 77 01 00 00    	je     140006386 <_ZN15SignedMagnitudeplES_+0x486>
+   14000620f:	41 c6 44 24 1c 01    	movb   $0x1,0x1c(%r12)
+   140006215:	eb 17                	jmp    14000622e <_ZN15SignedMagnitudeplES_+0x32e>
+   140006217:	66 0f 1f 84 00 00 00 	nopw   0x0(%rax,%rax,1)
+   14000621e:	00 00 
+   140006220:	84 c0                	test   %al,%al
+   140006222:	0f 85 d4 00 00 00    	jne    1400062fc <_ZN15SignedMagnitudeplES_+0x3fc>
+   140006228:	41 c6 44 24 1c 00    	movb   $0x0,0x1c(%r12)
+   14000622e:	4c 89 e1             	mov    %r12,%rcx
+   140006231:	e8 2a c2 ff ff       	call   140002460 <_ZN13NaturalBinary8optimizeEv>
+   140006236:	31 d2                	xor    %edx,%edx
+   140006238:	48 89 e9             	mov    %rbp,%rcx
+   14000623b:	e8 10 b7 ff ff       	call   140001950 <_ZN13NaturalBinaryC1Ex>
+   140006240:	48 89 ea             	mov    %rbp,%rdx
+   140006243:	4c 89 e1             	mov    %r12,%rcx
+   140006246:	e8 65 c4 ff ff       	call   1400026b0 <_ZN13NaturalBinarygtES_>
+   14000624b:	89 c6                	mov    %eax,%esi
+   14000624d:	48 89 e9             	mov    %rbp,%rcx
+   140006250:	e8 8b b8 ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
+   140006255:	40 84 f6             	test   %sil,%sil
+   140006258:	74 10                	je     14000626a <_ZN15SignedMagnitudeplES_+0x36a>
+   14000625a:	8b 47 18             	mov    0x18(%rdi),%eax
+   14000625d:	8b 53 18             	mov    0x18(%rbx),%edx
+   140006260:	39 d0                	cmp    %edx,%eax
+   140006262:	0f 42 c2             	cmovb  %edx,%eax
+   140006265:	41 89 44 24 18       	mov    %eax,0x18(%r12)
+   14000626a:	4c 89 e9             	mov    %r13,%rcx
+   14000626d:	e8 6e b8 ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
+   140006272:	4c 89 f1             	mov    %r14,%rcx
+   140006275:	e8 66 b8 ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
+   14000627a:	90                   	nop
+   14000627b:	0f 10 b4 24 b0 00 00 	movups 0xb0(%rsp),%xmm6
+   140006282:	00 
+   140006283:	4c 89 e0             	mov    %r12,%rax
+   140006286:	48 81 c4 c8 00 00 00 	add    $0xc8,%rsp
+   14000628d:	5b                   	pop    %rbx
+   14000628e:	5e                   	pop    %rsi
+   14000628f:	5f                   	pop    %rdi
+   140006290:	5d                   	pop    %rbp
+   140006291:	41 5c                	pop    %r12
+   140006293:	41 5d                	pop    %r13
+   140006295:	41 5e                	pop    %r14
+   140006297:	41 5f                	pop    %r15
+   140006299:	c3                   	ret
+   14000629a:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+   1400062a0:	4c 8b 7c 24 30       	mov    0x30(%rsp),%r15
+   1400062a5:	4d 39 f7             	cmp    %r14,%r15
+   1400062a8:	74 34                	je     1400062de <_ZN15SignedMagnitudeplES_+0x3de>
+   1400062aa:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+   1400062b0:	b9 18 00 00 00       	mov    $0x18,%ecx
+   1400062b5:	e8 fe 0a 00 00       	call   140006db8 <_Znwy>
+   1400062ba:	48 89 c1             	mov    %rax,%rcx
+   1400062bd:	41 0f b6 47 10       	movzbl 0x10(%r15),%eax
+   1400062c2:	48 89 f2             	mov    %rsi,%rdx
+   1400062c5:	88 41 10             	mov    %al,0x10(%rcx)
+   1400062c8:	e8 4b 0b 00 00       	call   140006e18 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
+   1400062cd:	4d 8b 3f             	mov    (%r15),%r15
+   1400062d0:	48 83 84 24 80 00 00 	addq   $0x1,0x80(%rsp)
+   1400062d7:	00 01 
+   1400062d9:	4d 39 f7             	cmp    %r14,%r15
+   1400062dc:	75 d2                	jne    1400062b0 <_ZN15SignedMagnitudeplES_+0x3b0>
+   1400062de:	49 89 f0             	mov    %rsi,%r8
+   1400062e1:	4c 89 ea             	mov    %r13,%rdx
+   1400062e4:	48 89 e9             	mov    %rbp,%rcx
+   1400062e7:	e8 54 bb ff ff       	call   140001e40 <_ZN13NaturalBinarymiES_>
+   1400062ec:	48 89 ea             	mov    %rbp,%rdx
+   1400062ef:	4c 89 e1             	mov    %r12,%rcx
+   1400062f2:	e8 49 e9 ff ff       	call   140004c40 <_ZNSt7__cxx114listI4ByteSaIS1_EEaSERKS3_.part.0>
+   1400062f7:	e9 eb fe ff ff       	jmp    1400061e7 <_ZN15SignedMagnitudeplES_+0x2e7>
+   1400062fc:	66 48 0f 6e c5       	movq   %rbp,%xmm0
+   140006301:	4c 8b 7c 24 50       	mov    0x50(%rsp),%r15
+   140006306:	48 c7 84 24 a0 00 00 	movq   $0x0,0xa0(%rsp)
+   14000630d:	00 00 00 00 00 
+   140006312:	66 0f 6c c0          	punpcklqdq %xmm0,%xmm0
+   140006316:	0f 11 84 24 90 00 00 	movups %xmm0,0x90(%rsp)
+   14000631d:	00 
+   14000631e:	4d 39 ef             	cmp    %r13,%r15
+   140006321:	74 33                	je     140006356 <_ZN15SignedMagnitudeplES_+0x456>
+   140006323:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+   140006328:	b9 18 00 00 00       	mov    $0x18,%ecx
+   14000632d:	e8 86 0a 00 00       	call   140006db8 <_Znwy>
+   140006332:	48 89 c1             	mov    %rax,%rcx
+   140006335:	41 0f b6 47 10       	movzbl 0x10(%r15),%eax
+   14000633a:	48 89 ea             	mov    %rbp,%rdx
+   14000633d:	88 41 10             	mov    %al,0x10(%rcx)
+   140006340:	e8 d3 0a 00 00       	call   140006e18 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
+   140006345:	4d 8b 3f             	mov    (%r15),%r15
+   140006348:	48 83 84 24 a0 00 00 	addq   $0x1,0xa0(%rsp)
+   14000634f:	00 01 
+   140006351:	4d 39 ef             	cmp    %r13,%r15
+   140006354:	75 d2                	jne    140006328 <_ZN15SignedMagnitudeplES_+0x428>
+   140006356:	48 89 ea             	mov    %rbp,%rdx
+   140006359:	4c 89 f1             	mov    %r14,%rcx
+   14000635c:	e8 4f c3 ff ff       	call   1400026b0 <_ZN13NaturalBinarygtES_>
+   140006361:	41 88 44 24 1c       	mov    %al,0x1c(%r12)
+   140006366:	48 89 e9             	mov    %rbp,%rcx
+   140006369:	e8 72 b7 ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
+   14000636e:	80 7c 24 2f 00       	cmpb   $0x0,0x2f(%rsp)
+   140006373:	0f 84 b5 fe ff ff    	je     14000622e <_ZN15SignedMagnitudeplES_+0x32e>
+   140006379:	48 89 f1             	mov    %rsi,%rcx
+   14000637c:	e8 5f b7 ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
+   140006381:	e9 a8 fe ff ff       	jmp    14000622e <_ZN15SignedMagnitudeplES_+0x32e>
+   140006386:	66 48 0f 6e c6       	movq   %rsi,%xmm0
+   14000638b:	4c 8b 7c 24 50       	mov    0x50(%rsp),%r15
+   140006390:	48 c7 84 24 80 00 00 	movq   $0x0,0x80(%rsp)
+   140006397:	00 00 00 00 00 
+   14000639c:	66 0f 6c c0          	punpcklqdq %xmm0,%xmm0
+   1400063a0:	0f 11 44 24 70       	movups %xmm0,0x70(%rsp)
+   1400063a5:	4d 39 ef             	cmp    %r13,%r15
+   1400063a8:	74 34                	je     1400063de <_ZN15SignedMagnitudeplES_+0x4de>
+   1400063aa:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+   1400063b0:	b9 18 00 00 00       	mov    $0x18,%ecx
+   1400063b5:	e8 fe 09 00 00       	call   140006db8 <_Znwy>
+   1400063ba:	48 89 c1             	mov    %rax,%rcx
+   1400063bd:	41 0f b6 47 10       	movzbl 0x10(%r15),%eax
+   1400063c2:	48 89 f2             	mov    %rsi,%rdx
+   1400063c5:	88 41 10             	mov    %al,0x10(%rcx)
+   1400063c8:	e8 4b 0a 00 00       	call   140006e18 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
+   1400063cd:	4d 8b 3f             	mov    (%r15),%r15
+   1400063d0:	48 83 84 24 80 00 00 	addq   $0x1,0x80(%rsp)
+   1400063d7:	00 01 
+   1400063d9:	4d 39 ef             	cmp    %r13,%r15
+   1400063dc:	75 d2                	jne    1400063b0 <_ZN15SignedMagnitudeplES_+0x4b0>
+   1400063de:	48 89 f2             	mov    %rsi,%rdx
+   1400063e1:	4c 89 f1             	mov    %r14,%rcx
+   1400063e4:	e8 27 c1 ff ff       	call   140002510 <_ZN13NaturalBinaryltES_>
+   1400063e9:	84 c0                	test   %al,%al
+   1400063eb:	74 08                	je     1400063f5 <_ZN15SignedMagnitudeplES_+0x4f5>
+   1400063ed:	41 c6 44 24 1c 01    	movb   $0x1,0x1c(%r12)
+   1400063f3:	eb 84                	jmp    140006379 <_ZN15SignedMagnitudeplES_+0x479>
+   1400063f5:	0f b6 47 1c          	movzbl 0x1c(%rdi),%eax
+   1400063f9:	88 44 24 2f          	mov    %al,0x2f(%rsp)
+   1400063fd:	84 c0                	test   %al,%al
+   1400063ff:	0f 85 f7 fe ff ff    	jne    1400062fc <_ZN15SignedMagnitudeplES_+0x3fc>
+   140006405:	41 c6 44 24 1c 00    	movb   $0x0,0x1c(%r12)
+   14000640b:	e9 69 ff ff ff       	jmp    140006379 <_ZN15SignedMagnitudeplES_+0x479>
+   140006410:	48 89 c3             	mov    %rax,%rbx
+   140006413:	48 89 f1             	mov    %rsi,%rcx
+   140006416:	e8 c5 b6 ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
+   14000641b:	4c 89 e1             	mov    %r12,%rcx
+   14000641e:	e8 bd b6 ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
+   140006423:	4c 89 e9             	mov    %r13,%rcx
+   140006426:	e8 b5 b6 ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
+   14000642b:	4c 89 f1             	mov    %r14,%rcx
+   14000642e:	e8 ad b6 ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
+   140006433:	48 89 d9             	mov    %rbx,%rcx
+   140006436:	e8 d5 1a 00 00       	call   140007f10 <_Unwind_Resume>
+   14000643b:	48 8b 8c 24 90 00 00 	mov    0x90(%rsp),%rcx
+   140006442:	00 
+   140006443:	48 89 c3             	mov    %rax,%rbx
+   140006446:	48 39 e9             	cmp    %rbp,%rcx
+   140006449:	74 1d                	je     140006468 <_ZN15SignedMagnitudeplES_+0x568>
+   14000644b:	48 8b 39             	mov    (%rcx),%rdi
+   14000644e:	ba 18 00 00 00       	mov    $0x18,%edx
+   140006453:	e8 68 09 00 00       	call   140006dc0 <_ZdlPvy>
+   140006458:	48 89 f9             	mov    %rdi,%rcx
+   14000645b:	eb e9                	jmp    140006446 <_ZN15SignedMagnitudeplES_+0x546>
+   14000645d:	48 89 e9             	mov    %rbp,%rcx
+   140006460:	48 89 c3             	mov    %rax,%rbx
+   140006463:	e8 78 b6 ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
+   140006468:	80 7c 24 2f 00       	cmpb   $0x0,0x2f(%rsp)
+   14000646d:	75 a4                	jne    140006413 <_ZN15SignedMagnitudeplES_+0x513>
+   14000646f:	eb aa                	jmp    14000641b <_ZN15SignedMagnitudeplES_+0x51b>
+   140006471:	48 89 c3             	mov    %rax,%rbx
+   140006474:	eb a5                	jmp    14000641b <_ZN15SignedMagnitudeplES_+0x51b>
+   140006476:	48 89 e9             	mov    %rbp,%rcx
+   140006479:	48 89 c3             	mov    %rax,%rbx
+   14000647c:	e8 5f b6 ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
+   140006481:	eb 98                	jmp    14000641b <_ZN15SignedMagnitudeplES_+0x51b>
+   140006483:	48 8b 8c 24 90 00 00 	mov    0x90(%rsp),%rcx
+   14000648a:	00 
+   14000648b:	48 89 c3             	mov    %rax,%rbx
+   14000648e:	48 39 e9             	cmp    %rbp,%rcx
+   140006491:	74 88                	je     14000641b <_ZN15SignedMagnitudeplES_+0x51b>
+   140006493:	48 8b 31             	mov    (%rcx),%rsi
+   140006496:	ba 18 00 00 00       	mov    $0x18,%edx
+   14000649b:	e8 20 09 00 00       	call   140006dc0 <_ZdlPvy>
+   1400064a0:	48 89 f1             	mov    %rsi,%rcx
+   1400064a3:	eb e9                	jmp    14000648e <_ZN15SignedMagnitudeplES_+0x58e>
+   1400064a5:	48 89 f1             	mov    %rsi,%rcx
+   1400064a8:	48 89 c3             	mov    %rax,%rbx
+   1400064ab:	e8 30 b6 ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
+   1400064b0:	48 89 d9             	mov    %rbx,%rcx
+   1400064b3:	e8 58 1a 00 00       	call   140007f10 <_Unwind_Resume>
+   1400064b8:	eb bc                	jmp    140006476 <_ZN15SignedMagnitudeplES_+0x576>
+   1400064ba:	48 8b 4c 24 70       	mov    0x70(%rsp),%rcx
+   1400064bf:	48 89 c3             	mov    %rax,%rbx
+   1400064c2:	48 39 f1             	cmp    %rsi,%rcx
+   1400064c5:	0f 84 50 ff ff ff    	je     14000641b <_ZN15SignedMagnitudeplES_+0x51b>
+   1400064cb:	48 8b 39             	mov    (%rcx),%rdi
+   1400064ce:	ba 18 00 00 00       	mov    $0x18,%edx
+   1400064d3:	e8 e8 08 00 00       	call   140006dc0 <_ZdlPvy>
+   1400064d8:	48 89 f9             	mov    %rdi,%rcx
+   1400064db:	eb e5                	jmp    1400064c2 <_ZN15SignedMagnitudeplES_+0x5c2>
+   1400064dd:	48 8b 4c 24 70       	mov    0x70(%rsp),%rcx
+   1400064e2:	48 89 c3             	mov    %rax,%rbx
+   1400064e5:	48 39 f1             	cmp    %rsi,%rcx
+   1400064e8:	74 c6                	je     1400064b0 <_ZN15SignedMagnitudeplES_+0x5b0>
+   1400064ea:	48 8b 39             	mov    (%rcx),%rdi
+   1400064ed:	ba 18 00 00 00       	mov    $0x18,%edx
+   1400064f2:	e8 c9 08 00 00       	call   140006dc0 <_ZdlPvy>
+   1400064f7:	48 89 f9             	mov    %rdi,%rcx
+   1400064fa:	eb e9                	jmp    1400064e5 <_ZN15SignedMagnitudeplES_+0x5e5>
+   1400064fc:	48 89 e9             	mov    %rbp,%rcx
+   1400064ff:	48 89 c3             	mov    %rax,%rbx
+   140006502:	e8 d9 b5 ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
+   140006507:	e9 07 ff ff ff       	jmp    140006413 <_ZN15SignedMagnitudeplES_+0x513>
+   14000650c:	e9 60 ff ff ff       	jmp    140006471 <_ZN15SignedMagnitudeplES_+0x571>
+   140006511:	eb e9                	jmp    1400064fc <_ZN15SignedMagnitudeplES_+0x5fc>
+   140006513:	e9 f8 fe ff ff       	jmp    140006410 <_ZN15SignedMagnitudeplES_+0x510>
+   140006518:	48 8b 4c 24 70       	mov    0x70(%rsp),%rcx
+   14000651d:	48 89 c3             	mov    %rax,%rbx
+   140006520:	48 39 f1             	cmp    %rsi,%rcx
+   140006523:	0f 84 f2 fe ff ff    	je     14000641b <_ZN15SignedMagnitudeplES_+0x51b>
+   140006529:	48 8b 39             	mov    (%rcx),%rdi
+   14000652c:	ba 18 00 00 00       	mov    $0x18,%edx
+   140006531:	e8 8a 08 00 00       	call   140006dc0 <_ZdlPvy>
+   140006536:	48 89 f9             	mov    %rdi,%rcx
+   140006539:	eb e5                	jmp    140006520 <_ZN15SignedMagnitudeplES_+0x620>
+   14000653b:	48 8b 4c 24 70       	mov    0x70(%rsp),%rcx
+   140006540:	48 89 c3             	mov    %rax,%rbx
+   140006543:	48 39 f1             	cmp    %rsi,%rcx
+   140006546:	0f 84 cf fe ff ff    	je     14000641b <_ZN15SignedMagnitudeplES_+0x51b>
+   14000654c:	48 8b 39             	mov    (%rcx),%rdi
+   14000654f:	ba 18 00 00 00       	mov    $0x18,%edx
+   140006554:	e8 67 08 00 00       	call   140006dc0 <_ZdlPvy>
+   140006559:	48 89 f9             	mov    %rdi,%rcx
+   14000655c:	eb e5                	jmp    140006543 <_ZN15SignedMagnitudeplES_+0x643>
+   14000655e:	e9 ad fe ff ff       	jmp    140006410 <_ZN15SignedMagnitudeplES_+0x510>
+   140006563:	48 8b 4c 24 70       	mov    0x70(%rsp),%rcx
+   140006568:	48 89 c3             	mov    %rax,%rbx
+   14000656b:	48 39 f1             	cmp    %rsi,%rcx
+   14000656e:	0f 84 a7 fe ff ff    	je     14000641b <_ZN15SignedMagnitudeplES_+0x51b>
+   140006574:	48 8b 39             	mov    (%rcx),%rdi
+   140006577:	ba 18 00 00 00       	mov    $0x18,%edx
+   14000657c:	e8 3f 08 00 00       	call   140006dc0 <_ZdlPvy>
+   140006581:	48 89 f9             	mov    %rdi,%rcx
+   140006584:	eb e5                	jmp    14000656b <_ZN15SignedMagnitudeplES_+0x66b>
+   140006586:	48 89 e9             	mov    %rbp,%rcx
+   140006589:	48 89 c3             	mov    %rax,%rbx
+   14000658c:	e8 4f b5 ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
+   140006591:	e9 95 fe ff ff       	jmp    14000642b <_ZN15SignedMagnitudeplES_+0x52b>
+   140006596:	48 89 c3             	mov    %rax,%rbx
+   140006599:	e9 85 fe ff ff       	jmp    140006423 <_ZN15SignedMagnitudeplES_+0x523>
+   14000659e:	48 8b 8c 24 90 00 00 	mov    0x90(%rsp),%rcx
+   1400065a5:	00 
+   1400065a6:	48 89 c3             	mov    %rax,%rbx
+   1400065a9:	48 39 e9             	cmp    %rbp,%rcx
+   1400065ac:	0f 84 79 fe ff ff    	je     14000642b <_ZN15SignedMagnitudeplES_+0x52b>
+   1400065b2:	48 8b 31             	mov    (%rcx),%rsi
+   1400065b5:	ba 18 00 00 00       	mov    $0x18,%edx
+   1400065ba:	e8 01 08 00 00       	call   140006dc0 <_ZdlPvy>
+   1400065bf:	48 89 f1             	mov    %rsi,%rcx
+   1400065c2:	eb e5                	jmp    1400065a9 <_ZN15SignedMagnitudeplES_+0x6a9>
+   1400065c4:	e9 33 ff ff ff       	jmp    1400064fc <_ZN15SignedMagnitudeplES_+0x5fc>
+   1400065c9:	e9 a8 fe ff ff       	jmp    140006476 <_ZN15SignedMagnitudeplES_+0x576>
+   1400065ce:	e9 3d fe ff ff       	jmp    140006410 <_ZN15SignedMagnitudeplES_+0x510>
+   1400065d3:	90                   	nop
+   1400065d4:	66 66 2e 0f 1f 84 00 	data16 cs nopw 0x0(%rax,%rax,1)
+   1400065db:	00 00 00 00 
+   1400065df:	90                   	nop
 
-00000001400061e0 <_ZN15SignedMagnitude14set_precissionEj>:
-   1400061e0:	55                   	push   %rbp
-   1400061e1:	57                   	push   %rdi
-   1400061e2:	56                   	push   %rsi
-   1400061e3:	53                   	push   %rbx
-   1400061e4:	48 83 ec 38          	sub    $0x38,%rsp
-   1400061e8:	8b 41 18             	mov    0x18(%rcx),%eax
-   1400061eb:	89 d6                	mov    %edx,%esi
-   1400061ed:	29 c2                	sub    %eax,%edx
-   1400061ef:	48 89 cb             	mov    %rcx,%rbx
-   1400061f2:	85 d2                	test   %edx,%edx
-   1400061f4:	74 4e                	je     140006244 <_ZN15SignedMagnitude14set_precissionEj+0x64>
-   1400061f6:	7e 7e                	jle    140006276 <_ZN15SignedMagnitude14set_precissionEj+0x96>
-   1400061f8:	39 f0                	cmp    %esi,%eax
-   1400061fa:	73 48                	jae    140006244 <_ZN15SignedMagnitude14set_precissionEj+0x64>
-   1400061fc:	48 8d 6c 24 2f       	lea    0x2f(%rsp),%rbp
-   140006201:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
-   140006208:	31 d2                	xor    %edx,%edx
-   14000620a:	48 89 e9             	mov    %rbp,%rcx
-   14000620d:	e8 6e b4 ff ff       	call   140001680 <_ZN4ByteC1Ey>
-   140006212:	b9 18 00 00 00       	mov    $0x18,%ecx
-   140006217:	48 8b 3b             	mov    (%rbx),%rdi
-   14000621a:	e8 29 01 00 00       	call   140006348 <_Znwy>
-   14000621f:	48 89 c1             	mov    %rax,%rcx
-   140006222:	0f b6 44 24 2f       	movzbl 0x2f(%rsp),%eax
-   140006227:	48 89 fa             	mov    %rdi,%rdx
-   14000622a:	88 41 10             	mov    %al,0x10(%rcx)
-   14000622d:	e8 76 01 00 00       	call   1400063a8 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
-   140006232:	8b 43 18             	mov    0x18(%rbx),%eax
-   140006235:	48 83 43 10 01       	addq   $0x1,0x10(%rbx)
-   14000623a:	83 c0 01             	add    $0x1,%eax
-   14000623d:	89 43 18             	mov    %eax,0x18(%rbx)
-   140006240:	39 f0                	cmp    %esi,%eax
-   140006242:	72 c4                	jb     140006208 <_ZN15SignedMagnitude14set_precissionEj+0x28>
-   140006244:	48 83 c4 38          	add    $0x38,%rsp
-   140006248:	5b                   	pop    %rbx
-   140006249:	5e                   	pop    %rsi
-   14000624a:	5f                   	pop    %rdi
-   14000624b:	5d                   	pop    %rbp
-   14000624c:	c3                   	ret
-   14000624d:	0f 1f 00             	nopl   (%rax)
-   140006250:	48 83 6b 10 01       	subq   $0x1,0x10(%rbx)
-   140006255:	48 8b 3b             	mov    (%rbx),%rdi
-   140006258:	48 89 f9             	mov    %rdi,%rcx
-   14000625b:	e8 40 01 00 00       	call   1400063a0 <_ZNSt8__detail15_List_node_base9_M_unhookEv>
-   140006260:	ba 18 00 00 00       	mov    $0x18,%edx
-   140006265:	48 89 f9             	mov    %rdi,%rcx
-   140006268:	e8 e3 00 00 00       	call   140006350 <_ZdlPvy>
-   14000626d:	8b 43 18             	mov    0x18(%rbx),%eax
-   140006270:	83 e8 01             	sub    $0x1,%eax
-   140006273:	89 43 18             	mov    %eax,0x18(%rbx)
-   140006276:	39 c6                	cmp    %eax,%esi
-   140006278:	72 d6                	jb     140006250 <_ZN15SignedMagnitude14set_precissionEj+0x70>
-   14000627a:	48 83 c4 38          	add    $0x38,%rsp
-   14000627e:	5b                   	pop    %rbx
-   14000627f:	5e                   	pop    %rsi
-   140006280:	5f                   	pop    %rdi
-   140006281:	5d                   	pop    %rbp
-   140006282:	c3                   	ret
-   140006283:	66 66 2e 0f 1f 84 00 	data16 cs nopw 0x0(%rax,%rax,1)
-   14000628a:	00 00 00 00 
-   14000628e:	66 90                	xchg   %ax,%ax
+00000001400065e0 <_ZN15SignedMagnitudemiES_>:
+   1400065e0:	41 54                	push   %r12
+   1400065e2:	55                   	push   %rbp
+   1400065e3:	57                   	push   %rdi
+   1400065e4:	56                   	push   %rsi
+   1400065e5:	53                   	push   %rbx
+   1400065e6:	48 83 ec 40          	sub    $0x40,%rsp
+   1400065ea:	41 0f b6 40 1c       	movzbl 0x1c(%r8),%eax
+   1400065ef:	49 8b 18             	mov    (%r8),%rbx
+   1400065f2:	83 f0 01             	xor    $0x1,%eax
+   1400065f5:	48 8d 7c 24 20       	lea    0x20(%rsp),%rdi
+   1400065fa:	41 88 40 1c          	mov    %al,0x1c(%r8)
+   1400065fe:	48 89 cd             	mov    %rcx,%rbp
+   140006601:	49 89 d4             	mov    %rdx,%r12
+   140006604:	66 48 0f 6e c7       	movq   %rdi,%xmm0
+   140006609:	4c 89 c6             	mov    %r8,%rsi
+   14000660c:	48 c7 44 24 30 00 00 	movq   $0x0,0x30(%rsp)
+   140006613:	00 00 
+   140006615:	66 0f 6c c0          	punpcklqdq %xmm0,%xmm0
+   140006619:	0f 11 44 24 20       	movups %xmm0,0x20(%rsp)
+   14000661e:	49 39 d8             	cmp    %rbx,%r8
+   140006621:	74 33                	je     140006656 <_ZN15SignedMagnitudemiES_+0x76>
+   140006623:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+   140006628:	b9 18 00 00 00       	mov    $0x18,%ecx
+   14000662d:	e8 86 07 00 00       	call   140006db8 <_Znwy>
+   140006632:	48 89 c1             	mov    %rax,%rcx
+   140006635:	0f b6 43 10          	movzbl 0x10(%rbx),%eax
+   140006639:	48 89 fa             	mov    %rdi,%rdx
+   14000663c:	88 41 10             	mov    %al,0x10(%rcx)
+   14000663f:	e8 d4 07 00 00       	call   140006e18 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
+   140006644:	48 8b 1b             	mov    (%rbx),%rbx
+   140006647:	48 83 44 24 30 01    	addq   $0x1,0x30(%rsp)
+   14000664d:	48 39 de             	cmp    %rbx,%rsi
+   140006650:	75 d6                	jne    140006628 <_ZN15SignedMagnitudemiES_+0x48>
+   140006652:	0f b6 46 1c          	movzbl 0x1c(%rsi),%eax
+   140006656:	8b 56 18             	mov    0x18(%rsi),%edx
+   140006659:	49 89 f8             	mov    %rdi,%r8
+   14000665c:	48 89 e9             	mov    %rbp,%rcx
+   14000665f:	88 44 24 3c          	mov    %al,0x3c(%rsp)
+   140006663:	89 54 24 38          	mov    %edx,0x38(%rsp)
+   140006667:	4c 89 e2             	mov    %r12,%rdx
+   14000666a:	e8 91 f8 ff ff       	call   140005f00 <_ZN15SignedMagnitudeplES_>
+   14000666f:	48 89 f9             	mov    %rdi,%rcx
+   140006672:	e8 69 b4 ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
+   140006677:	48 89 e8             	mov    %rbp,%rax
+   14000667a:	48 83 c4 40          	add    $0x40,%rsp
+   14000667e:	5b                   	pop    %rbx
+   14000667f:	5e                   	pop    %rsi
+   140006680:	5f                   	pop    %rdi
+   140006681:	5d                   	pop    %rbp
+   140006682:	41 5c                	pop    %r12
+   140006684:	c3                   	ret
+   140006685:	48 8b 4c 24 20       	mov    0x20(%rsp),%rcx
+   14000668a:	48 89 c3             	mov    %rax,%rbx
+   14000668d:	48 39 f9             	cmp    %rdi,%rcx
+   140006690:	74 1d                	je     1400066af <_ZN15SignedMagnitudemiES_+0xcf>
+   140006692:	48 8b 31             	mov    (%rcx),%rsi
+   140006695:	ba 18 00 00 00       	mov    $0x18,%edx
+   14000669a:	e8 21 07 00 00       	call   140006dc0 <_ZdlPvy>
+   14000669f:	48 89 f1             	mov    %rsi,%rcx
+   1400066a2:	eb e9                	jmp    14000668d <_ZN15SignedMagnitudemiES_+0xad>
+   1400066a4:	48 89 f9             	mov    %rdi,%rcx
+   1400066a7:	48 89 c3             	mov    %rax,%rbx
+   1400066aa:	e8 31 b4 ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
+   1400066af:	48 89 d9             	mov    %rbx,%rcx
+   1400066b2:	e8 59 18 00 00       	call   140007f10 <_Unwind_Resume>
+   1400066b7:	90                   	nop
+   1400066b8:	0f 1f 84 00 00 00 00 	nopl   0x0(%rax,%rax,1)
+   1400066bf:	00 
 
-0000000140006290 <_ZlsRSo15SignedMagnitude>:
-   140006290:	53                   	push   %rbx
-   140006291:	48 83 ec 40          	sub    $0x40,%rsp
-   140006295:	48 89 cb             	mov    %rcx,%rbx
-   140006298:	48 8d 4c 24 20       	lea    0x20(%rsp),%rcx
-   14000629d:	e8 4e ed ff ff       	call   140004ff0 <_ZN15SignedMagnitude8toStringB5cxx11Ev>
-   1400062a2:	4c 8b 44 24 28       	mov    0x28(%rsp),%r8
-   1400062a7:	48 8b 54 24 20       	mov    0x20(%rsp),%rdx
-   1400062ac:	48 89 d9             	mov    %rbx,%rcx
-   1400062af:	e8 bc 00 00 00       	call   140006370 <_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_x>
-   1400062b4:	48 8b 4c 24 20       	mov    0x20(%rsp),%rcx
-   1400062b9:	48 8d 44 24 30       	lea    0x30(%rsp),%rax
-   1400062be:	48 39 c1             	cmp    %rax,%rcx
-   1400062c1:	74 0e                	je     1400062d1 <_ZlsRSo15SignedMagnitude+0x41>
-   1400062c3:	48 8b 44 24 30       	mov    0x30(%rsp),%rax
-   1400062c8:	48 8d 50 01          	lea    0x1(%rax),%rdx
-   1400062cc:	e8 7f 00 00 00       	call   140006350 <_ZdlPvy>
-   1400062d1:	48 89 d8             	mov    %rbx,%rax
-   1400062d4:	48 83 c4 40          	add    $0x40,%rsp
-   1400062d8:	5b                   	pop    %rbx
-   1400062d9:	c3                   	ret
-   1400062da:	48 8b 4c 24 20       	mov    0x20(%rsp),%rcx
-   1400062df:	48 89 c3             	mov    %rax,%rbx
-   1400062e2:	48 8d 44 24 30       	lea    0x30(%rsp),%rax
-   1400062e7:	48 39 c1             	cmp    %rax,%rcx
-   1400062ea:	74 0e                	je     1400062fa <_ZlsRSo15SignedMagnitude+0x6a>
-   1400062ec:	48 8b 44 24 30       	mov    0x30(%rsp),%rax
-   1400062f1:	48 8d 50 01          	lea    0x1(%rax),%rdx
-   1400062f5:	e8 56 00 00 00       	call   140006350 <_ZdlPvy>
-   1400062fa:	48 89 d9             	mov    %rbx,%rcx
-   1400062fd:	e8 9e 11 00 00       	call   1400074a0 <_Unwind_Resume>
-   140006302:	90                   	nop
-   140006303:	90                   	nop
-   140006304:	90                   	nop
-   140006305:	90                   	nop
-   140006306:	90                   	nop
-   140006307:	90                   	nop
-   140006308:	90                   	nop
-   140006309:	90                   	nop
-   14000630a:	90                   	nop
-   14000630b:	90                   	nop
-   14000630c:	90                   	nop
-   14000630d:	90                   	nop
-   14000630e:	90                   	nop
-   14000630f:	90                   	nop
+00000001400066c0 <_ZN15SignedMagnitudemlES_>:
+   1400066c0:	41 55                	push   %r13
+   1400066c2:	41 54                	push   %r12
+   1400066c4:	55                   	push   %rbp
+   1400066c5:	57                   	push   %rdi
+   1400066c6:	56                   	push   %rsi
+   1400066c7:	53                   	push   %rbx
+   1400066c8:	48 83 ec 78          	sub    $0x78,%rsp
+   1400066cc:	0f 11 74 24 60       	movups %xmm6,0x60(%rsp)
+   1400066d1:	48 89 cb             	mov    %rcx,%rbx
+   1400066d4:	49 89 d5             	mov    %rdx,%r13
+   1400066d7:	4c 8d 64 24 20       	lea    0x20(%rsp),%r12
+   1400066dc:	4c 89 c5             	mov    %r8,%rbp
+   1400066df:	e8 5c b2 ff ff       	call   140001940 <_ZN13NaturalBinaryC1Ev>
+   1400066e4:	c6 43 1c 00          	movb   $0x0,0x1c(%rbx)
+   1400066e8:	48 8d 7c 24 40       	lea    0x40(%rsp),%rdi
+   1400066ed:	31 d2                	xor    %edx,%edx
+   1400066ef:	66 49 0f 6e f4       	movq   %r12,%xmm6
+   1400066f4:	48 89 f9             	mov    %rdi,%rcx
+   1400066f7:	66 0f 6c f6          	punpcklqdq %xmm6,%xmm6
+   1400066fb:	e8 50 b2 ff ff       	call   140001950 <_ZN13NaturalBinaryC1Ex>
+   140006700:	48 89 fa             	mov    %rdi,%rdx
+   140006703:	48 89 d9             	mov    %rbx,%rcx
+   140006706:	e8 35 e5 ff ff       	call   140004c40 <_ZNSt7__cxx114listI4ByteSaIS1_EEaSERKS3_.part.0>
+   14000670b:	48 89 f9             	mov    %rdi,%rcx
+   14000670e:	e8 cd b3 ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
+   140006713:	48 8b 75 00          	mov    0x0(%rbp),%rsi
+   140006717:	0f 11 74 24 20       	movups %xmm6,0x20(%rsp)
+   14000671c:	c7 43 18 00 00 00 00 	movl   $0x0,0x18(%rbx)
+   140006723:	48 c7 44 24 30 00 00 	movq   $0x0,0x30(%rsp)
+   14000672a:	00 00 
+   14000672c:	48 39 f5             	cmp    %rsi,%rbp
+   14000672f:	74 31                	je     140006762 <_ZN15SignedMagnitudemlES_+0xa2>
+   140006731:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+   140006738:	b9 18 00 00 00       	mov    $0x18,%ecx
+   14000673d:	e8 76 06 00 00       	call   140006db8 <_Znwy>
+   140006742:	48 89 c1             	mov    %rax,%rcx
+   140006745:	0f b6 46 10          	movzbl 0x10(%rsi),%eax
+   140006749:	4c 89 e2             	mov    %r12,%rdx
+   14000674c:	88 41 10             	mov    %al,0x10(%rcx)
+   14000674f:	e8 c4 06 00 00       	call   140006e18 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
+   140006754:	48 8b 36             	mov    (%rsi),%rsi
+   140006757:	48 83 44 24 30 01    	addq   $0x1,0x30(%rsp)
+   14000675d:	48 39 f5             	cmp    %rsi,%rbp
+   140006760:	75 d6                	jne    140006738 <_ZN15SignedMagnitudemlES_+0x78>
+   140006762:	4d 89 e0             	mov    %r12,%r8
+   140006765:	4c 89 ea             	mov    %r13,%rdx
+   140006768:	48 89 f9             	mov    %rdi,%rcx
+   14000676b:	e8 d0 ce ff ff       	call   140003640 <_ZN13NaturalBinarymlES_>
+   140006770:	48 89 fa             	mov    %rdi,%rdx
+   140006773:	48 89 d9             	mov    %rbx,%rcx
+   140006776:	e8 c5 e4 ff ff       	call   140004c40 <_ZNSt7__cxx114listI4ByteSaIS1_EEaSERKS3_.part.0>
+   14000677b:	48 89 f9             	mov    %rdi,%rcx
+   14000677e:	e8 5d b3 ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
+   140006783:	4c 89 e1             	mov    %r12,%rcx
+   140006786:	e8 55 b3 ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
+   14000678b:	41 0f b6 45 1c       	movzbl 0x1c(%r13),%eax
+   140006790:	32 45 1c             	xor    0x1c(%rbp),%al
+   140006793:	48 89 d9             	mov    %rbx,%rcx
+   140006796:	88 43 1c             	mov    %al,0x1c(%rbx)
+   140006799:	8b 45 18             	mov    0x18(%rbp),%eax
+   14000679c:	41 03 45 18          	add    0x18(%r13),%eax
+   1400067a0:	89 43 18             	mov    %eax,0x18(%rbx)
+   1400067a3:	e8 b8 bc ff ff       	call   140002460 <_ZN13NaturalBinary8optimizeEv>
+   1400067a8:	8b 43 18             	mov    0x18(%rbx),%eax
+   1400067ab:	83 c0 01             	add    $0x1,%eax
+   1400067ae:	48 39 43 10          	cmp    %rax,0x10(%rbx)
+   1400067b2:	73 42                	jae    1400067f6 <_ZN15SignedMagnitudemlES_+0x136>
+   1400067b4:	0f 1f 40 00          	nopl   0x0(%rax)
+   1400067b8:	31 d2                	xor    %edx,%edx
+   1400067ba:	48 89 f9             	mov    %rdi,%rcx
+   1400067bd:	e8 be ae ff ff       	call   140001680 <_ZN4ByteC1Ey>
+   1400067c2:	b9 18 00 00 00       	mov    $0x18,%ecx
+   1400067c7:	e8 ec 05 00 00       	call   140006db8 <_Znwy>
+   1400067cc:	48 89 c1             	mov    %rax,%rcx
+   1400067cf:	0f b6 44 24 40       	movzbl 0x40(%rsp),%eax
+   1400067d4:	48 89 da             	mov    %rbx,%rdx
+   1400067d7:	88 41 10             	mov    %al,0x10(%rcx)
+   1400067da:	e8 39 06 00 00       	call   140006e18 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
+   1400067df:	48 8b 43 10          	mov    0x10(%rbx),%rax
+   1400067e3:	8b 53 18             	mov    0x18(%rbx),%edx
+   1400067e6:	48 83 c0 01          	add    $0x1,%rax
+   1400067ea:	83 c2 01             	add    $0x1,%edx
+   1400067ed:	48 89 43 10          	mov    %rax,0x10(%rbx)
+   1400067f1:	48 39 d0             	cmp    %rdx,%rax
+   1400067f4:	72 c2                	jb     1400067b8 <_ZN15SignedMagnitudemlES_+0xf8>
+   1400067f6:	0f 10 74 24 60       	movups 0x60(%rsp),%xmm6
+   1400067fb:	48 89 d8             	mov    %rbx,%rax
+   1400067fe:	48 83 c4 78          	add    $0x78,%rsp
+   140006802:	5b                   	pop    %rbx
+   140006803:	5e                   	pop    %rsi
+   140006804:	5f                   	pop    %rdi
+   140006805:	5d                   	pop    %rbp
+   140006806:	41 5c                	pop    %r12
+   140006808:	41 5d                	pop    %r13
+   14000680a:	c3                   	ret
+   14000680b:	48 89 c6             	mov    %rax,%rsi
+   14000680e:	eb 13                	jmp    140006823 <_ZN15SignedMagnitudemlES_+0x163>
+   140006810:	48 89 f9             	mov    %rdi,%rcx
+   140006813:	48 89 c6             	mov    %rax,%rsi
+   140006816:	e8 c5 b2 ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
+   14000681b:	4c 89 e1             	mov    %r12,%rcx
+   14000681e:	e8 bd b2 ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
+   140006823:	48 89 d9             	mov    %rbx,%rcx
+   140006826:	e8 b5 b2 ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
+   14000682b:	48 89 f1             	mov    %rsi,%rcx
+   14000682e:	e8 dd 16 00 00       	call   140007f10 <_Unwind_Resume>
+   140006833:	48 89 c6             	mov    %rax,%rsi
+   140006836:	eb e3                	jmp    14000681b <_ZN15SignedMagnitudemlES_+0x15b>
+   140006838:	48 8b 4c 24 20       	mov    0x20(%rsp),%rcx
+   14000683d:	48 89 c6             	mov    %rax,%rsi
+   140006840:	4c 39 e1             	cmp    %r12,%rcx
+   140006843:	74 de                	je     140006823 <_ZN15SignedMagnitudemlES_+0x163>
+   140006845:	48 8b 39             	mov    (%rcx),%rdi
+   140006848:	ba 18 00 00 00       	mov    $0x18,%edx
+   14000684d:	e8 6e 05 00 00       	call   140006dc0 <_ZdlPvy>
+   140006852:	48 89 f9             	mov    %rdi,%rcx
+   140006855:	eb e9                	jmp    140006840 <_ZN15SignedMagnitudemlES_+0x180>
+   140006857:	48 89 f9             	mov    %rdi,%rcx
+   14000685a:	48 89 c6             	mov    %rax,%rsi
+   14000685d:	e8 7e b2 ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
+   140006862:	eb bf                	jmp    140006823 <_ZN15SignedMagnitudemlES_+0x163>
+   140006864:	eb a5                	jmp    14000680b <_ZN15SignedMagnitudemlES_+0x14b>
+   140006866:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
+   14000686d:	00 00 00 
 
-0000000140006310 <__gxx_personality_seh0>:
-   140006310:	ff 25 7e 82 00 00    	jmp    *0x827e(%rip)        # 14000e594 <__imp___gxx_personality_seh0>
-   140006316:	90                   	nop
-   140006317:	90                   	nop
+0000000140006870 <_ZN15SignedMagnitudedvES_>:
+   140006870:	41 57                	push   %r15
+   140006872:	41 56                	push   %r14
+   140006874:	41 55                	push   %r13
+   140006876:	41 54                	push   %r12
+   140006878:	55                   	push   %rbp
+   140006879:	57                   	push   %rdi
+   14000687a:	56                   	push   %rsi
+   14000687b:	53                   	push   %rbx
+   14000687c:	48 81 ec b8 00 00 00 	sub    $0xb8,%rsp
+   140006883:	0f 11 b4 24 a0 00 00 	movups %xmm6,0xa0(%rsp)
+   14000688a:	00 
+   14000688b:	48 8b 1a             	mov    (%rdx),%rbx
+   14000688e:	48 8d 6c 24 20       	lea    0x20(%rsp),%rbp
+   140006893:	49 89 cc             	mov    %rcx,%r12
+   140006896:	48 89 d6             	mov    %rdx,%rsi
+   140006899:	4c 89 c7             	mov    %r8,%rdi
+   14000689c:	48 c7 44 24 30 00 00 	movq   $0x0,0x30(%rsp)
+   1400068a3:	00 00 
+   1400068a5:	66 48 0f 6e c5       	movq   %rbp,%xmm0
+   1400068aa:	66 0f 6c c0          	punpcklqdq %xmm0,%xmm0
+   1400068ae:	0f 11 44 24 20       	movups %xmm0,0x20(%rsp)
+   1400068b3:	48 39 da             	cmp    %rbx,%rdx
+   1400068b6:	74 32                	je     1400068ea <_ZN15SignedMagnitudedvES_+0x7a>
+   1400068b8:	0f 1f 84 00 00 00 00 	nopl   0x0(%rax,%rax,1)
+   1400068bf:	00 
+   1400068c0:	b9 18 00 00 00       	mov    $0x18,%ecx
+   1400068c5:	e8 ee 04 00 00       	call   140006db8 <_Znwy>
+   1400068ca:	48 89 c1             	mov    %rax,%rcx
+   1400068cd:	0f b6 43 10          	movzbl 0x10(%rbx),%eax
+   1400068d1:	48 89 ea             	mov    %rbp,%rdx
+   1400068d4:	88 41 10             	mov    %al,0x10(%rcx)
+   1400068d7:	e8 3c 05 00 00       	call   140006e18 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
+   1400068dc:	48 8b 1b             	mov    (%rbx),%rbx
+   1400068df:	48 83 44 24 30 01    	addq   $0x1,0x30(%rsp)
+   1400068e5:	48 39 de             	cmp    %rbx,%rsi
+   1400068e8:	75 d6                	jne    1400068c0 <_ZN15SignedMagnitudedvES_+0x50>
+   1400068ea:	4c 8d 6c 24 40       	lea    0x40(%rsp),%r13
+   1400068ef:	48 8b 1f             	mov    (%rdi),%rbx
+   1400068f2:	48 c7 44 24 50 00 00 	movq   $0x0,0x50(%rsp)
+   1400068f9:	00 00 
+   1400068fb:	66 49 0f 6e c5       	movq   %r13,%xmm0
+   140006900:	66 0f 6c c0          	punpcklqdq %xmm0,%xmm0
+   140006904:	0f 11 44 24 40       	movups %xmm0,0x40(%rsp)
+   140006909:	48 39 df             	cmp    %rbx,%rdi
+   14000690c:	74 2c                	je     14000693a <_ZN15SignedMagnitudedvES_+0xca>
+   14000690e:	66 90                	xchg   %ax,%ax
+   140006910:	b9 18 00 00 00       	mov    $0x18,%ecx
+   140006915:	e8 9e 04 00 00       	call   140006db8 <_Znwy>
+   14000691a:	48 89 c1             	mov    %rax,%rcx
+   14000691d:	0f b6 43 10          	movzbl 0x10(%rbx),%eax
+   140006921:	4c 89 ea             	mov    %r13,%rdx
+   140006924:	88 41 10             	mov    %al,0x10(%rcx)
+   140006927:	e8 ec 04 00 00       	call   140006e18 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
+   14000692c:	48 8b 1b             	mov    (%rbx),%rbx
+   14000692f:	48 83 44 24 50 01    	addq   $0x1,0x50(%rsp)
+   140006935:	48 39 df             	cmp    %rbx,%rdi
+   140006938:	75 d6                	jne    140006910 <_ZN15SignedMagnitudedvES_+0xa0>
+   14000693a:	8b 5e 18             	mov    0x18(%rsi),%ebx
+   14000693d:	89 d8                	mov    %ebx,%eax
+   14000693f:	2b 47 18             	sub    0x18(%rdi),%eax
+   140006942:	39 c3                	cmp    %eax,%ebx
+   140006944:	74 4c                	je     140006992 <_ZN15SignedMagnitudedvES_+0x122>
+   140006946:	4c 8d b4 24 80 00 00 	lea    0x80(%rsp),%r14
+   14000694d:	00 
+   14000694e:	66 90                	xchg   %ax,%ax
+   140006950:	31 d2                	xor    %edx,%edx
+   140006952:	4c 89 f1             	mov    %r14,%rcx
+   140006955:	e8 26 ad ff ff       	call   140001680 <_ZN4ByteC1Ey>
+   14000695a:	b9 18 00 00 00       	mov    $0x18,%ecx
+   14000695f:	4c 8b 7c 24 20       	mov    0x20(%rsp),%r15
+   140006964:	e8 4f 04 00 00       	call   140006db8 <_Znwy>
+   140006969:	48 89 c1             	mov    %rax,%rcx
+   14000696c:	0f b6 84 24 80 00 00 	movzbl 0x80(%rsp),%eax
+   140006973:	00 
+   140006974:	4c 89 fa             	mov    %r15,%rdx
+   140006977:	83 c3 01             	add    $0x1,%ebx
+   14000697a:	88 41 10             	mov    %al,0x10(%rcx)
+   14000697d:	e8 96 04 00 00       	call   140006e18 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
+   140006982:	89 d8                	mov    %ebx,%eax
+   140006984:	48 83 44 24 30 01    	addq   $0x1,0x30(%rsp)
+   14000698a:	2b 47 18             	sub    0x18(%rdi),%eax
+   14000698d:	3b 46 18             	cmp    0x18(%rsi),%eax
+   140006990:	75 be                	jne    140006950 <_ZN15SignedMagnitudedvES_+0xe0>
+   140006992:	4c 8d 7c 24 60       	lea    0x60(%rsp),%r15
+   140006997:	4c 89 e1             	mov    %r12,%rcx
+   14000699a:	66 49 0f 6e f7       	movq   %r15,%xmm6
+   14000699f:	66 0f 6c f6          	punpcklqdq %xmm6,%xmm6
+   1400069a3:	e8 98 af ff ff       	call   140001940 <_ZN13NaturalBinaryC1Ev>
+   1400069a8:	41 c6 44 24 1c 00    	movb   $0x0,0x1c(%r12)
+   1400069ae:	4c 8d b4 24 80 00 00 	lea    0x80(%rsp),%r14
+   1400069b5:	00 
+   1400069b6:	31 d2                	xor    %edx,%edx
+   1400069b8:	4c 89 f1             	mov    %r14,%rcx
+   1400069bb:	e8 90 af ff ff       	call   140001950 <_ZN13NaturalBinaryC1Ex>
+   1400069c0:	4c 89 f2             	mov    %r14,%rdx
+   1400069c3:	4c 89 e1             	mov    %r12,%rcx
+   1400069c6:	e8 75 e2 ff ff       	call   140004c40 <_ZNSt7__cxx114listI4ByteSaIS1_EEaSERKS3_.part.0>
+   1400069cb:	4c 89 f1             	mov    %r14,%rcx
+   1400069ce:	e8 0d b1 ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
+   1400069d3:	48 8b 5c 24 40       	mov    0x40(%rsp),%rbx
+   1400069d8:	0f 11 74 24 60       	movups %xmm6,0x60(%rsp)
+   1400069dd:	41 c7 44 24 18 00 00 	movl   $0x0,0x18(%r12)
+   1400069e4:	00 00 
+   1400069e6:	48 c7 44 24 70 00 00 	movq   $0x0,0x70(%rsp)
+   1400069ed:	00 00 
+   1400069ef:	4c 39 eb             	cmp    %r13,%rbx
+   1400069f2:	74 2e                	je     140006a22 <_ZN15SignedMagnitudedvES_+0x1b2>
+   1400069f4:	0f 1f 40 00          	nopl   0x0(%rax)
+   1400069f8:	b9 18 00 00 00       	mov    $0x18,%ecx
+   1400069fd:	e8 b6 03 00 00       	call   140006db8 <_Znwy>
+   140006a02:	48 89 c1             	mov    %rax,%rcx
+   140006a05:	0f b6 43 10          	movzbl 0x10(%rbx),%eax
+   140006a09:	4c 89 fa             	mov    %r15,%rdx
+   140006a0c:	88 41 10             	mov    %al,0x10(%rcx)
+   140006a0f:	e8 04 04 00 00       	call   140006e18 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
+   140006a14:	48 8b 1b             	mov    (%rbx),%rbx
+   140006a17:	48 83 44 24 70 01    	addq   $0x1,0x70(%rsp)
+   140006a1d:	4c 39 eb             	cmp    %r13,%rbx
+   140006a20:	75 d6                	jne    1400069f8 <_ZN15SignedMagnitudedvES_+0x188>
+   140006a22:	4d 89 f8             	mov    %r15,%r8
+   140006a25:	48 89 ea             	mov    %rbp,%rdx
+   140006a28:	4c 89 f1             	mov    %r14,%rcx
+   140006a2b:	e8 d0 df ff ff       	call   140004a00 <_ZN13NaturalBinarydvES_>
+   140006a30:	4c 89 f2             	mov    %r14,%rdx
+   140006a33:	4c 89 e1             	mov    %r12,%rcx
+   140006a36:	e8 05 e2 ff ff       	call   140004c40 <_ZNSt7__cxx114listI4ByteSaIS1_EEaSERKS3_.part.0>
+   140006a3b:	4c 89 f1             	mov    %r14,%rcx
+   140006a3e:	e8 9d b0 ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
+   140006a43:	4c 89 f9             	mov    %r15,%rcx
+   140006a46:	e8 95 b0 ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
+   140006a4b:	31 d2                	xor    %edx,%edx
+   140006a4d:	4c 89 f1             	mov    %r14,%rcx
+   140006a50:	e8 fb ae ff ff       	call   140001950 <_ZN13NaturalBinaryC1Ex>
+   140006a55:	4c 89 f2             	mov    %r14,%rdx
+   140006a58:	4c 89 e1             	mov    %r12,%rcx
+   140006a5b:	e8 50 bc ff ff       	call   1400026b0 <_ZN13NaturalBinarygtES_>
+   140006a60:	89 c3                	mov    %eax,%ebx
+   140006a62:	4c 89 f1             	mov    %r14,%rcx
+   140006a65:	e8 76 b0 ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
+   140006a6a:	84 db                	test   %bl,%bl
+   140006a6c:	0f 85 9b 00 00 00    	jne    140006b0d <_ZN15SignedMagnitudedvES_+0x29d>
+   140006a72:	8b 46 18             	mov    0x18(%rsi),%eax
+   140006a75:	4c 89 e1             	mov    %r12,%rcx
+   140006a78:	41 89 44 24 18       	mov    %eax,0x18(%r12)
+   140006a7d:	e8 de b9 ff ff       	call   140002460 <_ZN13NaturalBinary8optimizeEv>
+   140006a82:	41 8b 44 24 18       	mov    0x18(%r12),%eax
+   140006a87:	83 c0 01             	add    $0x1,%eax
+   140006a8a:	49 39 44 24 10       	cmp    %rax,0x10(%r12)
+   140006a8f:	73 4c                	jae    140006add <_ZN15SignedMagnitudedvES_+0x26d>
+   140006a91:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+   140006a98:	31 d2                	xor    %edx,%edx
+   140006a9a:	4c 89 f1             	mov    %r14,%rcx
+   140006a9d:	e8 de ab ff ff       	call   140001680 <_ZN4ByteC1Ey>
+   140006aa2:	b9 18 00 00 00       	mov    $0x18,%ecx
+   140006aa7:	e8 0c 03 00 00       	call   140006db8 <_Znwy>
+   140006aac:	48 89 c1             	mov    %rax,%rcx
+   140006aaf:	0f b6 84 24 80 00 00 	movzbl 0x80(%rsp),%eax
+   140006ab6:	00 
+   140006ab7:	4c 89 e2             	mov    %r12,%rdx
+   140006aba:	88 41 10             	mov    %al,0x10(%rcx)
+   140006abd:	e8 56 03 00 00       	call   140006e18 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
+   140006ac2:	49 8b 44 24 10       	mov    0x10(%r12),%rax
+   140006ac7:	41 8b 54 24 18       	mov    0x18(%r12),%edx
+   140006acc:	48 83 c0 01          	add    $0x1,%rax
+   140006ad0:	83 c2 01             	add    $0x1,%edx
+   140006ad3:	49 89 44 24 10       	mov    %rax,0x10(%r12)
+   140006ad8:	48 39 d0             	cmp    %rdx,%rax
+   140006adb:	72 bb                	jb     140006a98 <_ZN15SignedMagnitudedvES_+0x228>
+   140006add:	4c 89 e9             	mov    %r13,%rcx
+   140006ae0:	e8 fb af ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
+   140006ae5:	48 89 e9             	mov    %rbp,%rcx
+   140006ae8:	e8 f3 af ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
+   140006aed:	90                   	nop
+   140006aee:	0f 10 b4 24 a0 00 00 	movups 0xa0(%rsp),%xmm6
+   140006af5:	00 
+   140006af6:	4c 89 e0             	mov    %r12,%rax
+   140006af9:	48 81 c4 b8 00 00 00 	add    $0xb8,%rsp
+   140006b00:	5b                   	pop    %rbx
+   140006b01:	5e                   	pop    %rsi
+   140006b02:	5f                   	pop    %rdi
+   140006b03:	5d                   	pop    %rbp
+   140006b04:	41 5c                	pop    %r12
+   140006b06:	41 5d                	pop    %r13
+   140006b08:	41 5e                	pop    %r14
+   140006b0a:	41 5f                	pop    %r15
+   140006b0c:	c3                   	ret
+   140006b0d:	0f b6 46 1c          	movzbl 0x1c(%rsi),%eax
+   140006b11:	32 47 1c             	xor    0x1c(%rdi),%al
+   140006b14:	41 88 44 24 1c       	mov    %al,0x1c(%r12)
+   140006b19:	e9 54 ff ff ff       	jmp    140006a72 <_ZN15SignedMagnitudedvES_+0x202>
+   140006b1e:	4c 89 f1             	mov    %r14,%rcx
+   140006b21:	48 89 c3             	mov    %rax,%rbx
+   140006b24:	e8 b7 af ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
+   140006b29:	4c 89 e1             	mov    %r12,%rcx
+   140006b2c:	e8 af af ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
+   140006b31:	4c 89 e9             	mov    %r13,%rcx
+   140006b34:	e8 a7 af ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
+   140006b39:	48 89 e9             	mov    %rbp,%rcx
+   140006b3c:	e8 9f af ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
+   140006b41:	48 89 d9             	mov    %rbx,%rcx
+   140006b44:	e8 c7 13 00 00       	call   140007f10 <_Unwind_Resume>
+   140006b49:	48 89 c3             	mov    %rax,%rbx
+   140006b4c:	eb db                	jmp    140006b29 <_ZN15SignedMagnitudedvES_+0x2b9>
+   140006b4e:	4c 89 f1             	mov    %r14,%rcx
+   140006b51:	48 89 c3             	mov    %rax,%rbx
+   140006b54:	e8 87 af ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
+   140006b59:	4c 89 f9             	mov    %r15,%rcx
+   140006b5c:	e8 7f af ff ff       	call   140001ae0 <_ZN13NaturalBinaryD1Ev>
+   140006b61:	eb c6                	jmp    140006b29 <_ZN15SignedMagnitudedvES_+0x2b9>
+   140006b63:	48 89 c3             	mov    %rax,%rbx
+   140006b66:	eb f1                	jmp    140006b59 <_ZN15SignedMagnitudedvES_+0x2e9>
+   140006b68:	48 8b 4c 24 60       	mov    0x60(%rsp),%rcx
+   140006b6d:	48 89 c3             	mov    %rax,%rbx
+   140006b70:	4c 39 f9             	cmp    %r15,%rcx
+   140006b73:	74 b4                	je     140006b29 <_ZN15SignedMagnitudedvES_+0x2b9>
+   140006b75:	48 8b 31             	mov    (%rcx),%rsi
+   140006b78:	ba 18 00 00 00       	mov    $0x18,%edx
+   140006b7d:	e8 3e 02 00 00       	call   140006dc0 <_ZdlPvy>
+   140006b82:	48 89 f1             	mov    %rsi,%rcx
+   140006b85:	eb e9                	jmp    140006b70 <_ZN15SignedMagnitudedvES_+0x300>
+   140006b87:	eb 95                	jmp    140006b1e <_ZN15SignedMagnitudedvES_+0x2ae>
+   140006b89:	eb be                	jmp    140006b49 <_ZN15SignedMagnitudedvES_+0x2d9>
+   140006b8b:	48 8b 4c 24 20       	mov    0x20(%rsp),%rcx
+   140006b90:	48 89 c3             	mov    %rax,%rbx
+   140006b93:	48 39 e9             	cmp    %rbp,%rcx
+   140006b96:	74 a9                	je     140006b41 <_ZN15SignedMagnitudedvES_+0x2d1>
+   140006b98:	48 8b 31             	mov    (%rcx),%rsi
+   140006b9b:	ba 18 00 00 00       	mov    $0x18,%edx
+   140006ba0:	e8 1b 02 00 00       	call   140006dc0 <_ZdlPvy>
+   140006ba5:	48 89 f1             	mov    %rsi,%rcx
+   140006ba8:	eb e9                	jmp    140006b93 <_ZN15SignedMagnitudedvES_+0x323>
+   140006baa:	48 8b 4c 24 40       	mov    0x40(%rsp),%rcx
+   140006baf:	48 89 c3             	mov    %rax,%rbx
+   140006bb2:	4c 39 e9             	cmp    %r13,%rcx
+   140006bb5:	74 82                	je     140006b39 <_ZN15SignedMagnitudedvES_+0x2c9>
+   140006bb7:	48 8b 31             	mov    (%rcx),%rsi
+   140006bba:	ba 18 00 00 00       	mov    $0x18,%edx
+   140006bbf:	e8 fc 01 00 00       	call   140006dc0 <_ZdlPvy>
+   140006bc4:	48 89 f1             	mov    %rsi,%rcx
+   140006bc7:	eb e9                	jmp    140006bb2 <_ZN15SignedMagnitudedvES_+0x342>
+   140006bc9:	48 89 c3             	mov    %rax,%rbx
+   140006bcc:	e9 60 ff ff ff       	jmp    140006b31 <_ZN15SignedMagnitudedvES_+0x2c1>
+   140006bd1:	90                   	nop
+   140006bd2:	66 66 2e 0f 1f 84 00 	data16 cs nopw 0x0(%rax,%rax,1)
+   140006bd9:	00 00 00 00 
+   140006bdd:	0f 1f 00             	nopl   (%rax)
 
-0000000140006318 <__cxa_throw>:
-   140006318:	ff 25 6e 82 00 00    	jmp    *0x826e(%rip)        # 14000e58c <__imp___cxa_throw>
-   14000631e:	90                   	nop
-   14000631f:	90                   	nop
+0000000140006be0 <_ZN15SignedMagnitude8optimizeEv>:
+   140006be0:	56                   	push   %rsi
+   140006be1:	53                   	push   %rbx
+   140006be2:	48 83 ec 38          	sub    $0x38,%rsp
+   140006be6:	48 89 cb             	mov    %rcx,%rbx
+   140006be9:	e8 72 b8 ff ff       	call   140002460 <_ZN13NaturalBinary8optimizeEv>
+   140006bee:	8b 43 18             	mov    0x18(%rbx),%eax
+   140006bf1:	83 c0 01             	add    $0x1,%eax
+   140006bf4:	48 39 43 10          	cmp    %rax,0x10(%rbx)
+   140006bf8:	73 44                	jae    140006c3e <_ZN15SignedMagnitude8optimizeEv+0x5e>
+   140006bfa:	48 8d 74 24 2f       	lea    0x2f(%rsp),%rsi
+   140006bff:	90                   	nop
+   140006c00:	31 d2                	xor    %edx,%edx
+   140006c02:	48 89 f1             	mov    %rsi,%rcx
+   140006c05:	e8 76 aa ff ff       	call   140001680 <_ZN4ByteC1Ey>
+   140006c0a:	b9 18 00 00 00       	mov    $0x18,%ecx
+   140006c0f:	e8 a4 01 00 00       	call   140006db8 <_Znwy>
+   140006c14:	48 89 da             	mov    %rbx,%rdx
+   140006c17:	48 89 c1             	mov    %rax,%rcx
+   140006c1a:	0f b6 44 24 2f       	movzbl 0x2f(%rsp),%eax
+   140006c1f:	88 41 10             	mov    %al,0x10(%rcx)
+   140006c22:	e8 f1 01 00 00       	call   140006e18 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
+   140006c27:	48 8b 43 10          	mov    0x10(%rbx),%rax
+   140006c2b:	8b 53 18             	mov    0x18(%rbx),%edx
+   140006c2e:	48 83 c0 01          	add    $0x1,%rax
+   140006c32:	83 c2 01             	add    $0x1,%edx
+   140006c35:	48 89 43 10          	mov    %rax,0x10(%rbx)
+   140006c39:	48 39 d0             	cmp    %rdx,%rax
+   140006c3c:	72 c2                	jb     140006c00 <_ZN15SignedMagnitude8optimizeEv+0x20>
+   140006c3e:	48 83 c4 38          	add    $0x38,%rsp
+   140006c42:	5b                   	pop    %rbx
+   140006c43:	5e                   	pop    %rsi
+   140006c44:	c3                   	ret
+   140006c45:	90                   	nop
+   140006c46:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
+   140006c4d:	00 00 00 
 
-0000000140006320 <__cxa_rethrow>:
-   140006320:	ff 25 5e 82 00 00    	jmp    *0x825e(%rip)        # 14000e584 <__imp___cxa_rethrow>
-   140006326:	90                   	nop
-   140006327:	90                   	nop
+0000000140006c50 <_ZN15SignedMagnitude14set_precissionEj>:
+   140006c50:	55                   	push   %rbp
+   140006c51:	57                   	push   %rdi
+   140006c52:	56                   	push   %rsi
+   140006c53:	53                   	push   %rbx
+   140006c54:	48 83 ec 38          	sub    $0x38,%rsp
+   140006c58:	8b 41 18             	mov    0x18(%rcx),%eax
+   140006c5b:	89 d6                	mov    %edx,%esi
+   140006c5d:	29 c2                	sub    %eax,%edx
+   140006c5f:	48 89 cb             	mov    %rcx,%rbx
+   140006c62:	85 d2                	test   %edx,%edx
+   140006c64:	74 4e                	je     140006cb4 <_ZN15SignedMagnitude14set_precissionEj+0x64>
+   140006c66:	7e 7e                	jle    140006ce6 <_ZN15SignedMagnitude14set_precissionEj+0x96>
+   140006c68:	39 f0                	cmp    %esi,%eax
+   140006c6a:	73 48                	jae    140006cb4 <_ZN15SignedMagnitude14set_precissionEj+0x64>
+   140006c6c:	48 8d 6c 24 2f       	lea    0x2f(%rsp),%rbp
+   140006c71:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+   140006c78:	31 d2                	xor    %edx,%edx
+   140006c7a:	48 89 e9             	mov    %rbp,%rcx
+   140006c7d:	e8 fe a9 ff ff       	call   140001680 <_ZN4ByteC1Ey>
+   140006c82:	b9 18 00 00 00       	mov    $0x18,%ecx
+   140006c87:	48 8b 3b             	mov    (%rbx),%rdi
+   140006c8a:	e8 29 01 00 00       	call   140006db8 <_Znwy>
+   140006c8f:	48 89 c1             	mov    %rax,%rcx
+   140006c92:	0f b6 44 24 2f       	movzbl 0x2f(%rsp),%eax
+   140006c97:	48 89 fa             	mov    %rdi,%rdx
+   140006c9a:	88 41 10             	mov    %al,0x10(%rcx)
+   140006c9d:	e8 76 01 00 00       	call   140006e18 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
+   140006ca2:	8b 43 18             	mov    0x18(%rbx),%eax
+   140006ca5:	48 83 43 10 01       	addq   $0x1,0x10(%rbx)
+   140006caa:	83 c0 01             	add    $0x1,%eax
+   140006cad:	89 43 18             	mov    %eax,0x18(%rbx)
+   140006cb0:	39 f0                	cmp    %esi,%eax
+   140006cb2:	72 c4                	jb     140006c78 <_ZN15SignedMagnitude14set_precissionEj+0x28>
+   140006cb4:	48 83 c4 38          	add    $0x38,%rsp
+   140006cb8:	5b                   	pop    %rbx
+   140006cb9:	5e                   	pop    %rsi
+   140006cba:	5f                   	pop    %rdi
+   140006cbb:	5d                   	pop    %rbp
+   140006cbc:	c3                   	ret
+   140006cbd:	0f 1f 00             	nopl   (%rax)
+   140006cc0:	48 83 6b 10 01       	subq   $0x1,0x10(%rbx)
+   140006cc5:	48 8b 3b             	mov    (%rbx),%rdi
+   140006cc8:	48 89 f9             	mov    %rdi,%rcx
+   140006ccb:	e8 40 01 00 00       	call   140006e10 <_ZNSt8__detail15_List_node_base9_M_unhookEv>
+   140006cd0:	ba 18 00 00 00       	mov    $0x18,%edx
+   140006cd5:	48 89 f9             	mov    %rdi,%rcx
+   140006cd8:	e8 e3 00 00 00       	call   140006dc0 <_ZdlPvy>
+   140006cdd:	8b 43 18             	mov    0x18(%rbx),%eax
+   140006ce0:	83 e8 01             	sub    $0x1,%eax
+   140006ce3:	89 43 18             	mov    %eax,0x18(%rbx)
+   140006ce6:	39 c6                	cmp    %eax,%esi
+   140006ce8:	72 d6                	jb     140006cc0 <_ZN15SignedMagnitude14set_precissionEj+0x70>
+   140006cea:	48 83 c4 38          	add    $0x38,%rsp
+   140006cee:	5b                   	pop    %rbx
+   140006cef:	5e                   	pop    %rsi
+   140006cf0:	5f                   	pop    %rdi
+   140006cf1:	5d                   	pop    %rbp
+   140006cf2:	c3                   	ret
+   140006cf3:	66 66 2e 0f 1f 84 00 	data16 cs nopw 0x0(%rax,%rax,1)
+   140006cfa:	00 00 00 00 
+   140006cfe:	66 90                	xchg   %ax,%ax
 
-0000000140006328 <__cxa_free_exception>:
-   140006328:	ff 25 4e 82 00 00    	jmp    *0x824e(%rip)        # 14000e57c <__imp___cxa_free_exception>
-   14000632e:	90                   	nop
-   14000632f:	90                   	nop
+0000000140006d00 <_ZlsRSo15SignedMagnitude>:
+   140006d00:	53                   	push   %rbx
+   140006d01:	48 83 ec 40          	sub    $0x40,%rsp
+   140006d05:	48 89 cb             	mov    %rcx,%rbx
+   140006d08:	48 8d 4c 24 20       	lea    0x20(%rsp),%rcx
+   140006d0d:	e8 2e e3 ff ff       	call   140005040 <_ZN15SignedMagnitude8toStringB5cxx11Ev>
+   140006d12:	4c 8b 44 24 28       	mov    0x28(%rsp),%r8
+   140006d17:	48 8b 54 24 20       	mov    0x20(%rsp),%rdx
+   140006d1c:	48 89 d9             	mov    %rbx,%rcx
+   140006d1f:	e8 bc 00 00 00       	call   140006de0 <_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_x>
+   140006d24:	48 8b 4c 24 20       	mov    0x20(%rsp),%rcx
+   140006d29:	48 8d 44 24 30       	lea    0x30(%rsp),%rax
+   140006d2e:	48 39 c1             	cmp    %rax,%rcx
+   140006d31:	74 0e                	je     140006d41 <_ZlsRSo15SignedMagnitude+0x41>
+   140006d33:	48 8b 44 24 30       	mov    0x30(%rsp),%rax
+   140006d38:	48 8d 50 01          	lea    0x1(%rax),%rdx
+   140006d3c:	e8 7f 00 00 00       	call   140006dc0 <_ZdlPvy>
+   140006d41:	48 89 d8             	mov    %rbx,%rax
+   140006d44:	48 83 c4 40          	add    $0x40,%rsp
+   140006d48:	5b                   	pop    %rbx
+   140006d49:	c3                   	ret
+   140006d4a:	48 8b 4c 24 20       	mov    0x20(%rsp),%rcx
+   140006d4f:	48 89 c3             	mov    %rax,%rbx
+   140006d52:	48 8d 44 24 30       	lea    0x30(%rsp),%rax
+   140006d57:	48 39 c1             	cmp    %rax,%rcx
+   140006d5a:	74 0e                	je     140006d6a <_ZlsRSo15SignedMagnitude+0x6a>
+   140006d5c:	48 8b 44 24 30       	mov    0x30(%rsp),%rax
+   140006d61:	48 8d 50 01          	lea    0x1(%rax),%rdx
+   140006d65:	e8 56 00 00 00       	call   140006dc0 <_ZdlPvy>
+   140006d6a:	48 89 d9             	mov    %rbx,%rcx
+   140006d6d:	e8 9e 11 00 00       	call   140007f10 <_Unwind_Resume>
+   140006d72:	90                   	nop
+   140006d73:	90                   	nop
+   140006d74:	90                   	nop
+   140006d75:	90                   	nop
+   140006d76:	90                   	nop
+   140006d77:	90                   	nop
+   140006d78:	90                   	nop
+   140006d79:	90                   	nop
+   140006d7a:	90                   	nop
+   140006d7b:	90                   	nop
+   140006d7c:	90                   	nop
+   140006d7d:	90                   	nop
+   140006d7e:	90                   	nop
+   140006d7f:	90                   	nop
 
-0000000140006330 <__cxa_end_catch>:
-   140006330:	ff 25 3e 82 00 00    	jmp    *0x823e(%rip)        # 14000e574 <__imp___cxa_end_catch>
-   140006336:	90                   	nop
-   140006337:	90                   	nop
+0000000140006d80 <__gxx_personality_seh0>:
+   140006d80:	ff 25 0e 78 00 00    	jmp    *0x780e(%rip)        # 14000e594 <__imp___gxx_personality_seh0>
+   140006d86:	90                   	nop
+   140006d87:	90                   	nop
 
-0000000140006338 <__cxa_begin_catch>:
-   140006338:	ff 25 2e 82 00 00    	jmp    *0x822e(%rip)        # 14000e56c <__imp___cxa_begin_catch>
-   14000633e:	90                   	nop
-   14000633f:	90                   	nop
+0000000140006d88 <__cxa_throw>:
+   140006d88:	ff 25 fe 77 00 00    	jmp    *0x77fe(%rip)        # 14000e58c <__imp___cxa_throw>
+   140006d8e:	90                   	nop
+   140006d8f:	90                   	nop
 
-0000000140006340 <__cxa_allocate_exception>:
-   140006340:	ff 25 1e 82 00 00    	jmp    *0x821e(%rip)        # 14000e564 <__imp___cxa_allocate_exception>
-   140006346:	90                   	nop
-   140006347:	90                   	nop
+0000000140006d90 <__cxa_rethrow>:
+   140006d90:	ff 25 ee 77 00 00    	jmp    *0x77ee(%rip)        # 14000e584 <__imp___cxa_rethrow>
+   140006d96:	90                   	nop
+   140006d97:	90                   	nop
 
-0000000140006348 <_Znwy>:
-   140006348:	ff 25 0e 82 00 00    	jmp    *0x820e(%rip)        # 14000e55c <__imp__Znwy>
-   14000634e:	90                   	nop
-   14000634f:	90                   	nop
+0000000140006d98 <__cxa_free_exception>:
+   140006d98:	ff 25 de 77 00 00    	jmp    *0x77de(%rip)        # 14000e57c <__imp___cxa_free_exception>
+   140006d9e:	90                   	nop
+   140006d9f:	90                   	nop
 
-0000000140006350 <_ZdlPvy>:
-   140006350:	ff 25 fe 81 00 00    	jmp    *0x81fe(%rip)        # 14000e554 <__imp__ZdlPvy>
-   140006356:	90                   	nop
-   140006357:	90                   	nop
+0000000140006da0 <__cxa_end_catch>:
+   140006da0:	ff 25 ce 77 00 00    	jmp    *0x77ce(%rip)        # 14000e574 <__imp___cxa_end_catch>
+   140006da6:	90                   	nop
+   140006da7:	90                   	nop
 
-0000000140006358 <_ZSt24__throw_out_of_range_fmtPKcz>:
-   140006358:	ff 25 ae 81 00 00    	jmp    *0x81ae(%rip)        # 14000e50c <__imp__ZSt24__throw_out_of_range_fmtPKcz>
-   14000635e:	90                   	nop
-   14000635f:	90                   	nop
+0000000140006da8 <__cxa_begin_catch>:
+   140006da8:	ff 25 be 77 00 00    	jmp    *0x77be(%rip)        # 14000e56c <__imp___cxa_begin_catch>
+   140006dae:	90                   	nop
+   140006daf:	90                   	nop
 
-0000000140006360 <_ZSt20__throw_length_errorPKc>:
-   140006360:	ff 25 9e 81 00 00    	jmp    *0x819e(%rip)        # 14000e504 <__imp__ZSt20__throw_length_errorPKc>
-   140006366:	90                   	nop
-   140006367:	90                   	nop
+0000000140006db0 <__cxa_allocate_exception>:
+   140006db0:	ff 25 ae 77 00 00    	jmp    *0x77ae(%rip)        # 14000e564 <__imp___cxa_allocate_exception>
+   140006db6:	90                   	nop
+   140006db7:	90                   	nop
 
-0000000140006368 <_ZSt16__throw_bad_castv>:
-   140006368:	ff 25 8e 81 00 00    	jmp    *0x818e(%rip)        # 14000e4fc <__imp__ZSt16__throw_bad_castv>
-   14000636e:	90                   	nop
-   14000636f:	90                   	nop
+0000000140006db8 <_Znwy>:
+   140006db8:	ff 25 9e 77 00 00    	jmp    *0x779e(%rip)        # 14000e55c <__imp__Znwy>
+   140006dbe:	90                   	nop
+   140006dbf:	90                   	nop
 
-0000000140006370 <_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_x>:
-   140006370:	ff 25 7e 81 00 00    	jmp    *0x817e(%rip)        # 14000e4f4 <__imp__ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_x>
-   140006376:	90                   	nop
-   140006377:	90                   	nop
+0000000140006dc0 <_ZdlPvy>:
+   140006dc0:	ff 25 8e 77 00 00    	jmp    *0x778e(%rip)        # 14000e554 <__imp__ZdlPvy>
+   140006dc6:	90                   	nop
+   140006dc7:	90                   	nop
 
-0000000140006378 <_ZNSt9basic_iosIcSt11char_traitsIcEE4initEPSt15basic_streambufIcS1_E>:
-   140006378:	ff 25 6e 81 00 00    	jmp    *0x816e(%rip)        # 14000e4ec <__imp__ZNSt9basic_iosIcSt11char_traitsIcEE4initEPSt15basic_streambufIcS1_E>
-   14000637e:	90                   	nop
-   14000637f:	90                   	nop
+0000000140006dc8 <_ZSt24__throw_out_of_range_fmtPKcz>:
+   140006dc8:	ff 25 3e 77 00 00    	jmp    *0x773e(%rip)        # 14000e50c <__imp__ZSt24__throw_out_of_range_fmtPKcz>
+   140006dce:	90                   	nop
+   140006dcf:	90                   	nop
 
-0000000140006380 <_ZNSt8ios_baseD2Ev>:
-   140006380:	ff 25 5e 81 00 00    	jmp    *0x815e(%rip)        # 14000e4e4 <__imp__ZNSt8ios_baseD2Ev>
-   140006386:	90                   	nop
-   140006387:	90                   	nop
+0000000140006dd0 <_ZSt20__throw_length_errorPKc>:
+   140006dd0:	ff 25 2e 77 00 00    	jmp    *0x772e(%rip)        # 14000e504 <__imp__ZSt20__throw_length_errorPKc>
+   140006dd6:	90                   	nop
+   140006dd7:	90                   	nop
 
-0000000140006388 <_ZNSt8ios_baseC2Ev>:
-   140006388:	ff 25 4e 81 00 00    	jmp    *0x814e(%rip)        # 14000e4dc <__imp__ZNSt8ios_baseC2Ev>
-   14000638e:	90                   	nop
-   14000638f:	90                   	nop
+0000000140006dd8 <_ZSt16__throw_bad_castv>:
+   140006dd8:	ff 25 1e 77 00 00    	jmp    *0x771e(%rip)        # 14000e4fc <__imp__ZSt16__throw_bad_castv>
+   140006dde:	90                   	nop
+   140006ddf:	90                   	nop
 
-0000000140006390 <_ZNSt8ios_base4InitD1Ev>:
-   140006390:	ff 25 3e 81 00 00    	jmp    *0x813e(%rip)        # 14000e4d4 <__imp__ZNSt8ios_base4InitD1Ev>
-   140006396:	90                   	nop
-   140006397:	90                   	nop
+0000000140006de0 <_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_x>:
+   140006de0:	ff 25 0e 77 00 00    	jmp    *0x770e(%rip)        # 14000e4f4 <__imp__ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_x>
+   140006de6:	90                   	nop
+   140006de7:	90                   	nop
 
-0000000140006398 <_ZNSt8ios_base4InitC1Ev>:
-   140006398:	ff 25 2e 81 00 00    	jmp    *0x812e(%rip)        # 14000e4cc <__imp__ZNSt8ios_base4InitC1Ev>
-   14000639e:	90                   	nop
-   14000639f:	90                   	nop
+0000000140006de8 <_ZNSt9basic_iosIcSt11char_traitsIcEE4initEPSt15basic_streambufIcS1_E>:
+   140006de8:	ff 25 fe 76 00 00    	jmp    *0x76fe(%rip)        # 14000e4ec <__imp__ZNSt9basic_iosIcSt11char_traitsIcEE4initEPSt15basic_streambufIcS1_E>
+   140006dee:	90                   	nop
+   140006def:	90                   	nop
 
-00000001400063a0 <_ZNSt8__detail15_List_node_base9_M_unhookEv>:
-   1400063a0:	ff 25 1e 81 00 00    	jmp    *0x811e(%rip)        # 14000e4c4 <__imp__ZNSt8__detail15_List_node_base9_M_unhookEv>
-   1400063a6:	90                   	nop
-   1400063a7:	90                   	nop
+0000000140006df0 <_ZNSt8ios_baseD2Ev>:
+   140006df0:	ff 25 ee 76 00 00    	jmp    *0x76ee(%rip)        # 14000e4e4 <__imp__ZNSt8ios_baseD2Ev>
+   140006df6:	90                   	nop
+   140006df7:	90                   	nop
 
-00000001400063a8 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>:
-   1400063a8:	ff 25 0e 81 00 00    	jmp    *0x810e(%rip)        # 14000e4bc <__imp__ZNSt8__detail15_List_node_base7_M_hookEPS0_>
-   1400063ae:	90                   	nop
-   1400063af:	90                   	nop
+0000000140006df8 <_ZNSt8ios_baseC2Ev>:
+   140006df8:	ff 25 de 76 00 00    	jmp    *0x76de(%rip)        # 14000e4dc <__imp__ZNSt8ios_baseC2Ev>
+   140006dfe:	90                   	nop
+   140006dff:	90                   	nop
 
-00000001400063b0 <_ZNSt8__detail15_List_node_base11_M_transferEPS0_S1_>:
-   1400063b0:	ff 25 fe 80 00 00    	jmp    *0x80fe(%rip)        # 14000e4b4 <__imp__ZNSt8__detail15_List_node_base11_M_transferEPS0_S1_>
-   1400063b6:	90                   	nop
-   1400063b7:	90                   	nop
+0000000140006e00 <_ZNSt8ios_base4InitD1Ev>:
+   140006e00:	ff 25 ce 76 00 00    	jmp    *0x76ce(%rip)        # 14000e4d4 <__imp__ZNSt8ios_base4InitD1Ev>
+   140006e06:	90                   	nop
+   140006e07:	90                   	nop
 
-00000001400063b8 <_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev>:
-   1400063b8:	ff 25 ee 80 00 00    	jmp    *0x80ee(%rip)        # 14000e4ac <__imp__ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev>
-   1400063be:	90                   	nop
-   1400063bf:	90                   	nop
+0000000140006e08 <_ZNSt8ios_base4InitC1Ev>:
+   140006e08:	ff 25 be 76 00 00    	jmp    *0x76be(%rip)        # 14000e4cc <__imp__ZNSt8ios_base4InitC1Ev>
+   140006e0e:	90                   	nop
+   140006e0f:	90                   	nop
 
-00000001400063c0 <_ZNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE7_M_syncEPcyy>:
-   1400063c0:	ff 25 de 80 00 00    	jmp    *0x80de(%rip)        # 14000e4a4 <__imp__ZNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE7_M_syncEPcyy>
-   1400063c6:	90                   	nop
-   1400063c7:	90                   	nop
+0000000140006e10 <_ZNSt8__detail15_List_node_base9_M_unhookEv>:
+   140006e10:	ff 25 ae 76 00 00    	jmp    *0x76ae(%rip)        # 14000e4c4 <__imp__ZNSt8__detail15_List_node_base9_M_unhookEv>
+   140006e16:	90                   	nop
+   140006e17:	90                   	nop
 
-00000001400063c8 <_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_>:
-   1400063c8:	ff 25 ce 80 00 00    	jmp    *0x80ce(%rip)        # 14000e49c <__imp__ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_>
-   1400063ce:	90                   	nop
-   1400063cf:	90                   	nop
+0000000140006e18 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>:
+   140006e18:	ff 25 9e 76 00 00    	jmp    *0x769e(%rip)        # 14000e4bc <__imp__ZNSt8__detail15_List_node_base7_M_hookEPS0_>
+   140006e1e:	90                   	nop
+   140006e1f:	90                   	nop
 
-00000001400063d0 <_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcy>:
-   1400063d0:	ff 25 be 80 00 00    	jmp    *0x80be(%rip)        # 14000e494 <__imp__ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcy>
-   1400063d6:	90                   	nop
-   1400063d7:	90                   	nop
+0000000140006e20 <_ZNSt8__detail15_List_node_base11_M_transferEPS0_S1_>:
+   140006e20:	ff 25 8e 76 00 00    	jmp    *0x768e(%rip)        # 14000e4b4 <__imp__ZNSt8__detail15_List_node_base11_M_transferEPS0_S1_>
+   140006e26:	90                   	nop
+   140006e27:	90                   	nop
 
-00000001400063d8 <_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEy>:
-   1400063d8:	ff 25 ae 80 00 00    	jmp    *0x80ae(%rip)        # 14000e48c <__imp__ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEy>
-   1400063de:	90                   	nop
-   1400063df:	90                   	nop
-
-00000001400063e0 <_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEyyPKcy>:
-   1400063e0:	ff 25 9e 80 00 00    	jmp    *0x809e(%rip)        # 14000e484 <__imp__ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEyyPKcy>
-   1400063e6:	90                   	nop
-   1400063e7:	90                   	nop
-
-00000001400063e8 <_ZNSt6localeD1Ev>:
-   1400063e8:	ff 25 8e 80 00 00    	jmp    *0x808e(%rip)        # 14000e47c <__imp__ZNSt6localeD1Ev>
-   1400063ee:	90                   	nop
-   1400063ef:	90                   	nop
-
-00000001400063f0 <_ZNSt6localeC1Ev>:
-   1400063f0:	ff 25 7e 80 00 00    	jmp    *0x807e(%rip)        # 14000e474 <__imp__ZNSt6localeC1Ev>
-   1400063f6:	90                   	nop
-   1400063f7:	90                   	nop
-
-00000001400063f8 <_ZNSt16invalid_argumentD1Ev>:
-   1400063f8:	ff 25 6e 80 00 00    	jmp    *0x806e(%rip)        # 14000e46c <__imp__ZNSt16invalid_argumentD1Ev>
-   1400063fe:	90                   	nop
-   1400063ff:	90                   	nop
-
-0000000140006400 <_ZNSt16invalid_argumentC1EPKc>:
-   140006400:	ff 25 5e 80 00 00    	jmp    *0x805e(%rip)        # 14000e464 <__imp__ZNSt16invalid_argumentC1EPKc>
-   140006406:	90                   	nop
-   140006407:	90                   	nop
-
-0000000140006408 <_ZNSt13runtime_errorD1Ev>:
-   140006408:	ff 25 4e 80 00 00    	jmp    *0x804e(%rip)        # 14000e45c <__imp__ZNSt13runtime_errorD1Ev>
-   14000640e:	90                   	nop
-   14000640f:	90                   	nop
-
-0000000140006410 <_ZNSt13runtime_errorC1EPKc>:
-   140006410:	ff 25 3e 80 00 00    	jmp    *0x803e(%rip)        # 14000e454 <__imp__ZNSt13runtime_errorC1EPKc>
-   140006416:	90                   	nop
-   140006417:	90                   	nop
-
-0000000140006418 <_ZNSolsEi>:
-   140006418:	ff 25 2e 80 00 00    	jmp    *0x802e(%rip)        # 14000e44c <__imp__ZNSolsEi>
-   14000641e:	90                   	nop
-   14000641f:	90                   	nop
-
-0000000140006420 <_ZNSo5flushEv>:
-   140006420:	ff 25 1e 80 00 00    	jmp    *0x801e(%rip)        # 14000e444 <__imp__ZNSo5flushEv>
-   140006426:	90                   	nop
-   140006427:	90                   	nop
-
-0000000140006428 <_ZNSo3putEc>:
-   140006428:	ff 25 0e 80 00 00    	jmp    *0x800e(%rip)        # 14000e43c <__imp__ZNSo3putEc>
-   14000642e:	90                   	nop
-   14000642f:	90                   	nop
-
-0000000140006430 <_ZNKSt5ctypeIcE13_M_widen_initEv>:
-   140006430:	ff 25 fe 7f 00 00    	jmp    *0x7ffe(%rip)        # 14000e434 <__imp__ZNKSt5ctypeIcE13_M_widen_initEv>
-   140006436:	90                   	nop
-   140006437:	90                   	nop
-   140006438:	0f 1f 84 00 00 00 00 	nopl   0x0(%rax,%rax,1)
-   14000643f:	00 
-
-0000000140006440 <__do_global_dtors>:
-   140006440:	48 83 ec 28          	sub    $0x28,%rsp
-   140006444:	48 8b 05 b5 2b 00 00 	mov    0x2bb5(%rip),%rax        # 140009000 <__data_start__>
-   14000644b:	48 8b 00             	mov    (%rax),%rax
-   14000644e:	48 85 c0             	test   %rax,%rax
-   140006451:	74 22                	je     140006475 <__do_global_dtors+0x35>
-   140006453:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
-   140006458:	ff d0                	call   *%rax
-   14000645a:	48 8b 05 9f 2b 00 00 	mov    0x2b9f(%rip),%rax        # 140009000 <__data_start__>
-   140006461:	48 8d 50 08          	lea    0x8(%rax),%rdx
-   140006465:	48 8b 40 08          	mov    0x8(%rax),%rax
-   140006469:	48 89 15 90 2b 00 00 	mov    %rdx,0x2b90(%rip)        # 140009000 <__data_start__>
-   140006470:	48 85 c0             	test   %rax,%rax
-   140006473:	75 e3                	jne    140006458 <__do_global_dtors+0x18>
-   140006475:	48 83 c4 28          	add    $0x28,%rsp
-   140006479:	c3                   	ret
-   14000647a:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
-
-0000000140006480 <__do_global_ctors>:
-   140006480:	56                   	push   %rsi
-   140006481:	53                   	push   %rbx
-   140006482:	48 83 ec 28          	sub    $0x28,%rsp
-   140006486:	48 8b 15 33 40 00 00 	mov    0x4033(%rip),%rdx        # 14000a4c0 <.refptr.__CTOR_LIST__>
-   14000648d:	48 8b 02             	mov    (%rdx),%rax
-   140006490:	89 c1                	mov    %eax,%ecx
-   140006492:	83 f8 ff             	cmp    $0xffffffff,%eax
-   140006495:	74 39                	je     1400064d0 <__do_global_ctors+0x50>
-   140006497:	85 c9                	test   %ecx,%ecx
-   140006499:	74 20                	je     1400064bb <__do_global_ctors+0x3b>
-   14000649b:	89 c8                	mov    %ecx,%eax
-   14000649d:	83 e9 01             	sub    $0x1,%ecx
-   1400064a0:	48 8d 1c c2          	lea    (%rdx,%rax,8),%rbx
-   1400064a4:	48 29 c8             	sub    %rcx,%rax
-   1400064a7:	48 8d 74 c2 f8       	lea    -0x8(%rdx,%rax,8),%rsi
-   1400064ac:	0f 1f 40 00          	nopl   0x0(%rax)
-   1400064b0:	ff 13                	call   *(%rbx)
-   1400064b2:	48 83 eb 08          	sub    $0x8,%rbx
-   1400064b6:	48 39 f3             	cmp    %rsi,%rbx
-   1400064b9:	75 f5                	jne    1400064b0 <__do_global_ctors+0x30>
-   1400064bb:	48 8d 0d 7e ff ff ff 	lea    -0x82(%rip),%rcx        # 140006440 <__do_global_dtors>
-   1400064c2:	48 83 c4 28          	add    $0x28,%rsp
-   1400064c6:	5b                   	pop    %rbx
-   1400064c7:	5e                   	pop    %rsi
-   1400064c8:	e9 43 af ff ff       	jmp    140001410 <atexit>
-   1400064cd:	0f 1f 00             	nopl   (%rax)
-   1400064d0:	31 c0                	xor    %eax,%eax
-   1400064d2:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
-   1400064d8:	44 8d 40 01          	lea    0x1(%rax),%r8d
-   1400064dc:	89 c1                	mov    %eax,%ecx
-   1400064de:	4a 83 3c c2 00       	cmpq   $0x0,(%rdx,%r8,8)
-   1400064e3:	4c 89 c0             	mov    %r8,%rax
-   1400064e6:	75 f0                	jne    1400064d8 <__do_global_ctors+0x58>
-   1400064e8:	eb ad                	jmp    140006497 <__do_global_ctors+0x17>
-   1400064ea:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
-
-00000001400064f0 <__main>:
-   1400064f0:	8b 05 8a 6b 00 00    	mov    0x6b8a(%rip),%eax        # 14000d080 <initialized>
-   1400064f6:	85 c0                	test   %eax,%eax
-   1400064f8:	74 06                	je     140006500 <__main+0x10>
-   1400064fa:	c3                   	ret
-   1400064fb:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
-   140006500:	c7 05 76 6b 00 00 01 	movl   $0x1,0x6b76(%rip)        # 14000d080 <initialized>
-   140006507:	00 00 00 
-   14000650a:	e9 71 ff ff ff       	jmp    140006480 <__do_global_ctors>
-   14000650f:	90                   	nop
-
-0000000140006510 <_setargv>:
-   140006510:	31 c0                	xor    %eax,%eax
-   140006512:	c3                   	ret
-   140006513:	90                   	nop
-   140006514:	90                   	nop
-   140006515:	90                   	nop
-   140006516:	90                   	nop
-   140006517:	90                   	nop
-   140006518:	90                   	nop
-   140006519:	90                   	nop
-   14000651a:	90                   	nop
-   14000651b:	90                   	nop
-   14000651c:	90                   	nop
-   14000651d:	90                   	nop
-   14000651e:	90                   	nop
-   14000651f:	90                   	nop
-
-0000000140006520 <__dyn_tls_dtor>:
-   140006520:	48 83 ec 28          	sub    $0x28,%rsp
-   140006524:	83 fa 03             	cmp    $0x3,%edx
-   140006527:	74 17                	je     140006540 <__dyn_tls_dtor+0x20>
-   140006529:	85 d2                	test   %edx,%edx
-   14000652b:	74 13                	je     140006540 <__dyn_tls_dtor+0x20>
-   14000652d:	b8 01 00 00 00       	mov    $0x1,%eax
-   140006532:	48 83 c4 28          	add    $0x28,%rsp
-   140006536:	c3                   	ret
-   140006537:	66 0f 1f 84 00 00 00 	nopw   0x0(%rax,%rax,1)
-   14000653e:	00 00 
-   140006540:	e8 5b 0a 00 00       	call   140006fa0 <__mingw_TLScallback>
-   140006545:	b8 01 00 00 00       	mov    $0x1,%eax
-   14000654a:	48 83 c4 28          	add    $0x28,%rsp
-   14000654e:	c3                   	ret
-   14000654f:	90                   	nop
-
-0000000140006550 <__dyn_tls_init>:
-   140006550:	56                   	push   %rsi
-   140006551:	53                   	push   %rbx
-   140006552:	48 83 ec 28          	sub    $0x28,%rsp
-   140006556:	48 8b 05 c3 3e 00 00 	mov    0x3ec3(%rip),%rax        # 14000a420 <.refptr._CRT_MT>
-   14000655d:	83 38 02             	cmpl   $0x2,(%rax)
-   140006560:	74 06                	je     140006568 <__dyn_tls_init+0x18>
-   140006562:	c7 00 02 00 00 00    	movl   $0x2,(%rax)
-   140006568:	83 fa 02             	cmp    $0x2,%edx
-   14000656b:	74 13                	je     140006580 <__dyn_tls_init+0x30>
-   14000656d:	83 fa 01             	cmp    $0x1,%edx
-   140006570:	74 4e                	je     1400065c0 <__dyn_tls_init+0x70>
-   140006572:	b8 01 00 00 00       	mov    $0x1,%eax
-   140006577:	48 83 c4 28          	add    $0x28,%rsp
-   14000657b:	5b                   	pop    %rbx
-   14000657c:	5e                   	pop    %rsi
-   14000657d:	c3                   	ret
-   14000657e:	66 90                	xchg   %ax,%ax
-   140006580:	48 8d 1d d1 8a 00 00 	lea    0x8ad1(%rip),%rbx        # 14000f058 <__xd_z>
-   140006587:	48 8d 35 ca 8a 00 00 	lea    0x8aca(%rip),%rsi        # 14000f058 <__xd_z>
-   14000658e:	48 39 de             	cmp    %rbx,%rsi
-   140006591:	74 df                	je     140006572 <__dyn_tls_init+0x22>
-   140006593:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
-   140006598:	48 8b 03             	mov    (%rbx),%rax
-   14000659b:	48 85 c0             	test   %rax,%rax
-   14000659e:	74 02                	je     1400065a2 <__dyn_tls_init+0x52>
-   1400065a0:	ff d0                	call   *%rax
-   1400065a2:	48 83 c3 08          	add    $0x8,%rbx
-   1400065a6:	48 39 de             	cmp    %rbx,%rsi
-   1400065a9:	75 ed                	jne    140006598 <__dyn_tls_init+0x48>
-   1400065ab:	b8 01 00 00 00       	mov    $0x1,%eax
-   1400065b0:	48 83 c4 28          	add    $0x28,%rsp
-   1400065b4:	5b                   	pop    %rbx
-   1400065b5:	5e                   	pop    %rsi
-   1400065b6:	c3                   	ret
-   1400065b7:	66 0f 1f 84 00 00 00 	nopw   0x0(%rax,%rax,1)
-   1400065be:	00 00 
-   1400065c0:	e8 db 09 00 00       	call   140006fa0 <__mingw_TLScallback>
-   1400065c5:	b8 01 00 00 00       	mov    $0x1,%eax
-   1400065ca:	48 83 c4 28          	add    $0x28,%rsp
-   1400065ce:	5b                   	pop    %rbx
-   1400065cf:	5e                   	pop    %rsi
-   1400065d0:	c3                   	ret
-   1400065d1:	66 66 2e 0f 1f 84 00 	data16 cs nopw 0x0(%rax,%rax,1)
-   1400065d8:	00 00 00 00 
-   1400065dc:	0f 1f 40 00          	nopl   0x0(%rax)
-
-00000001400065e0 <__tlregdtor>:
-   1400065e0:	31 c0                	xor    %eax,%eax
-   1400065e2:	c3                   	ret
-   1400065e3:	90                   	nop
-   1400065e4:	90                   	nop
-   1400065e5:	90                   	nop
-   1400065e6:	90                   	nop
-   1400065e7:	90                   	nop
-   1400065e8:	90                   	nop
-   1400065e9:	90                   	nop
-   1400065ea:	90                   	nop
-   1400065eb:	90                   	nop
-   1400065ec:	90                   	nop
-   1400065ed:	90                   	nop
-   1400065ee:	90                   	nop
-   1400065ef:	90                   	nop
-
-00000001400065f0 <_matherr>:
-   1400065f0:	56                   	push   %rsi
-   1400065f1:	53                   	push   %rbx
-   1400065f2:	48 83 ec 78          	sub    $0x78,%rsp
-   1400065f6:	0f 11 74 24 40       	movups %xmm6,0x40(%rsp)
-   1400065fb:	0f 11 7c 24 50       	movups %xmm7,0x50(%rsp)
-   140006600:	44 0f 11 44 24 60    	movups %xmm8,0x60(%rsp)
-   140006606:	83 39 06             	cmpl   $0x6,(%rcx)
-   140006609:	0f 87 cd 00 00 00    	ja     1400066dc <_matherr+0xec>
-   14000660f:	8b 01                	mov    (%rcx),%eax
-   140006611:	48 8d 15 4c 3c 00 00 	lea    0x3c4c(%rip),%rdx        # 14000a264 <.rdata+0x124>
-   140006618:	48 63 04 82          	movslq (%rdx,%rax,4),%rax
-   14000661c:	48 01 d0             	add    %rdx,%rax
-   14000661f:	ff e0                	jmp    *%rax
-   140006621:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
-   140006628:	48 8d 1d 30 3b 00 00 	lea    0x3b30(%rip),%rbx        # 14000a15f <.rdata+0x1f>
-   14000662f:	f2 44 0f 10 41 20    	movsd  0x20(%rcx),%xmm8
-   140006635:	f2 0f 10 79 18       	movsd  0x18(%rcx),%xmm7
-   14000663a:	f2 0f 10 71 10       	movsd  0x10(%rcx),%xmm6
-   14000663f:	48 8b 71 08          	mov    0x8(%rcx),%rsi
-   140006643:	b9 02 00 00 00       	mov    $0x2,%ecx
-   140006648:	e8 e3 0e 00 00       	call   140007530 <__acrt_iob_func>
-   14000664d:	f2 44 0f 11 44 24 30 	movsd  %xmm8,0x30(%rsp)
-   140006654:	49 89 d8             	mov    %rbx,%r8
-   140006657:	48 8d 15 da 3b 00 00 	lea    0x3bda(%rip),%rdx        # 14000a238 <.rdata+0xf8>
-   14000665e:	f2 0f 11 7c 24 28    	movsd  %xmm7,0x28(%rsp)
-   140006664:	48 89 c1             	mov    %rax,%rcx
-   140006667:	49 89 f1             	mov    %rsi,%r9
-   14000666a:	f2 0f 11 74 24 20    	movsd  %xmm6,0x20(%rsp)
-   140006670:	e8 3b 0f 00 00       	call   1400075b0 <fprintf>
-   140006675:	90                   	nop
-   140006676:	0f 10 74 24 40       	movups 0x40(%rsp),%xmm6
-   14000667b:	0f 10 7c 24 50       	movups 0x50(%rsp),%xmm7
-   140006680:	31 c0                	xor    %eax,%eax
-   140006682:	44 0f 10 44 24 60    	movups 0x60(%rsp),%xmm8
-   140006688:	48 83 c4 78          	add    $0x78,%rsp
-   14000668c:	5b                   	pop    %rbx
-   14000668d:	5e                   	pop    %rsi
-   14000668e:	c3                   	ret
-   14000668f:	90                   	nop
-   140006690:	48 8d 1d a9 3a 00 00 	lea    0x3aa9(%rip),%rbx        # 14000a140 <.rdata>
-   140006697:	eb 96                	jmp    14000662f <_matherr+0x3f>
-   140006699:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
-   1400066a0:	48 8d 1d f9 3a 00 00 	lea    0x3af9(%rip),%rbx        # 14000a1a0 <.rdata+0x60>
-   1400066a7:	eb 86                	jmp    14000662f <_matherr+0x3f>
-   1400066a9:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
-   1400066b0:	48 8d 1d c9 3a 00 00 	lea    0x3ac9(%rip),%rbx        # 14000a180 <.rdata+0x40>
-   1400066b7:	e9 73 ff ff ff       	jmp    14000662f <_matherr+0x3f>
-   1400066bc:	0f 1f 40 00          	nopl   0x0(%rax)
-   1400066c0:	48 8d 1d 29 3b 00 00 	lea    0x3b29(%rip),%rbx        # 14000a1f0 <.rdata+0xb0>
-   1400066c7:	e9 63 ff ff ff       	jmp    14000662f <_matherr+0x3f>
-   1400066cc:	0f 1f 40 00          	nopl   0x0(%rax)
-   1400066d0:	48 8d 1d f1 3a 00 00 	lea    0x3af1(%rip),%rbx        # 14000a1c8 <.rdata+0x88>
-   1400066d7:	e9 53 ff ff ff       	jmp    14000662f <_matherr+0x3f>
-   1400066dc:	48 8d 1d 43 3b 00 00 	lea    0x3b43(%rip),%rbx        # 14000a226 <.rdata+0xe6>
-   1400066e3:	e9 47 ff ff ff       	jmp    14000662f <_matherr+0x3f>
-   1400066e8:	90                   	nop
-   1400066e9:	90                   	nop
-   1400066ea:	90                   	nop
-   1400066eb:	90                   	nop
-   1400066ec:	90                   	nop
-   1400066ed:	90                   	nop
-   1400066ee:	90                   	nop
-   1400066ef:	90                   	nop
-
-00000001400066f0 <_fpreset>:
-   1400066f0:	db e3                	fninit
-   1400066f2:	c3                   	ret
-   1400066f3:	90                   	nop
-   1400066f4:	90                   	nop
-   1400066f5:	90                   	nop
-   1400066f6:	90                   	nop
-   1400066f7:	90                   	nop
-   1400066f8:	90                   	nop
-   1400066f9:	90                   	nop
-   1400066fa:	90                   	nop
-   1400066fb:	90                   	nop
-   1400066fc:	90                   	nop
-   1400066fd:	90                   	nop
-   1400066fe:	90                   	nop
-   1400066ff:	90                   	nop
-
-0000000140006700 <__report_error>:
-   140006700:	56                   	push   %rsi
-   140006701:	53                   	push   %rbx
-   140006702:	48 83 ec 38          	sub    $0x38,%rsp
-   140006706:	48 89 cb             	mov    %rcx,%rbx
-   140006709:	48 8d 44 24 58       	lea    0x58(%rsp),%rax
-   14000670e:	b9 02 00 00 00       	mov    $0x2,%ecx
-   140006713:	48 89 54 24 58       	mov    %rdx,0x58(%rsp)
-   140006718:	4c 89 44 24 60       	mov    %r8,0x60(%rsp)
-   14000671d:	4c 89 4c 24 68       	mov    %r9,0x68(%rsp)
-   140006722:	48 89 44 24 28       	mov    %rax,0x28(%rsp)
-   140006727:	e8 04 0e 00 00       	call   140007530 <__acrt_iob_func>
-   14000672c:	41 b8 1b 00 00 00    	mov    $0x1b,%r8d
-   140006732:	ba 01 00 00 00       	mov    $0x1,%edx
-   140006737:	48 8d 0d 42 3b 00 00 	lea    0x3b42(%rip),%rcx        # 14000a280 <.rdata>
-   14000673e:	49 89 c1             	mov    %rax,%r9
-   140006741:	e8 7a 0e 00 00       	call   1400075c0 <fwrite>
-   140006746:	48 8b 74 24 28       	mov    0x28(%rsp),%rsi
-   14000674b:	b9 02 00 00 00       	mov    $0x2,%ecx
-   140006750:	e8 db 0d 00 00       	call   140007530 <__acrt_iob_func>
-   140006755:	48 89 da             	mov    %rbx,%rdx
-   140006758:	48 89 c1             	mov    %rax,%rcx
-   14000675b:	49 89 f0             	mov    %rsi,%r8
-   14000675e:	e8 8d 0e 00 00       	call   1400075f0 <vfprintf>
-   140006763:	e8 30 0e 00 00       	call   140007598 <abort>
-   140006768:	90                   	nop
-   140006769:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
-
-0000000140006770 <mark_section_writable>:
-   140006770:	57                   	push   %rdi
-   140006771:	56                   	push   %rsi
-   140006772:	53                   	push   %rbx
-   140006773:	48 83 ec 50          	sub    $0x50,%rsp
-   140006777:	48 63 35 66 69 00 00 	movslq 0x6966(%rip),%rsi        # 14000d0e4 <maxSections>
-   14000677e:	48 89 cb             	mov    %rcx,%rbx
-   140006781:	85 f6                	test   %esi,%esi
-   140006783:	0f 8e 17 01 00 00    	jle    1400068a0 <mark_section_writable+0x130>
-   140006789:	48 8b 05 58 69 00 00 	mov    0x6958(%rip),%rax        # 14000d0e8 <the_secs>
-   140006790:	45 31 c9             	xor    %r9d,%r9d
-   140006793:	48 83 c0 18          	add    $0x18,%rax
-   140006797:	66 0f 1f 84 00 00 00 	nopw   0x0(%rax,%rax,1)
-   14000679e:	00 00 
-   1400067a0:	4c 8b 00             	mov    (%rax),%r8
-   1400067a3:	4c 39 c3             	cmp    %r8,%rbx
-   1400067a6:	72 13                	jb     1400067bb <mark_section_writable+0x4b>
-   1400067a8:	48 8b 50 08          	mov    0x8(%rax),%rdx
-   1400067ac:	8b 52 08             	mov    0x8(%rdx),%edx
-   1400067af:	49 01 d0             	add    %rdx,%r8
-   1400067b2:	4c 39 c3             	cmp    %r8,%rbx
-   1400067b5:	0f 82 8a 00 00 00    	jb     140006845 <mark_section_writable+0xd5>
-   1400067bb:	41 83 c1 01          	add    $0x1,%r9d
-   1400067bf:	48 83 c0 28          	add    $0x28,%rax
-   1400067c3:	41 39 f1             	cmp    %esi,%r9d
-   1400067c6:	75 d8                	jne    1400067a0 <mark_section_writable+0x30>
-   1400067c8:	48 89 d9             	mov    %rbx,%rcx
-   1400067cb:	e8 f0 09 00 00       	call   1400071c0 <__mingw_GetSectionForAddress>
-   1400067d0:	48 89 c7             	mov    %rax,%rdi
-   1400067d3:	48 85 c0             	test   %rax,%rax
-   1400067d6:	0f 84 e6 00 00 00    	je     1400068c2 <mark_section_writable+0x152>
-   1400067dc:	48 8b 05 05 69 00 00 	mov    0x6905(%rip),%rax        # 14000d0e8 <the_secs>
-   1400067e3:	48 8d 1c b6          	lea    (%rsi,%rsi,4),%rbx
-   1400067e7:	48 c1 e3 03          	shl    $0x3,%rbx
-   1400067eb:	48 01 d8             	add    %rbx,%rax
-   1400067ee:	48 89 78 20          	mov    %rdi,0x20(%rax)
-   1400067f2:	c7 00 00 00 00 00    	movl   $0x0,(%rax)
-   1400067f8:	e8 03 0b 00 00       	call   140007300 <_GetPEImageBase>
-   1400067fd:	8b 57 0c             	mov    0xc(%rdi),%edx
-   140006800:	41 b8 30 00 00 00    	mov    $0x30,%r8d
-   140006806:	48 8d 0c 10          	lea    (%rax,%rdx,1),%rcx
-   14000680a:	48 8b 05 d7 68 00 00 	mov    0x68d7(%rip),%rax        # 14000d0e8 <the_secs>
-   140006811:	48 8d 54 24 20       	lea    0x20(%rsp),%rdx
-   140006816:	48 89 4c 18 18       	mov    %rcx,0x18(%rax,%rbx,1)
-   14000681b:	ff 15 3b 7b 00 00    	call   *0x7b3b(%rip)        # 14000e35c <__imp_VirtualQuery>
-   140006821:	48 85 c0             	test   %rax,%rax
-   140006824:	0f 84 7d 00 00 00    	je     1400068a7 <mark_section_writable+0x137>
-   14000682a:	8b 44 24 44          	mov    0x44(%rsp),%eax
-   14000682e:	8d 50 c0             	lea    -0x40(%rax),%edx
-   140006831:	83 e2 bf             	and    $0xffffffbf,%edx
-   140006834:	74 08                	je     14000683e <mark_section_writable+0xce>
-   140006836:	8d 50 fc             	lea    -0x4(%rax),%edx
-   140006839:	83 e2 fb             	and    $0xfffffffb,%edx
-   14000683c:	75 12                	jne    140006850 <mark_section_writable+0xe0>
-   14000683e:	83 05 9f 68 00 00 01 	addl   $0x1,0x689f(%rip)        # 14000d0e4 <maxSections>
-   140006845:	48 83 c4 50          	add    $0x50,%rsp
-   140006849:	5b                   	pop    %rbx
-   14000684a:	5e                   	pop    %rsi
-   14000684b:	5f                   	pop    %rdi
-   14000684c:	c3                   	ret
-   14000684d:	0f 1f 00             	nopl   (%rax)
-   140006850:	83 f8 02             	cmp    $0x2,%eax
-   140006853:	48 8b 4c 24 20       	mov    0x20(%rsp),%rcx
-   140006858:	48 8b 54 24 38       	mov    0x38(%rsp),%rdx
-   14000685d:	41 b8 40 00 00 00    	mov    $0x40,%r8d
-   140006863:	b8 04 00 00 00       	mov    $0x4,%eax
-   140006868:	44 0f 44 c0          	cmove  %eax,%r8d
-   14000686c:	48 03 1d 75 68 00 00 	add    0x6875(%rip),%rbx        # 14000d0e8 <the_secs>
-   140006873:	48 89 4b 08          	mov    %rcx,0x8(%rbx)
-   140006877:	49 89 d9             	mov    %rbx,%r9
-   14000687a:	48 89 53 10          	mov    %rdx,0x10(%rbx)
-   14000687e:	ff 15 d0 7a 00 00    	call   *0x7ad0(%rip)        # 14000e354 <__imp_VirtualProtect>
-   140006884:	85 c0                	test   %eax,%eax
-   140006886:	75 b6                	jne    14000683e <mark_section_writable+0xce>
-   140006888:	ff 15 96 7a 00 00    	call   *0x7a96(%rip)        # 14000e324 <__imp_GetLastError>
-   14000688e:	48 8d 0d 63 3a 00 00 	lea    0x3a63(%rip),%rcx        # 14000a2f8 <.rdata+0x78>
-   140006895:	89 c2                	mov    %eax,%edx
-   140006897:	e8 64 fe ff ff       	call   140006700 <__report_error>
-   14000689c:	0f 1f 40 00          	nopl   0x0(%rax)
-   1400068a0:	31 f6                	xor    %esi,%esi
-   1400068a2:	e9 21 ff ff ff       	jmp    1400067c8 <mark_section_writable+0x58>
-   1400068a7:	48 8b 05 3a 68 00 00 	mov    0x683a(%rip),%rax        # 14000d0e8 <the_secs>
-   1400068ae:	8b 57 08             	mov    0x8(%rdi),%edx
-   1400068b1:	48 8d 0d 08 3a 00 00 	lea    0x3a08(%rip),%rcx        # 14000a2c0 <.rdata+0x40>
-   1400068b8:	4c 8b 44 18 18       	mov    0x18(%rax,%rbx,1),%r8
-   1400068bd:	e8 3e fe ff ff       	call   140006700 <__report_error>
-   1400068c2:	48 89 da             	mov    %rbx,%rdx
-   1400068c5:	48 8d 0d d4 39 00 00 	lea    0x39d4(%rip),%rcx        # 14000a2a0 <.rdata+0x20>
-   1400068cc:	e8 2f fe ff ff       	call   140006700 <__report_error>
-   1400068d1:	90                   	nop
-   1400068d2:	66 66 2e 0f 1f 84 00 	data16 cs nopw 0x0(%rax,%rax,1)
-   1400068d9:	00 00 00 00 
-   1400068dd:	0f 1f 00             	nopl   (%rax)
-
-00000001400068e0 <_pei386_runtime_relocator>:
-   1400068e0:	55                   	push   %rbp
-   1400068e1:	41 57                	push   %r15
-   1400068e3:	41 56                	push   %r14
-   1400068e5:	41 55                	push   %r13
-   1400068e7:	41 54                	push   %r12
-   1400068e9:	57                   	push   %rdi
-   1400068ea:	56                   	push   %rsi
-   1400068eb:	53                   	push   %rbx
-   1400068ec:	48 83 ec 48          	sub    $0x48,%rsp
-   1400068f0:	48 8d 6c 24 40       	lea    0x40(%rsp),%rbp
-   1400068f5:	44 8b 25 e4 67 00 00 	mov    0x67e4(%rip),%r12d        # 14000d0e0 <was_init.0>
-   1400068fc:	45 85 e4             	test   %r12d,%r12d
-   1400068ff:	74 17                	je     140006918 <_pei386_runtime_relocator+0x38>
-   140006901:	48 8d 65 08          	lea    0x8(%rbp),%rsp
-   140006905:	5b                   	pop    %rbx
-   140006906:	5e                   	pop    %rsi
-   140006907:	5f                   	pop    %rdi
-   140006908:	41 5c                	pop    %r12
-   14000690a:	41 5d                	pop    %r13
-   14000690c:	41 5e                	pop    %r14
-   14000690e:	41 5f                	pop    %r15
-   140006910:	5d                   	pop    %rbp
-   140006911:	c3                   	ret
-   140006912:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
-   140006918:	c7 05 be 67 00 00 01 	movl   $0x1,0x67be(%rip)        # 14000d0e0 <was_init.0>
-   14000691f:	00 00 00 
-   140006922:	e8 19 09 00 00       	call   140007240 <__mingw_GetSectionCount>
-   140006927:	48 98                	cltq
-   140006929:	48 8d 04 80          	lea    (%rax,%rax,4),%rax
-   14000692d:	48 8d 04 c5 0f 00 00 	lea    0xf(,%rax,8),%rax
-   140006934:	00 
-   140006935:	48 83 e0 f0          	and    $0xfffffffffffffff0,%rax
-   140006939:	e8 72 0b 00 00       	call   1400074b0 <___chkstk_ms>
-   14000693e:	4c 8b 2d 9b 3b 00 00 	mov    0x3b9b(%rip),%r13        # 14000a4e0 <.refptr.__RUNTIME_PSEUDO_RELOC_LIST_END__>
-   140006945:	48 8b 1d a4 3b 00 00 	mov    0x3ba4(%rip),%rbx        # 14000a4f0 <.refptr.__RUNTIME_PSEUDO_RELOC_LIST__>
-   14000694c:	c7 05 8e 67 00 00 00 	movl   $0x0,0x678e(%rip)        # 14000d0e4 <maxSections>
-   140006953:	00 00 00 
-   140006956:	48 29 c4             	sub    %rax,%rsp
-   140006959:	48 8d 44 24 30       	lea    0x30(%rsp),%rax
-   14000695e:	48 89 05 83 67 00 00 	mov    %rax,0x6783(%rip)        # 14000d0e8 <the_secs>
-   140006965:	4c 89 e8             	mov    %r13,%rax
-   140006968:	48 29 d8             	sub    %rbx,%rax
-   14000696b:	48 83 f8 07          	cmp    $0x7,%rax
-   14000696f:	7e 90                	jle    140006901 <_pei386_runtime_relocator+0x21>
-   140006971:	8b 13                	mov    (%rbx),%edx
-   140006973:	48 83 f8 0b          	cmp    $0xb,%rax
-   140006977:	0f 8f 7b 01 00 00    	jg     140006af8 <_pei386_runtime_relocator+0x218>
-   14000697d:	8b 03                	mov    (%rbx),%eax
-   14000697f:	85 c0                	test   %eax,%eax
-   140006981:	0f 85 69 02 00 00    	jne    140006bf0 <_pei386_runtime_relocator+0x310>
-   140006987:	8b 43 04             	mov    0x4(%rbx),%eax
-   14000698a:	85 c0                	test   %eax,%eax
-   14000698c:	0f 85 5e 02 00 00    	jne    140006bf0 <_pei386_runtime_relocator+0x310>
-   140006992:	8b 53 08             	mov    0x8(%rbx),%edx
-   140006995:	83 fa 01             	cmp    $0x1,%edx
-   140006998:	0f 85 90 02 00 00    	jne    140006c2e <_pei386_runtime_relocator+0x34e>
-   14000699e:	48 83 c3 0c          	add    $0xc,%rbx
-   1400069a2:	4c 39 eb             	cmp    %r13,%rbx
-   1400069a5:	0f 83 56 ff ff ff    	jae    140006901 <_pei386_runtime_relocator+0x21>
-   1400069ab:	4c 8b 35 1e 3b 00 00 	mov    0x3b1e(%rip),%r14        # 14000a4d0 <.refptr.__ImageBase>
-   1400069b2:	49 bf ff ff ff 7f ff 	movabs $0xffffffff7fffffff,%r15
-   1400069b9:	ff ff ff 
-   1400069bc:	eb 54                	jmp    140006a12 <_pei386_runtime_relocator+0x132>
-   1400069be:	66 90                	xchg   %ax,%ax
-   1400069c0:	0f b6 37             	movzbl (%rdi),%esi
-   1400069c3:	81 e1 c0 00 00 00    	and    $0xc0,%ecx
-   1400069c9:	40 84 f6             	test   %sil,%sil
-   1400069cc:	0f 89 06 02 00 00    	jns    140006bd8 <_pei386_runtime_relocator+0x2f8>
-   1400069d2:	48 81 ce 00 ff ff ff 	or     $0xffffffffffffff00,%rsi
-   1400069d9:	48 29 c6             	sub    %rax,%rsi
-   1400069dc:	4c 01 ce             	add    %r9,%rsi
-   1400069df:	85 c9                	test   %ecx,%ecx
-   1400069e1:	75 17                	jne    1400069fa <_pei386_runtime_relocator+0x11a>
-   1400069e3:	48 81 fe ff 00 00 00 	cmp    $0xff,%rsi
-   1400069ea:	0f 8f 4f 01 00 00    	jg     140006b3f <_pei386_runtime_relocator+0x25f>
-   1400069f0:	48 83 fe 80          	cmp    $0xffffffffffffff80,%rsi
-   1400069f4:	0f 8c 45 01 00 00    	jl     140006b3f <_pei386_runtime_relocator+0x25f>
-   1400069fa:	48 89 f9             	mov    %rdi,%rcx
-   1400069fd:	e8 6e fd ff ff       	call   140006770 <mark_section_writable>
-   140006a02:	40 88 37             	mov    %sil,(%rdi)
-   140006a05:	48 83 c3 0c          	add    $0xc,%rbx
-   140006a09:	4c 39 eb             	cmp    %r13,%rbx
-   140006a0c:	0f 83 8e 00 00 00    	jae    140006aa0 <_pei386_runtime_relocator+0x1c0>
-   140006a12:	8b 03                	mov    (%rbx),%eax
-   140006a14:	8b 4b 08             	mov    0x8(%rbx),%ecx
-   140006a17:	8b 7b 04             	mov    0x4(%rbx),%edi
-   140006a1a:	4c 01 f0             	add    %r14,%rax
-   140006a1d:	0f b6 d1             	movzbl %cl,%edx
-   140006a20:	4c 8b 08             	mov    (%rax),%r9
-   140006a23:	4c 01 f7             	add    %r14,%rdi
-   140006a26:	83 fa 20             	cmp    $0x20,%edx
-   140006a29:	0f 84 29 01 00 00    	je     140006b58 <_pei386_runtime_relocator+0x278>
-   140006a2f:	0f 87 eb 00 00 00    	ja     140006b20 <_pei386_runtime_relocator+0x240>
-   140006a35:	83 fa 08             	cmp    $0x8,%edx
-   140006a38:	74 86                	je     1400069c0 <_pei386_runtime_relocator+0xe0>
-   140006a3a:	83 fa 10             	cmp    $0x10,%edx
-   140006a3d:	0f 85 df 01 00 00    	jne    140006c22 <_pei386_runtime_relocator+0x342>
-   140006a43:	0f b7 37             	movzwl (%rdi),%esi
-   140006a46:	81 e1 c0 00 00 00    	and    $0xc0,%ecx
-   140006a4c:	66 85 f6             	test   %si,%si
-   140006a4f:	0f 89 6b 01 00 00    	jns    140006bc0 <_pei386_runtime_relocator+0x2e0>
-   140006a55:	48 81 ce 00 00 ff ff 	or     $0xffffffffffff0000,%rsi
-   140006a5c:	48 29 c6             	sub    %rax,%rsi
-   140006a5f:	4c 01 ce             	add    %r9,%rsi
-   140006a62:	85 c9                	test   %ecx,%ecx
-   140006a64:	75 1a                	jne    140006a80 <_pei386_runtime_relocator+0x1a0>
-   140006a66:	48 81 fe 00 80 ff ff 	cmp    $0xffffffffffff8000,%rsi
-   140006a6d:	0f 8c cc 00 00 00    	jl     140006b3f <_pei386_runtime_relocator+0x25f>
-   140006a73:	48 81 fe ff ff 00 00 	cmp    $0xffff,%rsi
-   140006a7a:	0f 8f bf 00 00 00    	jg     140006b3f <_pei386_runtime_relocator+0x25f>
-   140006a80:	48 89 f9             	mov    %rdi,%rcx
-   140006a83:	48 83 c3 0c          	add    $0xc,%rbx
-   140006a87:	e8 e4 fc ff ff       	call   140006770 <mark_section_writable>
-   140006a8c:	66 89 37             	mov    %si,(%rdi)
-   140006a8f:	4c 39 eb             	cmp    %r13,%rbx
-   140006a92:	0f 82 7a ff ff ff    	jb     140006a12 <_pei386_runtime_relocator+0x132>
-   140006a98:	0f 1f 84 00 00 00 00 	nopl   0x0(%rax,%rax,1)
-   140006a9f:	00 
-   140006aa0:	8b 15 3e 66 00 00    	mov    0x663e(%rip),%edx        # 14000d0e4 <maxSections>
-   140006aa6:	85 d2                	test   %edx,%edx
-   140006aa8:	0f 8e 53 fe ff ff    	jle    140006901 <_pei386_runtime_relocator+0x21>
-   140006aae:	48 8b 35 9f 78 00 00 	mov    0x789f(%rip),%rsi        # 14000e354 <__imp_VirtualProtect>
-   140006ab5:	31 db                	xor    %ebx,%ebx
-   140006ab7:	48 8d 7d fc          	lea    -0x4(%rbp),%rdi
-   140006abb:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
-   140006ac0:	48 8b 05 21 66 00 00 	mov    0x6621(%rip),%rax        # 14000d0e8 <the_secs>
-   140006ac7:	48 01 d8             	add    %rbx,%rax
-   140006aca:	44 8b 00             	mov    (%rax),%r8d
-   140006acd:	45 85 c0             	test   %r8d,%r8d
-   140006ad0:	74 0d                	je     140006adf <_pei386_runtime_relocator+0x1ff>
-   140006ad2:	48 8b 50 10          	mov    0x10(%rax),%rdx
-   140006ad6:	48 8b 48 08          	mov    0x8(%rax),%rcx
-   140006ada:	49 89 f9             	mov    %rdi,%r9
-   140006add:	ff d6                	call   *%rsi
-   140006adf:	41 83 c4 01          	add    $0x1,%r12d
-   140006ae3:	48 83 c3 28          	add    $0x28,%rbx
-   140006ae7:	44 3b 25 f6 65 00 00 	cmp    0x65f6(%rip),%r12d        # 14000d0e4 <maxSections>
-   140006aee:	7c d0                	jl     140006ac0 <_pei386_runtime_relocator+0x1e0>
-   140006af0:	e9 0c fe ff ff       	jmp    140006901 <_pei386_runtime_relocator+0x21>
-   140006af5:	0f 1f 00             	nopl   (%rax)
-   140006af8:	85 d2                	test   %edx,%edx
-   140006afa:	0f 85 f0 00 00 00    	jne    140006bf0 <_pei386_runtime_relocator+0x310>
-   140006b00:	8b 43 04             	mov    0x4(%rbx),%eax
-   140006b03:	89 c2                	mov    %eax,%edx
-   140006b05:	0b 53 08             	or     0x8(%rbx),%edx
-   140006b08:	0f 85 7c fe ff ff    	jne    14000698a <_pei386_runtime_relocator+0xaa>
-   140006b0e:	48 83 c3 0c          	add    $0xc,%rbx
-   140006b12:	e9 66 fe ff ff       	jmp    14000697d <_pei386_runtime_relocator+0x9d>
-   140006b17:	66 0f 1f 84 00 00 00 	nopw   0x0(%rax,%rax,1)
-   140006b1e:	00 00 
-   140006b20:	83 fa 40             	cmp    $0x40,%edx
-   140006b23:	0f 85 f9 00 00 00    	jne    140006c22 <_pei386_runtime_relocator+0x342>
-   140006b29:	48 8b 37             	mov    (%rdi),%rsi
-   140006b2c:	48 29 c6             	sub    %rax,%rsi
-   140006b2f:	4c 01 ce             	add    %r9,%rsi
-   140006b32:	81 e1 c0 00 00 00    	and    $0xc0,%ecx
-   140006b38:	75 66                	jne    140006ba0 <_pei386_runtime_relocator+0x2c0>
-   140006b3a:	48 85 f6             	test   %rsi,%rsi
-   140006b3d:	78 61                	js     140006ba0 <_pei386_runtime_relocator+0x2c0>
-   140006b3f:	48 89 74 24 20       	mov    %rsi,0x20(%rsp)
-   140006b44:	49 89 f8             	mov    %rdi,%r8
-   140006b47:	48 8d 0d 3a 38 00 00 	lea    0x383a(%rip),%rcx        # 14000a388 <.rdata+0x108>
-   140006b4e:	e8 ad fb ff ff       	call   140006700 <__report_error>
-   140006b53:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
-   140006b58:	8b 37                	mov    (%rdi),%esi
-   140006b5a:	81 e1 c0 00 00 00    	and    $0xc0,%ecx
-   140006b60:	85 f6                	test   %esi,%esi
-   140006b62:	79 4c                	jns    140006bb0 <_pei386_runtime_relocator+0x2d0>
-   140006b64:	49 bb 00 00 00 00 ff 	movabs $0xffffffff00000000,%r11
-   140006b6b:	ff ff ff 
-   140006b6e:	4c 09 de             	or     %r11,%rsi
-   140006b71:	48 29 c6             	sub    %rax,%rsi
-   140006b74:	4c 01 ce             	add    %r9,%rsi
-   140006b77:	85 c9                	test   %ecx,%ecx
-   140006b79:	75 0f                	jne    140006b8a <_pei386_runtime_relocator+0x2aa>
-   140006b7b:	4c 39 fe             	cmp    %r15,%rsi
-   140006b7e:	7e bf                	jle    140006b3f <_pei386_runtime_relocator+0x25f>
-   140006b80:	b8 ff ff ff ff       	mov    $0xffffffff,%eax
-   140006b85:	48 39 c6             	cmp    %rax,%rsi
-   140006b88:	7f b5                	jg     140006b3f <_pei386_runtime_relocator+0x25f>
-   140006b8a:	48 89 f9             	mov    %rdi,%rcx
-   140006b8d:	e8 de fb ff ff       	call   140006770 <mark_section_writable>
-   140006b92:	89 37                	mov    %esi,(%rdi)
-   140006b94:	e9 6c fe ff ff       	jmp    140006a05 <_pei386_runtime_relocator+0x125>
-   140006b99:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
-   140006ba0:	48 89 f9             	mov    %rdi,%rcx
-   140006ba3:	e8 c8 fb ff ff       	call   140006770 <mark_section_writable>
-   140006ba8:	48 89 37             	mov    %rsi,(%rdi)
-   140006bab:	e9 55 fe ff ff       	jmp    140006a05 <_pei386_runtime_relocator+0x125>
-   140006bb0:	48 29 c6             	sub    %rax,%rsi
-   140006bb3:	4c 01 ce             	add    %r9,%rsi
-   140006bb6:	85 c9                	test   %ecx,%ecx
-   140006bb8:	74 c1                	je     140006b7b <_pei386_runtime_relocator+0x29b>
-   140006bba:	eb ce                	jmp    140006b8a <_pei386_runtime_relocator+0x2aa>
-   140006bbc:	0f 1f 40 00          	nopl   0x0(%rax)
-   140006bc0:	48 29 c6             	sub    %rax,%rsi
-   140006bc3:	4c 01 ce             	add    %r9,%rsi
-   140006bc6:	85 c9                	test   %ecx,%ecx
-   140006bc8:	0f 84 98 fe ff ff    	je     140006a66 <_pei386_runtime_relocator+0x186>
-   140006bce:	e9 ad fe ff ff       	jmp    140006a80 <_pei386_runtime_relocator+0x1a0>
-   140006bd3:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
-   140006bd8:	48 29 c6             	sub    %rax,%rsi
-   140006bdb:	4c 01 ce             	add    %r9,%rsi
-   140006bde:	85 c9                	test   %ecx,%ecx
-   140006be0:	0f 84 fd fd ff ff    	je     1400069e3 <_pei386_runtime_relocator+0x103>
-   140006be6:	e9 0f fe ff ff       	jmp    1400069fa <_pei386_runtime_relocator+0x11a>
-   140006beb:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
-   140006bf0:	4c 39 eb             	cmp    %r13,%rbx
-   140006bf3:	0f 83 08 fd ff ff    	jae    140006901 <_pei386_runtime_relocator+0x21>
-   140006bf9:	4c 8b 35 d0 38 00 00 	mov    0x38d0(%rip),%r14        # 14000a4d0 <.refptr.__ImageBase>
-   140006c00:	8b 73 04             	mov    0x4(%rbx),%esi
-   140006c03:	8b 3b                	mov    (%rbx),%edi
-   140006c05:	48 83 c3 08          	add    $0x8,%rbx
-   140006c09:	4c 01 f6             	add    %r14,%rsi
-   140006c0c:	03 3e                	add    (%rsi),%edi
-   140006c0e:	48 89 f1             	mov    %rsi,%rcx
-   140006c11:	e8 5a fb ff ff       	call   140006770 <mark_section_writable>
-   140006c16:	89 3e                	mov    %edi,(%rsi)
-   140006c18:	4c 39 eb             	cmp    %r13,%rbx
-   140006c1b:	72 e3                	jb     140006c00 <_pei386_runtime_relocator+0x320>
-   140006c1d:	e9 7e fe ff ff       	jmp    140006aa0 <_pei386_runtime_relocator+0x1c0>
-   140006c22:	48 8d 0d 2f 37 00 00 	lea    0x372f(%rip),%rcx        # 14000a358 <.rdata+0xd8>
-   140006c29:	e8 d2 fa ff ff       	call   140006700 <__report_error>
-   140006c2e:	48 8d 0d eb 36 00 00 	lea    0x36eb(%rip),%rcx        # 14000a320 <.rdata+0xa0>
-   140006c35:	e8 c6 fa ff ff       	call   140006700 <__report_error>
-   140006c3a:	90                   	nop
-   140006c3b:	90                   	nop
-   140006c3c:	90                   	nop
-   140006c3d:	90                   	nop
-   140006c3e:	90                   	nop
-   140006c3f:	90                   	nop
-
-0000000140006c40 <__mingw_raise_matherr>:
-   140006c40:	48 83 ec 58          	sub    $0x58,%rsp
-   140006c44:	48 8b 05 a5 64 00 00 	mov    0x64a5(%rip),%rax        # 14000d0f0 <stUserMathErr>
-   140006c4b:	66 0f 14 d3          	unpcklpd %xmm3,%xmm2
-   140006c4f:	48 85 c0             	test   %rax,%rax
-   140006c52:	74 25                	je     140006c79 <__mingw_raise_matherr+0x39>
-   140006c54:	f2 0f 10 84 24 80 00 	movsd  0x80(%rsp),%xmm0
-   140006c5b:	00 00 
-   140006c5d:	89 4c 24 20          	mov    %ecx,0x20(%rsp)
-   140006c61:	48 8d 4c 24 20       	lea    0x20(%rsp),%rcx
-   140006c66:	48 89 54 24 28       	mov    %rdx,0x28(%rsp)
-   140006c6b:	0f 11 54 24 30       	movups %xmm2,0x30(%rsp)
-   140006c70:	f2 0f 11 44 24 40    	movsd  %xmm0,0x40(%rsp)
-   140006c76:	ff d0                	call   *%rax
-   140006c78:	90                   	nop
-   140006c79:	48 83 c4 58          	add    $0x58,%rsp
-   140006c7d:	c3                   	ret
-   140006c7e:	66 90                	xchg   %ax,%ax
-
-0000000140006c80 <__mingw_setusermatherr>:
-   140006c80:	48 89 0d 69 64 00 00 	mov    %rcx,0x6469(%rip)        # 14000d0f0 <stUserMathErr>
-   140006c87:	e9 e4 08 00 00       	jmp    140007570 <__setusermatherr>
-   140006c8c:	90                   	nop
-   140006c8d:	90                   	nop
-   140006c8e:	90                   	nop
-   140006c8f:	90                   	nop
-
-0000000140006c90 <_gnu_exception_handler>:
-   140006c90:	53                   	push   %rbx
-   140006c91:	48 83 ec 20          	sub    $0x20,%rsp
-   140006c95:	48 8b 11             	mov    (%rcx),%rdx
-   140006c98:	8b 02                	mov    (%rdx),%eax
-   140006c9a:	48 89 cb             	mov    %rcx,%rbx
-   140006c9d:	89 c1                	mov    %eax,%ecx
-   140006c9f:	81 e1 ff ff ff 20    	and    $0x20ffffff,%ecx
-   140006ca5:	81 f9 43 43 47 20    	cmp    $0x20474343,%ecx
-   140006cab:	0f 84 9f 00 00 00    	je     140006d50 <_gnu_exception_handler+0xc0>
-   140006cb1:	3d 96 00 00 c0       	cmp    $0xc0000096,%eax
-   140006cb6:	77 77                	ja     140006d2f <_gnu_exception_handler+0x9f>
-   140006cb8:	3d 8b 00 00 c0       	cmp    $0xc000008b,%eax
-   140006cbd:	76 21                	jbe    140006ce0 <_gnu_exception_handler+0x50>
-   140006cbf:	05 73 ff ff 3f       	add    $0x3fffff73,%eax
-   140006cc4:	83 f8 09             	cmp    $0x9,%eax
-   140006cc7:	77 54                	ja     140006d1d <_gnu_exception_handler+0x8d>
-   140006cc9:	48 8d 15 10 37 00 00 	lea    0x3710(%rip),%rdx        # 14000a3e0 <.rdata>
-   140006cd0:	48 63 04 82          	movslq (%rdx,%rax,4),%rax
-   140006cd4:	48 01 d0             	add    %rdx,%rax
-   140006cd7:	ff e0                	jmp    *%rax
-   140006cd9:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
-   140006ce0:	3d 05 00 00 c0       	cmp    $0xc0000005,%eax
-   140006ce5:	0f 84 d5 00 00 00    	je     140006dc0 <_gnu_exception_handler+0x130>
-   140006ceb:	76 3b                	jbe    140006d28 <_gnu_exception_handler+0x98>
-   140006ced:	3d 08 00 00 c0       	cmp    $0xc0000008,%eax
-   140006cf2:	74 29                	je     140006d1d <_gnu_exception_handler+0x8d>
-   140006cf4:	3d 1d 00 00 c0       	cmp    $0xc000001d,%eax
-   140006cf9:	75 34                	jne    140006d2f <_gnu_exception_handler+0x9f>
-   140006cfb:	31 d2                	xor    %edx,%edx
-   140006cfd:	b9 04 00 00 00       	mov    $0x4,%ecx
-   140006d02:	e8 d1 08 00 00       	call   1400075d8 <signal>
-   140006d07:	48 83 f8 01          	cmp    $0x1,%rax
-   140006d0b:	0f 84 d6 00 00 00    	je     140006de7 <_gnu_exception_handler+0x157>
-   140006d11:	48 85 c0             	test   %rax,%rax
-   140006d14:	74 19                	je     140006d2f <_gnu_exception_handler+0x9f>
-   140006d16:	b9 04 00 00 00       	mov    $0x4,%ecx
-   140006d1b:	ff d0                	call   *%rax
-   140006d1d:	b8 ff ff ff ff       	mov    $0xffffffff,%eax
-   140006d22:	48 83 c4 20          	add    $0x20,%rsp
-   140006d26:	5b                   	pop    %rbx
-   140006d27:	c3                   	ret
-   140006d28:	3d 02 00 00 80       	cmp    $0x80000002,%eax
-   140006d2d:	74 ee                	je     140006d1d <_gnu_exception_handler+0x8d>
-   140006d2f:	48 8b 05 da 63 00 00 	mov    0x63da(%rip),%rax        # 14000d110 <__mingw_oldexcpt_handler>
-   140006d36:	48 85 c0             	test   %rax,%rax
-   140006d39:	74 25                	je     140006d60 <_gnu_exception_handler+0xd0>
-   140006d3b:	48 89 d9             	mov    %rbx,%rcx
-   140006d3e:	48 83 c4 20          	add    $0x20,%rsp
-   140006d42:	5b                   	pop    %rbx
-   140006d43:	48 ff e0             	rex.W jmp *%rax
-   140006d46:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
-   140006d4d:	00 00 00 
-   140006d50:	f6 42 04 01          	testb  $0x1,0x4(%rdx)
-   140006d54:	0f 85 57 ff ff ff    	jne    140006cb1 <_gnu_exception_handler+0x21>
-   140006d5a:	eb c1                	jmp    140006d1d <_gnu_exception_handler+0x8d>
-   140006d5c:	0f 1f 40 00          	nopl   0x0(%rax)
-   140006d60:	31 c0                	xor    %eax,%eax
-   140006d62:	48 83 c4 20          	add    $0x20,%rsp
-   140006d66:	5b                   	pop    %rbx
-   140006d67:	c3                   	ret
-   140006d68:	0f 1f 84 00 00 00 00 	nopl   0x0(%rax,%rax,1)
-   140006d6f:	00 
-   140006d70:	31 d2                	xor    %edx,%edx
-   140006d72:	b9 08 00 00 00       	mov    $0x8,%ecx
-   140006d77:	e8 5c 08 00 00       	call   1400075d8 <signal>
-   140006d7c:	48 83 f8 01          	cmp    $0x1,%rax
-   140006d80:	0f 84 89 00 00 00    	je     140006e0f <_gnu_exception_handler+0x17f>
-   140006d86:	48 85 c0             	test   %rax,%rax
-   140006d89:	74 a4                	je     140006d2f <_gnu_exception_handler+0x9f>
-   140006d8b:	b9 08 00 00 00       	mov    $0x8,%ecx
-   140006d90:	ff d0                	call   *%rax
-   140006d92:	eb 89                	jmp    140006d1d <_gnu_exception_handler+0x8d>
-   140006d94:	0f 1f 40 00          	nopl   0x0(%rax)
-   140006d98:	31 d2                	xor    %edx,%edx
-   140006d9a:	b9 08 00 00 00       	mov    $0x8,%ecx
-   140006d9f:	e8 34 08 00 00       	call   1400075d8 <signal>
-   140006da4:	48 83 f8 01          	cmp    $0x1,%rax
-   140006da8:	75 dc                	jne    140006d86 <_gnu_exception_handler+0xf6>
-   140006daa:	ba 01 00 00 00       	mov    $0x1,%edx
-   140006daf:	b9 08 00 00 00       	mov    $0x8,%ecx
-   140006db4:	e8 1f 08 00 00       	call   1400075d8 <signal>
-   140006db9:	e9 5f ff ff ff       	jmp    140006d1d <_gnu_exception_handler+0x8d>
-   140006dbe:	66 90                	xchg   %ax,%ax
-   140006dc0:	31 d2                	xor    %edx,%edx
-   140006dc2:	b9 0b 00 00 00       	mov    $0xb,%ecx
-   140006dc7:	e8 0c 08 00 00       	call   1400075d8 <signal>
-   140006dcc:	48 83 f8 01          	cmp    $0x1,%rax
-   140006dd0:	74 29                	je     140006dfb <_gnu_exception_handler+0x16b>
-   140006dd2:	48 85 c0             	test   %rax,%rax
-   140006dd5:	0f 84 54 ff ff ff    	je     140006d2f <_gnu_exception_handler+0x9f>
-   140006ddb:	b9 0b 00 00 00       	mov    $0xb,%ecx
-   140006de0:	ff d0                	call   *%rax
-   140006de2:	e9 36 ff ff ff       	jmp    140006d1d <_gnu_exception_handler+0x8d>
-   140006de7:	ba 01 00 00 00       	mov    $0x1,%edx
-   140006dec:	b9 04 00 00 00       	mov    $0x4,%ecx
-   140006df1:	e8 e2 07 00 00       	call   1400075d8 <signal>
-   140006df6:	e9 22 ff ff ff       	jmp    140006d1d <_gnu_exception_handler+0x8d>
-   140006dfb:	ba 01 00 00 00       	mov    $0x1,%edx
-   140006e00:	b9 0b 00 00 00       	mov    $0xb,%ecx
-   140006e05:	e8 ce 07 00 00       	call   1400075d8 <signal>
-   140006e0a:	e9 0e ff ff ff       	jmp    140006d1d <_gnu_exception_handler+0x8d>
-   140006e0f:	ba 01 00 00 00       	mov    $0x1,%edx
-   140006e14:	b9 08 00 00 00       	mov    $0x8,%ecx
-   140006e19:	e8 ba 07 00 00       	call   1400075d8 <signal>
-   140006e1e:	e8 cd f8 ff ff       	call   1400066f0 <_fpreset>
-   140006e23:	e9 f5 fe ff ff       	jmp    140006d1d <_gnu_exception_handler+0x8d>
-   140006e28:	90                   	nop
-   140006e29:	90                   	nop
-   140006e2a:	90                   	nop
-   140006e2b:	90                   	nop
-   140006e2c:	90                   	nop
-   140006e2d:	90                   	nop
+0000000140006e28 <_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev>:
+   140006e28:	ff 25 7e 76 00 00    	jmp    *0x767e(%rip)        # 14000e4ac <__imp__ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev>
    140006e2e:	90                   	nop
    140006e2f:	90                   	nop
 
-0000000140006e30 <__mingwthr_run_key_dtors.part.0>:
-   140006e30:	41 54                	push   %r12
-   140006e32:	55                   	push   %rbp
-   140006e33:	57                   	push   %rdi
-   140006e34:	56                   	push   %rsi
-   140006e35:	53                   	push   %rbx
-   140006e36:	48 83 ec 20          	sub    $0x20,%rsp
-   140006e3a:	4c 8d 25 ff 62 00 00 	lea    0x62ff(%rip),%r12        # 14000d140 <__mingwthr_cs>
-   140006e41:	4c 89 e1             	mov    %r12,%rcx
-   140006e44:	ff 15 d2 74 00 00    	call   *0x74d2(%rip)        # 14000e31c <__imp_EnterCriticalSection>
-   140006e4a:	48 8b 1d cf 62 00 00 	mov    0x62cf(%rip),%rbx        # 14000d120 <key_dtor_list>
-   140006e51:	48 85 db             	test   %rbx,%rbx
-   140006e54:	74 36                	je     140006e8c <__mingwthr_run_key_dtors.part.0+0x5c>
-   140006e56:	48 8b 2d ef 74 00 00 	mov    0x74ef(%rip),%rbp        # 14000e34c <__imp_TlsGetValue>
-   140006e5d:	48 8b 3d c0 74 00 00 	mov    0x74c0(%rip),%rdi        # 14000e324 <__imp_GetLastError>
-   140006e64:	0f 1f 40 00          	nopl   0x0(%rax)
-   140006e68:	8b 0b                	mov    (%rbx),%ecx
-   140006e6a:	ff d5                	call   *%rbp
-   140006e6c:	48 89 c6             	mov    %rax,%rsi
-   140006e6f:	ff d7                	call   *%rdi
-   140006e71:	85 c0                	test   %eax,%eax
-   140006e73:	75 0e                	jne    140006e83 <__mingwthr_run_key_dtors.part.0+0x53>
-   140006e75:	48 85 f6             	test   %rsi,%rsi
-   140006e78:	74 09                	je     140006e83 <__mingwthr_run_key_dtors.part.0+0x53>
-   140006e7a:	48 8b 43 08          	mov    0x8(%rbx),%rax
-   140006e7e:	48 89 f1             	mov    %rsi,%rcx
-   140006e81:	ff d0                	call   *%rax
-   140006e83:	48 8b 5b 10          	mov    0x10(%rbx),%rbx
-   140006e87:	48 85 db             	test   %rbx,%rbx
-   140006e8a:	75 dc                	jne    140006e68 <__mingwthr_run_key_dtors.part.0+0x38>
-   140006e8c:	4c 89 e1             	mov    %r12,%rcx
-   140006e8f:	48 83 c4 20          	add    $0x20,%rsp
-   140006e93:	5b                   	pop    %rbx
-   140006e94:	5e                   	pop    %rsi
-   140006e95:	5f                   	pop    %rdi
-   140006e96:	5d                   	pop    %rbp
-   140006e97:	41 5c                	pop    %r12
-   140006e99:	48 ff 25 94 74 00 00 	rex.W jmp *0x7494(%rip)        # 14000e334 <__imp_LeaveCriticalSection>
+0000000140006e30 <_ZNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE7_M_syncEPcyy>:
+   140006e30:	ff 25 6e 76 00 00    	jmp    *0x766e(%rip)        # 14000e4a4 <__imp__ZNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE7_M_syncEPcyy>
+   140006e36:	90                   	nop
+   140006e37:	90                   	nop
 
-0000000140006ea0 <___w64_mingwthr_add_key_dtor>:
-   140006ea0:	57                   	push   %rdi
-   140006ea1:	56                   	push   %rsi
-   140006ea2:	53                   	push   %rbx
-   140006ea3:	48 83 ec 20          	sub    $0x20,%rsp
-   140006ea7:	8b 05 7b 62 00 00    	mov    0x627b(%rip),%eax        # 14000d128 <__mingwthr_cs_init>
-   140006ead:	89 cf                	mov    %ecx,%edi
-   140006eaf:	48 89 d6             	mov    %rdx,%rsi
-   140006eb2:	85 c0                	test   %eax,%eax
-   140006eb4:	75 0a                	jne    140006ec0 <___w64_mingwthr_add_key_dtor+0x20>
-   140006eb6:	31 c0                	xor    %eax,%eax
-   140006eb8:	48 83 c4 20          	add    $0x20,%rsp
-   140006ebc:	5b                   	pop    %rbx
-   140006ebd:	5e                   	pop    %rsi
-   140006ebe:	5f                   	pop    %rdi
-   140006ebf:	c3                   	ret
-   140006ec0:	ba 18 00 00 00       	mov    $0x18,%edx
-   140006ec5:	b9 01 00 00 00       	mov    $0x1,%ecx
-   140006eca:	e8 d1 06 00 00       	call   1400075a0 <calloc>
-   140006ecf:	48 89 c3             	mov    %rax,%rbx
-   140006ed2:	48 85 c0             	test   %rax,%rax
-   140006ed5:	74 33                	je     140006f0a <___w64_mingwthr_add_key_dtor+0x6a>
-   140006ed7:	48 89 70 08          	mov    %rsi,0x8(%rax)
-   140006edb:	48 8d 35 5e 62 00 00 	lea    0x625e(%rip),%rsi        # 14000d140 <__mingwthr_cs>
-   140006ee2:	89 38                	mov    %edi,(%rax)
-   140006ee4:	48 89 f1             	mov    %rsi,%rcx
-   140006ee7:	ff 15 2f 74 00 00    	call   *0x742f(%rip)        # 14000e31c <__imp_EnterCriticalSection>
-   140006eed:	48 8b 05 2c 62 00 00 	mov    0x622c(%rip),%rax        # 14000d120 <key_dtor_list>
-   140006ef4:	48 89 f1             	mov    %rsi,%rcx
-   140006ef7:	48 89 1d 22 62 00 00 	mov    %rbx,0x6222(%rip)        # 14000d120 <key_dtor_list>
-   140006efe:	48 89 43 10          	mov    %rax,0x10(%rbx)
-   140006f02:	ff 15 2c 74 00 00    	call   *0x742c(%rip)        # 14000e334 <__imp_LeaveCriticalSection>
-   140006f08:	eb ac                	jmp    140006eb6 <___w64_mingwthr_add_key_dtor+0x16>
-   140006f0a:	83 c8 ff             	or     $0xffffffff,%eax
-   140006f0d:	eb a9                	jmp    140006eb8 <___w64_mingwthr_add_key_dtor+0x18>
-   140006f0f:	90                   	nop
+0000000140006e38 <_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_>:
+   140006e38:	ff 25 5e 76 00 00    	jmp    *0x765e(%rip)        # 14000e49c <__imp__ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_>
+   140006e3e:	90                   	nop
+   140006e3f:	90                   	nop
 
-0000000140006f10 <___w64_mingwthr_remove_key_dtor>:
-   140006f10:	56                   	push   %rsi
-   140006f11:	53                   	push   %rbx
-   140006f12:	48 83 ec 28          	sub    $0x28,%rsp
-   140006f16:	8b 05 0c 62 00 00    	mov    0x620c(%rip),%eax        # 14000d128 <__mingwthr_cs_init>
-   140006f1c:	89 cb                	mov    %ecx,%ebx
-   140006f1e:	85 c0                	test   %eax,%eax
-   140006f20:	75 0e                	jne    140006f30 <___w64_mingwthr_remove_key_dtor+0x20>
-   140006f22:	31 c0                	xor    %eax,%eax
-   140006f24:	48 83 c4 28          	add    $0x28,%rsp
-   140006f28:	5b                   	pop    %rbx
-   140006f29:	5e                   	pop    %rsi
-   140006f2a:	c3                   	ret
-   140006f2b:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
-   140006f30:	48 8d 35 09 62 00 00 	lea    0x6209(%rip),%rsi        # 14000d140 <__mingwthr_cs>
-   140006f37:	48 89 f1             	mov    %rsi,%rcx
-   140006f3a:	ff 15 dc 73 00 00    	call   *0x73dc(%rip)        # 14000e31c <__imp_EnterCriticalSection>
-   140006f40:	48 8b 0d d9 61 00 00 	mov    0x61d9(%rip),%rcx        # 14000d120 <key_dtor_list>
-   140006f47:	48 85 c9             	test   %rcx,%rcx
-   140006f4a:	74 27                	je     140006f73 <___w64_mingwthr_remove_key_dtor+0x63>
-   140006f4c:	31 d2                	xor    %edx,%edx
-   140006f4e:	eb 0b                	jmp    140006f5b <___w64_mingwthr_remove_key_dtor+0x4b>
-   140006f50:	48 89 ca             	mov    %rcx,%rdx
-   140006f53:	48 85 c0             	test   %rax,%rax
-   140006f56:	74 1b                	je     140006f73 <___w64_mingwthr_remove_key_dtor+0x63>
-   140006f58:	48 89 c1             	mov    %rax,%rcx
-   140006f5b:	8b 01                	mov    (%rcx),%eax
-   140006f5d:	39 d8                	cmp    %ebx,%eax
-   140006f5f:	48 8b 41 10          	mov    0x10(%rcx),%rax
-   140006f63:	75 eb                	jne    140006f50 <___w64_mingwthr_remove_key_dtor+0x40>
-   140006f65:	48 85 d2             	test   %rdx,%rdx
-   140006f68:	74 1e                	je     140006f88 <___w64_mingwthr_remove_key_dtor+0x78>
-   140006f6a:	48 89 42 10          	mov    %rax,0x10(%rdx)
-   140006f6e:	e8 45 06 00 00       	call   1400075b8 <free>
-   140006f73:	48 89 f1             	mov    %rsi,%rcx
-   140006f76:	ff 15 b8 73 00 00    	call   *0x73b8(%rip)        # 14000e334 <__imp_LeaveCriticalSection>
-   140006f7c:	31 c0                	xor    %eax,%eax
-   140006f7e:	48 83 c4 28          	add    $0x28,%rsp
-   140006f82:	5b                   	pop    %rbx
-   140006f83:	5e                   	pop    %rsi
-   140006f84:	c3                   	ret
-   140006f85:	0f 1f 00             	nopl   (%rax)
-   140006f88:	48 89 05 91 61 00 00 	mov    %rax,0x6191(%rip)        # 14000d120 <key_dtor_list>
-   140006f8f:	eb dd                	jmp    140006f6e <___w64_mingwthr_remove_key_dtor+0x5e>
-   140006f91:	66 66 2e 0f 1f 84 00 	data16 cs nopw 0x0(%rax,%rax,1)
-   140006f98:	00 00 00 00 
-   140006f9c:	0f 1f 40 00          	nopl   0x0(%rax)
+0000000140006e40 <_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcy>:
+   140006e40:	ff 25 4e 76 00 00    	jmp    *0x764e(%rip)        # 14000e494 <__imp__ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcy>
+   140006e46:	90                   	nop
+   140006e47:	90                   	nop
 
-0000000140006fa0 <__mingw_TLScallback>:
-   140006fa0:	53                   	push   %rbx
-   140006fa1:	48 83 ec 20          	sub    $0x20,%rsp
-   140006fa5:	83 fa 02             	cmp    $0x2,%edx
-   140006fa8:	0f 84 b2 00 00 00    	je     140007060 <__mingw_TLScallback+0xc0>
-   140006fae:	77 30                	ja     140006fe0 <__mingw_TLScallback+0x40>
-   140006fb0:	85 d2                	test   %edx,%edx
-   140006fb2:	74 4c                	je     140007000 <__mingw_TLScallback+0x60>
-   140006fb4:	8b 05 6e 61 00 00    	mov    0x616e(%rip),%eax        # 14000d128 <__mingwthr_cs_init>
-   140006fba:	85 c0                	test   %eax,%eax
-   140006fbc:	0f 84 be 00 00 00    	je     140007080 <__mingw_TLScallback+0xe0>
-   140006fc2:	c7 05 5c 61 00 00 01 	movl   $0x1,0x615c(%rip)        # 14000d128 <__mingwthr_cs_init>
-   140006fc9:	00 00 00 
-   140006fcc:	b8 01 00 00 00       	mov    $0x1,%eax
-   140006fd1:	48 83 c4 20          	add    $0x20,%rsp
-   140006fd5:	5b                   	pop    %rbx
-   140006fd6:	c3                   	ret
-   140006fd7:	66 0f 1f 84 00 00 00 	nopw   0x0(%rax,%rax,1)
-   140006fde:	00 00 
-   140006fe0:	83 fa 03             	cmp    $0x3,%edx
-   140006fe3:	75 e7                	jne    140006fcc <__mingw_TLScallback+0x2c>
-   140006fe5:	8b 05 3d 61 00 00    	mov    0x613d(%rip),%eax        # 14000d128 <__mingwthr_cs_init>
-   140006feb:	85 c0                	test   %eax,%eax
-   140006fed:	74 dd                	je     140006fcc <__mingw_TLScallback+0x2c>
-   140006fef:	e8 3c fe ff ff       	call   140006e30 <__mingwthr_run_key_dtors.part.0>
-   140006ff4:	eb d6                	jmp    140006fcc <__mingw_TLScallback+0x2c>
-   140006ff6:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
-   140006ffd:	00 00 00 
-   140007000:	8b 05 22 61 00 00    	mov    0x6122(%rip),%eax        # 14000d128 <__mingwthr_cs_init>
-   140007006:	85 c0                	test   %eax,%eax
-   140007008:	75 66                	jne    140007070 <__mingw_TLScallback+0xd0>
-   14000700a:	8b 05 18 61 00 00    	mov    0x6118(%rip),%eax        # 14000d128 <__mingwthr_cs_init>
-   140007010:	83 f8 01             	cmp    $0x1,%eax
-   140007013:	75 b7                	jne    140006fcc <__mingw_TLScallback+0x2c>
-   140007015:	48 8b 1d 04 61 00 00 	mov    0x6104(%rip),%rbx        # 14000d120 <key_dtor_list>
-   14000701c:	48 85 db             	test   %rbx,%rbx
-   14000701f:	74 18                	je     140007039 <__mingw_TLScallback+0x99>
-   140007021:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
-   140007028:	48 89 d9             	mov    %rbx,%rcx
-   14000702b:	48 8b 5b 10          	mov    0x10(%rbx),%rbx
-   14000702f:	e8 84 05 00 00       	call   1400075b8 <free>
-   140007034:	48 85 db             	test   %rbx,%rbx
-   140007037:	75 ef                	jne    140007028 <__mingw_TLScallback+0x88>
-   140007039:	48 8d 0d 00 61 00 00 	lea    0x6100(%rip),%rcx        # 14000d140 <__mingwthr_cs>
-   140007040:	48 c7 05 d5 60 00 00 	movq   $0x0,0x60d5(%rip)        # 14000d120 <key_dtor_list>
-   140007047:	00 00 00 00 
-   14000704b:	c7 05 d3 60 00 00 00 	movl   $0x0,0x60d3(%rip)        # 14000d128 <__mingwthr_cs_init>
-   140007052:	00 00 00 
-   140007055:	ff 15 b9 72 00 00    	call   *0x72b9(%rip)        # 14000e314 <__imp_DeleteCriticalSection>
-   14000705b:	e9 6c ff ff ff       	jmp    140006fcc <__mingw_TLScallback+0x2c>
-   140007060:	e8 8b f6 ff ff       	call   1400066f0 <_fpreset>
-   140007065:	b8 01 00 00 00       	mov    $0x1,%eax
-   14000706a:	48 83 c4 20          	add    $0x20,%rsp
-   14000706e:	5b                   	pop    %rbx
-   14000706f:	c3                   	ret
-   140007070:	e8 bb fd ff ff       	call   140006e30 <__mingwthr_run_key_dtors.part.0>
-   140007075:	eb 93                	jmp    14000700a <__mingw_TLScallback+0x6a>
-   140007077:	66 0f 1f 84 00 00 00 	nopw   0x0(%rax,%rax,1)
-   14000707e:	00 00 
-   140007080:	48 8d 0d b9 60 00 00 	lea    0x60b9(%rip),%rcx        # 14000d140 <__mingwthr_cs>
-   140007087:	ff 15 9f 72 00 00    	call   *0x729f(%rip)        # 14000e32c <__imp_InitializeCriticalSection>
-   14000708d:	e9 30 ff ff ff       	jmp    140006fc2 <__mingw_TLScallback+0x22>
-   140007092:	90                   	nop
-   140007093:	90                   	nop
-   140007094:	90                   	nop
-   140007095:	90                   	nop
-   140007096:	90                   	nop
-   140007097:	90                   	nop
-   140007098:	90                   	nop
-   140007099:	90                   	nop
-   14000709a:	90                   	nop
-   14000709b:	90                   	nop
-   14000709c:	90                   	nop
-   14000709d:	90                   	nop
-   14000709e:	90                   	nop
-   14000709f:	90                   	nop
+0000000140006e48 <_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEy>:
+   140006e48:	ff 25 3e 76 00 00    	jmp    *0x763e(%rip)        # 14000e48c <__imp__ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEy>
+   140006e4e:	90                   	nop
+   140006e4f:	90                   	nop
 
-00000001400070a0 <_ValidateImageBase>:
-   1400070a0:	31 c0                	xor    %eax,%eax
-   1400070a2:	66 81 39 4d 5a       	cmpw   $0x5a4d,(%rcx)
-   1400070a7:	75 0f                	jne    1400070b8 <_ValidateImageBase+0x18>
-   1400070a9:	48 63 51 3c          	movslq 0x3c(%rcx),%rdx
-   1400070ad:	48 01 d1             	add    %rdx,%rcx
-   1400070b0:	81 39 50 45 00 00    	cmpl   $0x4550,(%rcx)
-   1400070b6:	74 08                	je     1400070c0 <_ValidateImageBase+0x20>
-   1400070b8:	c3                   	ret
-   1400070b9:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
-   1400070c0:	31 c0                	xor    %eax,%eax
-   1400070c2:	66 81 79 18 0b 02    	cmpw   $0x20b,0x18(%rcx)
-   1400070c8:	0f 94 c0             	sete   %al
-   1400070cb:	c3                   	ret
-   1400070cc:	0f 1f 40 00          	nopl   0x0(%rax)
+0000000140006e50 <_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEyyPKcy>:
+   140006e50:	ff 25 2e 76 00 00    	jmp    *0x762e(%rip)        # 14000e484 <__imp__ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEyyPKcy>
+   140006e56:	90                   	nop
+   140006e57:	90                   	nop
 
-00000001400070d0 <_FindPESection>:
-   1400070d0:	48 63 41 3c          	movslq 0x3c(%rcx),%rax
-   1400070d4:	48 01 c1             	add    %rax,%rcx
-   1400070d7:	0f b7 41 14          	movzwl 0x14(%rcx),%eax
-   1400070db:	44 0f b7 41 06       	movzwl 0x6(%rcx),%r8d
-   1400070e0:	48 8d 44 01 18       	lea    0x18(%rcx,%rax,1),%rax
-   1400070e5:	66 45 85 c0          	test   %r8w,%r8w
-   1400070e9:	74 32                	je     14000711d <_FindPESection+0x4d>
-   1400070eb:	41 8d 48 ff          	lea    -0x1(%r8),%ecx
-   1400070ef:	48 8d 0c 89          	lea    (%rcx,%rcx,4),%rcx
-   1400070f3:	4c 8d 4c c8 28       	lea    0x28(%rax,%rcx,8),%r9
-   1400070f8:	0f 1f 84 00 00 00 00 	nopl   0x0(%rax,%rax,1)
-   1400070ff:	00 
-   140007100:	44 8b 40 0c          	mov    0xc(%rax),%r8d
-   140007104:	4c 89 c1             	mov    %r8,%rcx
-   140007107:	4c 39 c2             	cmp    %r8,%rdx
-   14000710a:	72 08                	jb     140007114 <_FindPESection+0x44>
-   14000710c:	03 48 08             	add    0x8(%rax),%ecx
-   14000710f:	48 39 ca             	cmp    %rcx,%rdx
-   140007112:	72 0b                	jb     14000711f <_FindPESection+0x4f>
-   140007114:	48 83 c0 28          	add    $0x28,%rax
-   140007118:	4c 39 c8             	cmp    %r9,%rax
-   14000711b:	75 e3                	jne    140007100 <_FindPESection+0x30>
-   14000711d:	31 c0                	xor    %eax,%eax
-   14000711f:	c3                   	ret
+0000000140006e58 <_ZNSt6localeD1Ev>:
+   140006e58:	ff 25 1e 76 00 00    	jmp    *0x761e(%rip)        # 14000e47c <__imp__ZNSt6localeD1Ev>
+   140006e5e:	90                   	nop
+   140006e5f:	90                   	nop
 
-0000000140007120 <_FindPESectionByName>:
-   140007120:	57                   	push   %rdi
-   140007121:	56                   	push   %rsi
-   140007122:	53                   	push   %rbx
-   140007123:	48 83 ec 20          	sub    $0x20,%rsp
-   140007127:	48 89 ce             	mov    %rcx,%rsi
-   14000712a:	e8 b1 04 00 00       	call   1400075e0 <strlen>
-   14000712f:	48 83 f8 08          	cmp    $0x8,%rax
-   140007133:	77 7b                	ja     1400071b0 <_FindPESectionByName+0x90>
-   140007135:	48 8b 15 94 33 00 00 	mov    0x3394(%rip),%rdx        # 14000a4d0 <.refptr.__ImageBase>
-   14000713c:	31 db                	xor    %ebx,%ebx
-   14000713e:	66 81 3a 4d 5a       	cmpw   $0x5a4d,(%rdx)
-   140007143:	75 59                	jne    14000719e <_FindPESectionByName+0x7e>
-   140007145:	48 63 42 3c          	movslq 0x3c(%rdx),%rax
-   140007149:	48 01 d0             	add    %rdx,%rax
-   14000714c:	81 38 50 45 00 00    	cmpl   $0x4550,(%rax)
-   140007152:	75 4a                	jne    14000719e <_FindPESectionByName+0x7e>
-   140007154:	66 81 78 18 0b 02    	cmpw   $0x20b,0x18(%rax)
-   14000715a:	75 42                	jne    14000719e <_FindPESectionByName+0x7e>
-   14000715c:	0f b7 50 14          	movzwl 0x14(%rax),%edx
-   140007160:	48 8d 5c 10 18       	lea    0x18(%rax,%rdx,1),%rbx
-   140007165:	0f b7 50 06          	movzwl 0x6(%rax),%edx
-   140007169:	66 85 d2             	test   %dx,%dx
-   14000716c:	74 42                	je     1400071b0 <_FindPESectionByName+0x90>
-   14000716e:	8d 42 ff             	lea    -0x1(%rdx),%eax
-   140007171:	48 8d 04 80          	lea    (%rax,%rax,4),%rax
-   140007175:	48 8d 7c c3 28       	lea    0x28(%rbx,%rax,8),%rdi
-   14000717a:	eb 0d                	jmp    140007189 <_FindPESectionByName+0x69>
-   14000717c:	0f 1f 40 00          	nopl   0x0(%rax)
-   140007180:	48 83 c3 28          	add    $0x28,%rbx
-   140007184:	48 39 fb             	cmp    %rdi,%rbx
-   140007187:	74 27                	je     1400071b0 <_FindPESectionByName+0x90>
-   140007189:	41 b8 08 00 00 00    	mov    $0x8,%r8d
-   14000718f:	48 89 f2             	mov    %rsi,%rdx
-   140007192:	48 89 d9             	mov    %rbx,%rcx
-   140007195:	e8 4e 04 00 00       	call   1400075e8 <strncmp>
-   14000719a:	85 c0                	test   %eax,%eax
-   14000719c:	75 e2                	jne    140007180 <_FindPESectionByName+0x60>
-   14000719e:	48 89 d8             	mov    %rbx,%rax
-   1400071a1:	48 83 c4 20          	add    $0x20,%rsp
-   1400071a5:	5b                   	pop    %rbx
-   1400071a6:	5e                   	pop    %rsi
-   1400071a7:	5f                   	pop    %rdi
-   1400071a8:	c3                   	ret
-   1400071a9:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
-   1400071b0:	31 db                	xor    %ebx,%ebx
-   1400071b2:	48 89 d8             	mov    %rbx,%rax
-   1400071b5:	48 83 c4 20          	add    $0x20,%rsp
-   1400071b9:	5b                   	pop    %rbx
-   1400071ba:	5e                   	pop    %rsi
-   1400071bb:	5f                   	pop    %rdi
-   1400071bc:	c3                   	ret
-   1400071bd:	0f 1f 00             	nopl   (%rax)
+0000000140006e60 <_ZNSt6localeC1Ev>:
+   140006e60:	ff 25 0e 76 00 00    	jmp    *0x760e(%rip)        # 14000e474 <__imp__ZNSt6localeC1Ev>
+   140006e66:	90                   	nop
+   140006e67:	90                   	nop
 
-00000001400071c0 <__mingw_GetSectionForAddress>:
-   1400071c0:	48 8b 15 09 33 00 00 	mov    0x3309(%rip),%rdx        # 14000a4d0 <.refptr.__ImageBase>
-   1400071c7:	31 c0                	xor    %eax,%eax
-   1400071c9:	66 81 3a 4d 5a       	cmpw   $0x5a4d,(%rdx)
-   1400071ce:	75 10                	jne    1400071e0 <__mingw_GetSectionForAddress+0x20>
-   1400071d0:	4c 63 42 3c          	movslq 0x3c(%rdx),%r8
-   1400071d4:	49 01 d0             	add    %rdx,%r8
-   1400071d7:	41 81 38 50 45 00 00 	cmpl   $0x4550,(%r8)
-   1400071de:	74 08                	je     1400071e8 <__mingw_GetSectionForAddress+0x28>
-   1400071e0:	c3                   	ret
-   1400071e1:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
-   1400071e8:	66 41 81 78 18 0b 02 	cmpw   $0x20b,0x18(%r8)
-   1400071ef:	75 ef                	jne    1400071e0 <__mingw_GetSectionForAddress+0x20>
-   1400071f1:	41 0f b7 40 14       	movzwl 0x14(%r8),%eax
-   1400071f6:	48 29 d1             	sub    %rdx,%rcx
-   1400071f9:	49 8d 44 00 18       	lea    0x18(%r8,%rax,1),%rax
-   1400071fe:	45 0f b7 40 06       	movzwl 0x6(%r8),%r8d
-   140007203:	66 45 85 c0          	test   %r8w,%r8w
-   140007207:	74 34                	je     14000723d <__mingw_GetSectionForAddress+0x7d>
-   140007209:	41 8d 50 ff          	lea    -0x1(%r8),%edx
-   14000720d:	48 8d 14 92          	lea    (%rdx,%rdx,4),%rdx
-   140007211:	4c 8d 4c d0 28       	lea    0x28(%rax,%rdx,8),%r9
-   140007216:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
-   14000721d:	00 00 00 
-   140007220:	44 8b 40 0c          	mov    0xc(%rax),%r8d
-   140007224:	4c 89 c2             	mov    %r8,%rdx
-   140007227:	4c 39 c1             	cmp    %r8,%rcx
-   14000722a:	72 08                	jb     140007234 <__mingw_GetSectionForAddress+0x74>
-   14000722c:	03 50 08             	add    0x8(%rax),%edx
-   14000722f:	48 39 d1             	cmp    %rdx,%rcx
-   140007232:	72 ac                	jb     1400071e0 <__mingw_GetSectionForAddress+0x20>
-   140007234:	48 83 c0 28          	add    $0x28,%rax
-   140007238:	4c 39 c8             	cmp    %r9,%rax
-   14000723b:	75 e3                	jne    140007220 <__mingw_GetSectionForAddress+0x60>
-   14000723d:	31 c0                	xor    %eax,%eax
-   14000723f:	c3                   	ret
+0000000140006e68 <_ZNSt16invalid_argumentD1Ev>:
+   140006e68:	ff 25 fe 75 00 00    	jmp    *0x75fe(%rip)        # 14000e46c <__imp__ZNSt16invalid_argumentD1Ev>
+   140006e6e:	90                   	nop
+   140006e6f:	90                   	nop
 
-0000000140007240 <__mingw_GetSectionCount>:
-   140007240:	48 8b 05 89 32 00 00 	mov    0x3289(%rip),%rax        # 14000a4d0 <.refptr.__ImageBase>
-   140007247:	31 c9                	xor    %ecx,%ecx
-   140007249:	66 81 38 4d 5a       	cmpw   $0x5a4d,(%rax)
-   14000724e:	75 0f                	jne    14000725f <__mingw_GetSectionCount+0x1f>
-   140007250:	48 63 50 3c          	movslq 0x3c(%rax),%rdx
-   140007254:	48 01 d0             	add    %rdx,%rax
-   140007257:	81 38 50 45 00 00    	cmpl   $0x4550,(%rax)
-   14000725d:	74 09                	je     140007268 <__mingw_GetSectionCount+0x28>
-   14000725f:	89 c8                	mov    %ecx,%eax
-   140007261:	c3                   	ret
-   140007262:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
-   140007268:	66 81 78 18 0b 02    	cmpw   $0x20b,0x18(%rax)
-   14000726e:	75 ef                	jne    14000725f <__mingw_GetSectionCount+0x1f>
-   140007270:	0f b7 48 06          	movzwl 0x6(%rax),%ecx
-   140007274:	89 c8                	mov    %ecx,%eax
-   140007276:	c3                   	ret
-   140007277:	66 0f 1f 84 00 00 00 	nopw   0x0(%rax,%rax,1)
-   14000727e:	00 00 
+0000000140006e70 <_ZNSt16invalid_argumentC1EPKc>:
+   140006e70:	ff 25 ee 75 00 00    	jmp    *0x75ee(%rip)        # 14000e464 <__imp__ZNSt16invalid_argumentC1EPKc>
+   140006e76:	90                   	nop
+   140006e77:	90                   	nop
 
-0000000140007280 <_FindPESectionExec>:
-   140007280:	4c 8b 05 49 32 00 00 	mov    0x3249(%rip),%r8        # 14000a4d0 <.refptr.__ImageBase>
-   140007287:	31 c0                	xor    %eax,%eax
-   140007289:	66 41 81 38 4d 5a    	cmpw   $0x5a4d,(%r8)
-   14000728f:	75 0f                	jne    1400072a0 <_FindPESectionExec+0x20>
-   140007291:	49 63 50 3c          	movslq 0x3c(%r8),%rdx
-   140007295:	4c 01 c2             	add    %r8,%rdx
-   140007298:	81 3a 50 45 00 00    	cmpl   $0x4550,(%rdx)
-   14000729e:	74 08                	je     1400072a8 <_FindPESectionExec+0x28>
-   1400072a0:	c3                   	ret
-   1400072a1:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
-   1400072a8:	66 81 7a 18 0b 02    	cmpw   $0x20b,0x18(%rdx)
-   1400072ae:	75 f0                	jne    1400072a0 <_FindPESectionExec+0x20>
-   1400072b0:	0f b7 42 14          	movzwl 0x14(%rdx),%eax
-   1400072b4:	44 0f b7 42 06       	movzwl 0x6(%rdx),%r8d
-   1400072b9:	48 8d 44 02 18       	lea    0x18(%rdx,%rax,1),%rax
-   1400072be:	66 45 85 c0          	test   %r8w,%r8w
-   1400072c2:	74 2c                	je     1400072f0 <_FindPESectionExec+0x70>
-   1400072c4:	41 8d 50 ff          	lea    -0x1(%r8),%edx
-   1400072c8:	48 8d 14 92          	lea    (%rdx,%rdx,4),%rdx
-   1400072cc:	48 8d 54 d0 28       	lea    0x28(%rax,%rdx,8),%rdx
-   1400072d1:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
-   1400072d8:	f6 40 27 20          	testb  $0x20,0x27(%rax)
-   1400072dc:	74 09                	je     1400072e7 <_FindPESectionExec+0x67>
-   1400072de:	48 85 c9             	test   %rcx,%rcx
-   1400072e1:	74 bd                	je     1400072a0 <_FindPESectionExec+0x20>
-   1400072e3:	48 83 e9 01          	sub    $0x1,%rcx
-   1400072e7:	48 83 c0 28          	add    $0x28,%rax
-   1400072eb:	48 39 d0             	cmp    %rdx,%rax
-   1400072ee:	75 e8                	jne    1400072d8 <_FindPESectionExec+0x58>
-   1400072f0:	31 c0                	xor    %eax,%eax
-   1400072f2:	c3                   	ret
-   1400072f3:	66 66 2e 0f 1f 84 00 	data16 cs nopw 0x0(%rax,%rax,1)
-   1400072fa:	00 00 00 00 
-   1400072fe:	66 90                	xchg   %ax,%ax
+0000000140006e78 <_ZNSt13runtime_errorD1Ev>:
+   140006e78:	ff 25 de 75 00 00    	jmp    *0x75de(%rip)        # 14000e45c <__imp__ZNSt13runtime_errorD1Ev>
+   140006e7e:	90                   	nop
+   140006e7f:	90                   	nop
 
-0000000140007300 <_GetPEImageBase>:
-   140007300:	48 8b 05 c9 31 00 00 	mov    0x31c9(%rip),%rax        # 14000a4d0 <.refptr.__ImageBase>
-   140007307:	31 d2                	xor    %edx,%edx
-   140007309:	66 81 38 4d 5a       	cmpw   $0x5a4d,(%rax)
-   14000730e:	75 0f                	jne    14000731f <_GetPEImageBase+0x1f>
-   140007310:	48 63 48 3c          	movslq 0x3c(%rax),%rcx
-   140007314:	48 01 c1             	add    %rax,%rcx
-   140007317:	81 39 50 45 00 00    	cmpl   $0x4550,(%rcx)
-   14000731d:	74 09                	je     140007328 <_GetPEImageBase+0x28>
-   14000731f:	48 89 d0             	mov    %rdx,%rax
-   140007322:	c3                   	ret
-   140007323:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
-   140007328:	66 81 79 18 0b 02    	cmpw   $0x20b,0x18(%rcx)
-   14000732e:	48 0f 44 d0          	cmove  %rax,%rdx
-   140007332:	48 89 d0             	mov    %rdx,%rax
-   140007335:	c3                   	ret
-   140007336:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
-   14000733d:	00 00 00 
+0000000140006e80 <_ZNSt13runtime_errorC1EPKc>:
+   140006e80:	ff 25 ce 75 00 00    	jmp    *0x75ce(%rip)        # 14000e454 <__imp__ZNSt13runtime_errorC1EPKc>
+   140006e86:	90                   	nop
+   140006e87:	90                   	nop
 
-0000000140007340 <_IsNonwritableInCurrentImage>:
-   140007340:	48 8b 15 89 31 00 00 	mov    0x3189(%rip),%rdx        # 14000a4d0 <.refptr.__ImageBase>
-   140007347:	31 c0                	xor    %eax,%eax
-   140007349:	66 81 3a 4d 5a       	cmpw   $0x5a4d,(%rdx)
-   14000734e:	75 10                	jne    140007360 <_IsNonwritableInCurrentImage+0x20>
-   140007350:	4c 63 42 3c          	movslq 0x3c(%rdx),%r8
-   140007354:	49 01 d0             	add    %rdx,%r8
-   140007357:	41 81 38 50 45 00 00 	cmpl   $0x4550,(%r8)
-   14000735e:	74 08                	je     140007368 <_IsNonwritableInCurrentImage+0x28>
-   140007360:	c3                   	ret
-   140007361:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
-   140007368:	66 41 81 78 18 0b 02 	cmpw   $0x20b,0x18(%r8)
-   14000736f:	75 ef                	jne    140007360 <_IsNonwritableInCurrentImage+0x20>
-   140007371:	48 29 d1             	sub    %rdx,%rcx
-   140007374:	45 0f b7 48 06       	movzwl 0x6(%r8),%r9d
-   140007379:	41 0f b7 50 14       	movzwl 0x14(%r8),%edx
-   14000737e:	49 8d 54 10 18       	lea    0x18(%r8,%rdx,1),%rdx
-   140007383:	66 45 85 c9          	test   %r9w,%r9w
-   140007387:	74 d7                	je     140007360 <_IsNonwritableInCurrentImage+0x20>
-   140007389:	41 8d 41 ff          	lea    -0x1(%r9),%eax
-   14000738d:	48 8d 04 80          	lea    (%rax,%rax,4),%rax
-   140007391:	4c 8d 4c c2 28       	lea    0x28(%rdx,%rax,8),%r9
-   140007396:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
-   14000739d:	00 00 00 
-   1400073a0:	44 8b 42 0c          	mov    0xc(%rdx),%r8d
-   1400073a4:	4c 89 c0             	mov    %r8,%rax
-   1400073a7:	4c 39 c1             	cmp    %r8,%rcx
-   1400073aa:	72 08                	jb     1400073b4 <_IsNonwritableInCurrentImage+0x74>
-   1400073ac:	03 42 08             	add    0x8(%rdx),%eax
-   1400073af:	48 39 c1             	cmp    %rax,%rcx
-   1400073b2:	72 0c                	jb     1400073c0 <_IsNonwritableInCurrentImage+0x80>
-   1400073b4:	48 83 c2 28          	add    $0x28,%rdx
-   1400073b8:	49 39 d1             	cmp    %rdx,%r9
-   1400073bb:	75 e3                	jne    1400073a0 <_IsNonwritableInCurrentImage+0x60>
-   1400073bd:	31 c0                	xor    %eax,%eax
-   1400073bf:	c3                   	ret
-   1400073c0:	8b 42 24             	mov    0x24(%rdx),%eax
-   1400073c3:	f7 d0                	not    %eax
-   1400073c5:	c1 e8 1f             	shr    $0x1f,%eax
-   1400073c8:	c3                   	ret
-   1400073c9:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+0000000140006e88 <_ZNSolsEi>:
+   140006e88:	ff 25 be 75 00 00    	jmp    *0x75be(%rip)        # 14000e44c <__imp__ZNSolsEi>
+   140006e8e:	90                   	nop
+   140006e8f:	90                   	nop
 
-00000001400073d0 <__mingw_enum_import_library_names>:
-   1400073d0:	4c 8b 1d f9 30 00 00 	mov    0x30f9(%rip),%r11        # 14000a4d0 <.refptr.__ImageBase>
-   1400073d7:	45 31 c9             	xor    %r9d,%r9d
-   1400073da:	66 41 81 3b 4d 5a    	cmpw   $0x5a4d,(%r11)
-   1400073e0:	75 10                	jne    1400073f2 <__mingw_enum_import_library_names+0x22>
-   1400073e2:	4d 63 43 3c          	movslq 0x3c(%r11),%r8
-   1400073e6:	4d 01 d8             	add    %r11,%r8
-   1400073e9:	41 81 38 50 45 00 00 	cmpl   $0x4550,(%r8)
-   1400073f0:	74 0e                	je     140007400 <__mingw_enum_import_library_names+0x30>
-   1400073f2:	4c 89 c8             	mov    %r9,%rax
-   1400073f5:	c3                   	ret
-   1400073f6:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
-   1400073fd:	00 00 00 
-   140007400:	66 41 81 78 18 0b 02 	cmpw   $0x20b,0x18(%r8)
-   140007407:	75 e9                	jne    1400073f2 <__mingw_enum_import_library_names+0x22>
-   140007409:	41 8b 80 90 00 00 00 	mov    0x90(%r8),%eax
-   140007410:	85 c0                	test   %eax,%eax
-   140007412:	74 de                	je     1400073f2 <__mingw_enum_import_library_names+0x22>
-   140007414:	41 0f b7 50 14       	movzwl 0x14(%r8),%edx
-   140007419:	45 0f b7 50 06       	movzwl 0x6(%r8),%r10d
-   14000741e:	49 8d 54 10 18       	lea    0x18(%r8,%rdx,1),%rdx
-   140007423:	66 45 85 d2          	test   %r10w,%r10w
-   140007427:	74 c9                	je     1400073f2 <__mingw_enum_import_library_names+0x22>
-   140007429:	45 8d 42 ff          	lea    -0x1(%r10),%r8d
-   14000742d:	4f 8d 04 80          	lea    (%r8,%r8,4),%r8
-   140007431:	4e 8d 54 c2 28       	lea    0x28(%rdx,%r8,8),%r10
-   140007436:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
-   14000743d:	00 00 00 
-   140007440:	44 8b 4a 0c          	mov    0xc(%rdx),%r9d
-   140007444:	4d 89 c8             	mov    %r9,%r8
-   140007447:	4c 39 c8             	cmp    %r9,%rax
-   14000744a:	72 09                	jb     140007455 <__mingw_enum_import_library_names+0x85>
-   14000744c:	44 03 42 08          	add    0x8(%rdx),%r8d
-   140007450:	4c 39 c0             	cmp    %r8,%rax
-   140007453:	72 13                	jb     140007468 <__mingw_enum_import_library_names+0x98>
-   140007455:	48 83 c2 28          	add    $0x28,%rdx
-   140007459:	4c 39 d2             	cmp    %r10,%rdx
-   14000745c:	75 e2                	jne    140007440 <__mingw_enum_import_library_names+0x70>
-   14000745e:	45 31 c9             	xor    %r9d,%r9d
-   140007461:	4c 89 c8             	mov    %r9,%rax
-   140007464:	c3                   	ret
-   140007465:	0f 1f 00             	nopl   (%rax)
-   140007468:	4c 01 d8             	add    %r11,%rax
-   14000746b:	eb 0a                	jmp    140007477 <__mingw_enum_import_library_names+0xa7>
-   14000746d:	0f 1f 00             	nopl   (%rax)
-   140007470:	83 e9 01             	sub    $0x1,%ecx
-   140007473:	48 83 c0 14          	add    $0x14,%rax
-   140007477:	44 8b 40 04          	mov    0x4(%rax),%r8d
-   14000747b:	45 85 c0             	test   %r8d,%r8d
-   14000747e:	75 07                	jne    140007487 <__mingw_enum_import_library_names+0xb7>
-   140007480:	8b 50 0c             	mov    0xc(%rax),%edx
-   140007483:	85 d2                	test   %edx,%edx
-   140007485:	74 d7                	je     14000745e <__mingw_enum_import_library_names+0x8e>
-   140007487:	85 c9                	test   %ecx,%ecx
-   140007489:	7f e5                	jg     140007470 <__mingw_enum_import_library_names+0xa0>
-   14000748b:	44 8b 48 0c          	mov    0xc(%rax),%r9d
-   14000748f:	4d 01 d9             	add    %r11,%r9
-   140007492:	4c 89 c8             	mov    %r9,%rax
-   140007495:	c3                   	ret
-   140007496:	90                   	nop
-   140007497:	90                   	nop
-   140007498:	90                   	nop
-   140007499:	90                   	nop
-   14000749a:	90                   	nop
-   14000749b:	90                   	nop
-   14000749c:	90                   	nop
-   14000749d:	90                   	nop
-   14000749e:	90                   	nop
-   14000749f:	90                   	nop
+0000000140006e90 <_ZNSo5flushEv>:
+   140006e90:	ff 25 ae 75 00 00    	jmp    *0x75ae(%rip)        # 14000e444 <__imp__ZNSo5flushEv>
+   140006e96:	90                   	nop
+   140006e97:	90                   	nop
 
-00000001400074a0 <_Unwind_Resume>:
-   1400074a0:	ff 25 5e 6e 00 00    	jmp    *0x6e5e(%rip)        # 14000e304 <__IAT_start__>
-   1400074a6:	90                   	nop
-   1400074a7:	90                   	nop
-   1400074a8:	0f 1f 84 00 00 00 00 	nopl   0x0(%rax,%rax,1)
-   1400074af:	00 
+0000000140006e98 <_ZNSo3putEc>:
+   140006e98:	ff 25 9e 75 00 00    	jmp    *0x759e(%rip)        # 14000e43c <__imp__ZNSo3putEc>
+   140006e9e:	90                   	nop
+   140006e9f:	90                   	nop
 
-00000001400074b0 <___chkstk_ms>:
-   1400074b0:	51                   	push   %rcx
-   1400074b1:	50                   	push   %rax
-   1400074b2:	48 3d 00 10 00 00    	cmp    $0x1000,%rax
-   1400074b8:	48 8d 4c 24 18       	lea    0x18(%rsp),%rcx
-   1400074bd:	72 19                	jb     1400074d8 <___chkstk_ms+0x28>
-   1400074bf:	48 81 e9 00 10 00 00 	sub    $0x1000,%rcx
-   1400074c6:	48 83 09 00          	orq    $0x0,(%rcx)
-   1400074ca:	48 2d 00 10 00 00    	sub    $0x1000,%rax
-   1400074d0:	48 3d 00 10 00 00    	cmp    $0x1000,%rax
-   1400074d6:	77 e7                	ja     1400074bf <___chkstk_ms+0xf>
-   1400074d8:	48 29 c1             	sub    %rax,%rcx
-   1400074db:	48 83 09 00          	orq    $0x0,(%rcx)
-   1400074df:	58                   	pop    %rax
-   1400074e0:	59                   	pop    %rcx
-   1400074e1:	c3                   	ret
-   1400074e2:	90                   	nop
-   1400074e3:	90                   	nop
-   1400074e4:	90                   	nop
-   1400074e5:	90                   	nop
-   1400074e6:	90                   	nop
-   1400074e7:	90                   	nop
-   1400074e8:	90                   	nop
-   1400074e9:	90                   	nop
-   1400074ea:	90                   	nop
-   1400074eb:	90                   	nop
-   1400074ec:	90                   	nop
-   1400074ed:	90                   	nop
-   1400074ee:	90                   	nop
-   1400074ef:	90                   	nop
+0000000140006ea0 <_ZNKSt5ctypeIcE13_M_widen_initEv>:
+   140006ea0:	ff 25 8e 75 00 00    	jmp    *0x758e(%rip)        # 14000e434 <__imp__ZNKSt5ctypeIcE13_M_widen_initEv>
+   140006ea6:	90                   	nop
+   140006ea7:	90                   	nop
+   140006ea8:	0f 1f 84 00 00 00 00 	nopl   0x0(%rax,%rax,1)
+   140006eaf:	00 
 
-00000001400074f0 <__p__fmode>:
-   1400074f0:	48 8b 05 39 30 00 00 	mov    0x3039(%rip),%rax        # 14000a530 <.refptr.__imp__fmode>
-   1400074f7:	48 8b 00             	mov    (%rax),%rax
-   1400074fa:	c3                   	ret
-   1400074fb:	90                   	nop
-   1400074fc:	90                   	nop
-   1400074fd:	90                   	nop
-   1400074fe:	90                   	nop
-   1400074ff:	90                   	nop
+0000000140006eb0 <__do_global_dtors>:
+   140006eb0:	48 83 ec 28          	sub    $0x28,%rsp
+   140006eb4:	48 8b 05 45 21 00 00 	mov    0x2145(%rip),%rax        # 140009000 <__data_start__>
+   140006ebb:	48 8b 00             	mov    (%rax),%rax
+   140006ebe:	48 85 c0             	test   %rax,%rax
+   140006ec1:	74 22                	je     140006ee5 <__do_global_dtors+0x35>
+   140006ec3:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+   140006ec8:	ff d0                	call   *%rax
+   140006eca:	48 8b 05 2f 21 00 00 	mov    0x212f(%rip),%rax        # 140009000 <__data_start__>
+   140006ed1:	48 8d 50 08          	lea    0x8(%rax),%rdx
+   140006ed5:	48 8b 40 08          	mov    0x8(%rax),%rax
+   140006ed9:	48 89 15 20 21 00 00 	mov    %rdx,0x2120(%rip)        # 140009000 <__data_start__>
+   140006ee0:	48 85 c0             	test   %rax,%rax
+   140006ee3:	75 e3                	jne    140006ec8 <__do_global_dtors+0x18>
+   140006ee5:	48 83 c4 28          	add    $0x28,%rsp
+   140006ee9:	c3                   	ret
+   140006eea:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
 
-0000000140007500 <__p__commode>:
-   140007500:	48 8b 05 19 30 00 00 	mov    0x3019(%rip),%rax        # 14000a520 <.refptr.__imp__commode>
-   140007507:	48 8b 00             	mov    (%rax),%rax
-   14000750a:	c3                   	ret
-   14000750b:	90                   	nop
-   14000750c:	90                   	nop
-   14000750d:	90                   	nop
-   14000750e:	90                   	nop
-   14000750f:	90                   	nop
+0000000140006ef0 <__do_global_ctors>:
+   140006ef0:	56                   	push   %rsi
+   140006ef1:	53                   	push   %rbx
+   140006ef2:	48 83 ec 28          	sub    $0x28,%rsp
+   140006ef6:	48 8b 15 c3 35 00 00 	mov    0x35c3(%rip),%rdx        # 14000a4c0 <.refptr.__CTOR_LIST__>
+   140006efd:	48 8b 02             	mov    (%rdx),%rax
+   140006f00:	89 c1                	mov    %eax,%ecx
+   140006f02:	83 f8 ff             	cmp    $0xffffffff,%eax
+   140006f05:	74 39                	je     140006f40 <__do_global_ctors+0x50>
+   140006f07:	85 c9                	test   %ecx,%ecx
+   140006f09:	74 20                	je     140006f2b <__do_global_ctors+0x3b>
+   140006f0b:	89 c8                	mov    %ecx,%eax
+   140006f0d:	83 e9 01             	sub    $0x1,%ecx
+   140006f10:	48 8d 1c c2          	lea    (%rdx,%rax,8),%rbx
+   140006f14:	48 29 c8             	sub    %rcx,%rax
+   140006f17:	48 8d 74 c2 f8       	lea    -0x8(%rdx,%rax,8),%rsi
+   140006f1c:	0f 1f 40 00          	nopl   0x0(%rax)
+   140006f20:	ff 13                	call   *(%rbx)
+   140006f22:	48 83 eb 08          	sub    $0x8,%rbx
+   140006f26:	48 39 f3             	cmp    %rsi,%rbx
+   140006f29:	75 f5                	jne    140006f20 <__do_global_ctors+0x30>
+   140006f2b:	48 8d 0d 7e ff ff ff 	lea    -0x82(%rip),%rcx        # 140006eb0 <__do_global_dtors>
+   140006f32:	48 83 c4 28          	add    $0x28,%rsp
+   140006f36:	5b                   	pop    %rbx
+   140006f37:	5e                   	pop    %rsi
+   140006f38:	e9 d3 a4 ff ff       	jmp    140001410 <atexit>
+   140006f3d:	0f 1f 00             	nopl   (%rax)
+   140006f40:	31 c0                	xor    %eax,%eax
+   140006f42:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+   140006f48:	44 8d 40 01          	lea    0x1(%rax),%r8d
+   140006f4c:	89 c1                	mov    %eax,%ecx
+   140006f4e:	4a 83 3c c2 00       	cmpq   $0x0,(%rdx,%r8,8)
+   140006f53:	4c 89 c0             	mov    %r8,%rax
+   140006f56:	75 f0                	jne    140006f48 <__do_global_ctors+0x58>
+   140006f58:	eb ad                	jmp    140006f07 <__do_global_ctors+0x17>
+   140006f5a:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
 
-0000000140007510 <_get_invalid_parameter_handler>:
-   140007510:	48 8b 05 99 5c 00 00 	mov    0x5c99(%rip),%rax        # 14000d1b0 <handler>
-   140007517:	c3                   	ret
-   140007518:	0f 1f 84 00 00 00 00 	nopl   0x0(%rax,%rax,1)
-   14000751f:	00 
+0000000140006f60 <__main>:
+   140006f60:	8b 05 1a 61 00 00    	mov    0x611a(%rip),%eax        # 14000d080 <initialized>
+   140006f66:	85 c0                	test   %eax,%eax
+   140006f68:	74 06                	je     140006f70 <__main+0x10>
+   140006f6a:	c3                   	ret
+   140006f6b:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+   140006f70:	c7 05 06 61 00 00 01 	movl   $0x1,0x6106(%rip)        # 14000d080 <initialized>
+   140006f77:	00 00 00 
+   140006f7a:	e9 71 ff ff ff       	jmp    140006ef0 <__do_global_ctors>
+   140006f7f:	90                   	nop
 
-0000000140007520 <_set_invalid_parameter_handler>:
-   140007520:	48 89 c8             	mov    %rcx,%rax
-   140007523:	48 87 05 86 5c 00 00 	xchg   %rax,0x5c86(%rip)        # 14000d1b0 <handler>
-   14000752a:	c3                   	ret
-   14000752b:	90                   	nop
-   14000752c:	90                   	nop
-   14000752d:	90                   	nop
-   14000752e:	90                   	nop
-   14000752f:	90                   	nop
+0000000140006f80 <_setargv>:
+   140006f80:	31 c0                	xor    %eax,%eax
+   140006f82:	c3                   	ret
+   140006f83:	90                   	nop
+   140006f84:	90                   	nop
+   140006f85:	90                   	nop
+   140006f86:	90                   	nop
+   140006f87:	90                   	nop
+   140006f88:	90                   	nop
+   140006f89:	90                   	nop
+   140006f8a:	90                   	nop
+   140006f8b:	90                   	nop
+   140006f8c:	90                   	nop
+   140006f8d:	90                   	nop
+   140006f8e:	90                   	nop
+   140006f8f:	90                   	nop
 
-0000000140007530 <__acrt_iob_func>:
-   140007530:	53                   	push   %rbx
-   140007531:	48 83 ec 20          	sub    $0x20,%rsp
-   140007535:	89 cb                	mov    %ecx,%ebx
-   140007537:	e8 24 00 00 00       	call   140007560 <__iob_func>
-   14000753c:	89 d9                	mov    %ebx,%ecx
-   14000753e:	48 8d 14 49          	lea    (%rcx,%rcx,2),%rdx
-   140007542:	48 c1 e2 04          	shl    $0x4,%rdx
-   140007546:	48 01 d0             	add    %rdx,%rax
-   140007549:	48 83 c4 20          	add    $0x20,%rsp
-   14000754d:	5b                   	pop    %rbx
-   14000754e:	c3                   	ret
-   14000754f:	90                   	nop
+0000000140006f90 <__dyn_tls_dtor>:
+   140006f90:	48 83 ec 28          	sub    $0x28,%rsp
+   140006f94:	83 fa 03             	cmp    $0x3,%edx
+   140006f97:	74 17                	je     140006fb0 <__dyn_tls_dtor+0x20>
+   140006f99:	85 d2                	test   %edx,%edx
+   140006f9b:	74 13                	je     140006fb0 <__dyn_tls_dtor+0x20>
+   140006f9d:	b8 01 00 00 00       	mov    $0x1,%eax
+   140006fa2:	48 83 c4 28          	add    $0x28,%rsp
+   140006fa6:	c3                   	ret
+   140006fa7:	66 0f 1f 84 00 00 00 	nopw   0x0(%rax,%rax,1)
+   140006fae:	00 00 
+   140006fb0:	e8 5b 0a 00 00       	call   140007a10 <__mingw_TLScallback>
+   140006fb5:	b8 01 00 00 00       	mov    $0x1,%eax
+   140006fba:	48 83 c4 28          	add    $0x28,%rsp
+   140006fbe:	c3                   	ret
+   140006fbf:	90                   	nop
 
-0000000140007550 <__C_specific_handler>:
-   140007550:	ff 25 16 6e 00 00    	jmp    *0x6e16(%rip)        # 14000e36c <__imp___C_specific_handler>
-   140007556:	90                   	nop
-   140007557:	90                   	nop
+0000000140006fc0 <__dyn_tls_init>:
+   140006fc0:	56                   	push   %rsi
+   140006fc1:	53                   	push   %rbx
+   140006fc2:	48 83 ec 28          	sub    $0x28,%rsp
+   140006fc6:	48 8b 05 53 34 00 00 	mov    0x3453(%rip),%rax        # 14000a420 <.refptr._CRT_MT>
+   140006fcd:	83 38 02             	cmpl   $0x2,(%rax)
+   140006fd0:	74 06                	je     140006fd8 <__dyn_tls_init+0x18>
+   140006fd2:	c7 00 02 00 00 00    	movl   $0x2,(%rax)
+   140006fd8:	83 fa 02             	cmp    $0x2,%edx
+   140006fdb:	74 13                	je     140006ff0 <__dyn_tls_init+0x30>
+   140006fdd:	83 fa 01             	cmp    $0x1,%edx
+   140006fe0:	74 4e                	je     140007030 <__dyn_tls_init+0x70>
+   140006fe2:	b8 01 00 00 00       	mov    $0x1,%eax
+   140006fe7:	48 83 c4 28          	add    $0x28,%rsp
+   140006feb:	5b                   	pop    %rbx
+   140006fec:	5e                   	pop    %rsi
+   140006fed:	c3                   	ret
+   140006fee:	66 90                	xchg   %ax,%ax
+   140006ff0:	48 8d 1d 61 80 00 00 	lea    0x8061(%rip),%rbx        # 14000f058 <__xd_z>
+   140006ff7:	48 8d 35 5a 80 00 00 	lea    0x805a(%rip),%rsi        # 14000f058 <__xd_z>
+   140006ffe:	48 39 de             	cmp    %rbx,%rsi
+   140007001:	74 df                	je     140006fe2 <__dyn_tls_init+0x22>
+   140007003:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+   140007008:	48 8b 03             	mov    (%rbx),%rax
+   14000700b:	48 85 c0             	test   %rax,%rax
+   14000700e:	74 02                	je     140007012 <__dyn_tls_init+0x52>
+   140007010:	ff d0                	call   *%rax
+   140007012:	48 83 c3 08          	add    $0x8,%rbx
+   140007016:	48 39 de             	cmp    %rbx,%rsi
+   140007019:	75 ed                	jne    140007008 <__dyn_tls_init+0x48>
+   14000701b:	b8 01 00 00 00       	mov    $0x1,%eax
+   140007020:	48 83 c4 28          	add    $0x28,%rsp
+   140007024:	5b                   	pop    %rbx
+   140007025:	5e                   	pop    %rsi
+   140007026:	c3                   	ret
+   140007027:	66 0f 1f 84 00 00 00 	nopw   0x0(%rax,%rax,1)
+   14000702e:	00 00 
+   140007030:	e8 db 09 00 00       	call   140007a10 <__mingw_TLScallback>
+   140007035:	b8 01 00 00 00       	mov    $0x1,%eax
+   14000703a:	48 83 c4 28          	add    $0x28,%rsp
+   14000703e:	5b                   	pop    %rbx
+   14000703f:	5e                   	pop    %rsi
+   140007040:	c3                   	ret
+   140007041:	66 66 2e 0f 1f 84 00 	data16 cs nopw 0x0(%rax,%rax,1)
+   140007048:	00 00 00 00 
+   14000704c:	0f 1f 40 00          	nopl   0x0(%rax)
 
-0000000140007558 <__getmainargs>:
-   140007558:	ff 25 16 6e 00 00    	jmp    *0x6e16(%rip)        # 14000e374 <__imp___getmainargs>
-   14000755e:	90                   	nop
-   14000755f:	90                   	nop
+0000000140007050 <__tlregdtor>:
+   140007050:	31 c0                	xor    %eax,%eax
+   140007052:	c3                   	ret
+   140007053:	90                   	nop
+   140007054:	90                   	nop
+   140007055:	90                   	nop
+   140007056:	90                   	nop
+   140007057:	90                   	nop
+   140007058:	90                   	nop
+   140007059:	90                   	nop
+   14000705a:	90                   	nop
+   14000705b:	90                   	nop
+   14000705c:	90                   	nop
+   14000705d:	90                   	nop
+   14000705e:	90                   	nop
+   14000705f:	90                   	nop
 
-0000000140007560 <__iob_func>:
-   140007560:	ff 25 1e 6e 00 00    	jmp    *0x6e1e(%rip)        # 14000e384 <__imp___iob_func>
-   140007566:	90                   	nop
-   140007567:	90                   	nop
+0000000140007060 <_matherr>:
+   140007060:	56                   	push   %rsi
+   140007061:	53                   	push   %rbx
+   140007062:	48 83 ec 78          	sub    $0x78,%rsp
+   140007066:	0f 11 74 24 40       	movups %xmm6,0x40(%rsp)
+   14000706b:	0f 11 7c 24 50       	movups %xmm7,0x50(%rsp)
+   140007070:	44 0f 11 44 24 60    	movups %xmm8,0x60(%rsp)
+   140007076:	83 39 06             	cmpl   $0x6,(%rcx)
+   140007079:	0f 87 cd 00 00 00    	ja     14000714c <_matherr+0xec>
+   14000707f:	8b 01                	mov    (%rcx),%eax
+   140007081:	48 8d 15 dc 31 00 00 	lea    0x31dc(%rip),%rdx        # 14000a264 <.rdata+0x124>
+   140007088:	48 63 04 82          	movslq (%rdx,%rax,4),%rax
+   14000708c:	48 01 d0             	add    %rdx,%rax
+   14000708f:	ff e0                	jmp    *%rax
+   140007091:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+   140007098:	48 8d 1d c0 30 00 00 	lea    0x30c0(%rip),%rbx        # 14000a15f <.rdata+0x1f>
+   14000709f:	f2 44 0f 10 41 20    	movsd  0x20(%rcx),%xmm8
+   1400070a5:	f2 0f 10 79 18       	movsd  0x18(%rcx),%xmm7
+   1400070aa:	f2 0f 10 71 10       	movsd  0x10(%rcx),%xmm6
+   1400070af:	48 8b 71 08          	mov    0x8(%rcx),%rsi
+   1400070b3:	b9 02 00 00 00       	mov    $0x2,%ecx
+   1400070b8:	e8 e3 0e 00 00       	call   140007fa0 <__acrt_iob_func>
+   1400070bd:	f2 44 0f 11 44 24 30 	movsd  %xmm8,0x30(%rsp)
+   1400070c4:	49 89 d8             	mov    %rbx,%r8
+   1400070c7:	48 8d 15 6a 31 00 00 	lea    0x316a(%rip),%rdx        # 14000a238 <.rdata+0xf8>
+   1400070ce:	f2 0f 11 7c 24 28    	movsd  %xmm7,0x28(%rsp)
+   1400070d4:	48 89 c1             	mov    %rax,%rcx
+   1400070d7:	49 89 f1             	mov    %rsi,%r9
+   1400070da:	f2 0f 11 74 24 20    	movsd  %xmm6,0x20(%rsp)
+   1400070e0:	e8 3b 0f 00 00       	call   140008020 <fprintf>
+   1400070e5:	90                   	nop
+   1400070e6:	0f 10 74 24 40       	movups 0x40(%rsp),%xmm6
+   1400070eb:	0f 10 7c 24 50       	movups 0x50(%rsp),%xmm7
+   1400070f0:	31 c0                	xor    %eax,%eax
+   1400070f2:	44 0f 10 44 24 60    	movups 0x60(%rsp),%xmm8
+   1400070f8:	48 83 c4 78          	add    $0x78,%rsp
+   1400070fc:	5b                   	pop    %rbx
+   1400070fd:	5e                   	pop    %rsi
+   1400070fe:	c3                   	ret
+   1400070ff:	90                   	nop
+   140007100:	48 8d 1d 39 30 00 00 	lea    0x3039(%rip),%rbx        # 14000a140 <.rdata>
+   140007107:	eb 96                	jmp    14000709f <_matherr+0x3f>
+   140007109:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+   140007110:	48 8d 1d 89 30 00 00 	lea    0x3089(%rip),%rbx        # 14000a1a0 <.rdata+0x60>
+   140007117:	eb 86                	jmp    14000709f <_matherr+0x3f>
+   140007119:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+   140007120:	48 8d 1d 59 30 00 00 	lea    0x3059(%rip),%rbx        # 14000a180 <.rdata+0x40>
+   140007127:	e9 73 ff ff ff       	jmp    14000709f <_matherr+0x3f>
+   14000712c:	0f 1f 40 00          	nopl   0x0(%rax)
+   140007130:	48 8d 1d b9 30 00 00 	lea    0x30b9(%rip),%rbx        # 14000a1f0 <.rdata+0xb0>
+   140007137:	e9 63 ff ff ff       	jmp    14000709f <_matherr+0x3f>
+   14000713c:	0f 1f 40 00          	nopl   0x0(%rax)
+   140007140:	48 8d 1d 81 30 00 00 	lea    0x3081(%rip),%rbx        # 14000a1c8 <.rdata+0x88>
+   140007147:	e9 53 ff ff ff       	jmp    14000709f <_matherr+0x3f>
+   14000714c:	48 8d 1d d3 30 00 00 	lea    0x30d3(%rip),%rbx        # 14000a226 <.rdata+0xe6>
+   140007153:	e9 47 ff ff ff       	jmp    14000709f <_matherr+0x3f>
+   140007158:	90                   	nop
+   140007159:	90                   	nop
+   14000715a:	90                   	nop
+   14000715b:	90                   	nop
+   14000715c:	90                   	nop
+   14000715d:	90                   	nop
+   14000715e:	90                   	nop
+   14000715f:	90                   	nop
 
-0000000140007568 <__set_app_type>:
-   140007568:	ff 25 1e 6e 00 00    	jmp    *0x6e1e(%rip)        # 14000e38c <__imp___set_app_type>
-   14000756e:	90                   	nop
-   14000756f:	90                   	nop
+0000000140007160 <_fpreset>:
+   140007160:	db e3                	fninit
+   140007162:	c3                   	ret
+   140007163:	90                   	nop
+   140007164:	90                   	nop
+   140007165:	90                   	nop
+   140007166:	90                   	nop
+   140007167:	90                   	nop
+   140007168:	90                   	nop
+   140007169:	90                   	nop
+   14000716a:	90                   	nop
+   14000716b:	90                   	nop
+   14000716c:	90                   	nop
+   14000716d:	90                   	nop
+   14000716e:	90                   	nop
+   14000716f:	90                   	nop
 
-0000000140007570 <__setusermatherr>:
-   140007570:	ff 25 1e 6e 00 00    	jmp    *0x6e1e(%rip)        # 14000e394 <__imp___setusermatherr>
-   140007576:	90                   	nop
-   140007577:	90                   	nop
+0000000140007170 <__report_error>:
+   140007170:	56                   	push   %rsi
+   140007171:	53                   	push   %rbx
+   140007172:	48 83 ec 38          	sub    $0x38,%rsp
+   140007176:	48 89 cb             	mov    %rcx,%rbx
+   140007179:	48 8d 44 24 58       	lea    0x58(%rsp),%rax
+   14000717e:	b9 02 00 00 00       	mov    $0x2,%ecx
+   140007183:	48 89 54 24 58       	mov    %rdx,0x58(%rsp)
+   140007188:	4c 89 44 24 60       	mov    %r8,0x60(%rsp)
+   14000718d:	4c 89 4c 24 68       	mov    %r9,0x68(%rsp)
+   140007192:	48 89 44 24 28       	mov    %rax,0x28(%rsp)
+   140007197:	e8 04 0e 00 00       	call   140007fa0 <__acrt_iob_func>
+   14000719c:	41 b8 1b 00 00 00    	mov    $0x1b,%r8d
+   1400071a2:	ba 01 00 00 00       	mov    $0x1,%edx
+   1400071a7:	48 8d 0d d2 30 00 00 	lea    0x30d2(%rip),%rcx        # 14000a280 <.rdata>
+   1400071ae:	49 89 c1             	mov    %rax,%r9
+   1400071b1:	e8 7a 0e 00 00       	call   140008030 <fwrite>
+   1400071b6:	48 8b 74 24 28       	mov    0x28(%rsp),%rsi
+   1400071bb:	b9 02 00 00 00       	mov    $0x2,%ecx
+   1400071c0:	e8 db 0d 00 00       	call   140007fa0 <__acrt_iob_func>
+   1400071c5:	48 89 da             	mov    %rbx,%rdx
+   1400071c8:	48 89 c1             	mov    %rax,%rcx
+   1400071cb:	49 89 f0             	mov    %rsi,%r8
+   1400071ce:	e8 8d 0e 00 00       	call   140008060 <vfprintf>
+   1400071d3:	e8 30 0e 00 00       	call   140008008 <abort>
+   1400071d8:	90                   	nop
+   1400071d9:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
 
-0000000140007578 <_amsg_exit>:
-   140007578:	ff 25 1e 6e 00 00    	jmp    *0x6e1e(%rip)        # 14000e39c <__imp__amsg_exit>
-   14000757e:	90                   	nop
-   14000757f:	90                   	nop
+00000001400071e0 <mark_section_writable>:
+   1400071e0:	57                   	push   %rdi
+   1400071e1:	56                   	push   %rsi
+   1400071e2:	53                   	push   %rbx
+   1400071e3:	48 83 ec 50          	sub    $0x50,%rsp
+   1400071e7:	48 63 35 f6 5e 00 00 	movslq 0x5ef6(%rip),%rsi        # 14000d0e4 <maxSections>
+   1400071ee:	48 89 cb             	mov    %rcx,%rbx
+   1400071f1:	85 f6                	test   %esi,%esi
+   1400071f3:	0f 8e 17 01 00 00    	jle    140007310 <mark_section_writable+0x130>
+   1400071f9:	48 8b 05 e8 5e 00 00 	mov    0x5ee8(%rip),%rax        # 14000d0e8 <the_secs>
+   140007200:	45 31 c9             	xor    %r9d,%r9d
+   140007203:	48 83 c0 18          	add    $0x18,%rax
+   140007207:	66 0f 1f 84 00 00 00 	nopw   0x0(%rax,%rax,1)
+   14000720e:	00 00 
+   140007210:	4c 8b 00             	mov    (%rax),%r8
+   140007213:	4c 39 c3             	cmp    %r8,%rbx
+   140007216:	72 13                	jb     14000722b <mark_section_writable+0x4b>
+   140007218:	48 8b 50 08          	mov    0x8(%rax),%rdx
+   14000721c:	8b 52 08             	mov    0x8(%rdx),%edx
+   14000721f:	49 01 d0             	add    %rdx,%r8
+   140007222:	4c 39 c3             	cmp    %r8,%rbx
+   140007225:	0f 82 8a 00 00 00    	jb     1400072b5 <mark_section_writable+0xd5>
+   14000722b:	41 83 c1 01          	add    $0x1,%r9d
+   14000722f:	48 83 c0 28          	add    $0x28,%rax
+   140007233:	41 39 f1             	cmp    %esi,%r9d
+   140007236:	75 d8                	jne    140007210 <mark_section_writable+0x30>
+   140007238:	48 89 d9             	mov    %rbx,%rcx
+   14000723b:	e8 f0 09 00 00       	call   140007c30 <__mingw_GetSectionForAddress>
+   140007240:	48 89 c7             	mov    %rax,%rdi
+   140007243:	48 85 c0             	test   %rax,%rax
+   140007246:	0f 84 e6 00 00 00    	je     140007332 <mark_section_writable+0x152>
+   14000724c:	48 8b 05 95 5e 00 00 	mov    0x5e95(%rip),%rax        # 14000d0e8 <the_secs>
+   140007253:	48 8d 1c b6          	lea    (%rsi,%rsi,4),%rbx
+   140007257:	48 c1 e3 03          	shl    $0x3,%rbx
+   14000725b:	48 01 d8             	add    %rbx,%rax
+   14000725e:	48 89 78 20          	mov    %rdi,0x20(%rax)
+   140007262:	c7 00 00 00 00 00    	movl   $0x0,(%rax)
+   140007268:	e8 03 0b 00 00       	call   140007d70 <_GetPEImageBase>
+   14000726d:	8b 57 0c             	mov    0xc(%rdi),%edx
+   140007270:	41 b8 30 00 00 00    	mov    $0x30,%r8d
+   140007276:	48 8d 0c 10          	lea    (%rax,%rdx,1),%rcx
+   14000727a:	48 8b 05 67 5e 00 00 	mov    0x5e67(%rip),%rax        # 14000d0e8 <the_secs>
+   140007281:	48 8d 54 24 20       	lea    0x20(%rsp),%rdx
+   140007286:	48 89 4c 18 18       	mov    %rcx,0x18(%rax,%rbx,1)
+   14000728b:	ff 15 cb 70 00 00    	call   *0x70cb(%rip)        # 14000e35c <__imp_VirtualQuery>
+   140007291:	48 85 c0             	test   %rax,%rax
+   140007294:	0f 84 7d 00 00 00    	je     140007317 <mark_section_writable+0x137>
+   14000729a:	8b 44 24 44          	mov    0x44(%rsp),%eax
+   14000729e:	8d 50 c0             	lea    -0x40(%rax),%edx
+   1400072a1:	83 e2 bf             	and    $0xffffffbf,%edx
+   1400072a4:	74 08                	je     1400072ae <mark_section_writable+0xce>
+   1400072a6:	8d 50 fc             	lea    -0x4(%rax),%edx
+   1400072a9:	83 e2 fb             	and    $0xfffffffb,%edx
+   1400072ac:	75 12                	jne    1400072c0 <mark_section_writable+0xe0>
+   1400072ae:	83 05 2f 5e 00 00 01 	addl   $0x1,0x5e2f(%rip)        # 14000d0e4 <maxSections>
+   1400072b5:	48 83 c4 50          	add    $0x50,%rsp
+   1400072b9:	5b                   	pop    %rbx
+   1400072ba:	5e                   	pop    %rsi
+   1400072bb:	5f                   	pop    %rdi
+   1400072bc:	c3                   	ret
+   1400072bd:	0f 1f 00             	nopl   (%rax)
+   1400072c0:	83 f8 02             	cmp    $0x2,%eax
+   1400072c3:	48 8b 4c 24 20       	mov    0x20(%rsp),%rcx
+   1400072c8:	48 8b 54 24 38       	mov    0x38(%rsp),%rdx
+   1400072cd:	41 b8 40 00 00 00    	mov    $0x40,%r8d
+   1400072d3:	b8 04 00 00 00       	mov    $0x4,%eax
+   1400072d8:	44 0f 44 c0          	cmove  %eax,%r8d
+   1400072dc:	48 03 1d 05 5e 00 00 	add    0x5e05(%rip),%rbx        # 14000d0e8 <the_secs>
+   1400072e3:	48 89 4b 08          	mov    %rcx,0x8(%rbx)
+   1400072e7:	49 89 d9             	mov    %rbx,%r9
+   1400072ea:	48 89 53 10          	mov    %rdx,0x10(%rbx)
+   1400072ee:	ff 15 60 70 00 00    	call   *0x7060(%rip)        # 14000e354 <__imp_VirtualProtect>
+   1400072f4:	85 c0                	test   %eax,%eax
+   1400072f6:	75 b6                	jne    1400072ae <mark_section_writable+0xce>
+   1400072f8:	ff 15 26 70 00 00    	call   *0x7026(%rip)        # 14000e324 <__imp_GetLastError>
+   1400072fe:	48 8d 0d f3 2f 00 00 	lea    0x2ff3(%rip),%rcx        # 14000a2f8 <.rdata+0x78>
+   140007305:	89 c2                	mov    %eax,%edx
+   140007307:	e8 64 fe ff ff       	call   140007170 <__report_error>
+   14000730c:	0f 1f 40 00          	nopl   0x0(%rax)
+   140007310:	31 f6                	xor    %esi,%esi
+   140007312:	e9 21 ff ff ff       	jmp    140007238 <mark_section_writable+0x58>
+   140007317:	48 8b 05 ca 5d 00 00 	mov    0x5dca(%rip),%rax        # 14000d0e8 <the_secs>
+   14000731e:	8b 57 08             	mov    0x8(%rdi),%edx
+   140007321:	48 8d 0d 98 2f 00 00 	lea    0x2f98(%rip),%rcx        # 14000a2c0 <.rdata+0x40>
+   140007328:	4c 8b 44 18 18       	mov    0x18(%rax,%rbx,1),%r8
+   14000732d:	e8 3e fe ff ff       	call   140007170 <__report_error>
+   140007332:	48 89 da             	mov    %rbx,%rdx
+   140007335:	48 8d 0d 64 2f 00 00 	lea    0x2f64(%rip),%rcx        # 14000a2a0 <.rdata+0x20>
+   14000733c:	e8 2f fe ff ff       	call   140007170 <__report_error>
+   140007341:	90                   	nop
+   140007342:	66 66 2e 0f 1f 84 00 	data16 cs nopw 0x0(%rax,%rax,1)
+   140007349:	00 00 00 00 
+   14000734d:	0f 1f 00             	nopl   (%rax)
 
-0000000140007580 <_cexit>:
-   140007580:	ff 25 1e 6e 00 00    	jmp    *0x6e1e(%rip)        # 14000e3a4 <__imp__cexit>
-   140007586:	90                   	nop
-   140007587:	90                   	nop
+0000000140007350 <_pei386_runtime_relocator>:
+   140007350:	55                   	push   %rbp
+   140007351:	41 57                	push   %r15
+   140007353:	41 56                	push   %r14
+   140007355:	41 55                	push   %r13
+   140007357:	41 54                	push   %r12
+   140007359:	57                   	push   %rdi
+   14000735a:	56                   	push   %rsi
+   14000735b:	53                   	push   %rbx
+   14000735c:	48 83 ec 48          	sub    $0x48,%rsp
+   140007360:	48 8d 6c 24 40       	lea    0x40(%rsp),%rbp
+   140007365:	44 8b 25 74 5d 00 00 	mov    0x5d74(%rip),%r12d        # 14000d0e0 <was_init.0>
+   14000736c:	45 85 e4             	test   %r12d,%r12d
+   14000736f:	74 17                	je     140007388 <_pei386_runtime_relocator+0x38>
+   140007371:	48 8d 65 08          	lea    0x8(%rbp),%rsp
+   140007375:	5b                   	pop    %rbx
+   140007376:	5e                   	pop    %rsi
+   140007377:	5f                   	pop    %rdi
+   140007378:	41 5c                	pop    %r12
+   14000737a:	41 5d                	pop    %r13
+   14000737c:	41 5e                	pop    %r14
+   14000737e:	41 5f                	pop    %r15
+   140007380:	5d                   	pop    %rbp
+   140007381:	c3                   	ret
+   140007382:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+   140007388:	c7 05 4e 5d 00 00 01 	movl   $0x1,0x5d4e(%rip)        # 14000d0e0 <was_init.0>
+   14000738f:	00 00 00 
+   140007392:	e8 19 09 00 00       	call   140007cb0 <__mingw_GetSectionCount>
+   140007397:	48 98                	cltq
+   140007399:	48 8d 04 80          	lea    (%rax,%rax,4),%rax
+   14000739d:	48 8d 04 c5 0f 00 00 	lea    0xf(,%rax,8),%rax
+   1400073a4:	00 
+   1400073a5:	48 83 e0 f0          	and    $0xfffffffffffffff0,%rax
+   1400073a9:	e8 72 0b 00 00       	call   140007f20 <___chkstk_ms>
+   1400073ae:	4c 8b 2d 2b 31 00 00 	mov    0x312b(%rip),%r13        # 14000a4e0 <.refptr.__RUNTIME_PSEUDO_RELOC_LIST_END__>
+   1400073b5:	48 8b 1d 34 31 00 00 	mov    0x3134(%rip),%rbx        # 14000a4f0 <.refptr.__RUNTIME_PSEUDO_RELOC_LIST__>
+   1400073bc:	c7 05 1e 5d 00 00 00 	movl   $0x0,0x5d1e(%rip)        # 14000d0e4 <maxSections>
+   1400073c3:	00 00 00 
+   1400073c6:	48 29 c4             	sub    %rax,%rsp
+   1400073c9:	48 8d 44 24 30       	lea    0x30(%rsp),%rax
+   1400073ce:	48 89 05 13 5d 00 00 	mov    %rax,0x5d13(%rip)        # 14000d0e8 <the_secs>
+   1400073d5:	4c 89 e8             	mov    %r13,%rax
+   1400073d8:	48 29 d8             	sub    %rbx,%rax
+   1400073db:	48 83 f8 07          	cmp    $0x7,%rax
+   1400073df:	7e 90                	jle    140007371 <_pei386_runtime_relocator+0x21>
+   1400073e1:	8b 13                	mov    (%rbx),%edx
+   1400073e3:	48 83 f8 0b          	cmp    $0xb,%rax
+   1400073e7:	0f 8f 7b 01 00 00    	jg     140007568 <_pei386_runtime_relocator+0x218>
+   1400073ed:	8b 03                	mov    (%rbx),%eax
+   1400073ef:	85 c0                	test   %eax,%eax
+   1400073f1:	0f 85 69 02 00 00    	jne    140007660 <_pei386_runtime_relocator+0x310>
+   1400073f7:	8b 43 04             	mov    0x4(%rbx),%eax
+   1400073fa:	85 c0                	test   %eax,%eax
+   1400073fc:	0f 85 5e 02 00 00    	jne    140007660 <_pei386_runtime_relocator+0x310>
+   140007402:	8b 53 08             	mov    0x8(%rbx),%edx
+   140007405:	83 fa 01             	cmp    $0x1,%edx
+   140007408:	0f 85 90 02 00 00    	jne    14000769e <_pei386_runtime_relocator+0x34e>
+   14000740e:	48 83 c3 0c          	add    $0xc,%rbx
+   140007412:	4c 39 eb             	cmp    %r13,%rbx
+   140007415:	0f 83 56 ff ff ff    	jae    140007371 <_pei386_runtime_relocator+0x21>
+   14000741b:	4c 8b 35 ae 30 00 00 	mov    0x30ae(%rip),%r14        # 14000a4d0 <.refptr.__ImageBase>
+   140007422:	49 bf ff ff ff 7f ff 	movabs $0xffffffff7fffffff,%r15
+   140007429:	ff ff ff 
+   14000742c:	eb 54                	jmp    140007482 <_pei386_runtime_relocator+0x132>
+   14000742e:	66 90                	xchg   %ax,%ax
+   140007430:	0f b6 37             	movzbl (%rdi),%esi
+   140007433:	81 e1 c0 00 00 00    	and    $0xc0,%ecx
+   140007439:	40 84 f6             	test   %sil,%sil
+   14000743c:	0f 89 06 02 00 00    	jns    140007648 <_pei386_runtime_relocator+0x2f8>
+   140007442:	48 81 ce 00 ff ff ff 	or     $0xffffffffffffff00,%rsi
+   140007449:	48 29 c6             	sub    %rax,%rsi
+   14000744c:	4c 01 ce             	add    %r9,%rsi
+   14000744f:	85 c9                	test   %ecx,%ecx
+   140007451:	75 17                	jne    14000746a <_pei386_runtime_relocator+0x11a>
+   140007453:	48 81 fe ff 00 00 00 	cmp    $0xff,%rsi
+   14000745a:	0f 8f 4f 01 00 00    	jg     1400075af <_pei386_runtime_relocator+0x25f>
+   140007460:	48 83 fe 80          	cmp    $0xffffffffffffff80,%rsi
+   140007464:	0f 8c 45 01 00 00    	jl     1400075af <_pei386_runtime_relocator+0x25f>
+   14000746a:	48 89 f9             	mov    %rdi,%rcx
+   14000746d:	e8 6e fd ff ff       	call   1400071e0 <mark_section_writable>
+   140007472:	40 88 37             	mov    %sil,(%rdi)
+   140007475:	48 83 c3 0c          	add    $0xc,%rbx
+   140007479:	4c 39 eb             	cmp    %r13,%rbx
+   14000747c:	0f 83 8e 00 00 00    	jae    140007510 <_pei386_runtime_relocator+0x1c0>
+   140007482:	8b 03                	mov    (%rbx),%eax
+   140007484:	8b 4b 08             	mov    0x8(%rbx),%ecx
+   140007487:	8b 7b 04             	mov    0x4(%rbx),%edi
+   14000748a:	4c 01 f0             	add    %r14,%rax
+   14000748d:	0f b6 d1             	movzbl %cl,%edx
+   140007490:	4c 8b 08             	mov    (%rax),%r9
+   140007493:	4c 01 f7             	add    %r14,%rdi
+   140007496:	83 fa 20             	cmp    $0x20,%edx
+   140007499:	0f 84 29 01 00 00    	je     1400075c8 <_pei386_runtime_relocator+0x278>
+   14000749f:	0f 87 eb 00 00 00    	ja     140007590 <_pei386_runtime_relocator+0x240>
+   1400074a5:	83 fa 08             	cmp    $0x8,%edx
+   1400074a8:	74 86                	je     140007430 <_pei386_runtime_relocator+0xe0>
+   1400074aa:	83 fa 10             	cmp    $0x10,%edx
+   1400074ad:	0f 85 df 01 00 00    	jne    140007692 <_pei386_runtime_relocator+0x342>
+   1400074b3:	0f b7 37             	movzwl (%rdi),%esi
+   1400074b6:	81 e1 c0 00 00 00    	and    $0xc0,%ecx
+   1400074bc:	66 85 f6             	test   %si,%si
+   1400074bf:	0f 89 6b 01 00 00    	jns    140007630 <_pei386_runtime_relocator+0x2e0>
+   1400074c5:	48 81 ce 00 00 ff ff 	or     $0xffffffffffff0000,%rsi
+   1400074cc:	48 29 c6             	sub    %rax,%rsi
+   1400074cf:	4c 01 ce             	add    %r9,%rsi
+   1400074d2:	85 c9                	test   %ecx,%ecx
+   1400074d4:	75 1a                	jne    1400074f0 <_pei386_runtime_relocator+0x1a0>
+   1400074d6:	48 81 fe 00 80 ff ff 	cmp    $0xffffffffffff8000,%rsi
+   1400074dd:	0f 8c cc 00 00 00    	jl     1400075af <_pei386_runtime_relocator+0x25f>
+   1400074e3:	48 81 fe ff ff 00 00 	cmp    $0xffff,%rsi
+   1400074ea:	0f 8f bf 00 00 00    	jg     1400075af <_pei386_runtime_relocator+0x25f>
+   1400074f0:	48 89 f9             	mov    %rdi,%rcx
+   1400074f3:	48 83 c3 0c          	add    $0xc,%rbx
+   1400074f7:	e8 e4 fc ff ff       	call   1400071e0 <mark_section_writable>
+   1400074fc:	66 89 37             	mov    %si,(%rdi)
+   1400074ff:	4c 39 eb             	cmp    %r13,%rbx
+   140007502:	0f 82 7a ff ff ff    	jb     140007482 <_pei386_runtime_relocator+0x132>
+   140007508:	0f 1f 84 00 00 00 00 	nopl   0x0(%rax,%rax,1)
+   14000750f:	00 
+   140007510:	8b 15 ce 5b 00 00    	mov    0x5bce(%rip),%edx        # 14000d0e4 <maxSections>
+   140007516:	85 d2                	test   %edx,%edx
+   140007518:	0f 8e 53 fe ff ff    	jle    140007371 <_pei386_runtime_relocator+0x21>
+   14000751e:	48 8b 35 2f 6e 00 00 	mov    0x6e2f(%rip),%rsi        # 14000e354 <__imp_VirtualProtect>
+   140007525:	31 db                	xor    %ebx,%ebx
+   140007527:	48 8d 7d fc          	lea    -0x4(%rbp),%rdi
+   14000752b:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+   140007530:	48 8b 05 b1 5b 00 00 	mov    0x5bb1(%rip),%rax        # 14000d0e8 <the_secs>
+   140007537:	48 01 d8             	add    %rbx,%rax
+   14000753a:	44 8b 00             	mov    (%rax),%r8d
+   14000753d:	45 85 c0             	test   %r8d,%r8d
+   140007540:	74 0d                	je     14000754f <_pei386_runtime_relocator+0x1ff>
+   140007542:	48 8b 50 10          	mov    0x10(%rax),%rdx
+   140007546:	48 8b 48 08          	mov    0x8(%rax),%rcx
+   14000754a:	49 89 f9             	mov    %rdi,%r9
+   14000754d:	ff d6                	call   *%rsi
+   14000754f:	41 83 c4 01          	add    $0x1,%r12d
+   140007553:	48 83 c3 28          	add    $0x28,%rbx
+   140007557:	44 3b 25 86 5b 00 00 	cmp    0x5b86(%rip),%r12d        # 14000d0e4 <maxSections>
+   14000755e:	7c d0                	jl     140007530 <_pei386_runtime_relocator+0x1e0>
+   140007560:	e9 0c fe ff ff       	jmp    140007371 <_pei386_runtime_relocator+0x21>
+   140007565:	0f 1f 00             	nopl   (%rax)
+   140007568:	85 d2                	test   %edx,%edx
+   14000756a:	0f 85 f0 00 00 00    	jne    140007660 <_pei386_runtime_relocator+0x310>
+   140007570:	8b 43 04             	mov    0x4(%rbx),%eax
+   140007573:	89 c2                	mov    %eax,%edx
+   140007575:	0b 53 08             	or     0x8(%rbx),%edx
+   140007578:	0f 85 7c fe ff ff    	jne    1400073fa <_pei386_runtime_relocator+0xaa>
+   14000757e:	48 83 c3 0c          	add    $0xc,%rbx
+   140007582:	e9 66 fe ff ff       	jmp    1400073ed <_pei386_runtime_relocator+0x9d>
+   140007587:	66 0f 1f 84 00 00 00 	nopw   0x0(%rax,%rax,1)
+   14000758e:	00 00 
+   140007590:	83 fa 40             	cmp    $0x40,%edx
+   140007593:	0f 85 f9 00 00 00    	jne    140007692 <_pei386_runtime_relocator+0x342>
+   140007599:	48 8b 37             	mov    (%rdi),%rsi
+   14000759c:	48 29 c6             	sub    %rax,%rsi
+   14000759f:	4c 01 ce             	add    %r9,%rsi
+   1400075a2:	81 e1 c0 00 00 00    	and    $0xc0,%ecx
+   1400075a8:	75 66                	jne    140007610 <_pei386_runtime_relocator+0x2c0>
+   1400075aa:	48 85 f6             	test   %rsi,%rsi
+   1400075ad:	78 61                	js     140007610 <_pei386_runtime_relocator+0x2c0>
+   1400075af:	48 89 74 24 20       	mov    %rsi,0x20(%rsp)
+   1400075b4:	49 89 f8             	mov    %rdi,%r8
+   1400075b7:	48 8d 0d ca 2d 00 00 	lea    0x2dca(%rip),%rcx        # 14000a388 <.rdata+0x108>
+   1400075be:	e8 ad fb ff ff       	call   140007170 <__report_error>
+   1400075c3:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+   1400075c8:	8b 37                	mov    (%rdi),%esi
+   1400075ca:	81 e1 c0 00 00 00    	and    $0xc0,%ecx
+   1400075d0:	85 f6                	test   %esi,%esi
+   1400075d2:	79 4c                	jns    140007620 <_pei386_runtime_relocator+0x2d0>
+   1400075d4:	49 bb 00 00 00 00 ff 	movabs $0xffffffff00000000,%r11
+   1400075db:	ff ff ff 
+   1400075de:	4c 09 de             	or     %r11,%rsi
+   1400075e1:	48 29 c6             	sub    %rax,%rsi
+   1400075e4:	4c 01 ce             	add    %r9,%rsi
+   1400075e7:	85 c9                	test   %ecx,%ecx
+   1400075e9:	75 0f                	jne    1400075fa <_pei386_runtime_relocator+0x2aa>
+   1400075eb:	4c 39 fe             	cmp    %r15,%rsi
+   1400075ee:	7e bf                	jle    1400075af <_pei386_runtime_relocator+0x25f>
+   1400075f0:	b8 ff ff ff ff       	mov    $0xffffffff,%eax
+   1400075f5:	48 39 c6             	cmp    %rax,%rsi
+   1400075f8:	7f b5                	jg     1400075af <_pei386_runtime_relocator+0x25f>
+   1400075fa:	48 89 f9             	mov    %rdi,%rcx
+   1400075fd:	e8 de fb ff ff       	call   1400071e0 <mark_section_writable>
+   140007602:	89 37                	mov    %esi,(%rdi)
+   140007604:	e9 6c fe ff ff       	jmp    140007475 <_pei386_runtime_relocator+0x125>
+   140007609:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+   140007610:	48 89 f9             	mov    %rdi,%rcx
+   140007613:	e8 c8 fb ff ff       	call   1400071e0 <mark_section_writable>
+   140007618:	48 89 37             	mov    %rsi,(%rdi)
+   14000761b:	e9 55 fe ff ff       	jmp    140007475 <_pei386_runtime_relocator+0x125>
+   140007620:	48 29 c6             	sub    %rax,%rsi
+   140007623:	4c 01 ce             	add    %r9,%rsi
+   140007626:	85 c9                	test   %ecx,%ecx
+   140007628:	74 c1                	je     1400075eb <_pei386_runtime_relocator+0x29b>
+   14000762a:	eb ce                	jmp    1400075fa <_pei386_runtime_relocator+0x2aa>
+   14000762c:	0f 1f 40 00          	nopl   0x0(%rax)
+   140007630:	48 29 c6             	sub    %rax,%rsi
+   140007633:	4c 01 ce             	add    %r9,%rsi
+   140007636:	85 c9                	test   %ecx,%ecx
+   140007638:	0f 84 98 fe ff ff    	je     1400074d6 <_pei386_runtime_relocator+0x186>
+   14000763e:	e9 ad fe ff ff       	jmp    1400074f0 <_pei386_runtime_relocator+0x1a0>
+   140007643:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+   140007648:	48 29 c6             	sub    %rax,%rsi
+   14000764b:	4c 01 ce             	add    %r9,%rsi
+   14000764e:	85 c9                	test   %ecx,%ecx
+   140007650:	0f 84 fd fd ff ff    	je     140007453 <_pei386_runtime_relocator+0x103>
+   140007656:	e9 0f fe ff ff       	jmp    14000746a <_pei386_runtime_relocator+0x11a>
+   14000765b:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+   140007660:	4c 39 eb             	cmp    %r13,%rbx
+   140007663:	0f 83 08 fd ff ff    	jae    140007371 <_pei386_runtime_relocator+0x21>
+   140007669:	4c 8b 35 60 2e 00 00 	mov    0x2e60(%rip),%r14        # 14000a4d0 <.refptr.__ImageBase>
+   140007670:	8b 73 04             	mov    0x4(%rbx),%esi
+   140007673:	8b 3b                	mov    (%rbx),%edi
+   140007675:	48 83 c3 08          	add    $0x8,%rbx
+   140007679:	4c 01 f6             	add    %r14,%rsi
+   14000767c:	03 3e                	add    (%rsi),%edi
+   14000767e:	48 89 f1             	mov    %rsi,%rcx
+   140007681:	e8 5a fb ff ff       	call   1400071e0 <mark_section_writable>
+   140007686:	89 3e                	mov    %edi,(%rsi)
+   140007688:	4c 39 eb             	cmp    %r13,%rbx
+   14000768b:	72 e3                	jb     140007670 <_pei386_runtime_relocator+0x320>
+   14000768d:	e9 7e fe ff ff       	jmp    140007510 <_pei386_runtime_relocator+0x1c0>
+   140007692:	48 8d 0d bf 2c 00 00 	lea    0x2cbf(%rip),%rcx        # 14000a358 <.rdata+0xd8>
+   140007699:	e8 d2 fa ff ff       	call   140007170 <__report_error>
+   14000769e:	48 8d 0d 7b 2c 00 00 	lea    0x2c7b(%rip),%rcx        # 14000a320 <.rdata+0xa0>
+   1400076a5:	e8 c6 fa ff ff       	call   140007170 <__report_error>
+   1400076aa:	90                   	nop
+   1400076ab:	90                   	nop
+   1400076ac:	90                   	nop
+   1400076ad:	90                   	nop
+   1400076ae:	90                   	nop
+   1400076af:	90                   	nop
 
-0000000140007588 <_initterm>:
-   140007588:	ff 25 2e 6e 00 00    	jmp    *0x6e2e(%rip)        # 14000e3bc <__imp__initterm>
-   14000758e:	90                   	nop
-   14000758f:	90                   	nop
+00000001400076b0 <__mingw_raise_matherr>:
+   1400076b0:	48 83 ec 58          	sub    $0x58,%rsp
+   1400076b4:	48 8b 05 35 5a 00 00 	mov    0x5a35(%rip),%rax        # 14000d0f0 <stUserMathErr>
+   1400076bb:	66 0f 14 d3          	unpcklpd %xmm3,%xmm2
+   1400076bf:	48 85 c0             	test   %rax,%rax
+   1400076c2:	74 25                	je     1400076e9 <__mingw_raise_matherr+0x39>
+   1400076c4:	f2 0f 10 84 24 80 00 	movsd  0x80(%rsp),%xmm0
+   1400076cb:	00 00 
+   1400076cd:	89 4c 24 20          	mov    %ecx,0x20(%rsp)
+   1400076d1:	48 8d 4c 24 20       	lea    0x20(%rsp),%rcx
+   1400076d6:	48 89 54 24 28       	mov    %rdx,0x28(%rsp)
+   1400076db:	0f 11 54 24 30       	movups %xmm2,0x30(%rsp)
+   1400076e0:	f2 0f 11 44 24 40    	movsd  %xmm0,0x40(%rsp)
+   1400076e6:	ff d0                	call   *%rax
+   1400076e8:	90                   	nop
+   1400076e9:	48 83 c4 58          	add    $0x58,%rsp
+   1400076ed:	c3                   	ret
+   1400076ee:	66 90                	xchg   %ax,%ax
 
-0000000140007590 <_onexit>:
-   140007590:	ff 25 2e 6e 00 00    	jmp    *0x6e2e(%rip)        # 14000e3c4 <__imp__onexit>
-   140007596:	90                   	nop
-   140007597:	90                   	nop
+00000001400076f0 <__mingw_setusermatherr>:
+   1400076f0:	48 89 0d f9 59 00 00 	mov    %rcx,0x59f9(%rip)        # 14000d0f0 <stUserMathErr>
+   1400076f7:	e9 e4 08 00 00       	jmp    140007fe0 <__setusermatherr>
+   1400076fc:	90                   	nop
+   1400076fd:	90                   	nop
+   1400076fe:	90                   	nop
+   1400076ff:	90                   	nop
 
-0000000140007598 <abort>:
-   140007598:	ff 25 2e 6e 00 00    	jmp    *0x6e2e(%rip)        # 14000e3cc <__imp_abort>
-   14000759e:	90                   	nop
-   14000759f:	90                   	nop
-
-00000001400075a0 <calloc>:
-   1400075a0:	ff 25 2e 6e 00 00    	jmp    *0x6e2e(%rip)        # 14000e3d4 <__imp_calloc>
-   1400075a6:	90                   	nop
-   1400075a7:	90                   	nop
-
-00000001400075a8 <exit>:
-   1400075a8:	ff 25 2e 6e 00 00    	jmp    *0x6e2e(%rip)        # 14000e3dc <__imp_exit>
-   1400075ae:	90                   	nop
-   1400075af:	90                   	nop
-
-00000001400075b0 <fprintf>:
-   1400075b0:	ff 25 2e 6e 00 00    	jmp    *0x6e2e(%rip)        # 14000e3e4 <__imp_fprintf>
-   1400075b6:	90                   	nop
-   1400075b7:	90                   	nop
-
-00000001400075b8 <free>:
-   1400075b8:	ff 25 2e 6e 00 00    	jmp    *0x6e2e(%rip)        # 14000e3ec <__imp_free>
-   1400075be:	90                   	nop
-   1400075bf:	90                   	nop
-
-00000001400075c0 <fwrite>:
-   1400075c0:	ff 25 2e 6e 00 00    	jmp    *0x6e2e(%rip)        # 14000e3f4 <__imp_fwrite>
-   1400075c6:	90                   	nop
-   1400075c7:	90                   	nop
-
-00000001400075c8 <malloc>:
-   1400075c8:	ff 25 2e 6e 00 00    	jmp    *0x6e2e(%rip)        # 14000e3fc <__imp_malloc>
-   1400075ce:	90                   	nop
-   1400075cf:	90                   	nop
-
-00000001400075d0 <memcpy>:
-   1400075d0:	ff 25 2e 6e 00 00    	jmp    *0x6e2e(%rip)        # 14000e404 <__imp_memcpy>
-   1400075d6:	90                   	nop
-   1400075d7:	90                   	nop
-
-00000001400075d8 <signal>:
-   1400075d8:	ff 25 2e 6e 00 00    	jmp    *0x6e2e(%rip)        # 14000e40c <__imp_signal>
-   1400075de:	90                   	nop
-   1400075df:	90                   	nop
-
-00000001400075e0 <strlen>:
-   1400075e0:	ff 25 2e 6e 00 00    	jmp    *0x6e2e(%rip)        # 14000e414 <__imp_strlen>
-   1400075e6:	90                   	nop
-   1400075e7:	90                   	nop
-
-00000001400075e8 <strncmp>:
-   1400075e8:	ff 25 2e 6e 00 00    	jmp    *0x6e2e(%rip)        # 14000e41c <__imp_strncmp>
-   1400075ee:	90                   	nop
-   1400075ef:	90                   	nop
-
-00000001400075f0 <vfprintf>:
-   1400075f0:	ff 25 2e 6e 00 00    	jmp    *0x6e2e(%rip)        # 14000e424 <__imp_vfprintf>
-   1400075f6:	90                   	nop
-   1400075f7:	90                   	nop
-   1400075f8:	0f 1f 84 00 00 00 00 	nopl   0x0(%rax,%rax,1)
-   1400075ff:	00 
-
-0000000140007600 <VirtualQuery>:
-   140007600:	ff 25 56 6d 00 00    	jmp    *0x6d56(%rip)        # 14000e35c <__imp_VirtualQuery>
-   140007606:	90                   	nop
-   140007607:	90                   	nop
-
-0000000140007608 <VirtualProtect>:
-   140007608:	ff 25 46 6d 00 00    	jmp    *0x6d46(%rip)        # 14000e354 <__imp_VirtualProtect>
-   14000760e:	90                   	nop
-   14000760f:	90                   	nop
-
-0000000140007610 <TlsGetValue>:
-   140007610:	ff 25 36 6d 00 00    	jmp    *0x6d36(%rip)        # 14000e34c <__imp_TlsGetValue>
-   140007616:	90                   	nop
-   140007617:	90                   	nop
-
-0000000140007618 <Sleep>:
-   140007618:	ff 25 26 6d 00 00    	jmp    *0x6d26(%rip)        # 14000e344 <__imp_Sleep>
-   14000761e:	90                   	nop
-   14000761f:	90                   	nop
-
-0000000140007620 <SetUnhandledExceptionFilter>:
-   140007620:	ff 25 16 6d 00 00    	jmp    *0x6d16(%rip)        # 14000e33c <__imp_SetUnhandledExceptionFilter>
-   140007626:	90                   	nop
-   140007627:	90                   	nop
-
-0000000140007628 <LeaveCriticalSection>:
-   140007628:	ff 25 06 6d 00 00    	jmp    *0x6d06(%rip)        # 14000e334 <__imp_LeaveCriticalSection>
-   14000762e:	90                   	nop
-   14000762f:	90                   	nop
-
-0000000140007630 <InitializeCriticalSection>:
-   140007630:	ff 25 f6 6c 00 00    	jmp    *0x6cf6(%rip)        # 14000e32c <__imp_InitializeCriticalSection>
-   140007636:	90                   	nop
-   140007637:	90                   	nop
-
-0000000140007638 <GetLastError>:
-   140007638:	ff 25 e6 6c 00 00    	jmp    *0x6ce6(%rip)        # 14000e324 <__imp_GetLastError>
-   14000763e:	90                   	nop
-   14000763f:	90                   	nop
-
-0000000140007640 <EnterCriticalSection>:
-   140007640:	ff 25 d6 6c 00 00    	jmp    *0x6cd6(%rip)        # 14000e31c <__imp_EnterCriticalSection>
-   140007646:	90                   	nop
-   140007647:	90                   	nop
-
-0000000140007648 <DeleteCriticalSection>:
-   140007648:	ff 25 c6 6c 00 00    	jmp    *0x6cc6(%rip)        # 14000e314 <__imp_DeleteCriticalSection>
-   14000764e:	90                   	nop
-   14000764f:	90                   	nop
-
-0000000140007650 <_ZNKSt5ctypeIcE8do_widenEc>:
-   140007650:	89 d0                	mov    %edx,%eax
-   140007652:	c3                   	ret
-   140007653:	90                   	nop
-   140007654:	90                   	nop
-   140007655:	90                   	nop
-   140007656:	90                   	nop
-   140007657:	90                   	nop
-   140007658:	90                   	nop
-   140007659:	90                   	nop
-   14000765a:	90                   	nop
-   14000765b:	90                   	nop
-   14000765c:	90                   	nop
-   14000765d:	90                   	nop
-   14000765e:	90                   	nop
-   14000765f:	90                   	nop
-
-0000000140007660 <_ZNSt6vectorI13NaturalBinarySaIS0_EE17_M_default_appendEy>:
-   140007660:	41 57                	push   %r15
-   140007662:	41 56                	push   %r14
-   140007664:	41 55                	push   %r13
-   140007666:	41 54                	push   %r12
-   140007668:	55                   	push   %rbp
-   140007669:	57                   	push   %rdi
-   14000766a:	56                   	push   %rsi
-   14000766b:	53                   	push   %rbx
-   14000766c:	48 83 ec 38          	sub    $0x38,%rsp
-   140007670:	49 89 cc             	mov    %rcx,%r12
-   140007673:	48 89 d3             	mov    %rdx,%rbx
-   140007676:	48 85 d2             	test   %rdx,%rdx
-   140007679:	74 64                	je     1400076df <_ZNSt6vectorI13NaturalBinarySaIS0_EE17_M_default_appendEy+0x7f>
-   14000767b:	48 b8 55 55 55 55 55 	movabs $0x555555555555555,%rax
-   140007682:	55 55 05 
-   140007685:	48 8b 79 08          	mov    0x8(%rcx),%rdi
-   140007689:	48 89 fe             	mov    %rdi,%rsi
-   14000768c:	48 2b 31             	sub    (%rcx),%rsi
-   14000768f:	48 b9 ab aa aa aa aa 	movabs $0xaaaaaaaaaaaaaaab,%rcx
-   140007696:	aa aa aa 
-   140007699:	49 89 f5             	mov    %rsi,%r13
-   14000769c:	49 c1 fd 03          	sar    $0x3,%r13
-   1400076a0:	4c 0f af e9          	imul   %rcx,%r13
-   1400076a4:	4c 29 e8             	sub    %r13,%rax
-   1400076a7:	48 89 c2             	mov    %rax,%rdx
-   1400076aa:	49 8b 44 24 10       	mov    0x10(%r12),%rax
-   1400076af:	48 29 f8             	sub    %rdi,%rax
-   1400076b2:	48 c1 f8 03          	sar    $0x3,%rax
-   1400076b6:	48 0f af c1          	imul   %rcx,%rax
-   1400076ba:	48 39 d8             	cmp    %rbx,%rax
-   1400076bd:	72 31                	jb     1400076f0 <_ZNSt6vectorI13NaturalBinarySaIS0_EE17_M_default_appendEy+0x90>
-   1400076bf:	48 89 fe             	mov    %rdi,%rsi
-   1400076c2:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
-   1400076c8:	48 89 f1             	mov    %rsi,%rcx
-   1400076cb:	e8 f0 a1 ff ff       	call   1400018c0 <_ZN13NaturalBinaryC2Ex.constprop.0>
-   1400076d0:	48 83 c6 18          	add    $0x18,%rsi
-   1400076d4:	48 83 eb 01          	sub    $0x1,%rbx
-   1400076d8:	75 ee                	jne    1400076c8 <_ZNSt6vectorI13NaturalBinarySaIS0_EE17_M_default_appendEy+0x68>
-   1400076da:	49 89 74 24 08       	mov    %rsi,0x8(%r12)
-   1400076df:	48 83 c4 38          	add    $0x38,%rsp
-   1400076e3:	5b                   	pop    %rbx
-   1400076e4:	5e                   	pop    %rsi
-   1400076e5:	5f                   	pop    %rdi
-   1400076e6:	5d                   	pop    %rbp
-   1400076e7:	41 5c                	pop    %r12
-   1400076e9:	41 5d                	pop    %r13
-   1400076eb:	41 5e                	pop    %r14
-   1400076ed:	41 5f                	pop    %r15
-   1400076ef:	c3                   	ret
-   1400076f0:	48 39 da             	cmp    %rbx,%rdx
-   1400076f3:	0f 82 8d 01 00 00    	jb     140007886 <_ZNSt6vectorI13NaturalBinarySaIS0_EE17_M_default_appendEy+0x226>
-   1400076f9:	49 39 dd             	cmp    %rbx,%r13
-   1400076fc:	0f 82 3e 01 00 00    	jb     140007840 <_ZNSt6vectorI13NaturalBinarySaIS0_EE17_M_default_appendEy+0x1e0>
-   140007702:	48 ba f8 ff ff ff ff 	movabs $0x7ffffffffffffff8,%rdx
-   140007709:	ff ff 7f 
-   14000770c:	4b 8d 44 2d 00       	lea    0x0(%r13,%r13,1),%rax
-   140007711:	48 89 54 24 20       	mov    %rdx,0x20(%rsp)
-   140007716:	4c 39 e8             	cmp    %r13,%rax
-   140007719:	0f 83 48 01 00 00    	jae    140007867 <_ZNSt6vectorI13NaturalBinarySaIS0_EE17_M_default_appendEy+0x207>
-   14000771f:	48 8b 4c 24 20       	mov    0x20(%rsp),%rcx
-   140007724:	48 89 df             	mov    %rbx,%rdi
-   140007727:	e8 1c ec ff ff       	call   140006348 <_Znwy>
-   14000772c:	49 89 c6             	mov    %rax,%r14
-   14000772f:	48 8d 04 30          	lea    (%rax,%rsi,1),%rax
-   140007733:	48 89 44 24 28       	mov    %rax,0x28(%rsp)
-   140007738:	48 89 c6             	mov    %rax,%rsi
-   14000773b:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
-   140007740:	48 89 f1             	mov    %rsi,%rcx
-   140007743:	e8 78 a1 ff ff       	call   1400018c0 <_ZN13NaturalBinaryC2Ex.constprop.0>
-   140007748:	48 83 c6 18          	add    $0x18,%rsi
-   14000774c:	48 83 ef 01          	sub    $0x1,%rdi
-   140007750:	75 ee                	jne    140007740 <_ZNSt6vectorI13NaturalBinarySaIS0_EE17_M_default_appendEy+0xe0>
-   140007752:	4d 8b 7c 24 08       	mov    0x8(%r12),%r15
-   140007757:	49 8b 34 24          	mov    (%r12),%rsi
-   14000775b:	4c 89 f5             	mov    %r14,%rbp
-   14000775e:	49 39 f7             	cmp    %rsi,%r15
-   140007761:	0f 84 9b 00 00 00    	je     140007802 <_ZNSt6vectorI13NaturalBinarySaIS0_EE17_M_default_appendEy+0x1a2>
-   140007767:	66 48 0f 6e c5       	movq   %rbp,%xmm0
-   14000776c:	48 c7 45 10 00 00 00 	movq   $0x0,0x10(%rbp)
-   140007773:	00 
-   140007774:	66 0f 6c c0          	punpcklqdq %xmm0,%xmm0
-   140007778:	0f 11 45 00          	movups %xmm0,0x0(%rbp)
-   14000777c:	48 8b 3e             	mov    (%rsi),%rdi
-   14000777f:	48 39 fe             	cmp    %rdi,%rsi
-   140007782:	74 2d                	je     1400077b1 <_ZNSt6vectorI13NaturalBinarySaIS0_EE17_M_default_appendEy+0x151>
-   140007784:	0f 1f 40 00          	nopl   0x0(%rax)
-   140007788:	b9 18 00 00 00       	mov    $0x18,%ecx
-   14000778d:	e8 b6 eb ff ff       	call   140006348 <_Znwy>
-   140007792:	48 89 c1             	mov    %rax,%rcx
-   140007795:	0f b6 47 10          	movzbl 0x10(%rdi),%eax
-   140007799:	48 89 ea             	mov    %rbp,%rdx
-   14000779c:	88 41 10             	mov    %al,0x10(%rcx)
-   14000779f:	e8 04 ec ff ff       	call   1400063a8 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
-   1400077a4:	48 8b 3f             	mov    (%rdi),%rdi
-   1400077a7:	48 83 45 10 01       	addq   $0x1,0x10(%rbp)
-   1400077ac:	48 39 fe             	cmp    %rdi,%rsi
-   1400077af:	75 d7                	jne    140007788 <_ZNSt6vectorI13NaturalBinarySaIS0_EE17_M_default_appendEy+0x128>
-   1400077b1:	48 83 c6 18          	add    $0x18,%rsi
-   1400077b5:	48 83 c5 18          	add    $0x18,%rbp
-   1400077b9:	49 39 f7             	cmp    %rsi,%r15
-   1400077bc:	75 a9                	jne    140007767 <_ZNSt6vectorI13NaturalBinarySaIS0_EE17_M_default_appendEy+0x107>
-   1400077be:	49 8b 6c 24 08       	mov    0x8(%r12),%rbp
-   1400077c3:	49 8b 34 24          	mov    (%r12),%rsi
-   1400077c7:	48 39 f5             	cmp    %rsi,%rbp
-   1400077ca:	74 36                	je     140007802 <_ZNSt6vectorI13NaturalBinarySaIS0_EE17_M_default_appendEy+0x1a2>
+0000000140007700 <_gnu_exception_handler>:
+   140007700:	53                   	push   %rbx
+   140007701:	48 83 ec 20          	sub    $0x20,%rsp
+   140007705:	48 8b 11             	mov    (%rcx),%rdx
+   140007708:	8b 02                	mov    (%rdx),%eax
+   14000770a:	48 89 cb             	mov    %rcx,%rbx
+   14000770d:	89 c1                	mov    %eax,%ecx
+   14000770f:	81 e1 ff ff ff 20    	and    $0x20ffffff,%ecx
+   140007715:	81 f9 43 43 47 20    	cmp    $0x20474343,%ecx
+   14000771b:	0f 84 9f 00 00 00    	je     1400077c0 <_gnu_exception_handler+0xc0>
+   140007721:	3d 96 00 00 c0       	cmp    $0xc0000096,%eax
+   140007726:	77 77                	ja     14000779f <_gnu_exception_handler+0x9f>
+   140007728:	3d 8b 00 00 c0       	cmp    $0xc000008b,%eax
+   14000772d:	76 21                	jbe    140007750 <_gnu_exception_handler+0x50>
+   14000772f:	05 73 ff ff 3f       	add    $0x3fffff73,%eax
+   140007734:	83 f8 09             	cmp    $0x9,%eax
+   140007737:	77 54                	ja     14000778d <_gnu_exception_handler+0x8d>
+   140007739:	48 8d 15 a0 2c 00 00 	lea    0x2ca0(%rip),%rdx        # 14000a3e0 <.rdata>
+   140007740:	48 63 04 82          	movslq (%rdx,%rax,4),%rax
+   140007744:	48 01 d0             	add    %rdx,%rax
+   140007747:	ff e0                	jmp    *%rax
+   140007749:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+   140007750:	3d 05 00 00 c0       	cmp    $0xc0000005,%eax
+   140007755:	0f 84 d5 00 00 00    	je     140007830 <_gnu_exception_handler+0x130>
+   14000775b:	76 3b                	jbe    140007798 <_gnu_exception_handler+0x98>
+   14000775d:	3d 08 00 00 c0       	cmp    $0xc0000008,%eax
+   140007762:	74 29                	je     14000778d <_gnu_exception_handler+0x8d>
+   140007764:	3d 1d 00 00 c0       	cmp    $0xc000001d,%eax
+   140007769:	75 34                	jne    14000779f <_gnu_exception_handler+0x9f>
+   14000776b:	31 d2                	xor    %edx,%edx
+   14000776d:	b9 04 00 00 00       	mov    $0x4,%ecx
+   140007772:	e8 d1 08 00 00       	call   140008048 <signal>
+   140007777:	48 83 f8 01          	cmp    $0x1,%rax
+   14000777b:	0f 84 d6 00 00 00    	je     140007857 <_gnu_exception_handler+0x157>
+   140007781:	48 85 c0             	test   %rax,%rax
+   140007784:	74 19                	je     14000779f <_gnu_exception_handler+0x9f>
+   140007786:	b9 04 00 00 00       	mov    $0x4,%ecx
+   14000778b:	ff d0                	call   *%rax
+   14000778d:	b8 ff ff ff ff       	mov    $0xffffffff,%eax
+   140007792:	48 83 c4 20          	add    $0x20,%rsp
+   140007796:	5b                   	pop    %rbx
+   140007797:	c3                   	ret
+   140007798:	3d 02 00 00 80       	cmp    $0x80000002,%eax
+   14000779d:	74 ee                	je     14000778d <_gnu_exception_handler+0x8d>
+   14000779f:	48 8b 05 6a 59 00 00 	mov    0x596a(%rip),%rax        # 14000d110 <__mingw_oldexcpt_handler>
+   1400077a6:	48 85 c0             	test   %rax,%rax
+   1400077a9:	74 25                	je     1400077d0 <_gnu_exception_handler+0xd0>
+   1400077ab:	48 89 d9             	mov    %rbx,%rcx
+   1400077ae:	48 83 c4 20          	add    $0x20,%rsp
+   1400077b2:	5b                   	pop    %rbx
+   1400077b3:	48 ff e0             	rex.W jmp *%rax
+   1400077b6:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
+   1400077bd:	00 00 00 
+   1400077c0:	f6 42 04 01          	testb  $0x1,0x4(%rdx)
+   1400077c4:	0f 85 57 ff ff ff    	jne    140007721 <_gnu_exception_handler+0x21>
+   1400077ca:	eb c1                	jmp    14000778d <_gnu_exception_handler+0x8d>
    1400077cc:	0f 1f 40 00          	nopl   0x0(%rax)
-   1400077d0:	48 8b 3e             	mov    (%rsi),%rdi
-   1400077d3:	48 39 fe             	cmp    %rdi,%rsi
-   1400077d6:	74 1d                	je     1400077f5 <_ZNSt6vectorI13NaturalBinarySaIS0_EE17_M_default_appendEy+0x195>
+   1400077d0:	31 c0                	xor    %eax,%eax
+   1400077d2:	48 83 c4 20          	add    $0x20,%rsp
+   1400077d6:	5b                   	pop    %rbx
+   1400077d7:	c3                   	ret
    1400077d8:	0f 1f 84 00 00 00 00 	nopl   0x0(%rax,%rax,1)
    1400077df:	00 
-   1400077e0:	48 89 f9             	mov    %rdi,%rcx
-   1400077e3:	48 8b 3f             	mov    (%rdi),%rdi
-   1400077e6:	ba 18 00 00 00       	mov    $0x18,%edx
-   1400077eb:	e8 60 eb ff ff       	call   140006350 <_ZdlPvy>
-   1400077f0:	48 39 fe             	cmp    %rdi,%rsi
-   1400077f3:	75 eb                	jne    1400077e0 <_ZNSt6vectorI13NaturalBinarySaIS0_EE17_M_default_appendEy+0x180>
-   1400077f5:	48 83 c6 18          	add    $0x18,%rsi
-   1400077f9:	48 39 f5             	cmp    %rsi,%rbp
-   1400077fc:	75 d2                	jne    1400077d0 <_ZNSt6vectorI13NaturalBinarySaIS0_EE17_M_default_appendEy+0x170>
-   1400077fe:	49 8b 34 24          	mov    (%r12),%rsi
-   140007802:	48 85 f6             	test   %rsi,%rsi
-   140007805:	74 10                	je     140007817 <_ZNSt6vectorI13NaturalBinarySaIS0_EE17_M_default_appendEy+0x1b7>
-   140007807:	49 8b 54 24 10       	mov    0x10(%r12),%rdx
-   14000780c:	48 89 f1             	mov    %rsi,%rcx
-   14000780f:	48 29 f2             	sub    %rsi,%rdx
-   140007812:	e8 39 eb ff ff       	call   140006350 <_ZdlPvy>
-   140007817:	4c 01 eb             	add    %r13,%rbx
-   14000781a:	4d 89 34 24          	mov    %r14,(%r12)
-   14000781e:	48 8d 04 5b          	lea    (%rbx,%rbx,2),%rax
-   140007822:	49 8d 04 c6          	lea    (%r14,%rax,8),%rax
-   140007826:	49 89 44 24 08       	mov    %rax,0x8(%r12)
-   14000782b:	48 8b 44 24 20       	mov    0x20(%rsp),%rax
-   140007830:	49 01 c6             	add    %rax,%r14
-   140007833:	4d 89 74 24 10       	mov    %r14,0x10(%r12)
-   140007838:	e9 a2 fe ff ff       	jmp    1400076df <_ZNSt6vectorI13NaturalBinarySaIS0_EE17_M_default_appendEy+0x7f>
-   14000783d:	0f 1f 00             	nopl   (%rax)
-   140007840:	48 ba 55 55 55 55 55 	movabs $0x555555555555555,%rdx
-   140007847:	55 55 05 
-   14000784a:	4a 8d 04 2b          	lea    (%rbx,%r13,1),%rax
-   14000784e:	48 39 d0             	cmp    %rdx,%rax
-   140007851:	48 0f 47 c2          	cmova  %rdx,%rax
-   140007855:	48 8d 04 40          	lea    (%rax,%rax,2),%rax
-   140007859:	48 c1 e0 03          	shl    $0x3,%rax
-   14000785d:	48 89 44 24 20       	mov    %rax,0x20(%rsp)
-   140007862:	e9 b8 fe ff ff       	jmp    14000771f <_ZNSt6vectorI13NaturalBinarySaIS0_EE17_M_default_appendEy+0xbf>
-   140007867:	48 ba 55 55 55 55 55 	movabs $0x555555555555555,%rdx
-   14000786e:	55 55 05 
-   140007871:	48 39 d0             	cmp    %rdx,%rax
-   140007874:	48 0f 47 c2          	cmova  %rdx,%rax
-   140007878:	48 6b c0 18          	imul   $0x18,%rax,%rax
-   14000787c:	48 89 44 24 20       	mov    %rax,0x20(%rsp)
-   140007881:	e9 99 fe ff ff       	jmp    14000771f <_ZNSt6vectorI13NaturalBinarySaIS0_EE17_M_default_appendEy+0xbf>
-   140007886:	48 8d 0d bb 27 00 00 	lea    0x27bb(%rip),%rcx        # 14000a048 <.rdata+0x18>
-   14000788d:	e8 ce ea ff ff       	call   140006360 <_ZSt20__throw_length_errorPKc>
-   140007892:	48 89 c1             	mov    %rax,%rcx
-   140007895:	e8 9e ea ff ff       	call   140006338 <__cxa_begin_catch>
-   14000789a:	48 39 fe             	cmp    %rdi,%rsi
-   14000789d:	0f 84 af 00 00 00    	je     140007952 <_ZNSt6vectorI13NaturalBinarySaIS0_EE17_M_default_appendEy+0x2f2>
-   1400078a3:	48 8b 0f             	mov    (%rdi),%rcx
-   1400078a6:	48 39 cf             	cmp    %rcx,%rdi
-   1400078a9:	0f 84 e2 00 00 00    	je     140007991 <_ZNSt6vectorI13NaturalBinarySaIS0_EE17_M_default_appendEy+0x331>
-   1400078af:	48 8b 19             	mov    (%rcx),%rbx
-   1400078b2:	ba 18 00 00 00       	mov    $0x18,%edx
-   1400078b7:	e8 94 ea ff ff       	call   140006350 <_ZdlPvy>
-   1400078bc:	48 89 d9             	mov    %rbx,%rcx
-   1400078bf:	eb e5                	jmp    1400078a6 <_ZNSt6vectorI13NaturalBinarySaIS0_EE17_M_default_appendEy+0x246>
-   1400078c1:	48 8b 4d 00          	mov    0x0(%rbp),%rcx
-   1400078c5:	48 89 c6             	mov    %rax,%rsi
-   1400078c8:	48 39 cd             	cmp    %rcx,%rbp
-   1400078cb:	0f 84 96 00 00 00    	je     140007967 <_ZNSt6vectorI13NaturalBinarySaIS0_EE17_M_default_appendEy+0x307>
-   1400078d1:	48 8b 39             	mov    (%rcx),%rdi
-   1400078d4:	ba 18 00 00 00       	mov    $0x18,%edx
-   1400078d9:	e8 72 ea ff ff       	call   140006350 <_ZdlPvy>
-   1400078de:	48 89 f9             	mov    %rdi,%rcx
-   1400078e1:	eb e5                	jmp    1400078c8 <_ZNSt6vectorI13NaturalBinarySaIS0_EE17_M_default_appendEy+0x268>
-   1400078e3:	48 89 c1             	mov    %rax,%rcx
-   1400078e6:	e8 4d ea ff ff       	call   140006338 <__cxa_begin_catch>
-   1400078eb:	48 39 74 24 28       	cmp    %rsi,0x28(%rsp)
-   1400078f0:	74 21                	je     140007913 <_ZNSt6vectorI13NaturalBinarySaIS0_EE17_M_default_appendEy+0x2b3>
-   1400078f2:	48 8b 44 24 28       	mov    0x28(%rsp),%rax
-   1400078f7:	48 8b 08             	mov    (%rax),%rcx
-   1400078fa:	48 39 4c 24 28       	cmp    %rcx,0x28(%rsp)
-   1400078ff:	74 49                	je     14000794a <_ZNSt6vectorI13NaturalBinarySaIS0_EE17_M_default_appendEy+0x2ea>
-   140007901:	48 8b 19             	mov    (%rcx),%rbx
-   140007904:	ba 18 00 00 00       	mov    $0x18,%edx
-   140007909:	e8 42 ea ff ff       	call   140006350 <_ZdlPvy>
-   14000790e:	48 89 d9             	mov    %rbx,%rcx
-   140007911:	eb e7                	jmp    1400078fa <_ZNSt6vectorI13NaturalBinarySaIS0_EE17_M_default_appendEy+0x29a>
-   140007913:	e8 08 ea ff ff       	call   140006320 <__cxa_rethrow>
-   140007918:	48 89 c3             	mov    %rax,%rbx
-   14000791b:	e8 10 ea ff ff       	call   140006330 <__cxa_end_catch>
-   140007920:	48 89 d9             	mov    %rbx,%rcx
-   140007923:	e8 10 ea ff ff       	call   140006338 <__cxa_begin_catch>
-   140007928:	48 8b 54 24 20       	mov    0x20(%rsp),%rdx
-   14000792d:	4c 89 f1             	mov    %r14,%rcx
-   140007930:	e8 1b ea ff ff       	call   140006350 <_ZdlPvy>
-   140007935:	e8 e6 e9 ff ff       	call   140006320 <__cxa_rethrow>
-   14000793a:	48 89 c3             	mov    %rax,%rbx
-   14000793d:	e8 ee e9 ff ff       	call   140006330 <__cxa_end_catch>
-   140007942:	48 89 d9             	mov    %rbx,%rcx
-   140007945:	e8 56 fb ff ff       	call   1400074a0 <_Unwind_Resume>
-   14000794a:	48 83 44 24 28 18    	addq   $0x18,0x28(%rsp)
-   140007950:	eb 99                	jmp    1400078eb <_ZNSt6vectorI13NaturalBinarySaIS0_EE17_M_default_appendEy+0x28b>
-   140007952:	e8 c9 e9 ff ff       	call   140006320 <__cxa_rethrow>
-   140007957:	48 89 c3             	mov    %rax,%rbx
-   14000795a:	e8 d1 e9 ff ff       	call   140006330 <__cxa_end_catch>
-   14000795f:	48 89 d9             	mov    %rbx,%rcx
-   140007962:	e8 39 fb ff ff       	call   1400074a0 <_Unwind_Resume>
-   140007967:	48 89 f1             	mov    %rsi,%rcx
-   14000796a:	4c 89 f6             	mov    %r14,%rsi
-   14000796d:	e8 c6 e9 ff ff       	call   140006338 <__cxa_begin_catch>
-   140007972:	48 39 f5             	cmp    %rsi,%rbp
-   140007975:	74 23                	je     14000799a <_ZNSt6vectorI13NaturalBinarySaIS0_EE17_M_default_appendEy+0x33a>
-   140007977:	48 8b 0e             	mov    (%rsi),%rcx
-   14000797a:	48 39 ce             	cmp    %rcx,%rsi
-   14000797d:	74 6b                	je     1400079ea <_ZNSt6vectorI13NaturalBinarySaIS0_EE17_M_default_appendEy+0x38a>
-   14000797f:	48 8b 39             	mov    (%rcx),%rdi
-   140007982:	ba 18 00 00 00       	mov    $0x18,%edx
-   140007987:	e8 c4 e9 ff ff       	call   140006350 <_ZdlPvy>
-   14000798c:	48 89 f9             	mov    %rdi,%rcx
-   14000798f:	eb e9                	jmp    14000797a <_ZNSt6vectorI13NaturalBinarySaIS0_EE17_M_default_appendEy+0x31a>
-   140007991:	48 83 c7 18          	add    $0x18,%rdi
-   140007995:	e9 00 ff ff ff       	jmp    14000789a <_ZNSt6vectorI13NaturalBinarySaIS0_EE17_M_default_appendEy+0x23a>
-   14000799a:	e8 81 e9 ff ff       	call   140006320 <__cxa_rethrow>
-   14000799f:	48 89 c6             	mov    %rax,%rsi
-   1400079a2:	48 6b db 18          	imul   $0x18,%rbx,%rbx
-   1400079a6:	e8 85 e9 ff ff       	call   140006330 <__cxa_end_catch>
-   1400079ab:	48 89 f1             	mov    %rsi,%rcx
-   1400079ae:	e8 85 e9 ff ff       	call   140006338 <__cxa_begin_catch>
-   1400079b3:	48 8b 44 24 28       	mov    0x28(%rsp),%rax
-   1400079b8:	48 01 c3             	add    %rax,%rbx
-   1400079bb:	48 8b 44 24 28       	mov    0x28(%rsp),%rax
-   1400079c0:	48 39 c3             	cmp    %rax,%rbx
-   1400079c3:	0f 84 5f ff ff ff    	je     140007928 <_ZNSt6vectorI13NaturalBinarySaIS0_EE17_M_default_appendEy+0x2c8>
-   1400079c9:	48 8b 44 24 28       	mov    0x28(%rsp),%rax
-   1400079ce:	48 8b 08             	mov    (%rax),%rcx
-   1400079d1:	48 39 4c 24 28       	cmp    %rcx,0x28(%rsp)
-   1400079d6:	74 18                	je     1400079f0 <_ZNSt6vectorI13NaturalBinarySaIS0_EE17_M_default_appendEy+0x390>
-   1400079d8:	48 8b 31             	mov    (%rcx),%rsi
-   1400079db:	ba 18 00 00 00       	mov    $0x18,%edx
-   1400079e0:	e8 6b e9 ff ff       	call   140006350 <_ZdlPvy>
-   1400079e5:	48 89 f1             	mov    %rsi,%rcx
-   1400079e8:	eb e7                	jmp    1400079d1 <_ZNSt6vectorI13NaturalBinarySaIS0_EE17_M_default_appendEy+0x371>
-   1400079ea:	48 83 c6 18          	add    $0x18,%rsi
-   1400079ee:	eb 82                	jmp    140007972 <_ZNSt6vectorI13NaturalBinarySaIS0_EE17_M_default_appendEy+0x312>
-   1400079f0:	48 83 44 24 28 18    	addq   $0x18,0x28(%rsp)
-   1400079f6:	eb c3                	jmp    1400079bb <_ZNSt6vectorI13NaturalBinarySaIS0_EE17_M_default_appendEy+0x35b>
-   1400079f8:	90                   	nop
-   1400079f9:	90                   	nop
-   1400079fa:	90                   	nop
-   1400079fb:	90                   	nop
-   1400079fc:	90                   	nop
-   1400079fd:	90                   	nop
-   1400079fe:	90                   	nop
-   1400079ff:	90                   	nop
+   1400077e0:	31 d2                	xor    %edx,%edx
+   1400077e2:	b9 08 00 00 00       	mov    $0x8,%ecx
+   1400077e7:	e8 5c 08 00 00       	call   140008048 <signal>
+   1400077ec:	48 83 f8 01          	cmp    $0x1,%rax
+   1400077f0:	0f 84 89 00 00 00    	je     14000787f <_gnu_exception_handler+0x17f>
+   1400077f6:	48 85 c0             	test   %rax,%rax
+   1400077f9:	74 a4                	je     14000779f <_gnu_exception_handler+0x9f>
+   1400077fb:	b9 08 00 00 00       	mov    $0x8,%ecx
+   140007800:	ff d0                	call   *%rax
+   140007802:	eb 89                	jmp    14000778d <_gnu_exception_handler+0x8d>
+   140007804:	0f 1f 40 00          	nopl   0x0(%rax)
+   140007808:	31 d2                	xor    %edx,%edx
+   14000780a:	b9 08 00 00 00       	mov    $0x8,%ecx
+   14000780f:	e8 34 08 00 00       	call   140008048 <signal>
+   140007814:	48 83 f8 01          	cmp    $0x1,%rax
+   140007818:	75 dc                	jne    1400077f6 <_gnu_exception_handler+0xf6>
+   14000781a:	ba 01 00 00 00       	mov    $0x1,%edx
+   14000781f:	b9 08 00 00 00       	mov    $0x8,%ecx
+   140007824:	e8 1f 08 00 00       	call   140008048 <signal>
+   140007829:	e9 5f ff ff ff       	jmp    14000778d <_gnu_exception_handler+0x8d>
+   14000782e:	66 90                	xchg   %ax,%ax
+   140007830:	31 d2                	xor    %edx,%edx
+   140007832:	b9 0b 00 00 00       	mov    $0xb,%ecx
+   140007837:	e8 0c 08 00 00       	call   140008048 <signal>
+   14000783c:	48 83 f8 01          	cmp    $0x1,%rax
+   140007840:	74 29                	je     14000786b <_gnu_exception_handler+0x16b>
+   140007842:	48 85 c0             	test   %rax,%rax
+   140007845:	0f 84 54 ff ff ff    	je     14000779f <_gnu_exception_handler+0x9f>
+   14000784b:	b9 0b 00 00 00       	mov    $0xb,%ecx
+   140007850:	ff d0                	call   *%rax
+   140007852:	e9 36 ff ff ff       	jmp    14000778d <_gnu_exception_handler+0x8d>
+   140007857:	ba 01 00 00 00       	mov    $0x1,%edx
+   14000785c:	b9 04 00 00 00       	mov    $0x4,%ecx
+   140007861:	e8 e2 07 00 00       	call   140008048 <signal>
+   140007866:	e9 22 ff ff ff       	jmp    14000778d <_gnu_exception_handler+0x8d>
+   14000786b:	ba 01 00 00 00       	mov    $0x1,%edx
+   140007870:	b9 0b 00 00 00       	mov    $0xb,%ecx
+   140007875:	e8 ce 07 00 00       	call   140008048 <signal>
+   14000787a:	e9 0e ff ff ff       	jmp    14000778d <_gnu_exception_handler+0x8d>
+   14000787f:	ba 01 00 00 00       	mov    $0x1,%edx
+   140007884:	b9 08 00 00 00       	mov    $0x8,%ecx
+   140007889:	e8 ba 07 00 00       	call   140008048 <signal>
+   14000788e:	e8 cd f8 ff ff       	call   140007160 <_fpreset>
+   140007893:	e9 f5 fe ff ff       	jmp    14000778d <_gnu_exception_handler+0x8d>
+   140007898:	90                   	nop
+   140007899:	90                   	nop
+   14000789a:	90                   	nop
+   14000789b:	90                   	nop
+   14000789c:	90                   	nop
+   14000789d:	90                   	nop
+   14000789e:	90                   	nop
+   14000789f:	90                   	nop
 
-0000000140007a00 <_ZNSt7__cxx114listI4ByteSaIS1_EE17_M_default_appendEy>:
-   140007a00:	57                   	push   %rdi
-   140007a01:	56                   	push   %rsi
-   140007a02:	53                   	push   %rbx
-   140007a03:	48 83 ec 20          	sub    $0x20,%rsp
-   140007a07:	31 f6                	xor    %esi,%esi
-   140007a09:	48 89 cb             	mov    %rcx,%rbx
-   140007a0c:	48 89 d7             	mov    %rdx,%rdi
-   140007a0f:	48 85 d2             	test   %rdx,%rdx
-   140007a12:	74 2b                	je     140007a3f <_ZNSt7__cxx114listI4ByteSaIS1_EE17_M_default_appendEy+0x3f>
-   140007a14:	0f 1f 40 00          	nopl   0x0(%rax)
-   140007a18:	b9 18 00 00 00       	mov    $0x18,%ecx
-   140007a1d:	e8 26 e9 ff ff       	call   140006348 <_Znwy>
-   140007a22:	c6 40 10 00          	movb   $0x0,0x10(%rax)
-   140007a26:	48 89 c1             	mov    %rax,%rcx
-   140007a29:	48 89 da             	mov    %rbx,%rdx
-   140007a2c:	48 83 c6 01          	add    $0x1,%rsi
-   140007a30:	e8 73 e9 ff ff       	call   1400063a8 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
-   140007a35:	48 83 43 10 01       	addq   $0x1,0x10(%rbx)
-   140007a3a:	48 39 f7             	cmp    %rsi,%rdi
-   140007a3d:	75 d9                	jne    140007a18 <_ZNSt7__cxx114listI4ByteSaIS1_EE17_M_default_appendEy+0x18>
-   140007a3f:	48 83 c4 20          	add    $0x20,%rsp
-   140007a43:	5b                   	pop    %rbx
-   140007a44:	5e                   	pop    %rsi
-   140007a45:	5f                   	pop    %rdi
+00000001400078a0 <__mingwthr_run_key_dtors.part.0>:
+   1400078a0:	41 54                	push   %r12
+   1400078a2:	55                   	push   %rbp
+   1400078a3:	57                   	push   %rdi
+   1400078a4:	56                   	push   %rsi
+   1400078a5:	53                   	push   %rbx
+   1400078a6:	48 83 ec 20          	sub    $0x20,%rsp
+   1400078aa:	4c 8d 25 8f 58 00 00 	lea    0x588f(%rip),%r12        # 14000d140 <__mingwthr_cs>
+   1400078b1:	4c 89 e1             	mov    %r12,%rcx
+   1400078b4:	ff 15 62 6a 00 00    	call   *0x6a62(%rip)        # 14000e31c <__imp_EnterCriticalSection>
+   1400078ba:	48 8b 1d 5f 58 00 00 	mov    0x585f(%rip),%rbx        # 14000d120 <key_dtor_list>
+   1400078c1:	48 85 db             	test   %rbx,%rbx
+   1400078c4:	74 36                	je     1400078fc <__mingwthr_run_key_dtors.part.0+0x5c>
+   1400078c6:	48 8b 2d 7f 6a 00 00 	mov    0x6a7f(%rip),%rbp        # 14000e34c <__imp_TlsGetValue>
+   1400078cd:	48 8b 3d 50 6a 00 00 	mov    0x6a50(%rip),%rdi        # 14000e324 <__imp_GetLastError>
+   1400078d4:	0f 1f 40 00          	nopl   0x0(%rax)
+   1400078d8:	8b 0b                	mov    (%rbx),%ecx
+   1400078da:	ff d5                	call   *%rbp
+   1400078dc:	48 89 c6             	mov    %rax,%rsi
+   1400078df:	ff d7                	call   *%rdi
+   1400078e1:	85 c0                	test   %eax,%eax
+   1400078e3:	75 0e                	jne    1400078f3 <__mingwthr_run_key_dtors.part.0+0x53>
+   1400078e5:	48 85 f6             	test   %rsi,%rsi
+   1400078e8:	74 09                	je     1400078f3 <__mingwthr_run_key_dtors.part.0+0x53>
+   1400078ea:	48 8b 43 08          	mov    0x8(%rbx),%rax
+   1400078ee:	48 89 f1             	mov    %rsi,%rcx
+   1400078f1:	ff d0                	call   *%rax
+   1400078f3:	48 8b 5b 10          	mov    0x10(%rbx),%rbx
+   1400078f7:	48 85 db             	test   %rbx,%rbx
+   1400078fa:	75 dc                	jne    1400078d8 <__mingwthr_run_key_dtors.part.0+0x38>
+   1400078fc:	4c 89 e1             	mov    %r12,%rcx
+   1400078ff:	48 83 c4 20          	add    $0x20,%rsp
+   140007903:	5b                   	pop    %rbx
+   140007904:	5e                   	pop    %rsi
+   140007905:	5f                   	pop    %rdi
+   140007906:	5d                   	pop    %rbp
+   140007907:	41 5c                	pop    %r12
+   140007909:	48 ff 25 24 6a 00 00 	rex.W jmp *0x6a24(%rip)        # 14000e334 <__imp_LeaveCriticalSection>
+
+0000000140007910 <___w64_mingwthr_add_key_dtor>:
+   140007910:	57                   	push   %rdi
+   140007911:	56                   	push   %rsi
+   140007912:	53                   	push   %rbx
+   140007913:	48 83 ec 20          	sub    $0x20,%rsp
+   140007917:	8b 05 0b 58 00 00    	mov    0x580b(%rip),%eax        # 14000d128 <__mingwthr_cs_init>
+   14000791d:	89 cf                	mov    %ecx,%edi
+   14000791f:	48 89 d6             	mov    %rdx,%rsi
+   140007922:	85 c0                	test   %eax,%eax
+   140007924:	75 0a                	jne    140007930 <___w64_mingwthr_add_key_dtor+0x20>
+   140007926:	31 c0                	xor    %eax,%eax
+   140007928:	48 83 c4 20          	add    $0x20,%rsp
+   14000792c:	5b                   	pop    %rbx
+   14000792d:	5e                   	pop    %rsi
+   14000792e:	5f                   	pop    %rdi
+   14000792f:	c3                   	ret
+   140007930:	ba 18 00 00 00       	mov    $0x18,%edx
+   140007935:	b9 01 00 00 00       	mov    $0x1,%ecx
+   14000793a:	e8 d1 06 00 00       	call   140008010 <calloc>
+   14000793f:	48 89 c3             	mov    %rax,%rbx
+   140007942:	48 85 c0             	test   %rax,%rax
+   140007945:	74 33                	je     14000797a <___w64_mingwthr_add_key_dtor+0x6a>
+   140007947:	48 89 70 08          	mov    %rsi,0x8(%rax)
+   14000794b:	48 8d 35 ee 57 00 00 	lea    0x57ee(%rip),%rsi        # 14000d140 <__mingwthr_cs>
+   140007952:	89 38                	mov    %edi,(%rax)
+   140007954:	48 89 f1             	mov    %rsi,%rcx
+   140007957:	ff 15 bf 69 00 00    	call   *0x69bf(%rip)        # 14000e31c <__imp_EnterCriticalSection>
+   14000795d:	48 8b 05 bc 57 00 00 	mov    0x57bc(%rip),%rax        # 14000d120 <key_dtor_list>
+   140007964:	48 89 f1             	mov    %rsi,%rcx
+   140007967:	48 89 1d b2 57 00 00 	mov    %rbx,0x57b2(%rip)        # 14000d120 <key_dtor_list>
+   14000796e:	48 89 43 10          	mov    %rax,0x10(%rbx)
+   140007972:	ff 15 bc 69 00 00    	call   *0x69bc(%rip)        # 14000e334 <__imp_LeaveCriticalSection>
+   140007978:	eb ac                	jmp    140007926 <___w64_mingwthr_add_key_dtor+0x16>
+   14000797a:	83 c8 ff             	or     $0xffffffff,%eax
+   14000797d:	eb a9                	jmp    140007928 <___w64_mingwthr_add_key_dtor+0x18>
+   14000797f:	90                   	nop
+
+0000000140007980 <___w64_mingwthr_remove_key_dtor>:
+   140007980:	56                   	push   %rsi
+   140007981:	53                   	push   %rbx
+   140007982:	48 83 ec 28          	sub    $0x28,%rsp
+   140007986:	8b 05 9c 57 00 00    	mov    0x579c(%rip),%eax        # 14000d128 <__mingwthr_cs_init>
+   14000798c:	89 cb                	mov    %ecx,%ebx
+   14000798e:	85 c0                	test   %eax,%eax
+   140007990:	75 0e                	jne    1400079a0 <___w64_mingwthr_remove_key_dtor+0x20>
+   140007992:	31 c0                	xor    %eax,%eax
+   140007994:	48 83 c4 28          	add    $0x28,%rsp
+   140007998:	5b                   	pop    %rbx
+   140007999:	5e                   	pop    %rsi
+   14000799a:	c3                   	ret
+   14000799b:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+   1400079a0:	48 8d 35 99 57 00 00 	lea    0x5799(%rip),%rsi        # 14000d140 <__mingwthr_cs>
+   1400079a7:	48 89 f1             	mov    %rsi,%rcx
+   1400079aa:	ff 15 6c 69 00 00    	call   *0x696c(%rip)        # 14000e31c <__imp_EnterCriticalSection>
+   1400079b0:	48 8b 0d 69 57 00 00 	mov    0x5769(%rip),%rcx        # 14000d120 <key_dtor_list>
+   1400079b7:	48 85 c9             	test   %rcx,%rcx
+   1400079ba:	74 27                	je     1400079e3 <___w64_mingwthr_remove_key_dtor+0x63>
+   1400079bc:	31 d2                	xor    %edx,%edx
+   1400079be:	eb 0b                	jmp    1400079cb <___w64_mingwthr_remove_key_dtor+0x4b>
+   1400079c0:	48 89 ca             	mov    %rcx,%rdx
+   1400079c3:	48 85 c0             	test   %rax,%rax
+   1400079c6:	74 1b                	je     1400079e3 <___w64_mingwthr_remove_key_dtor+0x63>
+   1400079c8:	48 89 c1             	mov    %rax,%rcx
+   1400079cb:	8b 01                	mov    (%rcx),%eax
+   1400079cd:	39 d8                	cmp    %ebx,%eax
+   1400079cf:	48 8b 41 10          	mov    0x10(%rcx),%rax
+   1400079d3:	75 eb                	jne    1400079c0 <___w64_mingwthr_remove_key_dtor+0x40>
+   1400079d5:	48 85 d2             	test   %rdx,%rdx
+   1400079d8:	74 1e                	je     1400079f8 <___w64_mingwthr_remove_key_dtor+0x78>
+   1400079da:	48 89 42 10          	mov    %rax,0x10(%rdx)
+   1400079de:	e8 45 06 00 00       	call   140008028 <free>
+   1400079e3:	48 89 f1             	mov    %rsi,%rcx
+   1400079e6:	ff 15 48 69 00 00    	call   *0x6948(%rip)        # 14000e334 <__imp_LeaveCriticalSection>
+   1400079ec:	31 c0                	xor    %eax,%eax
+   1400079ee:	48 83 c4 28          	add    $0x28,%rsp
+   1400079f2:	5b                   	pop    %rbx
+   1400079f3:	5e                   	pop    %rsi
+   1400079f4:	c3                   	ret
+   1400079f5:	0f 1f 00             	nopl   (%rax)
+   1400079f8:	48 89 05 21 57 00 00 	mov    %rax,0x5721(%rip)        # 14000d120 <key_dtor_list>
+   1400079ff:	eb dd                	jmp    1400079de <___w64_mingwthr_remove_key_dtor+0x5e>
+   140007a01:	66 66 2e 0f 1f 84 00 	data16 cs nopw 0x0(%rax,%rax,1)
+   140007a08:	00 00 00 00 
+   140007a0c:	0f 1f 40 00          	nopl   0x0(%rax)
+
+0000000140007a10 <__mingw_TLScallback>:
+   140007a10:	53                   	push   %rbx
+   140007a11:	48 83 ec 20          	sub    $0x20,%rsp
+   140007a15:	83 fa 02             	cmp    $0x2,%edx
+   140007a18:	0f 84 b2 00 00 00    	je     140007ad0 <__mingw_TLScallback+0xc0>
+   140007a1e:	77 30                	ja     140007a50 <__mingw_TLScallback+0x40>
+   140007a20:	85 d2                	test   %edx,%edx
+   140007a22:	74 4c                	je     140007a70 <__mingw_TLScallback+0x60>
+   140007a24:	8b 05 fe 56 00 00    	mov    0x56fe(%rip),%eax        # 14000d128 <__mingwthr_cs_init>
+   140007a2a:	85 c0                	test   %eax,%eax
+   140007a2c:	0f 84 be 00 00 00    	je     140007af0 <__mingw_TLScallback+0xe0>
+   140007a32:	c7 05 ec 56 00 00 01 	movl   $0x1,0x56ec(%rip)        # 14000d128 <__mingwthr_cs_init>
+   140007a39:	00 00 00 
+   140007a3c:	b8 01 00 00 00       	mov    $0x1,%eax
+   140007a41:	48 83 c4 20          	add    $0x20,%rsp
+   140007a45:	5b                   	pop    %rbx
    140007a46:	c3                   	ret
-   140007a47:	48 89 c1             	mov    %rax,%rcx
-   140007a4a:	e8 e9 e8 ff ff       	call   140006338 <__cxa_begin_catch>
-   140007a4f:	48 85 f6             	test   %rsi,%rsi
-   140007a52:	74 24                	je     140007a78 <_ZNSt7__cxx114listI4ByteSaIS1_EE17_M_default_appendEy+0x78>
-   140007a54:	48 83 6b 10 01       	subq   $0x1,0x10(%rbx)
-   140007a59:	48 8b 7b 08          	mov    0x8(%rbx),%rdi
-   140007a5d:	48 83 ee 01          	sub    $0x1,%rsi
-   140007a61:	48 89 f9             	mov    %rdi,%rcx
-   140007a64:	e8 37 e9 ff ff       	call   1400063a0 <_ZNSt8__detail15_List_node_base9_M_unhookEv>
-   140007a69:	ba 18 00 00 00       	mov    $0x18,%edx
-   140007a6e:	48 89 f9             	mov    %rdi,%rcx
-   140007a71:	e8 da e8 ff ff       	call   140006350 <_ZdlPvy>
-   140007a76:	eb d7                	jmp    140007a4f <_ZNSt7__cxx114listI4ByteSaIS1_EE17_M_default_appendEy+0x4f>
-   140007a78:	e8 a3 e8 ff ff       	call   140006320 <__cxa_rethrow>
-   140007a7d:	48 89 c3             	mov    %rax,%rbx
-   140007a80:	e8 ab e8 ff ff       	call   140006330 <__cxa_end_catch>
-   140007a85:	48 89 d9             	mov    %rbx,%rcx
-   140007a88:	e8 13 fa ff ff       	call   1400074a0 <_Unwind_Resume>
-   140007a8d:	90                   	nop
-   140007a8e:	90                   	nop
-   140007a8f:	90                   	nop
+   140007a47:	66 0f 1f 84 00 00 00 	nopw   0x0(%rax,%rax,1)
+   140007a4e:	00 00 
+   140007a50:	83 fa 03             	cmp    $0x3,%edx
+   140007a53:	75 e7                	jne    140007a3c <__mingw_TLScallback+0x2c>
+   140007a55:	8b 05 cd 56 00 00    	mov    0x56cd(%rip),%eax        # 14000d128 <__mingwthr_cs_init>
+   140007a5b:	85 c0                	test   %eax,%eax
+   140007a5d:	74 dd                	je     140007a3c <__mingw_TLScallback+0x2c>
+   140007a5f:	e8 3c fe ff ff       	call   1400078a0 <__mingwthr_run_key_dtors.part.0>
+   140007a64:	eb d6                	jmp    140007a3c <__mingw_TLScallback+0x2c>
+   140007a66:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
+   140007a6d:	00 00 00 
+   140007a70:	8b 05 b2 56 00 00    	mov    0x56b2(%rip),%eax        # 14000d128 <__mingwthr_cs_init>
+   140007a76:	85 c0                	test   %eax,%eax
+   140007a78:	75 66                	jne    140007ae0 <__mingw_TLScallback+0xd0>
+   140007a7a:	8b 05 a8 56 00 00    	mov    0x56a8(%rip),%eax        # 14000d128 <__mingwthr_cs_init>
+   140007a80:	83 f8 01             	cmp    $0x1,%eax
+   140007a83:	75 b7                	jne    140007a3c <__mingw_TLScallback+0x2c>
+   140007a85:	48 8b 1d 94 56 00 00 	mov    0x5694(%rip),%rbx        # 14000d120 <key_dtor_list>
+   140007a8c:	48 85 db             	test   %rbx,%rbx
+   140007a8f:	74 18                	je     140007aa9 <__mingw_TLScallback+0x99>
+   140007a91:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+   140007a98:	48 89 d9             	mov    %rbx,%rcx
+   140007a9b:	48 8b 5b 10          	mov    0x10(%rbx),%rbx
+   140007a9f:	e8 84 05 00 00       	call   140008028 <free>
+   140007aa4:	48 85 db             	test   %rbx,%rbx
+   140007aa7:	75 ef                	jne    140007a98 <__mingw_TLScallback+0x88>
+   140007aa9:	48 8d 0d 90 56 00 00 	lea    0x5690(%rip),%rcx        # 14000d140 <__mingwthr_cs>
+   140007ab0:	48 c7 05 65 56 00 00 	movq   $0x0,0x5665(%rip)        # 14000d120 <key_dtor_list>
+   140007ab7:	00 00 00 00 
+   140007abb:	c7 05 63 56 00 00 00 	movl   $0x0,0x5663(%rip)        # 14000d128 <__mingwthr_cs_init>
+   140007ac2:	00 00 00 
+   140007ac5:	ff 15 49 68 00 00    	call   *0x6849(%rip)        # 14000e314 <__imp_DeleteCriticalSection>
+   140007acb:	e9 6c ff ff ff       	jmp    140007a3c <__mingw_TLScallback+0x2c>
+   140007ad0:	e8 8b f6 ff ff       	call   140007160 <_fpreset>
+   140007ad5:	b8 01 00 00 00       	mov    $0x1,%eax
+   140007ada:	48 83 c4 20          	add    $0x20,%rsp
+   140007ade:	5b                   	pop    %rbx
+   140007adf:	c3                   	ret
+   140007ae0:	e8 bb fd ff ff       	call   1400078a0 <__mingwthr_run_key_dtors.part.0>
+   140007ae5:	eb 93                	jmp    140007a7a <__mingw_TLScallback+0x6a>
+   140007ae7:	66 0f 1f 84 00 00 00 	nopw   0x0(%rax,%rax,1)
+   140007aee:	00 00 
+   140007af0:	48 8d 0d 49 56 00 00 	lea    0x5649(%rip),%rcx        # 14000d140 <__mingwthr_cs>
+   140007af7:	ff 15 2f 68 00 00    	call   *0x682f(%rip)        # 14000e32c <__imp_InitializeCriticalSection>
+   140007afd:	e9 30 ff ff ff       	jmp    140007a32 <__mingw_TLScallback+0x22>
+   140007b02:	90                   	nop
+   140007b03:	90                   	nop
+   140007b04:	90                   	nop
+   140007b05:	90                   	nop
+   140007b06:	90                   	nop
+   140007b07:	90                   	nop
+   140007b08:	90                   	nop
+   140007b09:	90                   	nop
+   140007b0a:	90                   	nop
+   140007b0b:	90                   	nop
+   140007b0c:	90                   	nop
+   140007b0d:	90                   	nop
+   140007b0e:	90                   	nop
+   140007b0f:	90                   	nop
 
-0000000140007a90 <_ZNSt7__cxx114listI4ByteSaIS1_EE6resizeEy>:
-   140007a90:	57                   	push   %rdi
-   140007a91:	56                   	push   %rsi
-   140007a92:	53                   	push   %rbx
-   140007a93:	48 83 ec 20          	sub    $0x20,%rsp
-   140007a97:	48 8b 41 10          	mov    0x10(%rcx),%rax
-   140007a9b:	48 89 ce             	mov    %rcx,%rsi
-   140007a9e:	48 39 c2             	cmp    %rax,%rdx
-   140007aa1:	73 65                	jae    140007b08 <_ZNSt7__cxx114listI4ByteSaIS1_EE6resizeEy+0x78>
-   140007aa3:	48 89 c1             	mov    %rax,%rcx
-   140007aa6:	48 d1 e9             	shr    %rcx
-   140007aa9:	48 39 d1             	cmp    %rdx,%rcx
-   140007aac:	72 72                	jb     140007b20 <_ZNSt7__cxx114listI4ByteSaIS1_EE6resizeEy+0x90>
-   140007aae:	48 8b 1e             	mov    (%rsi),%rbx
-   140007ab1:	48 85 d2             	test   %rdx,%rdx
-   140007ab4:	74 13                	je     140007ac9 <_ZNSt7__cxx114listI4ByteSaIS1_EE6resizeEy+0x39>
-   140007ab6:	48 83 ea 01          	sub    $0x1,%rdx
-   140007aba:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
-   140007ac0:	48 8b 1b             	mov    (%rbx),%rbx
-   140007ac3:	48 83 ea 01          	sub    $0x1,%rdx
-   140007ac7:	73 f7                	jae    140007ac0 <_ZNSt7__cxx114listI4ByteSaIS1_EE6resizeEy+0x30>
-   140007ac9:	48 39 de             	cmp    %rbx,%rsi
-   140007acc:	75 09                	jne    140007ad7 <_ZNSt7__cxx114listI4ByteSaIS1_EE6resizeEy+0x47>
-   140007ace:	eb 2c                	jmp    140007afc <_ZNSt7__cxx114listI4ByteSaIS1_EE6resizeEy+0x6c>
-   140007ad0:	48 8b 46 10          	mov    0x10(%rsi),%rax
-   140007ad4:	48 89 fb             	mov    %rdi,%rbx
-   140007ad7:	48 83 e8 01          	sub    $0x1,%rax
-   140007adb:	48 8b 3b             	mov    (%rbx),%rdi
-   140007ade:	48 89 d9             	mov    %rbx,%rcx
-   140007ae1:	48 89 46 10          	mov    %rax,0x10(%rsi)
-   140007ae5:	e8 b6 e8 ff ff       	call   1400063a0 <_ZNSt8__detail15_List_node_base9_M_unhookEv>
-   140007aea:	ba 18 00 00 00       	mov    $0x18,%edx
-   140007aef:	48 89 d9             	mov    %rbx,%rcx
-   140007af2:	e8 59 e8 ff ff       	call   140006350 <_ZdlPvy>
-   140007af7:	48 39 fe             	cmp    %rdi,%rsi
-   140007afa:	75 d4                	jne    140007ad0 <_ZNSt7__cxx114listI4ByteSaIS1_EE6resizeEy+0x40>
-   140007afc:	48 83 c4 20          	add    $0x20,%rsp
-   140007b00:	5b                   	pop    %rbx
-   140007b01:	5e                   	pop    %rsi
-   140007b02:	5f                   	pop    %rdi
-   140007b03:	c3                   	ret
-   140007b04:	0f 1f 40 00          	nopl   0x0(%rax)
-   140007b08:	48 29 c2             	sub    %rax,%rdx
-   140007b0b:	74 ef                	je     140007afc <_ZNSt7__cxx114listI4ByteSaIS1_EE6resizeEy+0x6c>
-   140007b0d:	48 83 c4 20          	add    $0x20,%rsp
-   140007b11:	5b                   	pop    %rbx
-   140007b12:	5e                   	pop    %rsi
-   140007b13:	5f                   	pop    %rdi
-   140007b14:	e9 e7 fe ff ff       	jmp    140007a00 <_ZNSt7__cxx114listI4ByteSaIS1_EE17_M_default_appendEy>
-   140007b19:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
-   140007b20:	48 89 c1             	mov    %rax,%rcx
-   140007b23:	48 89 f3             	mov    %rsi,%rbx
-   140007b26:	48 29 d1             	sub    %rdx,%rcx
-   140007b29:	48 89 ca             	mov    %rcx,%rdx
-   140007b2c:	48 f7 d2             	not    %rdx
-   140007b2f:	79 1f                	jns    140007b50 <_ZNSt7__cxx114listI4ByteSaIS1_EE6resizeEy+0xc0>
-   140007b31:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
-   140007b38:	48 8b 1b             	mov    (%rbx),%rbx
-   140007b3b:	48 83 ea 01          	sub    $0x1,%rdx
-   140007b3f:	72 88                	jb     140007ac9 <_ZNSt7__cxx114listI4ByteSaIS1_EE6resizeEy+0x39>
-   140007b41:	48 8b 1b             	mov    (%rbx),%rbx
-   140007b44:	48 83 ea 01          	sub    $0x1,%rdx
-   140007b48:	73 ee                	jae    140007b38 <_ZNSt7__cxx114listI4ByteSaIS1_EE6resizeEy+0xa8>
-   140007b4a:	e9 7a ff ff ff       	jmp    140007ac9 <_ZNSt7__cxx114listI4ByteSaIS1_EE6resizeEy+0x39>
-   140007b4f:	90                   	nop
-   140007b50:	ba 01 00 00 00       	mov    $0x1,%edx
-   140007b55:	48 29 ca             	sub    %rcx,%rdx
-   140007b58:	0f 1f 84 00 00 00 00 	nopl   0x0(%rax,%rax,1)
-   140007b5f:	00 
-   140007b60:	48 83 c2 01          	add    $0x1,%rdx
-   140007b64:	48 8b 5b 08          	mov    0x8(%rbx),%rbx
-   140007b68:	48 83 fa 01          	cmp    $0x1,%rdx
-   140007b6c:	75 f2                	jne    140007b60 <_ZNSt7__cxx114listI4ByteSaIS1_EE6resizeEy+0xd0>
-   140007b6e:	e9 56 ff ff ff       	jmp    140007ac9 <_ZNSt7__cxx114listI4ByteSaIS1_EE6resizeEy+0x39>
-   140007b73:	90                   	nop
-   140007b74:	90                   	nop
-   140007b75:	90                   	nop
-   140007b76:	90                   	nop
-   140007b77:	90                   	nop
-   140007b78:	90                   	nop
-   140007b79:	90                   	nop
-   140007b7a:	90                   	nop
-   140007b7b:	90                   	nop
-   140007b7c:	90                   	nop
-   140007b7d:	90                   	nop
-   140007b7e:	90                   	nop
-   140007b7f:	90                   	nop
+0000000140007b10 <_ValidateImageBase>:
+   140007b10:	31 c0                	xor    %eax,%eax
+   140007b12:	66 81 39 4d 5a       	cmpw   $0x5a4d,(%rcx)
+   140007b17:	75 0f                	jne    140007b28 <_ValidateImageBase+0x18>
+   140007b19:	48 63 51 3c          	movslq 0x3c(%rcx),%rdx
+   140007b1d:	48 01 d1             	add    %rdx,%rcx
+   140007b20:	81 39 50 45 00 00    	cmpl   $0x4550,(%rcx)
+   140007b26:	74 08                	je     140007b30 <_ValidateImageBase+0x20>
+   140007b28:	c3                   	ret
+   140007b29:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+   140007b30:	31 c0                	xor    %eax,%eax
+   140007b32:	66 81 79 18 0b 02    	cmpw   $0x20b,0x18(%rcx)
+   140007b38:	0f 94 c0             	sete   %al
+   140007b3b:	c3                   	ret
+   140007b3c:	0f 1f 40 00          	nopl   0x0(%rax)
 
-0000000140007b80 <_GLOBAL__sub_I__ZN10Arithmetic10carry_flagE>:
-   140007b80:	48 83 ec 28          	sub    $0x28,%rsp
-   140007b84:	48 8d 0d a6 54 00 00 	lea    0x54a6(%rip),%rcx        # 14000d031 <_ZStL8__ioinit>
-   140007b8b:	e8 08 e8 ff ff       	call   140006398 <_ZNSt8ios_base4InitC1Ev>
-   140007b90:	48 8d 0d b9 98 ff ff 	lea    -0x6747(%rip),%rcx        # 140001450 <__tcf_0>
-   140007b97:	48 83 c4 28          	add    $0x28,%rsp
-   140007b9b:	e9 70 98 ff ff       	jmp    140001410 <atexit>
+0000000140007b40 <_FindPESection>:
+   140007b40:	48 63 41 3c          	movslq 0x3c(%rcx),%rax
+   140007b44:	48 01 c1             	add    %rax,%rcx
+   140007b47:	0f b7 41 14          	movzwl 0x14(%rcx),%eax
+   140007b4b:	44 0f b7 41 06       	movzwl 0x6(%rcx),%r8d
+   140007b50:	48 8d 44 01 18       	lea    0x18(%rcx,%rax,1),%rax
+   140007b55:	66 45 85 c0          	test   %r8w,%r8w
+   140007b59:	74 32                	je     140007b8d <_FindPESection+0x4d>
+   140007b5b:	41 8d 48 ff          	lea    -0x1(%r8),%ecx
+   140007b5f:	48 8d 0c 89          	lea    (%rcx,%rcx,4),%rcx
+   140007b63:	4c 8d 4c c8 28       	lea    0x28(%rax,%rcx,8),%r9
+   140007b68:	0f 1f 84 00 00 00 00 	nopl   0x0(%rax,%rax,1)
+   140007b6f:	00 
+   140007b70:	44 8b 40 0c          	mov    0xc(%rax),%r8d
+   140007b74:	4c 89 c1             	mov    %r8,%rcx
+   140007b77:	4c 39 c2             	cmp    %r8,%rdx
+   140007b7a:	72 08                	jb     140007b84 <_FindPESection+0x44>
+   140007b7c:	03 48 08             	add    0x8(%rax),%ecx
+   140007b7f:	48 39 ca             	cmp    %rcx,%rdx
+   140007b82:	72 0b                	jb     140007b8f <_FindPESection+0x4f>
+   140007b84:	48 83 c0 28          	add    $0x28,%rax
+   140007b88:	4c 39 c8             	cmp    %r9,%rax
+   140007b8b:	75 e3                	jne    140007b70 <_FindPESection+0x30>
+   140007b8d:	31 c0                	xor    %eax,%eax
+   140007b8f:	c3                   	ret
 
-0000000140007ba0 <_GLOBAL__sub_I__ZN4ByteC2Ey>:
-   140007ba0:	48 83 ec 28          	sub    $0x28,%rsp
-   140007ba4:	48 8d 0d 95 54 00 00 	lea    0x5495(%rip),%rcx        # 14000d040 <_ZStL8__ioinit>
-   140007bab:	e8 e8 e7 ff ff       	call   140006398 <_ZNSt8ios_base4InitC1Ev>
-   140007bb0:	48 8d 0d b9 9a ff ff 	lea    -0x6547(%rip),%rcx        # 140001670 <__tcf_0>
-   140007bb7:	48 83 c4 28          	add    $0x28,%rsp
-   140007bbb:	e9 50 98 ff ff       	jmp    140001410 <atexit>
+0000000140007b90 <_FindPESectionByName>:
+   140007b90:	57                   	push   %rdi
+   140007b91:	56                   	push   %rsi
+   140007b92:	53                   	push   %rbx
+   140007b93:	48 83 ec 20          	sub    $0x20,%rsp
+   140007b97:	48 89 ce             	mov    %rcx,%rsi
+   140007b9a:	e8 b1 04 00 00       	call   140008050 <strlen>
+   140007b9f:	48 83 f8 08          	cmp    $0x8,%rax
+   140007ba3:	77 7b                	ja     140007c20 <_FindPESectionByName+0x90>
+   140007ba5:	48 8b 15 24 29 00 00 	mov    0x2924(%rip),%rdx        # 14000a4d0 <.refptr.__ImageBase>
+   140007bac:	31 db                	xor    %ebx,%ebx
+   140007bae:	66 81 3a 4d 5a       	cmpw   $0x5a4d,(%rdx)
+   140007bb3:	75 59                	jne    140007c0e <_FindPESectionByName+0x7e>
+   140007bb5:	48 63 42 3c          	movslq 0x3c(%rdx),%rax
+   140007bb9:	48 01 d0             	add    %rdx,%rax
+   140007bbc:	81 38 50 45 00 00    	cmpl   $0x4550,(%rax)
+   140007bc2:	75 4a                	jne    140007c0e <_FindPESectionByName+0x7e>
+   140007bc4:	66 81 78 18 0b 02    	cmpw   $0x20b,0x18(%rax)
+   140007bca:	75 42                	jne    140007c0e <_FindPESectionByName+0x7e>
+   140007bcc:	0f b7 50 14          	movzwl 0x14(%rax),%edx
+   140007bd0:	48 8d 5c 10 18       	lea    0x18(%rax,%rdx,1),%rbx
+   140007bd5:	0f b7 50 06          	movzwl 0x6(%rax),%edx
+   140007bd9:	66 85 d2             	test   %dx,%dx
+   140007bdc:	74 42                	je     140007c20 <_FindPESectionByName+0x90>
+   140007bde:	8d 42 ff             	lea    -0x1(%rdx),%eax
+   140007be1:	48 8d 04 80          	lea    (%rax,%rax,4),%rax
+   140007be5:	48 8d 7c c3 28       	lea    0x28(%rbx,%rax,8),%rdi
+   140007bea:	eb 0d                	jmp    140007bf9 <_FindPESectionByName+0x69>
+   140007bec:	0f 1f 40 00          	nopl   0x0(%rax)
+   140007bf0:	48 83 c3 28          	add    $0x28,%rbx
+   140007bf4:	48 39 fb             	cmp    %rdi,%rbx
+   140007bf7:	74 27                	je     140007c20 <_FindPESectionByName+0x90>
+   140007bf9:	41 b8 08 00 00 00    	mov    $0x8,%r8d
+   140007bff:	48 89 f2             	mov    %rsi,%rdx
+   140007c02:	48 89 d9             	mov    %rbx,%rcx
+   140007c05:	e8 4e 04 00 00       	call   140008058 <strncmp>
+   140007c0a:	85 c0                	test   %eax,%eax
+   140007c0c:	75 e2                	jne    140007bf0 <_FindPESectionByName+0x60>
+   140007c0e:	48 89 d8             	mov    %rbx,%rax
+   140007c11:	48 83 c4 20          	add    $0x20,%rsp
+   140007c15:	5b                   	pop    %rbx
+   140007c16:	5e                   	pop    %rsi
+   140007c17:	5f                   	pop    %rdi
+   140007c18:	c3                   	ret
+   140007c19:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+   140007c20:	31 db                	xor    %ebx,%ebx
+   140007c22:	48 89 d8             	mov    %rbx,%rax
+   140007c25:	48 83 c4 20          	add    $0x20,%rsp
+   140007c29:	5b                   	pop    %rbx
+   140007c2a:	5e                   	pop    %rsi
+   140007c2b:	5f                   	pop    %rdi
+   140007c2c:	c3                   	ret
+   140007c2d:	0f 1f 00             	nopl   (%rax)
 
-0000000140007bc0 <main>:
-   140007bc0:	41 56                	push   %r14
-   140007bc2:	41 55                	push   %r13
-   140007bc4:	41 54                	push   %r12
-   140007bc6:	55                   	push   %rbp
-   140007bc7:	57                   	push   %rdi
-   140007bc8:	56                   	push   %rsi
-   140007bc9:	53                   	push   %rbx
-   140007bca:	48 81 ec d0 00 00 00 	sub    $0xd0,%rsp
-   140007bd1:	0f 11 b4 24 c0 00 00 	movups %xmm6,0xc0(%rsp)
-   140007bd8:	00 
-   140007bd9:	48 8d 7c 24 40       	lea    0x40(%rsp),%rdi
-   140007bde:	4c 8d a4 24 80 00 00 	lea    0x80(%rsp),%r12
-   140007be5:	00 
-   140007be6:	e8 05 e9 ff ff       	call   1400064f0 <__main>
-   140007beb:	ba 01 00 00 00       	mov    $0x1,%edx
-   140007bf0:	48 89 f9             	mov    %rdi,%rcx
-   140007bf3:	66 49 0f 6e f4       	movq   %r12,%xmm6
-   140007bf8:	e8 93 d1 ff ff       	call   140004d90 <_ZN15SignedMagnitudeC1Ex>
-   140007bfd:	ba 05 00 00 00       	mov    $0x5,%edx
-   140007c02:	48 89 f9             	mov    %rdi,%rcx
-   140007c05:	66 0f 6c f6          	punpcklqdq %xmm6,%xmm6
-   140007c09:	e8 d2 e5 ff ff       	call   1400061e0 <_ZN15SignedMagnitude14set_precissionEj>
-   140007c0e:	48 8d 6c 24 60       	lea    0x60(%rsp),%rbp
-   140007c13:	ba 0a 00 00 00       	mov    $0xa,%edx
-   140007c18:	48 89 e9             	mov    %rbp,%rcx
-   140007c1b:	e8 70 d1 ff ff       	call   140004d90 <_ZN15SignedMagnitudeC1Ex>
-   140007c20:	41 bd 05 00 00 00    	mov    $0x5,%r13d
-   140007c26:	48 8b 5c 24 60       	mov    0x60(%rsp),%rbx
-   140007c2b:	0f 11 b4 24 80 00 00 	movups %xmm6,0x80(%rsp)
-   140007c32:	00 
-   140007c33:	48 c7 84 24 90 00 00 	movq   $0x0,0x90(%rsp)
-   140007c3a:	00 00 00 00 00 
-   140007c3f:	48 39 eb             	cmp    %rbp,%rbx
-   140007c42:	74 31                	je     140007c75 <main+0xb5>
-   140007c44:	0f 1f 40 00          	nopl   0x0(%rax)
-   140007c48:	b9 18 00 00 00       	mov    $0x18,%ecx
-   140007c4d:	e8 f6 e6 ff ff       	call   140006348 <_Znwy>
-   140007c52:	48 89 c1             	mov    %rax,%rcx
-   140007c55:	0f b6 43 10          	movzbl 0x10(%rbx),%eax
-   140007c59:	4c 89 e2             	mov    %r12,%rdx
-   140007c5c:	88 41 10             	mov    %al,0x10(%rcx)
-   140007c5f:	e8 44 e7 ff ff       	call   1400063a8 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
-   140007c64:	48 8b 1b             	mov    (%rbx),%rbx
-   140007c67:	48 83 84 24 90 00 00 	addq   $0x1,0x90(%rsp)
-   140007c6e:	00 01 
-   140007c70:	48 39 eb             	cmp    %rbp,%rbx
-   140007c73:	75 d3                	jne    140007c48 <main+0x88>
-   140007c75:	8b 44 24 78          	mov    0x78(%rsp),%eax
-   140007c79:	4c 8d b4 24 a0 00 00 	lea    0xa0(%rsp),%r14
-   140007c80:	00 
-   140007c81:	4d 89 e0             	mov    %r12,%r8
-   140007c84:	48 89 fa             	mov    %rdi,%rdx
-   140007c87:	4c 89 f1             	mov    %r14,%rcx
-   140007c8a:	89 84 24 98 00 00 00 	mov    %eax,0x98(%rsp)
-   140007c91:	0f b6 44 24 7c       	movzbl 0x7c(%rsp),%eax
-   140007c96:	88 84 24 9c 00 00 00 	mov    %al,0x9c(%rsp)
-   140007c9d:	e8 5e e1 ff ff       	call   140005e00 <_ZN15SignedMagnitudedvES_>
-   140007ca2:	48 8b 5c 24 40       	mov    0x40(%rsp),%rbx
-   140007ca7:	48 8b b4 24 a0 00 00 	mov    0xa0(%rsp),%rsi
-   140007cae:	00 
-   140007caf:	48 39 fb             	cmp    %rdi,%rbx
-   140007cb2:	75 22                	jne    140007cd6 <main+0x116>
-   140007cb4:	e9 6b 01 00 00       	jmp    140007e24 <main+0x264>
-   140007cb9:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
-   140007cc0:	0f b6 46 10          	movzbl 0x10(%rsi),%eax
-   140007cc4:	48 8b 36             	mov    (%rsi),%rsi
-   140007cc7:	88 43 10             	mov    %al,0x10(%rbx)
-   140007cca:	48 8b 1b             	mov    (%rbx),%rbx
-   140007ccd:	48 39 fb             	cmp    %rdi,%rbx
-   140007cd0:	0f 84 4e 01 00 00    	je     140007e24 <main+0x264>
-   140007cd6:	4c 39 f6             	cmp    %r14,%rsi
-   140007cd9:	75 e5                	jne    140007cc0 <main+0x100>
-   140007cdb:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
-   140007ce0:	48 89 de             	mov    %rbx,%rsi
-   140007ce3:	48 8b 1b             	mov    (%rbx),%rbx
-   140007ce6:	48 83 6c 24 50 01    	subq   $0x1,0x50(%rsp)
-   140007cec:	48 89 f1             	mov    %rsi,%rcx
-   140007cef:	e8 ac e6 ff ff       	call   1400063a0 <_ZNSt8__detail15_List_node_base9_M_unhookEv>
-   140007cf4:	ba 18 00 00 00       	mov    $0x18,%edx
-   140007cf9:	48 89 f1             	mov    %rsi,%rcx
-   140007cfc:	e8 4f e6 ff ff       	call   140006350 <_ZdlPvy>
-   140007d01:	48 39 fb             	cmp    %rdi,%rbx
-   140007d04:	75 da                	jne    140007ce0 <main+0x120>
-   140007d06:	8b 84 24 b8 00 00 00 	mov    0xb8(%rsp),%eax
-   140007d0d:	4c 89 f1             	mov    %r14,%rcx
-   140007d10:	89 44 24 58          	mov    %eax,0x58(%rsp)
-   140007d14:	0f b6 84 24 bc 00 00 	movzbl 0xbc(%rsp),%eax
-   140007d1b:	00 
-   140007d1c:	88 44 24 5c          	mov    %al,0x5c(%rsp)
-   140007d20:	e8 9b d2 ff ff       	call   140004fc0 <_ZN15SignedMagnitudeD1Ev>
-   140007d25:	4c 89 e1             	mov    %r12,%rcx
-   140007d28:	e8 93 d2 ff ff       	call   140004fc0 <_ZN15SignedMagnitudeD1Ev>
-   140007d2d:	41 83 ed 01          	sub    $0x1,%r13d
-   140007d31:	0f 85 ef fe ff ff    	jne    140007c26 <main+0x66>
-   140007d37:	66 49 0f 6e c6       	movq   %r14,%xmm0
-   140007d3c:	48 8b 5c 24 40       	mov    0x40(%rsp),%rbx
-   140007d41:	31 c0                	xor    %eax,%eax
-   140007d43:	66 0f 6c c0          	punpcklqdq %xmm0,%xmm0
-   140007d47:	48 89 84 24 b0 00 00 	mov    %rax,0xb0(%rsp)
-   140007d4e:	00 
-   140007d4f:	0f 11 84 24 a0 00 00 	movups %xmm0,0xa0(%rsp)
-   140007d56:	00 
-   140007d57:	48 39 fb             	cmp    %rdi,%rbx
-   140007d5a:	74 31                	je     140007d8d <main+0x1cd>
-   140007d5c:	0f 1f 40 00          	nopl   0x0(%rax)
-   140007d60:	b9 18 00 00 00       	mov    $0x18,%ecx
-   140007d65:	e8 de e5 ff ff       	call   140006348 <_Znwy>
-   140007d6a:	48 89 c1             	mov    %rax,%rcx
-   140007d6d:	0f b6 43 10          	movzbl 0x10(%rbx),%eax
-   140007d71:	4c 89 f2             	mov    %r14,%rdx
-   140007d74:	88 41 10             	mov    %al,0x10(%rcx)
-   140007d77:	e8 2c e6 ff ff       	call   1400063a8 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
-   140007d7c:	48 8b 1b             	mov    (%rbx),%rbx
-   140007d7f:	48 83 84 24 b0 00 00 	addq   $0x1,0xb0(%rsp)
-   140007d86:	00 01 
-   140007d88:	48 39 fb             	cmp    %rdi,%rbx
-   140007d8b:	75 d3                	jne    140007d60 <main+0x1a0>
-   140007d8d:	8b 44 24 58          	mov    0x58(%rsp),%eax
-   140007d91:	48 8b 0d c8 26 00 00 	mov    0x26c8(%rip),%rcx        # 14000a460 <__fu4__ZSt4cout>
-   140007d98:	4c 89 f2             	mov    %r14,%rdx
-   140007d9b:	89 84 24 b8 00 00 00 	mov    %eax,0xb8(%rsp)
-   140007da2:	0f b6 44 24 5c       	movzbl 0x5c(%rsp),%eax
-   140007da7:	88 84 24 bc 00 00 00 	mov    %al,0xbc(%rsp)
-   140007dae:	e8 dd e4 ff ff       	call   140006290 <_ZlsRSo15SignedMagnitude>
-   140007db3:	48 89 c3             	mov    %rax,%rbx
-   140007db6:	48 8b 00             	mov    (%rax),%rax
-   140007db9:	48 8b 40 e8          	mov    -0x18(%rax),%rax
-   140007dbd:	48 8b b4 03 f0 00 00 	mov    0xf0(%rbx,%rax,1),%rsi
-   140007dc4:	00 
-   140007dc5:	48 85 f6             	test   %rsi,%rsi
-   140007dc8:	0f 84 17 01 00 00    	je     140007ee5 <main+0x325>
-   140007dce:	80 7e 38 00          	cmpb   $0x0,0x38(%rsi)
-   140007dd2:	0f 84 f2 00 00 00    	je     140007eca <main+0x30a>
-   140007dd8:	0f b6 46 43          	movzbl 0x43(%rsi),%eax
-   140007ddc:	0f be d0             	movsbl %al,%edx
-   140007ddf:	48 89 d9             	mov    %rbx,%rcx
-   140007de2:	e8 41 e6 ff ff       	call   140006428 <_ZNSo3putEc>
-   140007de7:	48 89 c1             	mov    %rax,%rcx
-   140007dea:	e8 31 e6 ff ff       	call   140006420 <_ZNSo5flushEv>
-   140007def:	4c 89 f1             	mov    %r14,%rcx
-   140007df2:	e8 c9 d1 ff ff       	call   140004fc0 <_ZN15SignedMagnitudeD1Ev>
-   140007df7:	48 89 e9             	mov    %rbp,%rcx
-   140007dfa:	e8 c1 d1 ff ff       	call   140004fc0 <_ZN15SignedMagnitudeD1Ev>
-   140007dff:	48 89 f9             	mov    %rdi,%rcx
-   140007e02:	e8 b9 d1 ff ff       	call   140004fc0 <_ZN15SignedMagnitudeD1Ev>
-   140007e07:	90                   	nop
-   140007e08:	0f 10 b4 24 c0 00 00 	movups 0xc0(%rsp),%xmm6
-   140007e0f:	00 
-   140007e10:	31 c0                	xor    %eax,%eax
-   140007e12:	48 81 c4 d0 00 00 00 	add    $0xd0,%rsp
-   140007e19:	5b                   	pop    %rbx
-   140007e1a:	5e                   	pop    %rsi
-   140007e1b:	5f                   	pop    %rdi
-   140007e1c:	5d                   	pop    %rbp
-   140007e1d:	41 5c                	pop    %r12
-   140007e1f:	41 5d                	pop    %r13
-   140007e21:	41 5e                	pop    %r14
-   140007e23:	c3                   	ret
-   140007e24:	4c 39 f6             	cmp    %r14,%rsi
-   140007e27:	0f 84 d9 fe ff ff    	je     140007d06 <main+0x146>
-   140007e2d:	48 8d 5c 24 20       	lea    0x20(%rsp),%rbx
-   140007e32:	31 c9                	xor    %ecx,%ecx
-   140007e34:	66 48 0f 6e c3       	movq   %rbx,%xmm0
-   140007e39:	48 89 4c 24 30       	mov    %rcx,0x30(%rsp)
-   140007e3e:	66 0f 6c c0          	punpcklqdq %xmm0,%xmm0
-   140007e42:	0f 11 44 24 20       	movups %xmm0,0x20(%rsp)
-   140007e47:	b9 18 00 00 00       	mov    $0x18,%ecx
-   140007e4c:	e8 f7 e4 ff ff       	call   140006348 <_Znwy>
-   140007e51:	48 89 c1             	mov    %rax,%rcx
-   140007e54:	0f b6 46 10          	movzbl 0x10(%rsi),%eax
-   140007e58:	48 89 da             	mov    %rbx,%rdx
-   140007e5b:	88 41 10             	mov    %al,0x10(%rcx)
-   140007e5e:	e8 45 e5 ff ff       	call   1400063a8 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
-   140007e63:	48 8b 36             	mov    (%rsi),%rsi
-   140007e66:	48 83 44 24 30 01    	addq   $0x1,0x30(%rsp)
-   140007e6c:	4c 39 f6             	cmp    %r14,%rsi
-   140007e6f:	75 d6                	jne    140007e47 <main+0x287>
-   140007e71:	48 8b 54 24 20       	mov    0x20(%rsp),%rdx
-   140007e76:	48 39 da             	cmp    %rbx,%rdx
-   140007e79:	0f 84 87 fe ff ff    	je     140007d06 <main+0x146>
-   140007e7f:	49 89 d8             	mov    %rbx,%r8
-   140007e82:	48 89 f9             	mov    %rdi,%rcx
-   140007e85:	e8 26 e5 ff ff       	call   1400063b0 <_ZNSt8__detail15_List_node_base11_M_transferEPS0_S1_>
-   140007e8a:	48 8b 74 24 20       	mov    0x20(%rsp),%rsi
-   140007e8f:	31 d2                	xor    %edx,%edx
-   140007e91:	48 8b 44 24 30       	mov    0x30(%rsp),%rax
-   140007e96:	48 89 54 24 30       	mov    %rdx,0x30(%rsp)
-   140007e9b:	48 01 44 24 50       	add    %rax,0x50(%rsp)
-   140007ea0:	48 39 de             	cmp    %rbx,%rsi
-   140007ea3:	0f 84 5d fe ff ff    	je     140007d06 <main+0x146>
-   140007ea9:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
-   140007eb0:	48 89 f1             	mov    %rsi,%rcx
-   140007eb3:	48 8b 36             	mov    (%rsi),%rsi
-   140007eb6:	ba 18 00 00 00       	mov    $0x18,%edx
-   140007ebb:	e8 90 e4 ff ff       	call   140006350 <_ZdlPvy>
-   140007ec0:	48 39 de             	cmp    %rbx,%rsi
-   140007ec3:	75 eb                	jne    140007eb0 <main+0x2f0>
-   140007ec5:	e9 3c fe ff ff       	jmp    140007d06 <main+0x146>
-   140007eca:	48 89 f1             	mov    %rsi,%rcx
-   140007ecd:	e8 5e e5 ff ff       	call   140006430 <_ZNKSt5ctypeIcE13_M_widen_initEv>
-   140007ed2:	48 8b 06             	mov    (%rsi),%rax
-   140007ed5:	ba 0a 00 00 00       	mov    $0xa,%edx
-   140007eda:	48 89 f1             	mov    %rsi,%rcx
-   140007edd:	ff 50 30             	call   *0x30(%rax)
-   140007ee0:	e9 f7 fe ff ff       	jmp    140007ddc <main+0x21c>
-   140007ee5:	e8 7e e4 ff ff       	call   140006368 <_ZSt16__throw_bad_castv>
-   140007eea:	4c 89 f1             	mov    %r14,%rcx
-   140007eed:	48 89 c3             	mov    %rax,%rbx
-   140007ef0:	e8 cb d0 ff ff       	call   140004fc0 <_ZN15SignedMagnitudeD1Ev>
-   140007ef5:	48 89 e9             	mov    %rbp,%rcx
-   140007ef8:	e8 c3 d0 ff ff       	call   140004fc0 <_ZN15SignedMagnitudeD1Ev>
-   140007efd:	48 89 f9             	mov    %rdi,%rcx
-   140007f00:	e8 bb d0 ff ff       	call   140004fc0 <_ZN15SignedMagnitudeD1Ev>
-   140007f05:	48 89 d9             	mov    %rbx,%rcx
-   140007f08:	e8 93 f5 ff ff       	call   1400074a0 <_Unwind_Resume>
-   140007f0d:	48 8b 8c 24 a0 00 00 	mov    0xa0(%rsp),%rcx
-   140007f14:	00 
-   140007f15:	48 89 c3             	mov    %rax,%rbx
-   140007f18:	4c 39 f1             	cmp    %r14,%rcx
-   140007f1b:	74 d8                	je     140007ef5 <main+0x335>
-   140007f1d:	48 8b 31             	mov    (%rcx),%rsi
-   140007f20:	ba 18 00 00 00       	mov    $0x18,%edx
-   140007f25:	e8 26 e4 ff ff       	call   140006350 <_ZdlPvy>
-   140007f2a:	48 89 f1             	mov    %rsi,%rcx
-   140007f2d:	eb e9                	jmp    140007f18 <main+0x358>
-   140007f2f:	48 8b 4c 24 20       	mov    0x20(%rsp),%rcx
-   140007f34:	48 89 c6             	mov    %rax,%rsi
-   140007f37:	48 39 d9             	cmp    %rbx,%rcx
-   140007f3a:	74 49                	je     140007f85 <main+0x3c5>
-   140007f3c:	4c 8b 29             	mov    (%rcx),%r13
-   140007f3f:	ba 18 00 00 00       	mov    $0x18,%edx
-   140007f44:	e8 07 e4 ff ff       	call   140006350 <_ZdlPvy>
-   140007f49:	4c 89 e9             	mov    %r13,%rcx
-   140007f4c:	eb e9                	jmp    140007f37 <main+0x377>
-   140007f4e:	48 89 c3             	mov    %rax,%rbx
-   140007f51:	eb aa                	jmp    140007efd <main+0x33d>
-   140007f53:	48 8b 8c 24 80 00 00 	mov    0x80(%rsp),%rcx
-   140007f5a:	00 
-   140007f5b:	48 89 c3             	mov    %rax,%rbx
-   140007f5e:	4c 39 e1             	cmp    %r12,%rcx
-   140007f61:	74 92                	je     140007ef5 <main+0x335>
-   140007f63:	48 8b 31             	mov    (%rcx),%rsi
-   140007f66:	ba 18 00 00 00       	mov    $0x18,%edx
-   140007f6b:	e8 e0 e3 ff ff       	call   140006350 <_ZdlPvy>
-   140007f70:	48 89 f1             	mov    %rsi,%rcx
-   140007f73:	eb e9                	jmp    140007f5e <main+0x39e>
-   140007f75:	48 89 c3             	mov    %rax,%rbx
-   140007f78:	4c 89 e1             	mov    %r12,%rcx
-   140007f7b:	e8 40 d0 ff ff       	call   140004fc0 <_ZN15SignedMagnitudeD1Ev>
-   140007f80:	e9 70 ff ff ff       	jmp    140007ef5 <main+0x335>
-   140007f85:	4c 89 f1             	mov    %r14,%rcx
-   140007f88:	48 89 f3             	mov    %rsi,%rbx
-   140007f8b:	e8 30 d0 ff ff       	call   140004fc0 <_ZN15SignedMagnitudeD1Ev>
-   140007f90:	eb e6                	jmp    140007f78 <main+0x3b8>
-   140007f92:	66 66 2e 0f 1f 84 00 	data16 cs nopw 0x0(%rax,%rax,1)
-   140007f99:	00 00 00 00 
-   140007f9d:	0f 1f 00             	nopl   (%rax)
+0000000140007c30 <__mingw_GetSectionForAddress>:
+   140007c30:	48 8b 15 99 28 00 00 	mov    0x2899(%rip),%rdx        # 14000a4d0 <.refptr.__ImageBase>
+   140007c37:	31 c0                	xor    %eax,%eax
+   140007c39:	66 81 3a 4d 5a       	cmpw   $0x5a4d,(%rdx)
+   140007c3e:	75 10                	jne    140007c50 <__mingw_GetSectionForAddress+0x20>
+   140007c40:	4c 63 42 3c          	movslq 0x3c(%rdx),%r8
+   140007c44:	49 01 d0             	add    %rdx,%r8
+   140007c47:	41 81 38 50 45 00 00 	cmpl   $0x4550,(%r8)
+   140007c4e:	74 08                	je     140007c58 <__mingw_GetSectionForAddress+0x28>
+   140007c50:	c3                   	ret
+   140007c51:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+   140007c58:	66 41 81 78 18 0b 02 	cmpw   $0x20b,0x18(%r8)
+   140007c5f:	75 ef                	jne    140007c50 <__mingw_GetSectionForAddress+0x20>
+   140007c61:	41 0f b7 40 14       	movzwl 0x14(%r8),%eax
+   140007c66:	48 29 d1             	sub    %rdx,%rcx
+   140007c69:	49 8d 44 00 18       	lea    0x18(%r8,%rax,1),%rax
+   140007c6e:	45 0f b7 40 06       	movzwl 0x6(%r8),%r8d
+   140007c73:	66 45 85 c0          	test   %r8w,%r8w
+   140007c77:	74 34                	je     140007cad <__mingw_GetSectionForAddress+0x7d>
+   140007c79:	41 8d 50 ff          	lea    -0x1(%r8),%edx
+   140007c7d:	48 8d 14 92          	lea    (%rdx,%rdx,4),%rdx
+   140007c81:	4c 8d 4c d0 28       	lea    0x28(%rax,%rdx,8),%r9
+   140007c86:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
+   140007c8d:	00 00 00 
+   140007c90:	44 8b 40 0c          	mov    0xc(%rax),%r8d
+   140007c94:	4c 89 c2             	mov    %r8,%rdx
+   140007c97:	4c 39 c1             	cmp    %r8,%rcx
+   140007c9a:	72 08                	jb     140007ca4 <__mingw_GetSectionForAddress+0x74>
+   140007c9c:	03 50 08             	add    0x8(%rax),%edx
+   140007c9f:	48 39 d1             	cmp    %rdx,%rcx
+   140007ca2:	72 ac                	jb     140007c50 <__mingw_GetSectionForAddress+0x20>
+   140007ca4:	48 83 c0 28          	add    $0x28,%rax
+   140007ca8:	4c 39 c8             	cmp    %r9,%rax
+   140007cab:	75 e3                	jne    140007c90 <__mingw_GetSectionForAddress+0x60>
+   140007cad:	31 c0                	xor    %eax,%eax
+   140007caf:	c3                   	ret
 
-0000000140007fa0 <_GLOBAL__sub_I_main>:
-   140007fa0:	48 83 ec 28          	sub    $0x28,%rsp
-   140007fa4:	48 8d 0d a5 50 00 00 	lea    0x50a5(%rip),%rcx        # 14000d050 <_ZStL8__ioinit>
-   140007fab:	e8 e8 e3 ff ff       	call   140006398 <_ZNSt8ios_base4InitC1Ev>
-   140007fb0:	48 8d 0d 99 97 ff ff 	lea    -0x6867(%rip),%rcx        # 140001750 <__tcf_0>
-   140007fb7:	48 83 c4 28          	add    $0x28,%rsp
-   140007fbb:	e9 50 94 ff ff       	jmp    140001410 <atexit>
+0000000140007cb0 <__mingw_GetSectionCount>:
+   140007cb0:	48 8b 05 19 28 00 00 	mov    0x2819(%rip),%rax        # 14000a4d0 <.refptr.__ImageBase>
+   140007cb7:	31 c9                	xor    %ecx,%ecx
+   140007cb9:	66 81 38 4d 5a       	cmpw   $0x5a4d,(%rax)
+   140007cbe:	75 0f                	jne    140007ccf <__mingw_GetSectionCount+0x1f>
+   140007cc0:	48 63 50 3c          	movslq 0x3c(%rax),%rdx
+   140007cc4:	48 01 d0             	add    %rdx,%rax
+   140007cc7:	81 38 50 45 00 00    	cmpl   $0x4550,(%rax)
+   140007ccd:	74 09                	je     140007cd8 <__mingw_GetSectionCount+0x28>
+   140007ccf:	89 c8                	mov    %ecx,%eax
+   140007cd1:	c3                   	ret
+   140007cd2:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+   140007cd8:	66 81 78 18 0b 02    	cmpw   $0x20b,0x18(%rax)
+   140007cde:	75 ef                	jne    140007ccf <__mingw_GetSectionCount+0x1f>
+   140007ce0:	0f b7 48 06          	movzwl 0x6(%rax),%ecx
+   140007ce4:	89 c8                	mov    %ecx,%eax
+   140007ce6:	c3                   	ret
+   140007ce7:	66 0f 1f 84 00 00 00 	nopw   0x0(%rax,%rax,1)
+   140007cee:	00 00 
 
-0000000140007fc0 <_GLOBAL__sub_I__ZN13NaturalBinaryC2Ev>:
-   140007fc0:	48 83 ec 28          	sub    $0x28,%rsp
-   140007fc4:	48 8d 0d 95 50 00 00 	lea    0x5095(%rip),%rcx        # 14000d060 <_ZStL8__ioinit>
-   140007fcb:	e8 c8 e3 ff ff       	call   140006398 <_ZNSt8ios_base4InitC1Ev>
-   140007fd0:	48 8d 0d 89 97 ff ff 	lea    -0x6877(%rip),%rcx        # 140001760 <__tcf_0>
-   140007fd7:	48 83 c4 28          	add    $0x28,%rsp
-   140007fdb:	e9 30 94 ff ff       	jmp    140001410 <atexit>
+0000000140007cf0 <_FindPESectionExec>:
+   140007cf0:	4c 8b 05 d9 27 00 00 	mov    0x27d9(%rip),%r8        # 14000a4d0 <.refptr.__ImageBase>
+   140007cf7:	31 c0                	xor    %eax,%eax
+   140007cf9:	66 41 81 38 4d 5a    	cmpw   $0x5a4d,(%r8)
+   140007cff:	75 0f                	jne    140007d10 <_FindPESectionExec+0x20>
+   140007d01:	49 63 50 3c          	movslq 0x3c(%r8),%rdx
+   140007d05:	4c 01 c2             	add    %r8,%rdx
+   140007d08:	81 3a 50 45 00 00    	cmpl   $0x4550,(%rdx)
+   140007d0e:	74 08                	je     140007d18 <_FindPESectionExec+0x28>
+   140007d10:	c3                   	ret
+   140007d11:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+   140007d18:	66 81 7a 18 0b 02    	cmpw   $0x20b,0x18(%rdx)
+   140007d1e:	75 f0                	jne    140007d10 <_FindPESectionExec+0x20>
+   140007d20:	0f b7 42 14          	movzwl 0x14(%rdx),%eax
+   140007d24:	44 0f b7 42 06       	movzwl 0x6(%rdx),%r8d
+   140007d29:	48 8d 44 02 18       	lea    0x18(%rdx,%rax,1),%rax
+   140007d2e:	66 45 85 c0          	test   %r8w,%r8w
+   140007d32:	74 2c                	je     140007d60 <_FindPESectionExec+0x70>
+   140007d34:	41 8d 50 ff          	lea    -0x1(%r8),%edx
+   140007d38:	48 8d 14 92          	lea    (%rdx,%rdx,4),%rdx
+   140007d3c:	48 8d 54 d0 28       	lea    0x28(%rax,%rdx,8),%rdx
+   140007d41:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+   140007d48:	f6 40 27 20          	testb  $0x20,0x27(%rax)
+   140007d4c:	74 09                	je     140007d57 <_FindPESectionExec+0x67>
+   140007d4e:	48 85 c9             	test   %rcx,%rcx
+   140007d51:	74 bd                	je     140007d10 <_FindPESectionExec+0x20>
+   140007d53:	48 83 e9 01          	sub    $0x1,%rcx
+   140007d57:	48 83 c0 28          	add    $0x28,%rax
+   140007d5b:	48 39 d0             	cmp    %rdx,%rax
+   140007d5e:	75 e8                	jne    140007d48 <_FindPESectionExec+0x58>
+   140007d60:	31 c0                	xor    %eax,%eax
+   140007d62:	c3                   	ret
+   140007d63:	66 66 2e 0f 1f 84 00 	data16 cs nopw 0x0(%rax,%rax,1)
+   140007d6a:	00 00 00 00 
+   140007d6e:	66 90                	xchg   %ax,%ax
 
-0000000140007fe0 <_GLOBAL__sub_I__ZN15SignedMagnitudeC2Ex>:
-   140007fe0:	48 83 ec 28          	sub    $0x28,%rsp
-   140007fe4:	48 8d 0d 85 50 00 00 	lea    0x5085(%rip),%rcx        # 14000d070 <_ZStL8__ioinit>
-   140007feb:	e8 a8 e3 ff ff       	call   140006398 <_ZNSt8ios_base4InitC1Ev>
-   140007ff0:	48 8d 0d 39 cc ff ff 	lea    -0x33c7(%rip),%rcx        # 140004c30 <__tcf_0>
-   140007ff7:	48 83 c4 28          	add    $0x28,%rsp
-   140007ffb:	e9 10 94 ff ff       	jmp    140001410 <atexit>
+0000000140007d70 <_GetPEImageBase>:
+   140007d70:	48 8b 05 59 27 00 00 	mov    0x2759(%rip),%rax        # 14000a4d0 <.refptr.__ImageBase>
+   140007d77:	31 d2                	xor    %edx,%edx
+   140007d79:	66 81 38 4d 5a       	cmpw   $0x5a4d,(%rax)
+   140007d7e:	75 0f                	jne    140007d8f <_GetPEImageBase+0x1f>
+   140007d80:	48 63 48 3c          	movslq 0x3c(%rax),%rcx
+   140007d84:	48 01 c1             	add    %rax,%rcx
+   140007d87:	81 39 50 45 00 00    	cmpl   $0x4550,(%rcx)
+   140007d8d:	74 09                	je     140007d98 <_GetPEImageBase+0x28>
+   140007d8f:	48 89 d0             	mov    %rdx,%rax
+   140007d92:	c3                   	ret
+   140007d93:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+   140007d98:	66 81 79 18 0b 02    	cmpw   $0x20b,0x18(%rcx)
+   140007d9e:	48 0f 44 d0          	cmove  %rax,%rdx
+   140007da2:	48 89 d0             	mov    %rdx,%rax
+   140007da5:	c3                   	ret
+   140007da6:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
+   140007dad:	00 00 00 
 
-0000000140008000 <register_frame_ctor>:
-   140008000:	e9 2b 94 ff ff       	jmp    140001430 <__gcc_register_frame>
-   140008005:	90                   	nop
+0000000140007db0 <_IsNonwritableInCurrentImage>:
+   140007db0:	48 8b 15 19 27 00 00 	mov    0x2719(%rip),%rdx        # 14000a4d0 <.refptr.__ImageBase>
+   140007db7:	31 c0                	xor    %eax,%eax
+   140007db9:	66 81 3a 4d 5a       	cmpw   $0x5a4d,(%rdx)
+   140007dbe:	75 10                	jne    140007dd0 <_IsNonwritableInCurrentImage+0x20>
+   140007dc0:	4c 63 42 3c          	movslq 0x3c(%rdx),%r8
+   140007dc4:	49 01 d0             	add    %rdx,%r8
+   140007dc7:	41 81 38 50 45 00 00 	cmpl   $0x4550,(%r8)
+   140007dce:	74 08                	je     140007dd8 <_IsNonwritableInCurrentImage+0x28>
+   140007dd0:	c3                   	ret
+   140007dd1:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+   140007dd8:	66 41 81 78 18 0b 02 	cmpw   $0x20b,0x18(%r8)
+   140007ddf:	75 ef                	jne    140007dd0 <_IsNonwritableInCurrentImage+0x20>
+   140007de1:	48 29 d1             	sub    %rdx,%rcx
+   140007de4:	45 0f b7 48 06       	movzwl 0x6(%r8),%r9d
+   140007de9:	41 0f b7 50 14       	movzwl 0x14(%r8),%edx
+   140007dee:	49 8d 54 10 18       	lea    0x18(%r8,%rdx,1),%rdx
+   140007df3:	66 45 85 c9          	test   %r9w,%r9w
+   140007df7:	74 d7                	je     140007dd0 <_IsNonwritableInCurrentImage+0x20>
+   140007df9:	41 8d 41 ff          	lea    -0x1(%r9),%eax
+   140007dfd:	48 8d 04 80          	lea    (%rax,%rax,4),%rax
+   140007e01:	4c 8d 4c c2 28       	lea    0x28(%rdx,%rax,8),%r9
+   140007e06:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
+   140007e0d:	00 00 00 
+   140007e10:	44 8b 42 0c          	mov    0xc(%rdx),%r8d
+   140007e14:	4c 89 c0             	mov    %r8,%rax
+   140007e17:	4c 39 c1             	cmp    %r8,%rcx
+   140007e1a:	72 08                	jb     140007e24 <_IsNonwritableInCurrentImage+0x74>
+   140007e1c:	03 42 08             	add    0x8(%rdx),%eax
+   140007e1f:	48 39 c1             	cmp    %rax,%rcx
+   140007e22:	72 0c                	jb     140007e30 <_IsNonwritableInCurrentImage+0x80>
+   140007e24:	48 83 c2 28          	add    $0x28,%rdx
+   140007e28:	49 39 d1             	cmp    %rdx,%r9
+   140007e2b:	75 e3                	jne    140007e10 <_IsNonwritableInCurrentImage+0x60>
+   140007e2d:	31 c0                	xor    %eax,%eax
+   140007e2f:	c3                   	ret
+   140007e30:	8b 42 24             	mov    0x24(%rdx),%eax
+   140007e33:	f7 d0                	not    %eax
+   140007e35:	c1 e8 1f             	shr    $0x1f,%eax
+   140007e38:	c3                   	ret
+   140007e39:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+
+0000000140007e40 <__mingw_enum_import_library_names>:
+   140007e40:	4c 8b 1d 89 26 00 00 	mov    0x2689(%rip),%r11        # 14000a4d0 <.refptr.__ImageBase>
+   140007e47:	45 31 c9             	xor    %r9d,%r9d
+   140007e4a:	66 41 81 3b 4d 5a    	cmpw   $0x5a4d,(%r11)
+   140007e50:	75 10                	jne    140007e62 <__mingw_enum_import_library_names+0x22>
+   140007e52:	4d 63 43 3c          	movslq 0x3c(%r11),%r8
+   140007e56:	4d 01 d8             	add    %r11,%r8
+   140007e59:	41 81 38 50 45 00 00 	cmpl   $0x4550,(%r8)
+   140007e60:	74 0e                	je     140007e70 <__mingw_enum_import_library_names+0x30>
+   140007e62:	4c 89 c8             	mov    %r9,%rax
+   140007e65:	c3                   	ret
+   140007e66:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
+   140007e6d:	00 00 00 
+   140007e70:	66 41 81 78 18 0b 02 	cmpw   $0x20b,0x18(%r8)
+   140007e77:	75 e9                	jne    140007e62 <__mingw_enum_import_library_names+0x22>
+   140007e79:	41 8b 80 90 00 00 00 	mov    0x90(%r8),%eax
+   140007e80:	85 c0                	test   %eax,%eax
+   140007e82:	74 de                	je     140007e62 <__mingw_enum_import_library_names+0x22>
+   140007e84:	41 0f b7 50 14       	movzwl 0x14(%r8),%edx
+   140007e89:	45 0f b7 50 06       	movzwl 0x6(%r8),%r10d
+   140007e8e:	49 8d 54 10 18       	lea    0x18(%r8,%rdx,1),%rdx
+   140007e93:	66 45 85 d2          	test   %r10w,%r10w
+   140007e97:	74 c9                	je     140007e62 <__mingw_enum_import_library_names+0x22>
+   140007e99:	45 8d 42 ff          	lea    -0x1(%r10),%r8d
+   140007e9d:	4f 8d 04 80          	lea    (%r8,%r8,4),%r8
+   140007ea1:	4e 8d 54 c2 28       	lea    0x28(%rdx,%r8,8),%r10
+   140007ea6:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
+   140007ead:	00 00 00 
+   140007eb0:	44 8b 4a 0c          	mov    0xc(%rdx),%r9d
+   140007eb4:	4d 89 c8             	mov    %r9,%r8
+   140007eb7:	4c 39 c8             	cmp    %r9,%rax
+   140007eba:	72 09                	jb     140007ec5 <__mingw_enum_import_library_names+0x85>
+   140007ebc:	44 03 42 08          	add    0x8(%rdx),%r8d
+   140007ec0:	4c 39 c0             	cmp    %r8,%rax
+   140007ec3:	72 13                	jb     140007ed8 <__mingw_enum_import_library_names+0x98>
+   140007ec5:	48 83 c2 28          	add    $0x28,%rdx
+   140007ec9:	4c 39 d2             	cmp    %r10,%rdx
+   140007ecc:	75 e2                	jne    140007eb0 <__mingw_enum_import_library_names+0x70>
+   140007ece:	45 31 c9             	xor    %r9d,%r9d
+   140007ed1:	4c 89 c8             	mov    %r9,%rax
+   140007ed4:	c3                   	ret
+   140007ed5:	0f 1f 00             	nopl   (%rax)
+   140007ed8:	4c 01 d8             	add    %r11,%rax
+   140007edb:	eb 0a                	jmp    140007ee7 <__mingw_enum_import_library_names+0xa7>
+   140007edd:	0f 1f 00             	nopl   (%rax)
+   140007ee0:	83 e9 01             	sub    $0x1,%ecx
+   140007ee3:	48 83 c0 14          	add    $0x14,%rax
+   140007ee7:	44 8b 40 04          	mov    0x4(%rax),%r8d
+   140007eeb:	45 85 c0             	test   %r8d,%r8d
+   140007eee:	75 07                	jne    140007ef7 <__mingw_enum_import_library_names+0xb7>
+   140007ef0:	8b 50 0c             	mov    0xc(%rax),%edx
+   140007ef3:	85 d2                	test   %edx,%edx
+   140007ef5:	74 d7                	je     140007ece <__mingw_enum_import_library_names+0x8e>
+   140007ef7:	85 c9                	test   %ecx,%ecx
+   140007ef9:	7f e5                	jg     140007ee0 <__mingw_enum_import_library_names+0xa0>
+   140007efb:	44 8b 48 0c          	mov    0xc(%rax),%r9d
+   140007eff:	4d 01 d9             	add    %r11,%r9
+   140007f02:	4c 89 c8             	mov    %r9,%rax
+   140007f05:	c3                   	ret
+   140007f06:	90                   	nop
+   140007f07:	90                   	nop
+   140007f08:	90                   	nop
+   140007f09:	90                   	nop
+   140007f0a:	90                   	nop
+   140007f0b:	90                   	nop
+   140007f0c:	90                   	nop
+   140007f0d:	90                   	nop
+   140007f0e:	90                   	nop
+   140007f0f:	90                   	nop
+
+0000000140007f10 <_Unwind_Resume>:
+   140007f10:	ff 25 ee 63 00 00    	jmp    *0x63ee(%rip)        # 14000e304 <__IAT_start__>
+   140007f16:	90                   	nop
+   140007f17:	90                   	nop
+   140007f18:	0f 1f 84 00 00 00 00 	nopl   0x0(%rax,%rax,1)
+   140007f1f:	00 
+
+0000000140007f20 <___chkstk_ms>:
+   140007f20:	51                   	push   %rcx
+   140007f21:	50                   	push   %rax
+   140007f22:	48 3d 00 10 00 00    	cmp    $0x1000,%rax
+   140007f28:	48 8d 4c 24 18       	lea    0x18(%rsp),%rcx
+   140007f2d:	72 19                	jb     140007f48 <___chkstk_ms+0x28>
+   140007f2f:	48 81 e9 00 10 00 00 	sub    $0x1000,%rcx
+   140007f36:	48 83 09 00          	orq    $0x0,(%rcx)
+   140007f3a:	48 2d 00 10 00 00    	sub    $0x1000,%rax
+   140007f40:	48 3d 00 10 00 00    	cmp    $0x1000,%rax
+   140007f46:	77 e7                	ja     140007f2f <___chkstk_ms+0xf>
+   140007f48:	48 29 c1             	sub    %rax,%rcx
+   140007f4b:	48 83 09 00          	orq    $0x0,(%rcx)
+   140007f4f:	58                   	pop    %rax
+   140007f50:	59                   	pop    %rcx
+   140007f51:	c3                   	ret
+   140007f52:	90                   	nop
+   140007f53:	90                   	nop
+   140007f54:	90                   	nop
+   140007f55:	90                   	nop
+   140007f56:	90                   	nop
+   140007f57:	90                   	nop
+   140007f58:	90                   	nop
+   140007f59:	90                   	nop
+   140007f5a:	90                   	nop
+   140007f5b:	90                   	nop
+   140007f5c:	90                   	nop
+   140007f5d:	90                   	nop
+   140007f5e:	90                   	nop
+   140007f5f:	90                   	nop
+
+0000000140007f60 <__p__fmode>:
+   140007f60:	48 8b 05 c9 25 00 00 	mov    0x25c9(%rip),%rax        # 14000a530 <.refptr.__imp__fmode>
+   140007f67:	48 8b 00             	mov    (%rax),%rax
+   140007f6a:	c3                   	ret
+   140007f6b:	90                   	nop
+   140007f6c:	90                   	nop
+   140007f6d:	90                   	nop
+   140007f6e:	90                   	nop
+   140007f6f:	90                   	nop
+
+0000000140007f70 <__p__commode>:
+   140007f70:	48 8b 05 a9 25 00 00 	mov    0x25a9(%rip),%rax        # 14000a520 <.refptr.__imp__commode>
+   140007f77:	48 8b 00             	mov    (%rax),%rax
+   140007f7a:	c3                   	ret
+   140007f7b:	90                   	nop
+   140007f7c:	90                   	nop
+   140007f7d:	90                   	nop
+   140007f7e:	90                   	nop
+   140007f7f:	90                   	nop
+
+0000000140007f80 <_get_invalid_parameter_handler>:
+   140007f80:	48 8b 05 29 52 00 00 	mov    0x5229(%rip),%rax        # 14000d1b0 <handler>
+   140007f87:	c3                   	ret
+   140007f88:	0f 1f 84 00 00 00 00 	nopl   0x0(%rax,%rax,1)
+   140007f8f:	00 
+
+0000000140007f90 <_set_invalid_parameter_handler>:
+   140007f90:	48 89 c8             	mov    %rcx,%rax
+   140007f93:	48 87 05 16 52 00 00 	xchg   %rax,0x5216(%rip)        # 14000d1b0 <handler>
+   140007f9a:	c3                   	ret
+   140007f9b:	90                   	nop
+   140007f9c:	90                   	nop
+   140007f9d:	90                   	nop
+   140007f9e:	90                   	nop
+   140007f9f:	90                   	nop
+
+0000000140007fa0 <__acrt_iob_func>:
+   140007fa0:	53                   	push   %rbx
+   140007fa1:	48 83 ec 20          	sub    $0x20,%rsp
+   140007fa5:	89 cb                	mov    %ecx,%ebx
+   140007fa7:	e8 24 00 00 00       	call   140007fd0 <__iob_func>
+   140007fac:	89 d9                	mov    %ebx,%ecx
+   140007fae:	48 8d 14 49          	lea    (%rcx,%rcx,2),%rdx
+   140007fb2:	48 c1 e2 04          	shl    $0x4,%rdx
+   140007fb6:	48 01 d0             	add    %rdx,%rax
+   140007fb9:	48 83 c4 20          	add    $0x20,%rsp
+   140007fbd:	5b                   	pop    %rbx
+   140007fbe:	c3                   	ret
+   140007fbf:	90                   	nop
+
+0000000140007fc0 <__C_specific_handler>:
+   140007fc0:	ff 25 a6 63 00 00    	jmp    *0x63a6(%rip)        # 14000e36c <__imp___C_specific_handler>
+   140007fc6:	90                   	nop
+   140007fc7:	90                   	nop
+
+0000000140007fc8 <__getmainargs>:
+   140007fc8:	ff 25 a6 63 00 00    	jmp    *0x63a6(%rip)        # 14000e374 <__imp___getmainargs>
+   140007fce:	90                   	nop
+   140007fcf:	90                   	nop
+
+0000000140007fd0 <__iob_func>:
+   140007fd0:	ff 25 ae 63 00 00    	jmp    *0x63ae(%rip)        # 14000e384 <__imp___iob_func>
+   140007fd6:	90                   	nop
+   140007fd7:	90                   	nop
+
+0000000140007fd8 <__set_app_type>:
+   140007fd8:	ff 25 ae 63 00 00    	jmp    *0x63ae(%rip)        # 14000e38c <__imp___set_app_type>
+   140007fde:	90                   	nop
+   140007fdf:	90                   	nop
+
+0000000140007fe0 <__setusermatherr>:
+   140007fe0:	ff 25 ae 63 00 00    	jmp    *0x63ae(%rip)        # 14000e394 <__imp___setusermatherr>
+   140007fe6:	90                   	nop
+   140007fe7:	90                   	nop
+
+0000000140007fe8 <_amsg_exit>:
+   140007fe8:	ff 25 ae 63 00 00    	jmp    *0x63ae(%rip)        # 14000e39c <__imp__amsg_exit>
+   140007fee:	90                   	nop
+   140007fef:	90                   	nop
+
+0000000140007ff0 <_cexit>:
+   140007ff0:	ff 25 ae 63 00 00    	jmp    *0x63ae(%rip)        # 14000e3a4 <__imp__cexit>
+   140007ff6:	90                   	nop
+   140007ff7:	90                   	nop
+
+0000000140007ff8 <_initterm>:
+   140007ff8:	ff 25 be 63 00 00    	jmp    *0x63be(%rip)        # 14000e3bc <__imp__initterm>
+   140007ffe:	90                   	nop
+   140007fff:	90                   	nop
+
+0000000140008000 <_onexit>:
+   140008000:	ff 25 be 63 00 00    	jmp    *0x63be(%rip)        # 14000e3c4 <__imp__onexit>
    140008006:	90                   	nop
    140008007:	90                   	nop
-   140008008:	90                   	nop
-   140008009:	90                   	nop
-   14000800a:	90                   	nop
-   14000800b:	90                   	nop
-   14000800c:	90                   	nop
-   14000800d:	90                   	nop
+
+0000000140008008 <abort>:
+   140008008:	ff 25 be 63 00 00    	jmp    *0x63be(%rip)        # 14000e3cc <__imp_abort>
    14000800e:	90                   	nop
    14000800f:	90                   	nop
 
-0000000140008010 <__CTOR_LIST__>:
-   140008010:	ff                   	(bad)
-   140008011:	ff                   	(bad)
-   140008012:	ff                   	(bad)
-   140008013:	ff                   	(bad)
-   140008014:	ff                   	(bad)
-   140008015:	ff                   	(bad)
-   140008016:	ff                   	(bad)
-   140008017:	ff                   	.byte 0xff
+0000000140008010 <calloc>:
+   140008010:	ff 25 be 63 00 00    	jmp    *0x63be(%rip)        # 14000e3d4 <__imp_calloc>
+   140008016:	90                   	nop
+   140008017:	90                   	nop
 
-0000000140008018 <.ctors>:
-   140008018:	80 7b 00 40          	cmpb   $0x40,0x0(%rbx)
-   14000801c:	01 00                	add    %eax,(%rax)
+0000000140008018 <exit>:
+   140008018:	ff 25 be 63 00 00    	jmp    *0x63be(%rip)        # 14000e3dc <__imp_exit>
+   14000801e:	90                   	nop
+   14000801f:	90                   	nop
+
+0000000140008020 <fprintf>:
+   140008020:	ff 25 be 63 00 00    	jmp    *0x63be(%rip)        # 14000e3e4 <__imp_fprintf>
+   140008026:	90                   	nop
+   140008027:	90                   	nop
+
+0000000140008028 <free>:
+   140008028:	ff 25 be 63 00 00    	jmp    *0x63be(%rip)        # 14000e3ec <__imp_free>
+   14000802e:	90                   	nop
+   14000802f:	90                   	nop
+
+0000000140008030 <fwrite>:
+   140008030:	ff 25 be 63 00 00    	jmp    *0x63be(%rip)        # 14000e3f4 <__imp_fwrite>
+   140008036:	90                   	nop
+   140008037:	90                   	nop
+
+0000000140008038 <malloc>:
+   140008038:	ff 25 be 63 00 00    	jmp    *0x63be(%rip)        # 14000e3fc <__imp_malloc>
+   14000803e:	90                   	nop
+   14000803f:	90                   	nop
+
+0000000140008040 <memcpy>:
+   140008040:	ff 25 be 63 00 00    	jmp    *0x63be(%rip)        # 14000e404 <__imp_memcpy>
+   140008046:	90                   	nop
+   140008047:	90                   	nop
+
+0000000140008048 <signal>:
+   140008048:	ff 25 be 63 00 00    	jmp    *0x63be(%rip)        # 14000e40c <__imp_signal>
+   14000804e:	90                   	nop
+   14000804f:	90                   	nop
+
+0000000140008050 <strlen>:
+   140008050:	ff 25 be 63 00 00    	jmp    *0x63be(%rip)        # 14000e414 <__imp_strlen>
+   140008056:	90                   	nop
+   140008057:	90                   	nop
+
+0000000140008058 <strncmp>:
+   140008058:	ff 25 be 63 00 00    	jmp    *0x63be(%rip)        # 14000e41c <__imp_strncmp>
+   14000805e:	90                   	nop
+   14000805f:	90                   	nop
+
+0000000140008060 <vfprintf>:
+   140008060:	ff 25 be 63 00 00    	jmp    *0x63be(%rip)        # 14000e424 <__imp_vfprintf>
+   140008066:	90                   	nop
+   140008067:	90                   	nop
+   140008068:	0f 1f 84 00 00 00 00 	nopl   0x0(%rax,%rax,1)
+   14000806f:	00 
+
+0000000140008070 <VirtualQuery>:
+   140008070:	ff 25 e6 62 00 00    	jmp    *0x62e6(%rip)        # 14000e35c <__imp_VirtualQuery>
+   140008076:	90                   	nop
+   140008077:	90                   	nop
+
+0000000140008078 <VirtualProtect>:
+   140008078:	ff 25 d6 62 00 00    	jmp    *0x62d6(%rip)        # 14000e354 <__imp_VirtualProtect>
+   14000807e:	90                   	nop
+   14000807f:	90                   	nop
+
+0000000140008080 <TlsGetValue>:
+   140008080:	ff 25 c6 62 00 00    	jmp    *0x62c6(%rip)        # 14000e34c <__imp_TlsGetValue>
+   140008086:	90                   	nop
+   140008087:	90                   	nop
+
+0000000140008088 <Sleep>:
+   140008088:	ff 25 b6 62 00 00    	jmp    *0x62b6(%rip)        # 14000e344 <__imp_Sleep>
+   14000808e:	90                   	nop
+   14000808f:	90                   	nop
+
+0000000140008090 <SetUnhandledExceptionFilter>:
+   140008090:	ff 25 a6 62 00 00    	jmp    *0x62a6(%rip)        # 14000e33c <__imp_SetUnhandledExceptionFilter>
+   140008096:	90                   	nop
+   140008097:	90                   	nop
+
+0000000140008098 <LeaveCriticalSection>:
+   140008098:	ff 25 96 62 00 00    	jmp    *0x6296(%rip)        # 14000e334 <__imp_LeaveCriticalSection>
+   14000809e:	90                   	nop
+   14000809f:	90                   	nop
+
+00000001400080a0 <InitializeCriticalSection>:
+   1400080a0:	ff 25 86 62 00 00    	jmp    *0x6286(%rip)        # 14000e32c <__imp_InitializeCriticalSection>
+   1400080a6:	90                   	nop
+   1400080a7:	90                   	nop
+
+00000001400080a8 <GetLastError>:
+   1400080a8:	ff 25 76 62 00 00    	jmp    *0x6276(%rip)        # 14000e324 <__imp_GetLastError>
+   1400080ae:	90                   	nop
+   1400080af:	90                   	nop
+
+00000001400080b0 <EnterCriticalSection>:
+   1400080b0:	ff 25 66 62 00 00    	jmp    *0x6266(%rip)        # 14000e31c <__imp_EnterCriticalSection>
+   1400080b6:	90                   	nop
+   1400080b7:	90                   	nop
+
+00000001400080b8 <DeleteCriticalSection>:
+   1400080b8:	ff 25 56 62 00 00    	jmp    *0x6256(%rip)        # 14000e314 <__imp_DeleteCriticalSection>
+   1400080be:	90                   	nop
+   1400080bf:	90                   	nop
+
+00000001400080c0 <_ZNKSt5ctypeIcE8do_widenEc>:
+   1400080c0:	89 d0                	mov    %edx,%eax
+   1400080c2:	c3                   	ret
+   1400080c3:	90                   	nop
+   1400080c4:	90                   	nop
+   1400080c5:	90                   	nop
+   1400080c6:	90                   	nop
+   1400080c7:	90                   	nop
+   1400080c8:	90                   	nop
+   1400080c9:	90                   	nop
+   1400080ca:	90                   	nop
+   1400080cb:	90                   	nop
+   1400080cc:	90                   	nop
+   1400080cd:	90                   	nop
+   1400080ce:	90                   	nop
+   1400080cf:	90                   	nop
+
+00000001400080d0 <_ZNSt6vectorI13NaturalBinarySaIS0_EE17_M_default_appendEy>:
+   1400080d0:	41 57                	push   %r15
+   1400080d2:	41 56                	push   %r14
+   1400080d4:	41 55                	push   %r13
+   1400080d6:	41 54                	push   %r12
+   1400080d8:	55                   	push   %rbp
+   1400080d9:	57                   	push   %rdi
+   1400080da:	56                   	push   %rsi
+   1400080db:	53                   	push   %rbx
+   1400080dc:	48 83 ec 38          	sub    $0x38,%rsp
+   1400080e0:	49 89 cc             	mov    %rcx,%r12
+   1400080e3:	48 89 d3             	mov    %rdx,%rbx
+   1400080e6:	48 85 d2             	test   %rdx,%rdx
+   1400080e9:	74 64                	je     14000814f <_ZNSt6vectorI13NaturalBinarySaIS0_EE17_M_default_appendEy+0x7f>
+   1400080eb:	48 b8 55 55 55 55 55 	movabs $0x555555555555555,%rax
+   1400080f2:	55 55 05 
+   1400080f5:	48 8b 79 08          	mov    0x8(%rcx),%rdi
+   1400080f9:	48 89 fe             	mov    %rdi,%rsi
+   1400080fc:	48 2b 31             	sub    (%rcx),%rsi
+   1400080ff:	48 b9 ab aa aa aa aa 	movabs $0xaaaaaaaaaaaaaaab,%rcx
+   140008106:	aa aa aa 
+   140008109:	49 89 f5             	mov    %rsi,%r13
+   14000810c:	49 c1 fd 03          	sar    $0x3,%r13
+   140008110:	4c 0f af e9          	imul   %rcx,%r13
+   140008114:	4c 29 e8             	sub    %r13,%rax
+   140008117:	48 89 c2             	mov    %rax,%rdx
+   14000811a:	49 8b 44 24 10       	mov    0x10(%r12),%rax
+   14000811f:	48 29 f8             	sub    %rdi,%rax
+   140008122:	48 c1 f8 03          	sar    $0x3,%rax
+   140008126:	48 0f af c1          	imul   %rcx,%rax
+   14000812a:	48 39 d8             	cmp    %rbx,%rax
+   14000812d:	72 31                	jb     140008160 <_ZNSt6vectorI13NaturalBinarySaIS0_EE17_M_default_appendEy+0x90>
+   14000812f:	48 89 fe             	mov    %rdi,%rsi
+   140008132:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+   140008138:	48 89 f1             	mov    %rsi,%rcx
+   14000813b:	e8 80 97 ff ff       	call   1400018c0 <_ZN13NaturalBinaryC2Ex.constprop.0>
+   140008140:	48 83 c6 18          	add    $0x18,%rsi
+   140008144:	48 83 eb 01          	sub    $0x1,%rbx
+   140008148:	75 ee                	jne    140008138 <_ZNSt6vectorI13NaturalBinarySaIS0_EE17_M_default_appendEy+0x68>
+   14000814a:	49 89 74 24 08       	mov    %rsi,0x8(%r12)
+   14000814f:	48 83 c4 38          	add    $0x38,%rsp
+   140008153:	5b                   	pop    %rbx
+   140008154:	5e                   	pop    %rsi
+   140008155:	5f                   	pop    %rdi
+   140008156:	5d                   	pop    %rbp
+   140008157:	41 5c                	pop    %r12
+   140008159:	41 5d                	pop    %r13
+   14000815b:	41 5e                	pop    %r14
+   14000815d:	41 5f                	pop    %r15
+   14000815f:	c3                   	ret
+   140008160:	48 39 da             	cmp    %rbx,%rdx
+   140008163:	0f 82 8d 01 00 00    	jb     1400082f6 <_ZNSt6vectorI13NaturalBinarySaIS0_EE17_M_default_appendEy+0x226>
+   140008169:	49 39 dd             	cmp    %rbx,%r13
+   14000816c:	0f 82 3e 01 00 00    	jb     1400082b0 <_ZNSt6vectorI13NaturalBinarySaIS0_EE17_M_default_appendEy+0x1e0>
+   140008172:	48 ba f8 ff ff ff ff 	movabs $0x7ffffffffffffff8,%rdx
+   140008179:	ff ff 7f 
+   14000817c:	4b 8d 44 2d 00       	lea    0x0(%r13,%r13,1),%rax
+   140008181:	48 89 54 24 20       	mov    %rdx,0x20(%rsp)
+   140008186:	4c 39 e8             	cmp    %r13,%rax
+   140008189:	0f 83 48 01 00 00    	jae    1400082d7 <_ZNSt6vectorI13NaturalBinarySaIS0_EE17_M_default_appendEy+0x207>
+   14000818f:	48 8b 4c 24 20       	mov    0x20(%rsp),%rcx
+   140008194:	48 89 df             	mov    %rbx,%rdi
+   140008197:	e8 1c ec ff ff       	call   140006db8 <_Znwy>
+   14000819c:	49 89 c6             	mov    %rax,%r14
+   14000819f:	48 8d 04 30          	lea    (%rax,%rsi,1),%rax
+   1400081a3:	48 89 44 24 28       	mov    %rax,0x28(%rsp)
+   1400081a8:	48 89 c6             	mov    %rax,%rsi
+   1400081ab:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+   1400081b0:	48 89 f1             	mov    %rsi,%rcx
+   1400081b3:	e8 08 97 ff ff       	call   1400018c0 <_ZN13NaturalBinaryC2Ex.constprop.0>
+   1400081b8:	48 83 c6 18          	add    $0x18,%rsi
+   1400081bc:	48 83 ef 01          	sub    $0x1,%rdi
+   1400081c0:	75 ee                	jne    1400081b0 <_ZNSt6vectorI13NaturalBinarySaIS0_EE17_M_default_appendEy+0xe0>
+   1400081c2:	4d 8b 7c 24 08       	mov    0x8(%r12),%r15
+   1400081c7:	49 8b 34 24          	mov    (%r12),%rsi
+   1400081cb:	4c 89 f5             	mov    %r14,%rbp
+   1400081ce:	49 39 f7             	cmp    %rsi,%r15
+   1400081d1:	0f 84 9b 00 00 00    	je     140008272 <_ZNSt6vectorI13NaturalBinarySaIS0_EE17_M_default_appendEy+0x1a2>
+   1400081d7:	66 48 0f 6e c5       	movq   %rbp,%xmm0
+   1400081dc:	48 c7 45 10 00 00 00 	movq   $0x0,0x10(%rbp)
+   1400081e3:	00 
+   1400081e4:	66 0f 6c c0          	punpcklqdq %xmm0,%xmm0
+   1400081e8:	0f 11 45 00          	movups %xmm0,0x0(%rbp)
+   1400081ec:	48 8b 3e             	mov    (%rsi),%rdi
+   1400081ef:	48 39 fe             	cmp    %rdi,%rsi
+   1400081f2:	74 2d                	je     140008221 <_ZNSt6vectorI13NaturalBinarySaIS0_EE17_M_default_appendEy+0x151>
+   1400081f4:	0f 1f 40 00          	nopl   0x0(%rax)
+   1400081f8:	b9 18 00 00 00       	mov    $0x18,%ecx
+   1400081fd:	e8 b6 eb ff ff       	call   140006db8 <_Znwy>
+   140008202:	48 89 c1             	mov    %rax,%rcx
+   140008205:	0f b6 47 10          	movzbl 0x10(%rdi),%eax
+   140008209:	48 89 ea             	mov    %rbp,%rdx
+   14000820c:	88 41 10             	mov    %al,0x10(%rcx)
+   14000820f:	e8 04 ec ff ff       	call   140006e18 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
+   140008214:	48 8b 3f             	mov    (%rdi),%rdi
+   140008217:	48 83 45 10 01       	addq   $0x1,0x10(%rbp)
+   14000821c:	48 39 fe             	cmp    %rdi,%rsi
+   14000821f:	75 d7                	jne    1400081f8 <_ZNSt6vectorI13NaturalBinarySaIS0_EE17_M_default_appendEy+0x128>
+   140008221:	48 83 c6 18          	add    $0x18,%rsi
+   140008225:	48 83 c5 18          	add    $0x18,%rbp
+   140008229:	49 39 f7             	cmp    %rsi,%r15
+   14000822c:	75 a9                	jne    1400081d7 <_ZNSt6vectorI13NaturalBinarySaIS0_EE17_M_default_appendEy+0x107>
+   14000822e:	49 8b 6c 24 08       	mov    0x8(%r12),%rbp
+   140008233:	49 8b 34 24          	mov    (%r12),%rsi
+   140008237:	48 39 f5             	cmp    %rsi,%rbp
+   14000823a:	74 36                	je     140008272 <_ZNSt6vectorI13NaturalBinarySaIS0_EE17_M_default_appendEy+0x1a2>
+   14000823c:	0f 1f 40 00          	nopl   0x0(%rax)
+   140008240:	48 8b 3e             	mov    (%rsi),%rdi
+   140008243:	48 39 fe             	cmp    %rdi,%rsi
+   140008246:	74 1d                	je     140008265 <_ZNSt6vectorI13NaturalBinarySaIS0_EE17_M_default_appendEy+0x195>
+   140008248:	0f 1f 84 00 00 00 00 	nopl   0x0(%rax,%rax,1)
+   14000824f:	00 
+   140008250:	48 89 f9             	mov    %rdi,%rcx
+   140008253:	48 8b 3f             	mov    (%rdi),%rdi
+   140008256:	ba 18 00 00 00       	mov    $0x18,%edx
+   14000825b:	e8 60 eb ff ff       	call   140006dc0 <_ZdlPvy>
+   140008260:	48 39 fe             	cmp    %rdi,%rsi
+   140008263:	75 eb                	jne    140008250 <_ZNSt6vectorI13NaturalBinarySaIS0_EE17_M_default_appendEy+0x180>
+   140008265:	48 83 c6 18          	add    $0x18,%rsi
+   140008269:	48 39 f5             	cmp    %rsi,%rbp
+   14000826c:	75 d2                	jne    140008240 <_ZNSt6vectorI13NaturalBinarySaIS0_EE17_M_default_appendEy+0x170>
+   14000826e:	49 8b 34 24          	mov    (%r12),%rsi
+   140008272:	48 85 f6             	test   %rsi,%rsi
+   140008275:	74 10                	je     140008287 <_ZNSt6vectorI13NaturalBinarySaIS0_EE17_M_default_appendEy+0x1b7>
+   140008277:	49 8b 54 24 10       	mov    0x10(%r12),%rdx
+   14000827c:	48 89 f1             	mov    %rsi,%rcx
+   14000827f:	48 29 f2             	sub    %rsi,%rdx
+   140008282:	e8 39 eb ff ff       	call   140006dc0 <_ZdlPvy>
+   140008287:	4c 01 eb             	add    %r13,%rbx
+   14000828a:	4d 89 34 24          	mov    %r14,(%r12)
+   14000828e:	48 8d 04 5b          	lea    (%rbx,%rbx,2),%rax
+   140008292:	49 8d 04 c6          	lea    (%r14,%rax,8),%rax
+   140008296:	49 89 44 24 08       	mov    %rax,0x8(%r12)
+   14000829b:	48 8b 44 24 20       	mov    0x20(%rsp),%rax
+   1400082a0:	49 01 c6             	add    %rax,%r14
+   1400082a3:	4d 89 74 24 10       	mov    %r14,0x10(%r12)
+   1400082a8:	e9 a2 fe ff ff       	jmp    14000814f <_ZNSt6vectorI13NaturalBinarySaIS0_EE17_M_default_appendEy+0x7f>
+   1400082ad:	0f 1f 00             	nopl   (%rax)
+   1400082b0:	48 ba 55 55 55 55 55 	movabs $0x555555555555555,%rdx
+   1400082b7:	55 55 05 
+   1400082ba:	4a 8d 04 2b          	lea    (%rbx,%r13,1),%rax
+   1400082be:	48 39 d0             	cmp    %rdx,%rax
+   1400082c1:	48 0f 47 c2          	cmova  %rdx,%rax
+   1400082c5:	48 8d 04 40          	lea    (%rax,%rax,2),%rax
+   1400082c9:	48 c1 e0 03          	shl    $0x3,%rax
+   1400082cd:	48 89 44 24 20       	mov    %rax,0x20(%rsp)
+   1400082d2:	e9 b8 fe ff ff       	jmp    14000818f <_ZNSt6vectorI13NaturalBinarySaIS0_EE17_M_default_appendEy+0xbf>
+   1400082d7:	48 ba 55 55 55 55 55 	movabs $0x555555555555555,%rdx
+   1400082de:	55 55 05 
+   1400082e1:	48 39 d0             	cmp    %rdx,%rax
+   1400082e4:	48 0f 47 c2          	cmova  %rdx,%rax
+   1400082e8:	48 6b c0 18          	imul   $0x18,%rax,%rax
+   1400082ec:	48 89 44 24 20       	mov    %rax,0x20(%rsp)
+   1400082f1:	e9 99 fe ff ff       	jmp    14000818f <_ZNSt6vectorI13NaturalBinarySaIS0_EE17_M_default_appendEy+0xbf>
+   1400082f6:	48 8d 0d 4b 1d 00 00 	lea    0x1d4b(%rip),%rcx        # 14000a048 <.rdata+0x18>
+   1400082fd:	e8 ce ea ff ff       	call   140006dd0 <_ZSt20__throw_length_errorPKc>
+   140008302:	48 89 c1             	mov    %rax,%rcx
+   140008305:	e8 9e ea ff ff       	call   140006da8 <__cxa_begin_catch>
+   14000830a:	48 39 fe             	cmp    %rdi,%rsi
+   14000830d:	0f 84 af 00 00 00    	je     1400083c2 <_ZNSt6vectorI13NaturalBinarySaIS0_EE17_M_default_appendEy+0x2f2>
+   140008313:	48 8b 0f             	mov    (%rdi),%rcx
+   140008316:	48 39 cf             	cmp    %rcx,%rdi
+   140008319:	0f 84 e2 00 00 00    	je     140008401 <_ZNSt6vectorI13NaturalBinarySaIS0_EE17_M_default_appendEy+0x331>
+   14000831f:	48 8b 19             	mov    (%rcx),%rbx
+   140008322:	ba 18 00 00 00       	mov    $0x18,%edx
+   140008327:	e8 94 ea ff ff       	call   140006dc0 <_ZdlPvy>
+   14000832c:	48 89 d9             	mov    %rbx,%rcx
+   14000832f:	eb e5                	jmp    140008316 <_ZNSt6vectorI13NaturalBinarySaIS0_EE17_M_default_appendEy+0x246>
+   140008331:	48 8b 4d 00          	mov    0x0(%rbp),%rcx
+   140008335:	48 89 c6             	mov    %rax,%rsi
+   140008338:	48 39 cd             	cmp    %rcx,%rbp
+   14000833b:	0f 84 96 00 00 00    	je     1400083d7 <_ZNSt6vectorI13NaturalBinarySaIS0_EE17_M_default_appendEy+0x307>
+   140008341:	48 8b 39             	mov    (%rcx),%rdi
+   140008344:	ba 18 00 00 00       	mov    $0x18,%edx
+   140008349:	e8 72 ea ff ff       	call   140006dc0 <_ZdlPvy>
+   14000834e:	48 89 f9             	mov    %rdi,%rcx
+   140008351:	eb e5                	jmp    140008338 <_ZNSt6vectorI13NaturalBinarySaIS0_EE17_M_default_appendEy+0x268>
+   140008353:	48 89 c1             	mov    %rax,%rcx
+   140008356:	e8 4d ea ff ff       	call   140006da8 <__cxa_begin_catch>
+   14000835b:	48 39 74 24 28       	cmp    %rsi,0x28(%rsp)
+   140008360:	74 21                	je     140008383 <_ZNSt6vectorI13NaturalBinarySaIS0_EE17_M_default_appendEy+0x2b3>
+   140008362:	48 8b 44 24 28       	mov    0x28(%rsp),%rax
+   140008367:	48 8b 08             	mov    (%rax),%rcx
+   14000836a:	48 39 4c 24 28       	cmp    %rcx,0x28(%rsp)
+   14000836f:	74 49                	je     1400083ba <_ZNSt6vectorI13NaturalBinarySaIS0_EE17_M_default_appendEy+0x2ea>
+   140008371:	48 8b 19             	mov    (%rcx),%rbx
+   140008374:	ba 18 00 00 00       	mov    $0x18,%edx
+   140008379:	e8 42 ea ff ff       	call   140006dc0 <_ZdlPvy>
+   14000837e:	48 89 d9             	mov    %rbx,%rcx
+   140008381:	eb e7                	jmp    14000836a <_ZNSt6vectorI13NaturalBinarySaIS0_EE17_M_default_appendEy+0x29a>
+   140008383:	e8 08 ea ff ff       	call   140006d90 <__cxa_rethrow>
+   140008388:	48 89 c3             	mov    %rax,%rbx
+   14000838b:	e8 10 ea ff ff       	call   140006da0 <__cxa_end_catch>
+   140008390:	48 89 d9             	mov    %rbx,%rcx
+   140008393:	e8 10 ea ff ff       	call   140006da8 <__cxa_begin_catch>
+   140008398:	48 8b 54 24 20       	mov    0x20(%rsp),%rdx
+   14000839d:	4c 89 f1             	mov    %r14,%rcx
+   1400083a0:	e8 1b ea ff ff       	call   140006dc0 <_ZdlPvy>
+   1400083a5:	e8 e6 e9 ff ff       	call   140006d90 <__cxa_rethrow>
+   1400083aa:	48 89 c3             	mov    %rax,%rbx
+   1400083ad:	e8 ee e9 ff ff       	call   140006da0 <__cxa_end_catch>
+   1400083b2:	48 89 d9             	mov    %rbx,%rcx
+   1400083b5:	e8 56 fb ff ff       	call   140007f10 <_Unwind_Resume>
+   1400083ba:	48 83 44 24 28 18    	addq   $0x18,0x28(%rsp)
+   1400083c0:	eb 99                	jmp    14000835b <_ZNSt6vectorI13NaturalBinarySaIS0_EE17_M_default_appendEy+0x28b>
+   1400083c2:	e8 c9 e9 ff ff       	call   140006d90 <__cxa_rethrow>
+   1400083c7:	48 89 c3             	mov    %rax,%rbx
+   1400083ca:	e8 d1 e9 ff ff       	call   140006da0 <__cxa_end_catch>
+   1400083cf:	48 89 d9             	mov    %rbx,%rcx
+   1400083d2:	e8 39 fb ff ff       	call   140007f10 <_Unwind_Resume>
+   1400083d7:	48 89 f1             	mov    %rsi,%rcx
+   1400083da:	4c 89 f6             	mov    %r14,%rsi
+   1400083dd:	e8 c6 e9 ff ff       	call   140006da8 <__cxa_begin_catch>
+   1400083e2:	48 39 f5             	cmp    %rsi,%rbp
+   1400083e5:	74 23                	je     14000840a <_ZNSt6vectorI13NaturalBinarySaIS0_EE17_M_default_appendEy+0x33a>
+   1400083e7:	48 8b 0e             	mov    (%rsi),%rcx
+   1400083ea:	48 39 ce             	cmp    %rcx,%rsi
+   1400083ed:	74 6b                	je     14000845a <_ZNSt6vectorI13NaturalBinarySaIS0_EE17_M_default_appendEy+0x38a>
+   1400083ef:	48 8b 39             	mov    (%rcx),%rdi
+   1400083f2:	ba 18 00 00 00       	mov    $0x18,%edx
+   1400083f7:	e8 c4 e9 ff ff       	call   140006dc0 <_ZdlPvy>
+   1400083fc:	48 89 f9             	mov    %rdi,%rcx
+   1400083ff:	eb e9                	jmp    1400083ea <_ZNSt6vectorI13NaturalBinarySaIS0_EE17_M_default_appendEy+0x31a>
+   140008401:	48 83 c7 18          	add    $0x18,%rdi
+   140008405:	e9 00 ff ff ff       	jmp    14000830a <_ZNSt6vectorI13NaturalBinarySaIS0_EE17_M_default_appendEy+0x23a>
+   14000840a:	e8 81 e9 ff ff       	call   140006d90 <__cxa_rethrow>
+   14000840f:	48 89 c6             	mov    %rax,%rsi
+   140008412:	48 6b db 18          	imul   $0x18,%rbx,%rbx
+   140008416:	e8 85 e9 ff ff       	call   140006da0 <__cxa_end_catch>
+   14000841b:	48 89 f1             	mov    %rsi,%rcx
+   14000841e:	e8 85 e9 ff ff       	call   140006da8 <__cxa_begin_catch>
+   140008423:	48 8b 44 24 28       	mov    0x28(%rsp),%rax
+   140008428:	48 01 c3             	add    %rax,%rbx
+   14000842b:	48 8b 44 24 28       	mov    0x28(%rsp),%rax
+   140008430:	48 39 c3             	cmp    %rax,%rbx
+   140008433:	0f 84 5f ff ff ff    	je     140008398 <_ZNSt6vectorI13NaturalBinarySaIS0_EE17_M_default_appendEy+0x2c8>
+   140008439:	48 8b 44 24 28       	mov    0x28(%rsp),%rax
+   14000843e:	48 8b 08             	mov    (%rax),%rcx
+   140008441:	48 39 4c 24 28       	cmp    %rcx,0x28(%rsp)
+   140008446:	74 18                	je     140008460 <_ZNSt6vectorI13NaturalBinarySaIS0_EE17_M_default_appendEy+0x390>
+   140008448:	48 8b 31             	mov    (%rcx),%rsi
+   14000844b:	ba 18 00 00 00       	mov    $0x18,%edx
+   140008450:	e8 6b e9 ff ff       	call   140006dc0 <_ZdlPvy>
+   140008455:	48 89 f1             	mov    %rsi,%rcx
+   140008458:	eb e7                	jmp    140008441 <_ZNSt6vectorI13NaturalBinarySaIS0_EE17_M_default_appendEy+0x371>
+   14000845a:	48 83 c6 18          	add    $0x18,%rsi
+   14000845e:	eb 82                	jmp    1400083e2 <_ZNSt6vectorI13NaturalBinarySaIS0_EE17_M_default_appendEy+0x312>
+   140008460:	48 83 44 24 28 18    	addq   $0x18,0x28(%rsp)
+   140008466:	eb c3                	jmp    14000842b <_ZNSt6vectorI13NaturalBinarySaIS0_EE17_M_default_appendEy+0x35b>
+   140008468:	90                   	nop
+   140008469:	90                   	nop
+   14000846a:	90                   	nop
+   14000846b:	90                   	nop
+   14000846c:	90                   	nop
+   14000846d:	90                   	nop
+   14000846e:	90                   	nop
+   14000846f:	90                   	nop
+
+0000000140008470 <_ZNSt7__cxx114listI4ByteSaIS1_EE17_M_default_appendEy>:
+   140008470:	57                   	push   %rdi
+   140008471:	56                   	push   %rsi
+   140008472:	53                   	push   %rbx
+   140008473:	48 83 ec 20          	sub    $0x20,%rsp
+   140008477:	31 f6                	xor    %esi,%esi
+   140008479:	48 89 cb             	mov    %rcx,%rbx
+   14000847c:	48 89 d7             	mov    %rdx,%rdi
+   14000847f:	48 85 d2             	test   %rdx,%rdx
+   140008482:	74 2b                	je     1400084af <_ZNSt7__cxx114listI4ByteSaIS1_EE17_M_default_appendEy+0x3f>
+   140008484:	0f 1f 40 00          	nopl   0x0(%rax)
+   140008488:	b9 18 00 00 00       	mov    $0x18,%ecx
+   14000848d:	e8 26 e9 ff ff       	call   140006db8 <_Znwy>
+   140008492:	c6 40 10 00          	movb   $0x0,0x10(%rax)
+   140008496:	48 89 c1             	mov    %rax,%rcx
+   140008499:	48 89 da             	mov    %rbx,%rdx
+   14000849c:	48 83 c6 01          	add    $0x1,%rsi
+   1400084a0:	e8 73 e9 ff ff       	call   140006e18 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
+   1400084a5:	48 83 43 10 01       	addq   $0x1,0x10(%rbx)
+   1400084aa:	48 39 f7             	cmp    %rsi,%rdi
+   1400084ad:	75 d9                	jne    140008488 <_ZNSt7__cxx114listI4ByteSaIS1_EE17_M_default_appendEy+0x18>
+   1400084af:	48 83 c4 20          	add    $0x20,%rsp
+   1400084b3:	5b                   	pop    %rbx
+   1400084b4:	5e                   	pop    %rsi
+   1400084b5:	5f                   	pop    %rdi
+   1400084b6:	c3                   	ret
+   1400084b7:	48 89 c1             	mov    %rax,%rcx
+   1400084ba:	e8 e9 e8 ff ff       	call   140006da8 <__cxa_begin_catch>
+   1400084bf:	48 85 f6             	test   %rsi,%rsi
+   1400084c2:	74 24                	je     1400084e8 <_ZNSt7__cxx114listI4ByteSaIS1_EE17_M_default_appendEy+0x78>
+   1400084c4:	48 83 6b 10 01       	subq   $0x1,0x10(%rbx)
+   1400084c9:	48 8b 7b 08          	mov    0x8(%rbx),%rdi
+   1400084cd:	48 83 ee 01          	sub    $0x1,%rsi
+   1400084d1:	48 89 f9             	mov    %rdi,%rcx
+   1400084d4:	e8 37 e9 ff ff       	call   140006e10 <_ZNSt8__detail15_List_node_base9_M_unhookEv>
+   1400084d9:	ba 18 00 00 00       	mov    $0x18,%edx
+   1400084de:	48 89 f9             	mov    %rdi,%rcx
+   1400084e1:	e8 da e8 ff ff       	call   140006dc0 <_ZdlPvy>
+   1400084e6:	eb d7                	jmp    1400084bf <_ZNSt7__cxx114listI4ByteSaIS1_EE17_M_default_appendEy+0x4f>
+   1400084e8:	e8 a3 e8 ff ff       	call   140006d90 <__cxa_rethrow>
+   1400084ed:	48 89 c3             	mov    %rax,%rbx
+   1400084f0:	e8 ab e8 ff ff       	call   140006da0 <__cxa_end_catch>
+   1400084f5:	48 89 d9             	mov    %rbx,%rcx
+   1400084f8:	e8 13 fa ff ff       	call   140007f10 <_Unwind_Resume>
+   1400084fd:	90                   	nop
+   1400084fe:	90                   	nop
+   1400084ff:	90                   	nop
+
+0000000140008500 <_ZNSt7__cxx114listI4ByteSaIS1_EE6resizeEy>:
+   140008500:	57                   	push   %rdi
+   140008501:	56                   	push   %rsi
+   140008502:	53                   	push   %rbx
+   140008503:	48 83 ec 20          	sub    $0x20,%rsp
+   140008507:	48 8b 41 10          	mov    0x10(%rcx),%rax
+   14000850b:	48 89 ce             	mov    %rcx,%rsi
+   14000850e:	48 39 c2             	cmp    %rax,%rdx
+   140008511:	73 65                	jae    140008578 <_ZNSt7__cxx114listI4ByteSaIS1_EE6resizeEy+0x78>
+   140008513:	48 89 c1             	mov    %rax,%rcx
+   140008516:	48 d1 e9             	shr    %rcx
+   140008519:	48 39 d1             	cmp    %rdx,%rcx
+   14000851c:	72 72                	jb     140008590 <_ZNSt7__cxx114listI4ByteSaIS1_EE6resizeEy+0x90>
+   14000851e:	48 8b 1e             	mov    (%rsi),%rbx
+   140008521:	48 85 d2             	test   %rdx,%rdx
+   140008524:	74 13                	je     140008539 <_ZNSt7__cxx114listI4ByteSaIS1_EE6resizeEy+0x39>
+   140008526:	48 83 ea 01          	sub    $0x1,%rdx
+   14000852a:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+   140008530:	48 8b 1b             	mov    (%rbx),%rbx
+   140008533:	48 83 ea 01          	sub    $0x1,%rdx
+   140008537:	73 f7                	jae    140008530 <_ZNSt7__cxx114listI4ByteSaIS1_EE6resizeEy+0x30>
+   140008539:	48 39 de             	cmp    %rbx,%rsi
+   14000853c:	75 09                	jne    140008547 <_ZNSt7__cxx114listI4ByteSaIS1_EE6resizeEy+0x47>
+   14000853e:	eb 2c                	jmp    14000856c <_ZNSt7__cxx114listI4ByteSaIS1_EE6resizeEy+0x6c>
+   140008540:	48 8b 46 10          	mov    0x10(%rsi),%rax
+   140008544:	48 89 fb             	mov    %rdi,%rbx
+   140008547:	48 83 e8 01          	sub    $0x1,%rax
+   14000854b:	48 8b 3b             	mov    (%rbx),%rdi
+   14000854e:	48 89 d9             	mov    %rbx,%rcx
+   140008551:	48 89 46 10          	mov    %rax,0x10(%rsi)
+   140008555:	e8 b6 e8 ff ff       	call   140006e10 <_ZNSt8__detail15_List_node_base9_M_unhookEv>
+   14000855a:	ba 18 00 00 00       	mov    $0x18,%edx
+   14000855f:	48 89 d9             	mov    %rbx,%rcx
+   140008562:	e8 59 e8 ff ff       	call   140006dc0 <_ZdlPvy>
+   140008567:	48 39 fe             	cmp    %rdi,%rsi
+   14000856a:	75 d4                	jne    140008540 <_ZNSt7__cxx114listI4ByteSaIS1_EE6resizeEy+0x40>
+   14000856c:	48 83 c4 20          	add    $0x20,%rsp
+   140008570:	5b                   	pop    %rbx
+   140008571:	5e                   	pop    %rsi
+   140008572:	5f                   	pop    %rdi
+   140008573:	c3                   	ret
+   140008574:	0f 1f 40 00          	nopl   0x0(%rax)
+   140008578:	48 29 c2             	sub    %rax,%rdx
+   14000857b:	74 ef                	je     14000856c <_ZNSt7__cxx114listI4ByteSaIS1_EE6resizeEy+0x6c>
+   14000857d:	48 83 c4 20          	add    $0x20,%rsp
+   140008581:	5b                   	pop    %rbx
+   140008582:	5e                   	pop    %rsi
+   140008583:	5f                   	pop    %rdi
+   140008584:	e9 e7 fe ff ff       	jmp    140008470 <_ZNSt7__cxx114listI4ByteSaIS1_EE17_M_default_appendEy>
+   140008589:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+   140008590:	48 89 c1             	mov    %rax,%rcx
+   140008593:	48 89 f3             	mov    %rsi,%rbx
+   140008596:	48 29 d1             	sub    %rdx,%rcx
+   140008599:	48 89 ca             	mov    %rcx,%rdx
+   14000859c:	48 f7 d2             	not    %rdx
+   14000859f:	79 1f                	jns    1400085c0 <_ZNSt7__cxx114listI4ByteSaIS1_EE6resizeEy+0xc0>
+   1400085a1:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+   1400085a8:	48 8b 1b             	mov    (%rbx),%rbx
+   1400085ab:	48 83 ea 01          	sub    $0x1,%rdx
+   1400085af:	72 88                	jb     140008539 <_ZNSt7__cxx114listI4ByteSaIS1_EE6resizeEy+0x39>
+   1400085b1:	48 8b 1b             	mov    (%rbx),%rbx
+   1400085b4:	48 83 ea 01          	sub    $0x1,%rdx
+   1400085b8:	73 ee                	jae    1400085a8 <_ZNSt7__cxx114listI4ByteSaIS1_EE6resizeEy+0xa8>
+   1400085ba:	e9 7a ff ff ff       	jmp    140008539 <_ZNSt7__cxx114listI4ByteSaIS1_EE6resizeEy+0x39>
+   1400085bf:	90                   	nop
+   1400085c0:	ba 01 00 00 00       	mov    $0x1,%edx
+   1400085c5:	48 29 ca             	sub    %rcx,%rdx
+   1400085c8:	0f 1f 84 00 00 00 00 	nopl   0x0(%rax,%rax,1)
+   1400085cf:	00 
+   1400085d0:	48 83 c2 01          	add    $0x1,%rdx
+   1400085d4:	48 8b 5b 08          	mov    0x8(%rbx),%rbx
+   1400085d8:	48 83 fa 01          	cmp    $0x1,%rdx
+   1400085dc:	75 f2                	jne    1400085d0 <_ZNSt7__cxx114listI4ByteSaIS1_EE6resizeEy+0xd0>
+   1400085de:	e9 56 ff ff ff       	jmp    140008539 <_ZNSt7__cxx114listI4ByteSaIS1_EE6resizeEy+0x39>
+   1400085e3:	90                   	nop
+   1400085e4:	90                   	nop
+   1400085e5:	90                   	nop
+   1400085e6:	90                   	nop
+   1400085e7:	90                   	nop
+   1400085e8:	90                   	nop
+   1400085e9:	90                   	nop
+   1400085ea:	90                   	nop
+   1400085eb:	90                   	nop
+   1400085ec:	90                   	nop
+   1400085ed:	90                   	nop
+   1400085ee:	90                   	nop
+   1400085ef:	90                   	nop
+
+00000001400085f0 <_GLOBAL__sub_I__ZN10Arithmetic10carry_flagE>:
+   1400085f0:	48 83 ec 28          	sub    $0x28,%rsp
+   1400085f4:	48 8d 0d 36 4a 00 00 	lea    0x4a36(%rip),%rcx        # 14000d031 <_ZStL8__ioinit>
+   1400085fb:	e8 08 e8 ff ff       	call   140006e08 <_ZNSt8ios_base4InitC1Ev>
+   140008600:	48 8d 0d 49 8e ff ff 	lea    -0x71b7(%rip),%rcx        # 140001450 <__tcf_0>
+   140008607:	48 83 c4 28          	add    $0x28,%rsp
+   14000860b:	e9 00 8e ff ff       	jmp    140001410 <atexit>
+
+0000000140008610 <_GLOBAL__sub_I__ZN4ByteC2Ey>:
+   140008610:	48 83 ec 28          	sub    $0x28,%rsp
+   140008614:	48 8d 0d 25 4a 00 00 	lea    0x4a25(%rip),%rcx        # 14000d040 <_ZStL8__ioinit>
+   14000861b:	e8 e8 e7 ff ff       	call   140006e08 <_ZNSt8ios_base4InitC1Ev>
+   140008620:	48 8d 0d 49 90 ff ff 	lea    -0x6fb7(%rip),%rcx        # 140001670 <__tcf_0>
+   140008627:	48 83 c4 28          	add    $0x28,%rsp
+   14000862b:	e9 e0 8d ff ff       	jmp    140001410 <atexit>
+
+0000000140008630 <main>:
+   140008630:	41 55                	push   %r13
+   140008632:	41 54                	push   %r12
+   140008634:	55                   	push   %rbp
+   140008635:	57                   	push   %rdi
+   140008636:	56                   	push   %rsi
+   140008637:	53                   	push   %rbx
+   140008638:	48 81 ec b8 00 00 00 	sub    $0xb8,%rsp
+   14000863f:	0f 11 b4 24 a0 00 00 	movups %xmm6,0xa0(%rsp)
+   140008646:	00 
+   140008647:	e8 14 e9 ff ff       	call   140006f60 <__main>
+   14000864c:	48 8d 6c 24 20       	lea    0x20(%rsp),%rbp
+   140008651:	ba 38 00 00 00       	mov    $0x38,%edx
+   140008656:	48 8d 7c 24 60       	lea    0x60(%rsp),%rdi
+   14000865b:	48 89 e9             	mov    %rbp,%rcx
+   14000865e:	66 48 0f 6e f7       	movq   %rdi,%xmm6
+   140008663:	e8 28 c7 ff ff       	call   140004d90 <_ZN15SignedMagnitudeC1Ex>
+   140008668:	ba 01 00 00 00       	mov    $0x1,%edx
+   14000866d:	48 89 e9             	mov    %rbp,%rcx
+   140008670:	66 0f 6c f6          	punpcklqdq %xmm6,%xmm6
+   140008674:	e8 d7 e5 ff ff       	call   140006c50 <_ZN15SignedMagnitude14set_precissionEj>
+   140008679:	48 8d 74 24 40       	lea    0x40(%rsp),%rsi
+   14000867e:	ba 05 00 00 00       	mov    $0x5,%edx
+   140008683:	48 89 f1             	mov    %rsi,%rcx
+   140008686:	e8 05 c7 ff ff       	call   140004d90 <_ZN15SignedMagnitudeC1Ex>
+   14000868b:	48 8b 5c 24 40       	mov    0x40(%rsp),%rbx
+   140008690:	0f 11 74 24 60       	movups %xmm6,0x60(%rsp)
+   140008695:	48 c7 44 24 70 00 00 	movq   $0x0,0x70(%rsp)
+   14000869c:	00 00 
+   14000869e:	48 39 f3             	cmp    %rsi,%rbx
+   1400086a1:	74 2f                	je     1400086d2 <main+0xa2>
+   1400086a3:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+   1400086a8:	b9 18 00 00 00       	mov    $0x18,%ecx
+   1400086ad:	e8 06 e7 ff ff       	call   140006db8 <_Znwy>
+   1400086b2:	48 89 c1             	mov    %rax,%rcx
+   1400086b5:	0f b6 43 10          	movzbl 0x10(%rbx),%eax
+   1400086b9:	48 89 fa             	mov    %rdi,%rdx
+   1400086bc:	88 41 10             	mov    %al,0x10(%rcx)
+   1400086bf:	e8 54 e7 ff ff       	call   140006e18 <_ZNSt8__detail15_List_node_base7_M_hookEPS0_>
+   1400086c4:	48 8b 1b             	mov    (%rbx),%rbx
+   1400086c7:	48 83 44 24 70 01    	addq   $0x1,0x70(%rsp)
+   1400086cd:	48 39 f3             	cmp    %rsi,%rbx
+   1400086d0:	75 d6                	jne    1400086a8 <main+0x78>
+   1400086d2:	8b 44 24 58          	mov    0x58(%rsp),%eax
+   1400086d6:	4c 8d a4 24 80 00 00 	lea    0x80(%rsp),%r12
+   1400086dd:	00 
+   1400086de:	49 89 f8             	mov    %rdi,%r8
+   1400086e1:	48 89 ea             	mov    %rbp,%rdx
+   1400086e4:	4c 89 e1             	mov    %r12,%rcx
+   1400086e7:	89 44 24 78          	mov    %eax,0x78(%rsp)
+   1400086eb:	0f b6 44 24 5c       	movzbl 0x5c(%rsp),%eax
+   1400086f0:	88 44 24 7c          	mov    %al,0x7c(%rsp)
+   1400086f4:	e8 77 e1 ff ff       	call   140006870 <_ZN15SignedMagnitudedvES_>
+   1400086f9:	48 8b 0d 60 1d 00 00 	mov    0x1d60(%rip),%rcx        # 14000a460 <__fu4__ZSt4cout>
+   140008700:	4c 89 e2             	mov    %r12,%rdx
+   140008703:	e8 f8 e5 ff ff       	call   140006d00 <_ZlsRSo15SignedMagnitude>
+   140008708:	48 89 c3             	mov    %rax,%rbx
+   14000870b:	48 8b 00             	mov    (%rax),%rax
+   14000870e:	48 8b 40 e8          	mov    -0x18(%rax),%rax
+   140008712:	4c 8b ac 03 f0 00 00 	mov    0xf0(%rbx,%rax,1),%r13
+   140008719:	00 
+   14000871a:	4d 85 ed             	test   %r13,%r13
+   14000871d:	74 73                	je     140008792 <main+0x162>
+   14000871f:	41 80 7d 38 00       	cmpb   $0x0,0x38(%r13)
+   140008724:	74 50                	je     140008776 <main+0x146>
+   140008726:	41 0f be 55 43       	movsbl 0x43(%r13),%edx
+   14000872b:	48 89 d9             	mov    %rbx,%rcx
+   14000872e:	e8 65 e7 ff ff       	call   140006e98 <_ZNSo3putEc>
+   140008733:	48 89 c1             	mov    %rax,%rcx
+   140008736:	e8 55 e7 ff ff       	call   140006e90 <_ZNSo5flushEv>
+   14000873b:	4c 89 e1             	mov    %r12,%rcx
+   14000873e:	e8 dd c8 ff ff       	call   140005020 <_ZN15SignedMagnitudeD1Ev>
+   140008743:	48 89 f9             	mov    %rdi,%rcx
+   140008746:	e8 d5 c8 ff ff       	call   140005020 <_ZN15SignedMagnitudeD1Ev>
+   14000874b:	48 89 f1             	mov    %rsi,%rcx
+   14000874e:	e8 cd c8 ff ff       	call   140005020 <_ZN15SignedMagnitudeD1Ev>
+   140008753:	48 89 e9             	mov    %rbp,%rcx
+   140008756:	e8 c5 c8 ff ff       	call   140005020 <_ZN15SignedMagnitudeD1Ev>
+   14000875b:	90                   	nop
+   14000875c:	0f 10 b4 24 a0 00 00 	movups 0xa0(%rsp),%xmm6
+   140008763:	00 
+   140008764:	31 c0                	xor    %eax,%eax
+   140008766:	48 81 c4 b8 00 00 00 	add    $0xb8,%rsp
+   14000876d:	5b                   	pop    %rbx
+   14000876e:	5e                   	pop    %rsi
+   14000876f:	5f                   	pop    %rdi
+   140008770:	5d                   	pop    %rbp
+   140008771:	41 5c                	pop    %r12
+   140008773:	41 5d                	pop    %r13
+   140008775:	c3                   	ret
+   140008776:	4c 89 e9             	mov    %r13,%rcx
+   140008779:	e8 22 e7 ff ff       	call   140006ea0 <_ZNKSt5ctypeIcE13_M_widen_initEv>
+   14000877e:	49 8b 45 00          	mov    0x0(%r13),%rax
+   140008782:	ba 0a 00 00 00       	mov    $0xa,%edx
+   140008787:	4c 89 e9             	mov    %r13,%rcx
+   14000878a:	ff 50 30             	call   *0x30(%rax)
+   14000878d:	0f be d0             	movsbl %al,%edx
+   140008790:	eb 99                	jmp    14000872b <main+0xfb>
+   140008792:	e8 41 e6 ff ff       	call   140006dd8 <_ZSt16__throw_bad_castv>
+   140008797:	48 89 c3             	mov    %rax,%rbx
+   14000879a:	eb 1b                	jmp    1400087b7 <main+0x187>
+   14000879c:	4c 89 e1             	mov    %r12,%rcx
+   14000879f:	48 89 c3             	mov    %rax,%rbx
+   1400087a2:	e8 79 c8 ff ff       	call   140005020 <_ZN15SignedMagnitudeD1Ev>
+   1400087a7:	48 89 f9             	mov    %rdi,%rcx
+   1400087aa:	e8 71 c8 ff ff       	call   140005020 <_ZN15SignedMagnitudeD1Ev>
+   1400087af:	48 89 f1             	mov    %rsi,%rcx
+   1400087b2:	e8 69 c8 ff ff       	call   140005020 <_ZN15SignedMagnitudeD1Ev>
+   1400087b7:	48 89 e9             	mov    %rbp,%rcx
+   1400087ba:	e8 61 c8 ff ff       	call   140005020 <_ZN15SignedMagnitudeD1Ev>
+   1400087bf:	48 89 d9             	mov    %rbx,%rcx
+   1400087c2:	e8 49 f7 ff ff       	call   140007f10 <_Unwind_Resume>
+   1400087c7:	48 89 c3             	mov    %rax,%rbx
+   1400087ca:	eb db                	jmp    1400087a7 <main+0x177>
+   1400087cc:	48 8b 4c 24 60       	mov    0x60(%rsp),%rcx
+   1400087d1:	48 89 c3             	mov    %rax,%rbx
+   1400087d4:	48 39 f9             	cmp    %rdi,%rcx
+   1400087d7:	74 d6                	je     1400087af <main+0x17f>
+   1400087d9:	4c 8b 21             	mov    (%rcx),%r12
+   1400087dc:	ba 18 00 00 00       	mov    $0x18,%edx
+   1400087e1:	e8 da e5 ff ff       	call   140006dc0 <_ZdlPvy>
+   1400087e6:	4c 89 e1             	mov    %r12,%rcx
+   1400087e9:	eb e9                	jmp    1400087d4 <main+0x1a4>
+   1400087eb:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+
+00000001400087f0 <_GLOBAL__sub_I_main>:
+   1400087f0:	48 83 ec 28          	sub    $0x28,%rsp
+   1400087f4:	48 8d 0d 55 48 00 00 	lea    0x4855(%rip),%rcx        # 14000d050 <_ZStL8__ioinit>
+   1400087fb:	e8 08 e6 ff ff       	call   140006e08 <_ZNSt8ios_base4InitC1Ev>
+   140008800:	48 8d 0d 49 8f ff ff 	lea    -0x70b7(%rip),%rcx        # 140001750 <__tcf_0>
+   140008807:	48 83 c4 28          	add    $0x28,%rsp
+   14000880b:	e9 00 8c ff ff       	jmp    140001410 <atexit>
+
+0000000140008810 <_GLOBAL__sub_I__ZN13NaturalBinaryC2Ev>:
+   140008810:	48 83 ec 28          	sub    $0x28,%rsp
+   140008814:	48 8d 0d 45 48 00 00 	lea    0x4845(%rip),%rcx        # 14000d060 <_ZStL8__ioinit>
+   14000881b:	e8 e8 e5 ff ff       	call   140006e08 <_ZNSt8ios_base4InitC1Ev>
+   140008820:	48 8d 0d 39 8f ff ff 	lea    -0x70c7(%rip),%rcx        # 140001760 <__tcf_0>
+   140008827:	48 83 c4 28          	add    $0x28,%rsp
+   14000882b:	e9 e0 8b ff ff       	jmp    140001410 <atexit>
+
+0000000140008830 <_GLOBAL__sub_I__ZN15SignedMagnitudeC2Ex>:
+   140008830:	48 83 ec 28          	sub    $0x28,%rsp
+   140008834:	48 8d 0d 35 48 00 00 	lea    0x4835(%rip),%rcx        # 14000d070 <_ZStL8__ioinit>
+   14000883b:	e8 c8 e5 ff ff       	call   140006e08 <_ZNSt8ios_base4InitC1Ev>
+   140008840:	48 8d 0d e9 c3 ff ff 	lea    -0x3c17(%rip),%rcx        # 140004c30 <__tcf_0>
+   140008847:	48 83 c4 28          	add    $0x28,%rsp
+   14000884b:	e9 c0 8b ff ff       	jmp    140001410 <atexit>
+
+0000000140008850 <register_frame_ctor>:
+   140008850:	e9 db 8b ff ff       	jmp    140001430 <__gcc_register_frame>
+   140008855:	90                   	nop
+   140008856:	90                   	nop
+   140008857:	90                   	nop
+   140008858:	90                   	nop
+   140008859:	90                   	nop
+   14000885a:	90                   	nop
+   14000885b:	90                   	nop
+   14000885c:	90                   	nop
+   14000885d:	90                   	nop
+   14000885e:	90                   	nop
+   14000885f:	90                   	nop
+
+0000000140008860 <__CTOR_LIST__>:
+   140008860:	ff                   	(bad)
+   140008861:	ff                   	(bad)
+   140008862:	ff                   	(bad)
+   140008863:	ff                   	(bad)
+   140008864:	ff                   	(bad)
+   140008865:	ff                   	(bad)
+   140008866:	ff                   	(bad)
+   140008867:	ff                   	.byte 0xff
+
+0000000140008868 <.ctors>:
+   140008868:	f0 85 00             	lock test %eax,(%rax)
+   14000886b:	40 01 00             	rex add %eax,(%rax)
 	...
 
-0000000140008020 <.ctors>:
-   140008020:	a0                   	.byte 0xa0
-   140008021:	7b 00                	jnp    140008023 <.ctors+0x3>
-   140008023:	40 01 00             	rex add %eax,(%rax)
+0000000140008870 <.ctors>:
+   140008870:	10 86 00 40 01 00    	adc    %al,0x14000(%rsi)
 	...
 
-0000000140008028 <.ctors>:
-   140008028:	a0                   	.byte 0xa0
-   140008029:	7f 00                	jg     14000802b <.ctors+0x3>
-   14000802b:	40 01 00             	rex add %eax,(%rax)
+0000000140008878 <.ctors>:
+   140008878:	f0 87 00             	lock xchg %eax,(%rax)
+   14000887b:	40 01 00             	rex add %eax,(%rax)
 	...
 
-0000000140008030 <.ctors>:
-   140008030:	c0 7f 00 40          	sarb   $0x40,0x0(%rdi)
-   140008034:	01 00                	add    %eax,(%rax)
+0000000140008880 <.ctors>:
+   140008880:	10 88 00 40 01 00    	adc    %cl,0x14000(%rax)
 	...
 
-0000000140008038 <.ctors>:
-   140008038:	e0 7f                	loopne 1400080b9 <__DTOR_LIST__+0x69>
-   14000803a:	00 40 01             	add    %al,0x1(%rax)
-   14000803d:	00 00                	add    %al,(%rax)
+0000000140008888 <.ctors>:
+   140008888:	30 88 00 40 01 00    	xor    %cl,0x14000(%rax)
 	...
 
-0000000140008040 <.ctors.65535>:
-   140008040:	00 80 00 40 01 00    	add    %al,0x14000(%rax)
+0000000140008890 <.ctors.65535>:
+   140008890:	50                   	push   %rax
+   140008891:	88 00                	mov    %al,(%rax)
+   140008893:	40 01 00             	rex add %eax,(%rax)
 	...
 
-0000000140008050 <__DTOR_LIST__>:
-   140008050:	ff                   	(bad)
-   140008051:	ff                   	(bad)
-   140008052:	ff                   	(bad)
-   140008053:	ff                   	(bad)
-   140008054:	ff                   	(bad)
-   140008055:	ff                   	(bad)
-   140008056:	ff                   	(bad)
-   140008057:	ff 00                	incl   (%rax)
-   140008059:	00 00                	add    %al,(%rax)
-   14000805b:	00 00                	add    %al,(%rax)
-   14000805d:	00 00                	add    %al,(%rax)
+00000001400088a0 <__DTOR_LIST__>:
+   1400088a0:	ff                   	(bad)
+   1400088a1:	ff                   	(bad)
+   1400088a2:	ff                   	(bad)
+   1400088a3:	ff                   	(bad)
+   1400088a4:	ff                   	(bad)
+   1400088a5:	ff                   	(bad)
+   1400088a6:	ff                   	(bad)
+   1400088a7:	ff 00                	incl   (%rax)
+   1400088a9:	00 00                	add    %al,(%rax)
+   1400088ab:	00 00                	add    %al,(%rax)
+   1400088ad:	00 00                	add    %al,(%rax)
 	...

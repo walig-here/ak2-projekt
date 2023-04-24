@@ -22,7 +22,67 @@ SignedMagnitude::SignedMagnitude() : SignedMagnitude(0) {
 
 }
 
+bool SignedMagnitude::operator==(SignedMagnitude b){
+
+    // Liczby są równe, gdy ich znaki są równe
+    if(negative != b.negative) return false;
+
+    // Liczby muszą miec także moduły, aby być równe
+    // Jako że równe liczby mogą mieć różne prezycje, to sprowadzamy moduły do równych długości
+    return alignModuleWith(b) == b.alignModuleWith(*this);
+
+}
+
+bool SignedMagnitude::operator<(SignedMagnitude b){
+
+    // Jeżeli this jest dodatnie, a B ujemne, to this na pewno nie jest mniejsze
+    if(!negative && b.negative) return false;
+
+    // Jeżeli this jest ujemne, a B dodatnie, to na pewno this jest mniejsze
+    if(negative && !b.negative) return true;
+
+    // Jeżeli liczby są dodatnie to mniejsza jest ta z mniejszym modułem
+    if(!negative && !b.negative) return alignModuleWith(b) < b.alignModuleWith(*this);
+
+    // Jeżeli są ujemne, to mniejsza jest ta z większym modułem
+    return alignModuleWith(b) > b.alignModuleWith(*this);
+
+}
+
+bool SignedMagnitude::operator>(SignedMagnitude b){
+
+    // Jeżeli this jest dodatnie, a B ujemne, to this na pewno jest większe
+    if(!negative && b.negative) return true;
+
+    // Jeżeli this jest ujemne, a B dodatnie, to na pewno this nie jest większe
+    if(negative && !b.negative) return false;
+
+    // Jeżeli liczby są dodatnie to większa jest ta z większym modułem
+    if(!negative && !b.negative) return alignModuleWith(b) > b.alignModuleWith(*this);
+
+    // Jeżeli są ujemne, to mniejsza jest ta z mniejszym modułem
+    return alignModuleWith(b) < b.alignModuleWith(*this);
+
+}
+
+bool SignedMagnitude::operator>=(SignedMagnitude b){
+
+    return *this == b || *this > b;
+
+}
+
+bool SignedMagnitude::operator<=(SignedMagnitude b){
+
+    return *this == b || *this < b;
+
+}
+
 SignedMagnitude::SignedMagnitude(list<Byte> bytes_input, unsigned int input_exp, Bitflag input_sign) {
+
+    if(bytes_input.size() == 0){
+        SignedMagnitude(0);
+        return;
+    }
 
     negative = input_sign;
     exponent = input_exp;
@@ -31,17 +91,9 @@ SignedMagnitude::SignedMagnitude(list<Byte> bytes_input, unsigned int input_exp,
 }
 
 
-SignedMagnitude::~SignedMagnitude() {
+SignedMagnitude::~SignedMagnitude() {}
 
-    
-
-}
-
-list<Byte> &SignedMagnitude::getByte() {
-    return module.bytes;
-}
-
-Bitflag SignedMagnitude::getNegative() {
+Bitflag SignedMagnitude::isNegative() {
     return negative;
 }
 
@@ -53,33 +105,6 @@ string SignedMagnitude::toString() {
 
     return number;
 
-}
-
-Bitflag SignedMagnitude::mulDivSign(SignedMagnitude b) {
-    if (b.getNegative() * getNegative() > 0) {
-        return false;
-    } else {
-        return true;
-    }
-
-}
-
-Bitflag SignedMagnitude::subSign(SignedMagnitude b) {
-    if (module > b.module) {
-        if (getNegative()) {
-            return true;
-        } else {
-            return false;
-        }
-    } else if (module == b.module) {
-        return false;
-    } else {
-        if (b.getNegative()) {
-            return false;
-        } else {
-            return true;
-        }
-    }
 }
 
 NaturalBinary SignedMagnitude::alignModuleWith(SignedMagnitude b){

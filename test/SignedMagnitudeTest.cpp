@@ -10,96 +10,25 @@ TEST(SignMagTest, convertFromIntToNB) {
 
     value = 0;
     SignedMagnitude signedMagnitude_zero(value);
-    ASSERT_EQ(signedMagnitude_zero.getByte().front().value, 0);
-    ASSERT_EQ(signedMagnitude_zero.getNegative(), false);
+    ASSERT_EQ(signedMagnitude_zero.toString(), "0x00");
 
     value = 260;
     SignedMagnitude signedMagnitude_five(value);
-    ASSERT_EQ(signedMagnitude_five.getByte().back().value, 0x01);    //starszy bit
-    ASSERT_EQ(signedMagnitude_five.getByte().front().value, 0x04);   //mlodszy bit
-    ASSERT_EQ(signedMagnitude_five.getNegative(), false);
+    ASSERT_EQ(signedMagnitude_five.toString(), "0x0104");
 
 
     value = -257;
     SignedMagnitude signedMagnitude_minus(value);
-    ASSERT_EQ(signedMagnitude_minus.getByte().front().value, 1);
-    ASSERT_EQ(signedMagnitude_minus.getByte().back().value, 1);
-    ASSERT_EQ(signedMagnitude_minus.getNegative(), true);
+    ASSERT_EQ(signedMagnitude_minus.toString(), "-0x0101");
 
 
 }
 
 TEST(sign_magni_huge_Test, convTabOfBytesToSignMagni) {
 
-    list <Byte> input_tab_basic= {3, 2, 4, 6, 2};
-    auto j = input_tab_basic.rbegin();
-    SignedMagnitude signedMagnitude_basic(input_tab_basic, 1, false);
-    ASSERT_EQ(signedMagnitude_basic.getNegative(), false);
+    SignedMagnitude a({3, 2, 4, 6, 2}, 1, false);
+    ASSERT_EQ(a.toString(), "0x03020406.02");
 
-    for (Byte byte: signedMagnitude_basic.getByte()) {
-        ASSERT_EQ(byte.value, j->value);
-
-        j++;
-    }
-
-
-    list <Byte> input_tab_empty = {};
-    j = input_tab_empty.rbegin();
-
-    SignedMagnitude signedMagnitude_empty(input_tab_empty, 1, true);
-    ASSERT_EQ(signedMagnitude_empty.getNegative(), true);
-
-    for (Byte byte: signedMagnitude_empty.getByte()) {
-        ASSERT_EQ(byte.value, j->value);
-        j++;
-    }
-
-
-}
-//mnozenie/dziel liczb obu ujemnych, tej samej dlugosci
-TEST(mul_sign_same_TEST, signOfMulMagni) {
-    list<Byte> input_tab_basic = {3, 2, 4, 6, 2};
-    SignedMagnitude signedMagnitude(input_tab_basic, 1, true);
-    ASSERT_EQ(signedMagnitude.mulDivSign(SignedMagnitude(input_tab_basic, 1, true)), false);
-}
-//znak mnozenie/dziel liczb obu o roznych znakach, roznej dlugosci
-TEST(mul_sign_dif_TEST, signOfMulMagni) {
-    list<Byte> input_tab_basic = {3, 2, 4, 6, 2};
-    list<Byte> another_input_tab_basic = {10, 3, 6, 1};
-    SignedMagnitude signedMagnitude(input_tab_basic, 1, true);
-    ASSERT_EQ(signedMagnitude.mulDivSign(SignedMagnitude(another_input_tab_basic, 1, false)), true);
-}
-
-
-// znak odejmowania liczb z czego druga(odjemnik) jest mniejsza i ujemna
-TEST(sub_sign_dif_TEST, signOfSubMagni) {
-    list<Byte> input_tab_basic = {3, 2, 4, 6, 2};
-    list<Byte> another_input_tab_basic = {10, 3, 6, 1};
-    SignedMagnitude signedMagnitude(input_tab_basic, 1, false);
-    ASSERT_EQ(signedMagnitude.subSign(SignedMagnitude(another_input_tab_basic, 1, true)), false);
-}
-
-// znak odejm liczb obie rownej dlugosci ale odjemnik wieksza
-TEST(sub_sign_same_TEST, signOfSubMagni) {
-    list<Byte> input_tab_basic = {3, 2, 4, 6, 2};
-    list<Byte> another_input_tab_basic = {10, 3, 6, 1, 1};
-    SignedMagnitude signedMagnitude(input_tab_basic, 1, false);
-    ASSERT_EQ(signedMagnitude.subSign(SignedMagnitude(another_input_tab_basic, 1, true)), false);
-}
-
-// znak odejm liczb obie rownej dlugosci obie rowne przez wiele cyfr
-TEST(sub_sign_same_one_TEST, signOfSubMagni) {
-    list<Byte> input_tab_basic = {3, 2, 4, 6, 2};
-    list<Byte> another_input_tab_basic = {3, 2, 6, 1, 4};
-    SignedMagnitude signedMagnitude(input_tab_basic, 1, false);
-    ASSERT_EQ(signedMagnitude.subSign(SignedMagnitude(another_input_tab_basic, 1, false)), true);
-}
-
-TEST(sub_sign_same_equal_TEST, signOfSubMagni) {
-    list<Byte> input_tab_basic = {3, 2, 4, 6, 2};
-    list<Byte> another_input_tab_basic = {3, 2, 4, 6, 2};
-    SignedMagnitude signedMagnitude(input_tab_basic, 1, false);
-    ASSERT_EQ(signedMagnitude.subSign(SignedMagnitude(another_input_tab_basic, 1, false)), false);
 }
 
 // Skalowanie
@@ -379,6 +308,329 @@ TEST(SetPrecission, SetSamePrecission){
     SignedMagnitude a({0x45, 0x67, 0x68, 0x23, 0x11, 0x48}, 5, true);
     a.set_precission(5);
     ASSERT_EQ(a.toString(), "-0x45.6768231148");
+
+}
+
+// ========================================================================================================================================
+
+// A == B, obie dodatnie
+TEST(Compare, EqualBothPositive){
+
+    SignedMagnitude a;
+    SignedMagnitude b;
+
+    // a = b
+    a = 45; a.set_precission(11);
+    b = 45; b.set_precission(3);
+    ASSERT_EQ(a == b, true);
+
+    // a > b
+    a = 123; a.set_precission(94);
+    b = 45; b.set_precission(37);
+    ASSERT_EQ(a == b, false);
+
+    // a < b
+    a = 11; a.set_precission(95);
+    b = 456467; b.set_precission(50);
+    ASSERT_EQ(a == b, false);
+
+}
+
+// A == B, jedna ujemna
+TEST(Compare, EqualOneNegative){
+
+    SignedMagnitude a;
+    SignedMagnitude b;
+
+    a = 45; a.set_precission(11);
+    b = -45; b.set_precission(3);
+    ASSERT_EQ(a == b, false);
+
+    a = -123; a.set_precission(94);
+    b = 45; b.set_precission(37);
+    ASSERT_EQ(a == b, false);
+
+    a = 11; a.set_precission(95);
+    b = -456467; b.set_precission(50);
+    ASSERT_EQ(a == b, false);
+
+}
+
+// A == B, obie ujemne
+TEST(Compare, EqualBothNegative){
+
+    SignedMagnitude a;
+    SignedMagnitude b;
+
+    a = -45; a.set_precission(11);
+    b = -45; b.set_precission(3);
+    ASSERT_EQ(a == b, true);
+
+    a = -123; a.set_precission(94);
+    b = -45; b.set_precission(37);
+    ASSERT_EQ(a == b, false);
+
+    a = -11; a.set_precission(95);
+    b = -456467; b.set_precission(50);
+    ASSERT_EQ(a == b, false);
+
+}
+
+// A < B, obie dodatnie
+TEST(Compare, ALessThanB_BothPositive){
+
+    SignedMagnitude a;
+    SignedMagnitude b;
+
+    // a = b
+    a = 45; a.set_precission(11);
+    b = 45; b.set_precission(3);
+    ASSERT_EQ(a < b, false);
+
+    // a > b
+    a = 123; a.set_precission(94);
+    b = 45; b.set_precission(37);
+    ASSERT_EQ(a < b, false);
+
+    // a < b
+    a = 11; a.set_precission(95);
+    b = 456467; b.set_precission(50);
+    ASSERT_EQ(a < b, true);
+
+}
+
+// A < B, jedna ujmena
+TEST(Compare, ALessThanB_OneNegative){
+
+    SignedMagnitude a;
+    SignedMagnitude b;
+
+    a = 45; a.set_precission(11);
+    b = -45; b.set_precission(3);
+    ASSERT_EQ(a < b, false);
+
+    a = 123; a.set_precission(94);
+    b = -45; b.set_precission(37);
+    ASSERT_EQ(a < b, false);
+
+    a = -11; a.set_precission(95);
+    b = 456467; b.set_precission(50);
+    ASSERT_EQ(a < b, true);
+
+}
+
+// A < B, obie ujmene
+TEST(Compare, ALessThanB_BothNegative){
+
+    SignedMagnitude a;
+    SignedMagnitude b;
+
+    a = -45; a.set_precission(11);
+    b = -45; b.set_precission(3);
+    ASSERT_EQ(a < b, false);
+
+    a = -123; a.set_precission(94);
+    b = -45; b.set_precission(37);
+    ASSERT_EQ(a < b, true);
+
+    a = -11; a.set_precission(95);
+    b = -456467; b.set_precission(50);
+    ASSERT_EQ(a < b, false);
+
+}
+
+// A > B, obie dodatnie
+TEST(Compare, AGreaterThanB_BothPositive){
+
+    SignedMagnitude a;
+    SignedMagnitude b;
+
+    // a = b
+    a = 45; a.set_precission(11);
+    b = 45; b.set_precission(3);
+    ASSERT_EQ(a > b, false);
+
+    // a > b
+    a = 123; a.set_precission(94);
+    b = 45; b.set_precission(37);
+    ASSERT_EQ(a > b, true);
+
+    // a < b
+    a = 11; a.set_precission(95);
+    b = 456467; b.set_precission(50);
+    ASSERT_EQ(a > b, false);
+
+}
+
+// A > B, jedna ujmena
+TEST(Compare, AGreaterThanB_OneNegative){
+
+    SignedMagnitude a;
+    SignedMagnitude b;
+
+    a = 45; a.set_precission(11);
+    b = -45; b.set_precission(3);
+    ASSERT_EQ(a > b, true);
+
+    a = 123; a.set_precission(94);
+    b = -45; b.set_precission(37);
+    ASSERT_EQ(a > b, true);
+
+    a = -11; a.set_precission(95);
+    b = 456467; b.set_precission(50);
+    ASSERT_EQ(a > b, false);
+
+}
+
+// A > B, obie ujmene
+TEST(Compare, AGreaterThanB_BothNegative){
+
+    SignedMagnitude a;
+    SignedMagnitude b;
+
+    a = -45; a.set_precission(11);
+    b = -45; b.set_precission(3);
+    ASSERT_EQ(a > b, false);
+
+    a = -123; a.set_precission(94);
+    b = -45; b.set_precission(37);
+    ASSERT_EQ(a > b, false);
+
+    a = -11; a.set_precission(95);
+    b = -456467; b.set_precission(50);
+    ASSERT_EQ(a > b, true);
+
+}
+
+// A >= B, obie dodatnie
+TEST(Compare, AGreaterEqualB_BothPositive){
+
+    SignedMagnitude a;
+    SignedMagnitude b;
+
+    // a = b
+    a = 45; a.set_precission(11);
+    b = 45; b.set_precission(3);
+    ASSERT_EQ(a >= b, true);
+
+    // a > b
+    a = 123; a.set_precission(94);
+    b = 45; b.set_precission(37);
+    ASSERT_EQ(a >= b, true);
+
+    // a < b
+    a = 11; a.set_precission(95);
+    b = 456467; b.set_precission(50);
+    ASSERT_EQ(a >= b, false);
+
+}
+
+// A >= B, jedna ujemna
+TEST(Compare, AGreaterEqualB_OneNegative){
+
+    SignedMagnitude a;
+    SignedMagnitude b;
+
+    a = -45; a.set_precission(11);
+    b = 45; b.set_precission(3);
+    ASSERT_EQ(a >= b, false);
+
+    a = 123; a.set_precission(94);
+    b = -45; b.set_precission(37);
+    ASSERT_EQ(a >= b, true);
+
+    a = 11; a.set_precission(95);
+    b = -456467; b.set_precission(50);
+    ASSERT_EQ(a >= b, true);
+
+}
+
+// A >= B, obie ujemne
+TEST(Compare, AGreaterEqualB_BothNegative){
+
+    SignedMagnitude a;
+    SignedMagnitude b;
+
+    a = -45; a.set_precission(11);
+    b = -45; b.set_precission(3);
+    ASSERT_EQ(a >= b, true);
+
+    a = -123; a.set_precission(94);
+    b = -45; b.set_precission(37);
+    ASSERT_EQ(a >= b, false);
+
+    a = -11; a.set_precission(95);
+    b = -456467; b.set_precission(50);
+    ASSERT_EQ(a >= b, true);
+
+}
+
+// A <= B, obie dodatnie
+TEST(Compare, ALessEqualB_BothPositive){
+
+    SignedMagnitude a;
+    SignedMagnitude b;
+
+    // a = b
+    a = 45; a.set_precission(11);
+    b = 45; b.set_precission(3);
+    ASSERT_EQ(a <= b, true);
+
+    // a > b
+    a = 123; a.set_precission(94);
+    b = 45; b.set_precission(37);
+    ASSERT_EQ(a <= b, false);
+
+    // a < b
+    a = 11; a.set_precission(95);
+    b = 456467; b.set_precission(50);
+    ASSERT_EQ(a <= b, true);
+
+}
+
+// A <= B, jedna ujemna
+TEST(Compare, ALessEqualB_OneNegative){
+
+    SignedMagnitude a;
+    SignedMagnitude b;
+
+    // a = b
+    a = 45; a.set_precission(11);
+    b = -45; b.set_precission(3);
+    ASSERT_EQ(a <= b, false);
+
+    // a > b
+    a = -123; a.set_precission(94);
+    b = 45; b.set_precission(37);
+    ASSERT_EQ(a <= b, true);
+
+    // a < b
+    a = -11; a.set_precission(95);
+    b = 456467; b.set_precission(50);
+    ASSERT_EQ(a <= b, true);
+
+}
+
+// A <= B, obie ujemne
+TEST(Compare, ALessEqualB_BothNegative){
+
+    SignedMagnitude a;
+    SignedMagnitude b;
+
+    // a = b
+    a = -45; a.set_precission(11);
+    b = -45; b.set_precission(3);
+    ASSERT_EQ(a <= b, true);
+
+    // a > b
+    a = -123; a.set_precission(94);
+    b = -45; b.set_precission(37);
+    ASSERT_EQ(a <= b, true);
+
+    // a < b
+    a = -11; a.set_precission(95);
+    b = -456467; b.set_precission(50);
+    ASSERT_EQ(a <= b, false);
 
 }
 
