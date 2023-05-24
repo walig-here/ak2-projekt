@@ -60,6 +60,7 @@ TEST(Add, EqualPositiveNumbers){
 
 }
 
+
 // Dodanie dwóch liczb całkowitych, ale |A| > |B|
 TEST(Add, PositiveNumbersAGreaterThanB){
 
@@ -69,6 +70,17 @@ TEST(Add, PositiveNumbersAGreaterThanB){
     ASSERT_EQ((a+b).toString(), "0xda92c8d4371a0bd1952806efa5e7828f.9df3d3a726b2505110e0f3a3c9");
 
 }
+
+// Dodanie dwóch dużych liczb całkowitych, ale |A| > |B|
+TEST(Add, HugePositiveNumbersAGreaterThanB){
+
+    SignedMagnitude a({0x09, 0x5E, 0x4A, 0x7C, 0x3B, 0x82, 0x2F, 0x17, 0x68, 0x92, 0xAF, 0x3D, 0x55, 0x76, 0x20, 0xBA, 0xE1, 0x4F, 0x8D, 0xC6}, 0, false);
+    SignedMagnitude b({0x4B, 0x8A, 0x2F, 0x5C, 0x91, 0x76, 0x3D, 0x68, 0x1F, 0x7E, 0x59, 0x2A, 0x43, 0x85, 0x6E, 0x9B, 0xAF, 0x17, 0xC2, 0x37}, 13, false);
+
+    ASSERT_EQ((a+b).toString(), "0x095e4a7c3b822f176892af3d55c1aaea3de10403.681f7e592a43856e9baf17c237");
+
+}
+
 
 // Dodanie dwóch liczb całkowitych, ale |A| < |B|
 TEST(Add, PositiveNumbersASmallerThanB){
