@@ -2,13 +2,28 @@
 #include "SignedMagnitude.h"
 using namespace std;
 
+/**
+ * @brief 
+ * Liczenie n-tego wyrazu ciągu Fibbonacciego.
+ * 
+ * @param n 
+ */
+SignedMagnitude fibbonacci(SignedMagnitude n){
+    if(n <= 1) return n;
+
+    SignedMagnitude prev_prev = 0;
+    SignedMagnitude prev = 1;
+    SignedMagnitude current;
+    for(SignedMagnitude i = 2; i <= n; i = i + 1){
+        current = prev + prev_prev;
+        prev_prev = prev;
+        prev = current;
+    }
+
+    return current;
+}
+
 int main() {
-
-    SignedMagnitude a = 56; a.set_precission(1);
-    SignedMagnitude b = 5;
-    
-    cout << a / b << endl;
-
+    fibbonacci(100000);
     return 0;
-
 }
